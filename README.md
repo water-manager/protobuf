@@ -9,6 +9,5 @@
 ## How to compile
 
 ### Windows
-```
-build.bat
-```
+
+Run ```build.bat```.
