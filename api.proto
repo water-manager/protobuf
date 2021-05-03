@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+message Request {
+    uint64 id = 1;
+    oneof message {
+        CreateWaterSource createWaterSource = 2;
+        CreateWaterTank createWaterTank = 3;
+        SetWaterTankMinimumVolume setWaterTankMinimumVolume = 4;
+        SetWaterTankMaxVolume setWaterTankMaxVolume = 5;
+        SetWaterTankZeroVolume setWaterTankZeroVolume = 6;
+        SetMode setMode = 7;
+        SetWaterSourceState setWaterSourceState = 8;
+        GetWaterTankVolume getWaterTankVolume = 9;
+        GetWaterTankPressure getWaterTankPressure = 10;
+        GetWaterSourceState getWaterSourceState = 11;
+        GetError GetError = 12;
+    }
+}
+
+message Response {
+    uint64 id = 1;
+    google.protobuf.Value message = 2;
+}
+
+message CreateWaterSource {
+    string name = 1;
+    uint32 pin = 2;
+    optional string waterTankName = 3;
+}
+
+message CreateWaterTank {
+    string name = 1;
+    uint32 volumeReaderPin = 2;
+    double volumeFactor = 3;
+    optional string waterTankName = 4;
+}
+
+message SetWaterTankMinimumVolume {
+    string waterTankName = 1;
+    double value = 2;
+}
+
+message SetWaterTankMaxVolume {
+    string waterTankName = 1;
+    double value = 2;
+}
+
+message SetWaterTankZeroVolume {
+    string waterTankName = 1;
+    double value = 2;
+}
+
+message SetMode {
+    enum Mode {
+        AUTOMATIC = 0;
+        MANUAL = 1;
+    }
+    Mode mode = 1;
+}
+
+message SetWaterSourceState {
+    string waterSourceName = 1;
+    bool state = 2;
+}
+
+message GetWaterTankVolume {
+    string waterTankName = 1;
+}
+
+message GetWaterTankPressure {
+    string waterTankName = 1;
+}
+
+message GetWaterSourceState {
+    string waterSourceName = 1;
+}
+
+message GetError {
+    repeated string error = 1;
+}
