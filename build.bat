@@ -1,6 +1,6 @@
-if not exist build mkdir build
-if not exist build\java mkdir build\java
-if not exist build\cpp mkdir build\cpp
+if not exist out mkdir out
+if not exist out\java mkdir out\java
+if not exist out\cpp mkdir out\cpp
 
-protoc --java_out=./build/java --nanopb_out=build/cpp api.proto
+protoc --java_out=./out/java --nanopb_out=out/cpp api.proto
 
