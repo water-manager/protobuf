@@ -9,7 +9,10 @@
 PB_BIND(Request, Request, AUTO)
 
 
-PB_BIND(Response, Response, 2)
+PB_BIND(Value, Value, AUTO)
+
+
+PB_BIND(Response, Response, AUTO)
 
 
 PB_BIND(CreateWaterSource, CreateWaterSource, AUTO)

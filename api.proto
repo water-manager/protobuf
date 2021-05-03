@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/struct.proto";
-
 message Request {
     uint64 id = 1;
     oneof message {
@@ -19,9 +17,18 @@ message Request {
     }
 }
 
+message Value {
+    oneof value {
+        bool boolValue = 2;
+        int32 intValue = 3;
+        double doubleValue = 4;
+        string stringVlaue = 5;
+    }
+}
+
 message Response {
     uint64 id = 1;
-    google.protobuf.Value message = 2;
+    Value message = 2;
 }
 
 message CreateWaterSource {

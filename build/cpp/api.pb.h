@@ -4,7 +4,6 @@
 #ifndef PB_API_PB_H_INCLUDED
 #define PB_API_PB_H_INCLUDED
 #include <pb.h>
-#include "google/protobuf/struct.pb.h"
 
 #if PB_PROTO_HEADER_VERSION != 40
 #error Regenerate this file with the current version of nanopb generator.
@@ -46,12 +45,6 @@ typedef struct _CreateWaterTank {
     pb_callback_t waterTankName; 
 } CreateWaterTank;
 
-typedef struct _Response { 
-    uint64_t id; 
-    bool has_message;
-    google_protobuf_Value message; 
-} Response;
-
 typedef struct _SetMode { 
     SetMode_Mode mode; 
 } SetMode;
@@ -76,6 +69,16 @@ typedef struct _SetWaterTankZeroVolume {
     double value; 
 } SetWaterTankZeroVolume;
 
+typedef struct _Value { 
+    pb_size_t which_value;
+    union {
+        bool boolValue;
+        int32_t intValue;
+        double doubleValue;
+        pb_callback_t stringVlaue;
+    } value; 
+} Value;
+
 typedef struct _Request { 
     uint64_t id; 
     pb_size_t which_message;
@@ -94,6 +97,12 @@ typedef struct _Request {
     } message; 
 } Request;
 
+typedef struct _Response { 
+    uint64_t id; 
+    bool has_message;
+    Value message; 
+} Response;
+
 
 /* Helper constants for enums */
 #define _SetMode_Mode_MIN SetMode_Mode_AUTOMATIC
@@ -107,7 +116,8 @@ extern "C" {
 
 /* Initializer values for message structs */
 #define Request_init_default                     {0, 0, {CreateWaterSource_init_default}}
-#define Response_init_default                    {0, false, google_protobuf_Value_init_default}
+#define Value_init_default                       {0, {0}}
+#define Response_init_default                    {0, false, Value_init_default}
 #define CreateWaterSource_init_default           {{{NULL}, NULL}, 0, {{NULL}, NULL}}
 #define CreateWaterTank_init_default             {{{NULL}, NULL}, 0, 0, {{NULL}, NULL}}
 #define SetWaterTankMinimumVolume_init_default   {{{NULL}, NULL}, 0}
@@ -120,7 +130,8 @@ extern "C" {
 #define GetWaterSourceState_init_default         {{{NULL}, NULL}}
 #define GetError_init_default                    {{{NULL}, NULL}}
 #define Request_init_zero                        {0, 0, {CreateWaterSource_init_zero}}
-#define Response_init_zero                       {0, false, google_protobuf_Value_init_zero}
+#define Value_init_zero                          {0, {0}}
+#define Response_init_zero                       {0, false, Value_init_zero}
 #define CreateWaterSource_init_zero              {{{NULL}, NULL}, 0, {{NULL}, NULL}}
 #define CreateWaterTank_init_zero                {{{NULL}, NULL}, 0, 0, {{NULL}, NULL}}
 #define SetWaterTankMinimumVolume_init_zero      {{{NULL}, NULL}, 0}
@@ -145,8 +156,6 @@ extern "C" {
 #define CreateWaterTank_volumeReaderPin_tag      2
 #define CreateWaterTank_volumeFactor_tag         3
 #define CreateWaterTank_waterTankName_tag        4
-#define Response_id_tag                          1
-#define Response_message_tag                     2
 #define SetMode_mode_tag                         1
 #define SetWaterSourceState_waterSourceName_tag  1
 #define SetWaterSourceState_state_tag            2
@@ -156,6 +165,10 @@ extern "C" {
 #define SetWaterTankMinimumVolume_value_tag      2
 #define SetWaterTankZeroVolume_waterTankName_tag 1
 #define SetWaterTankZeroVolume_value_tag         2
+#define Value_boolValue_tag                      2
+#define Value_intValue_tag                       3
+#define Value_doubleValue_tag                    4
+#define Value_stringVlaue_tag                    5
 #define Request_id_tag                           1
 #define Request_createWaterSource_tag            2
 #define Request_createWaterTank_tag              3
@@ -168,6 +181,8 @@ extern "C" {
 #define Request_getWaterTankPressure_tag         10
 #define Request_getWaterSourceState_tag          11
 #define Request_GetError_tag                     12
+#define Response_id_tag                          1
+#define Response_message_tag                     2
 
 /* Struct field encoding specification for nanopb */
 #define Request_FIELDLIST(X, a) \
@@ -197,12 +212,20 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,GetError,message.GetError),  12)
 #define Request_message_getWaterSourceState_MSGTYPE GetWaterSourceState
 #define Request_message_GetError_MSGTYPE GetError
 
+#define Value_FIELDLIST(X, a) \
+X(a, STATIC,   ONEOF,    BOOL,     (value,boolValue,value.boolValue),   2) \
+X(a, STATIC,   ONEOF,    INT32,    (value,intValue,value.intValue),   3) \
+X(a, STATIC,   ONEOF,    DOUBLE,   (value,doubleValue,value.doubleValue),   4) \
+X(a, CALLBACK, ONEOF,    STRING,   (value,stringVlaue,value.stringVlaue),   5)
+#define Value_CALLBACK pb_default_field_callback
+#define Value_DEFAULT NULL
+
 #define Response_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UINT64,   id,                1) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  message,           2)
 #define Response_CALLBACK NULL
 #define Response_DEFAULT NULL
-#define Response_message_MSGTYPE google_protobuf_Value
+#define Response_message_MSGTYPE Value
 
 #define CreateWaterSource_FIELDLIST(X, a) \
 X(a, CALLBACK, SINGULAR, STRING,   name,              1) \
@@ -269,6 +292,7 @@ X(a, CALLBACK, REPEATED, STRING,   error,             1)
 #define GetError_DEFAULT NULL
 
 extern const pb_msgdesc_t Request_msg;
+extern const pb_msgdesc_t Value_msg;
 extern const pb_msgdesc_t Response_msg;
 extern const pb_msgdesc_t CreateWaterSource_msg;
 extern const pb_msgdesc_t CreateWaterTank_msg;
@@ -284,6 +308,7 @@ extern const pb_msgdesc_t GetError_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Request_fields &Request_msg
+#define Value_fields &Value_msg
 #define Response_fields &Response_msg
 #define CreateWaterSource_fields &CreateWaterSource_msg
 #define CreateWaterTank_fields &CreateWaterTank_msg
@@ -299,6 +324,8 @@ extern const pb_msgdesc_t GetError_msg;
 
 /* Maximum encoded size of messages (where known) */
 /* Request_size depends on runtime parameters */
+/* Value_size depends on runtime parameters */
+/* Response_size depends on runtime parameters */
 /* CreateWaterSource_size depends on runtime parameters */
 /* CreateWaterTank_size depends on runtime parameters */
 /* SetWaterTankMinimumVolume_size depends on runtime parameters */
@@ -309,9 +336,6 @@ extern const pb_msgdesc_t GetError_msg;
 /* GetWaterTankPressure_size depends on runtime parameters */
 /* GetWaterSourceState_size depends on runtime parameters */
 /* GetError_size depends on runtime parameters */
-#if defined(google_protobuf_Value_size)
-#define Response_size                            (17 + google_protobuf_Value_size)
-#endif
 #define SetMode_size                             2
 
 #ifdef __cplusplus
