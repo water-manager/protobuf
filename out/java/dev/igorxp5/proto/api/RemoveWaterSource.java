@@ -4,19 +4,18 @@
 package dev.igorxp5.proto.api;
 
 /**
- * Protobuf type {@code CreateWaterTank}
+ * Protobuf type {@code RemoveWaterSource}
  */
-public final class CreateWaterTank extends
+public final class RemoveWaterSource extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:CreateWaterTank)
-    CreateWaterTankOrBuilder {
+    // @@protoc_insertion_point(message_implements:RemoveWaterSource)
+    RemoveWaterSourceOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use CreateWaterTank.newBuilder() to construct.
-  private CreateWaterTank(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use RemoveWaterSource.newBuilder() to construct.
+  private RemoveWaterSource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private CreateWaterTank() {
-    name_ = "";
+  private RemoveWaterSource() {
     waterSourceName_ = "";
   }
 
@@ -24,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new CreateWaterTank();
+    return new RemoveWaterSource();
   }
 
   @java.lang.Override
@@ -32,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateWaterTank(
+  private RemoveWaterSource(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -40,7 +39,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -54,22 +52,6 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            volumeReaderPin_ = input.readUInt32();
-            break;
-          }
-          case 25: {
-
-            volumeFactor_ = input.readDouble();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
             waterSourceName_ = s;
             break;
           }
@@ -94,90 +76,21 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dev.igorxp5.proto.api.Api.internal_static_CreateWaterTank_descriptor;
+    return dev.igorxp5.proto.api.Api.internal_static_RemoveWaterSource_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dev.igorxp5.proto.api.Api.internal_static_CreateWaterTank_fieldAccessorTable
+    return dev.igorxp5.proto.api.Api.internal_static_RemoveWaterSource_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dev.igorxp5.proto.api.CreateWaterTank.class, dev.igorxp5.proto.api.CreateWaterTank.Builder.class);
+            dev.igorxp5.proto.api.RemoveWaterSource.class, dev.igorxp5.proto.api.RemoveWaterSource.Builder.class);
   }
 
-  private int bitField0_;
-  public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
-  /**
-   * <code>string name = 1;</code>
-   * @return The name.
-   */
-  @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      name_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string name = 1;</code>
-   * @return The bytes for name.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      name_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int VOLUMEREADERPIN_FIELD_NUMBER = 2;
-  private int volumeReaderPin_;
-  /**
-   * <code>uint32 volumeReaderPin = 2;</code>
-   * @return The volumeReaderPin.
-   */
-  @java.lang.Override
-  public int getVolumeReaderPin() {
-    return volumeReaderPin_;
-  }
-
-  public static final int VOLUMEFACTOR_FIELD_NUMBER = 3;
-  private double volumeFactor_;
-  /**
-   * <code>double volumeFactor = 3;</code>
-   * @return The volumeFactor.
-   */
-  @java.lang.Override
-  public double getVolumeFactor() {
-    return volumeFactor_;
-  }
-
-  public static final int WATERSOURCENAME_FIELD_NUMBER = 4;
+  public static final int WATERSOURCENAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object waterSourceName_;
   /**
-   * <code>string waterSourceName = 4;</code>
-   * @return Whether the waterSourceName field is set.
-   */
-  @java.lang.Override
-  public boolean hasWaterSourceName() {
-    return ((bitField0_ & 0x00000001) != 0);
-  }
-  /**
-   * <code>string waterSourceName = 4;</code>
+   * <code>string waterSourceName = 1;</code>
    * @return The waterSourceName.
    */
   @java.lang.Override
@@ -194,7 +107,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string waterSourceName = 4;</code>
+   * <code>string waterSourceName = 1;</code>
    * @return The bytes for waterSourceName.
    */
   @java.lang.Override
@@ -226,17 +139,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-    }
-    if (volumeReaderPin_ != 0) {
-      output.writeUInt32(2, volumeReaderPin_);
-    }
-    if (volumeFactor_ != 0D) {
-      output.writeDouble(3, volumeFactor_);
-    }
-    if (((bitField0_ & 0x00000001) != 0)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, waterSourceName_);
+    if (!getWaterSourceNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, waterSourceName_);
     }
     unknownFields.writeTo(output);
   }
@@ -247,19 +151,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-    }
-    if (volumeReaderPin_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(2, volumeReaderPin_);
-    }
-    if (volumeFactor_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(3, volumeFactor_);
-    }
-    if (((bitField0_ & 0x00000001) != 0)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, waterSourceName_);
+    if (!getWaterSourceNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, waterSourceName_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -271,23 +164,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dev.igorxp5.proto.api.CreateWaterTank)) {
+    if (!(obj instanceof dev.igorxp5.proto.api.RemoveWaterSource)) {
       return super.equals(obj);
     }
-    dev.igorxp5.proto.api.CreateWaterTank other = (dev.igorxp5.proto.api.CreateWaterTank) obj;
+    dev.igorxp5.proto.api.RemoveWaterSource other = (dev.igorxp5.proto.api.RemoveWaterSource) obj;
 
-    if (!getName()
-        .equals(other.getName())) return false;
-    if (getVolumeReaderPin()
-        != other.getVolumeReaderPin()) return false;
-    if (java.lang.Double.doubleToLongBits(getVolumeFactor())
-        != java.lang.Double.doubleToLongBits(
-            other.getVolumeFactor())) return false;
-    if (hasWaterSourceName() != other.hasWaterSourceName()) return false;
-    if (hasWaterSourceName()) {
-      if (!getWaterSourceName()
-          .equals(other.getWaterSourceName())) return false;
-    }
+    if (!getWaterSourceName()
+        .equals(other.getWaterSourceName())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -299,85 +182,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + VOLUMEREADERPIN_FIELD_NUMBER;
-    hash = (53 * hash) + getVolumeReaderPin();
-    hash = (37 * hash) + VOLUMEFACTOR_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getVolumeFactor()));
-    if (hasWaterSourceName()) {
-      hash = (37 * hash) + WATERSOURCENAME_FIELD_NUMBER;
-      hash = (53 * hash) + getWaterSourceName().hashCode();
-    }
+    hash = (37 * hash) + WATERSOURCENAME_FIELD_NUMBER;
+    hash = (53 * hash) + getWaterSourceName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(byte[] data)
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(java.io.InputStream input)
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseDelimitedFrom(java.io.InputStream input)
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseDelimitedFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.CreateWaterTank parseFrom(
+  public static dev.igorxp5.proto.api.RemoveWaterSource parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -390,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dev.igorxp5.proto.api.CreateWaterTank prototype) {
+  public static Builder newBuilder(dev.igorxp5.proto.api.RemoveWaterSource prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -406,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code CreateWaterTank}
+   * Protobuf type {@code RemoveWaterSource}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:CreateWaterTank)
-      dev.igorxp5.proto.api.CreateWaterTankOrBuilder {
+      // @@protoc_insertion_point(builder_implements:RemoveWaterSource)
+      dev.igorxp5.proto.api.RemoveWaterSourceOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dev.igorxp5.proto.api.Api.internal_static_CreateWaterTank_descriptor;
+      return dev.igorxp5.proto.api.Api.internal_static_RemoveWaterSource_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dev.igorxp5.proto.api.Api.internal_static_CreateWaterTank_fieldAccessorTable
+      return dev.igorxp5.proto.api.Api.internal_static_RemoveWaterSource_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dev.igorxp5.proto.api.CreateWaterTank.class, dev.igorxp5.proto.api.CreateWaterTank.Builder.class);
+              dev.igorxp5.proto.api.RemoveWaterSource.class, dev.igorxp5.proto.api.RemoveWaterSource.Builder.class);
     }
 
-    // Construct using dev.igorxp5.proto.api.CreateWaterTank.newBuilder()
+    // Construct using dev.igorxp5.proto.api.RemoveWaterSource.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -443,31 +317,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      name_ = "";
-
-      volumeReaderPin_ = 0;
-
-      volumeFactor_ = 0D;
-
       waterSourceName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dev.igorxp5.proto.api.Api.internal_static_CreateWaterTank_descriptor;
+      return dev.igorxp5.proto.api.Api.internal_static_RemoveWaterSource_descriptor;
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.CreateWaterTank getDefaultInstanceForType() {
-      return dev.igorxp5.proto.api.CreateWaterTank.getDefaultInstance();
+    public dev.igorxp5.proto.api.RemoveWaterSource getDefaultInstanceForType() {
+      return dev.igorxp5.proto.api.RemoveWaterSource.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.CreateWaterTank build() {
-      dev.igorxp5.proto.api.CreateWaterTank result = buildPartial();
+    public dev.igorxp5.proto.api.RemoveWaterSource build() {
+      dev.igorxp5.proto.api.RemoveWaterSource result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -475,18 +343,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.CreateWaterTank buildPartial() {
-      dev.igorxp5.proto.api.CreateWaterTank result = new dev.igorxp5.proto.api.CreateWaterTank(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.name_ = name_;
-      result.volumeReaderPin_ = volumeReaderPin_;
-      result.volumeFactor_ = volumeFactor_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
+    public dev.igorxp5.proto.api.RemoveWaterSource buildPartial() {
+      dev.igorxp5.proto.api.RemoveWaterSource result = new dev.igorxp5.proto.api.RemoveWaterSource(this);
       result.waterSourceName_ = waterSourceName_;
-      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -525,28 +384,17 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dev.igorxp5.proto.api.CreateWaterTank) {
-        return mergeFrom((dev.igorxp5.proto.api.CreateWaterTank)other);
+      if (other instanceof dev.igorxp5.proto.api.RemoveWaterSource) {
+        return mergeFrom((dev.igorxp5.proto.api.RemoveWaterSource)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dev.igorxp5.proto.api.CreateWaterTank other) {
-      if (other == dev.igorxp5.proto.api.CreateWaterTank.getDefaultInstance()) return this;
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
-        onChanged();
-      }
-      if (other.getVolumeReaderPin() != 0) {
-        setVolumeReaderPin(other.getVolumeReaderPin());
-      }
-      if (other.getVolumeFactor() != 0D) {
-        setVolumeFactor(other.getVolumeFactor());
-      }
-      if (other.hasWaterSourceName()) {
-        bitField0_ |= 0x00000001;
+    public Builder mergeFrom(dev.igorxp5.proto.api.RemoveWaterSource other) {
+      if (other == dev.igorxp5.proto.api.RemoveWaterSource.getDefaultInstance()) return this;
+      if (!other.getWaterSourceName().isEmpty()) {
         waterSourceName_ = other.waterSourceName_;
         onChanged();
       }
@@ -565,11 +413,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dev.igorxp5.proto.api.CreateWaterTank parsedMessage = null;
+      dev.igorxp5.proto.api.RemoveWaterSource parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dev.igorxp5.proto.api.CreateWaterTank) e.getUnfinishedMessage();
+        parsedMessage = (dev.igorxp5.proto.api.RemoveWaterSource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -578,156 +426,10 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
-
-    private java.lang.Object name_ = "";
-    /**
-     * <code>string name = 1;</code>
-     * @return The name.
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @param value The name to set.
-     * @return This builder for chaining.
-     */
-    public Builder setName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearName() {
-      
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @param value The bytes for name to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      name_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int volumeReaderPin_ ;
-    /**
-     * <code>uint32 volumeReaderPin = 2;</code>
-     * @return The volumeReaderPin.
-     */
-    @java.lang.Override
-    public int getVolumeReaderPin() {
-      return volumeReaderPin_;
-    }
-    /**
-     * <code>uint32 volumeReaderPin = 2;</code>
-     * @param value The volumeReaderPin to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVolumeReaderPin(int value) {
-      
-      volumeReaderPin_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint32 volumeReaderPin = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVolumeReaderPin() {
-      
-      volumeReaderPin_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private double volumeFactor_ ;
-    /**
-     * <code>double volumeFactor = 3;</code>
-     * @return The volumeFactor.
-     */
-    @java.lang.Override
-    public double getVolumeFactor() {
-      return volumeFactor_;
-    }
-    /**
-     * <code>double volumeFactor = 3;</code>
-     * @param value The volumeFactor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setVolumeFactor(double value) {
-      
-      volumeFactor_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double volumeFactor = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearVolumeFactor() {
-      
-      volumeFactor_ = 0D;
-      onChanged();
-      return this;
-    }
 
     private java.lang.Object waterSourceName_ = "";
     /**
-     * <code>string waterSourceName = 4;</code>
-     * @return Whether the waterSourceName field is set.
-     */
-    public boolean hasWaterSourceName() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>string waterSourceName = 4;</code>
+     * <code>string waterSourceName = 1;</code>
      * @return The waterSourceName.
      */
     public java.lang.String getWaterSourceName() {
@@ -743,7 +445,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string waterSourceName = 4;</code>
+     * <code>string waterSourceName = 1;</code>
      * @return The bytes for waterSourceName.
      */
     public com.google.protobuf.ByteString
@@ -760,7 +462,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string waterSourceName = 4;</code>
+     * <code>string waterSourceName = 1;</code>
      * @param value The waterSourceName to set.
      * @return This builder for chaining.
      */
@@ -769,23 +471,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  
       waterSourceName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string waterSourceName = 4;</code>
+     * <code>string waterSourceName = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearWaterSourceName() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       waterSourceName_ = getDefaultInstance().getWaterSourceName();
       onChanged();
       return this;
     }
     /**
-     * <code>string waterSourceName = 4;</code>
+     * <code>string waterSourceName = 1;</code>
      * @param value The bytes for waterSourceName to set.
      * @return This builder for chaining.
      */
@@ -795,7 +497,7 @@ private static final long serialVersionUID = 0L;
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      
       waterSourceName_ = value;
       onChanged();
       return this;
@@ -813,41 +515,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:CreateWaterTank)
+    // @@protoc_insertion_point(builder_scope:RemoveWaterSource)
   }
 
-  // @@protoc_insertion_point(class_scope:CreateWaterTank)
-  private static final dev.igorxp5.proto.api.CreateWaterTank DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:RemoveWaterSource)
+  private static final dev.igorxp5.proto.api.RemoveWaterSource DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dev.igorxp5.proto.api.CreateWaterTank();
+    DEFAULT_INSTANCE = new dev.igorxp5.proto.api.RemoveWaterSource();
   }
 
-  public static dev.igorxp5.proto.api.CreateWaterTank getDefaultInstance() {
+  public static dev.igorxp5.proto.api.RemoveWaterSource getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<CreateWaterTank>
-      PARSER = new com.google.protobuf.AbstractParser<CreateWaterTank>() {
+  private static final com.google.protobuf.Parser<RemoveWaterSource>
+      PARSER = new com.google.protobuf.AbstractParser<RemoveWaterSource>() {
     @java.lang.Override
-    public CreateWaterTank parsePartialFrom(
+    public RemoveWaterSource parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateWaterTank(input, extensionRegistry);
+      return new RemoveWaterSource(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<CreateWaterTank> parser() {
+  public static com.google.protobuf.Parser<RemoveWaterSource> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<CreateWaterTank> getParserForType() {
+  public com.google.protobuf.Parser<RemoveWaterSource> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dev.igorxp5.proto.api.CreateWaterTank getDefaultInstanceForType() {
+  public dev.igorxp5.proto.api.RemoveWaterSource getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -44,7 +44,7 @@ message CreateWaterTank {
     string name = 1;
     uint32 volumeReaderPin = 2;
     double volumeFactor = 3;
-    optional string waterTankName = 4;
+    optional string waterSourceName = 4;
 }
 
 message SetWaterTankMinimumVolume {
@@ -75,6 +75,14 @@ message SetWaterSourceState {
     bool state = 2;
 }
 
+message GetWaterTankList {
+    repeated string waterTankName = 1;
+}
+
+message GetWaterSourceList {
+    repeated string waterSourceName = 1;
+}
+
 message GetWaterTankVolume {
     string waterTankName = 1;
 }
@@ -85,6 +93,17 @@ message GetWaterTankPressure {
 
 message GetWaterSourceState {
     string waterSourceName = 1;
+}
+
+message RemoveWaterSource {
+    string waterSourceName = 1;
+}
+
+message RemoveWaterTank {
+    string waterTankName = 1;
+}
+
+message Reset {
 }
 
 message GetError {

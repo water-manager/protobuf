@@ -36,6 +36,12 @@ PB_BIND(SetMode, SetMode, AUTO)
 PB_BIND(SetWaterSourceState, SetWaterSourceState, AUTO)
 
 
+PB_BIND(GetWaterTankList, GetWaterTankList, AUTO)
+
+
+PB_BIND(GetWaterSourceList, GetWaterSourceList, AUTO)
+
+
 PB_BIND(GetWaterTankVolume, GetWaterTankVolume, AUTO)
 
 
@@ -43,6 +49,15 @@ PB_BIND(GetWaterTankPressure, GetWaterTankPressure, AUTO)
 
 
 PB_BIND(GetWaterSourceState, GetWaterSourceState, AUTO)
+
+
+PB_BIND(RemoveWaterSource, RemoveWaterSource, AUTO)
+
+
+PB_BIND(RemoveWaterTank, RemoveWaterTank, AUTO)
+
+
+PB_BIND(Reset, Reset, AUTO)
 
 
 PB_BIND(GetError, GetError, AUTO)
