@@ -66,6 +66,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 24: {
+
+            error_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -135,6 +140,17 @@ private static final long serialVersionUID = 0L;
     return getMessage();
   }
 
+  public static final int ERROR_FIELD_NUMBER = 3;
+  private boolean error_;
+  /**
+   * <code>bool error = 3;</code>
+   * @return The error.
+   */
+  @java.lang.Override
+  public boolean getError() {
+    return error_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -155,6 +171,9 @@ private static final long serialVersionUID = 0L;
     if (message_ != null) {
       output.writeMessage(2, getMessage());
     }
+    if (error_ != false) {
+      output.writeBool(3, error_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -171,6 +190,10 @@ private static final long serialVersionUID = 0L;
     if (message_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getMessage());
+    }
+    if (error_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, error_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -194,6 +217,8 @@ private static final long serialVersionUID = 0L;
       if (!getMessage()
           .equals(other.getMessage())) return false;
     }
+    if (getError()
+        != other.getError()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -212,6 +237,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
     }
+    hash = (37 * hash) + ERROR_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getError());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -353,6 +381,8 @@ private static final long serialVersionUID = 0L;
         message_ = null;
         messageBuilder_ = null;
       }
+      error_ = false;
+
       return this;
     }
 
@@ -385,6 +415,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.message_ = messageBuilder_.build();
       }
+      result.error_ = error_;
       onBuilt();
       return result;
     }
@@ -438,6 +469,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasMessage()) {
         mergeMessage(other.getMessage());
+      }
+      if (other.getError() != false) {
+        setError(other.getError());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -616,6 +650,37 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       return messageBuilder_;
+    }
+
+    private boolean error_ ;
+    /**
+     * <code>bool error = 3;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public boolean getError() {
+      return error_;
+    }
+    /**
+     * <code>bool error = 3;</code>
+     * @param value The error to set.
+     * @return This builder for chaining.
+     */
+    public Builder setError(boolean value) {
+      
+      error_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool error = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearError() {
+      
+      error_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

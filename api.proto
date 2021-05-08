@@ -32,6 +32,7 @@ message Value {
 message Response {
     uint64 id = 1;
     Value message = 2;
+    bool error = 3;
 }
 
 message CreateWaterSource {

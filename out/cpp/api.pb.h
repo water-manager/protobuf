@@ -121,6 +121,7 @@ typedef struct _Response {
     uint64_t id; 
     bool has_message;
     Value message; 
+    bool error; 
 } Response;
 
 
@@ -137,7 +138,7 @@ extern "C" {
 /* Initializer values for message structs */
 #define Request_init_default                     {0, 0, {CreateWaterSource_init_default}}
 #define Value_init_default                       {0, {0}}
-#define Response_init_default                    {0, false, Value_init_default}
+#define Response_init_default                    {0, false, Value_init_default, 0}
 #define CreateWaterSource_init_default           {{{NULL}, NULL}, 0, {{NULL}, NULL}}
 #define CreateWaterTank_init_default             {{{NULL}, NULL}, 0, 0, {{NULL}, NULL}}
 #define SetWaterTankMinimumVolume_init_default   {{{NULL}, NULL}, 0}
@@ -156,7 +157,7 @@ extern "C" {
 #define GetError_init_default                    {{{NULL}, NULL}}
 #define Request_init_zero                        {0, 0, {CreateWaterSource_init_zero}}
 #define Value_init_zero                          {0, {0}}
-#define Response_init_zero                       {0, false, Value_init_zero}
+#define Response_init_zero                       {0, false, Value_init_zero, 0}
 #define CreateWaterSource_init_zero              {{{NULL}, NULL}, 0, {{NULL}, NULL}}
 #define CreateWaterTank_init_zero                {{{NULL}, NULL}, 0, 0, {{NULL}, NULL}}
 #define SetWaterTankMinimumVolume_init_zero      {{{NULL}, NULL}, 0}
@@ -217,6 +218,7 @@ extern "C" {
 #define Request_GetError_tag                     12
 #define Response_id_tag                          1
 #define Response_message_tag                     2
+#define Response_error_tag                       3
 
 /* Struct field encoding specification for nanopb */
 #define Request_FIELDLIST(X, a) \
@@ -256,7 +258,8 @@ X(a, CALLBACK, ONEOF,    STRING,   (value,stringVlaue,value.stringVlaue),   5)
 
 #define Response_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UINT64,   id,                1) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  message,           2)
+X(a, STATIC,   OPTIONAL, MESSAGE,  message,           2) \
+X(a, STATIC,   SINGULAR, BOOL,     error,             3)
 #define Response_CALLBACK NULL
 #define Response_DEFAULT NULL
 #define Response_message_MSGTYPE Value

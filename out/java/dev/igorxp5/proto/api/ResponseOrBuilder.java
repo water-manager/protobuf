@@ -27,4 +27,10 @@ public interface ResponseOrBuilder extends
    * <code>.Value message = 2;</code>
    */
   dev.igorxp5.proto.api.ValueOrBuilder getMessageOrBuilder();
+
+  /**
+   * <code>bool error = 3;</code>
+   * @return The error.
+   */
+  boolean getError();
 }
