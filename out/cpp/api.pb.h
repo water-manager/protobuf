@@ -110,10 +110,15 @@ typedef struct _Request {
         SetWaterTankZeroVolume setWaterTankZeroVolume;
         SetMode setMode;
         SetWaterSourceState setWaterSourceState;
+        GetWaterSourceList getWaterSourceList;
+        GetWaterTankList getWaterTankList;
         GetWaterTankVolume getWaterTankVolume;
         GetWaterTankPressure getWaterTankPressure;
         GetWaterSourceState getWaterSourceState;
         GetError GetError;
+        RemoveWaterSource removeWaterSource;
+        RemoveWaterTank removeWaterTank;
+        Reset reset;
     } message; 
 } Request;
 
@@ -212,10 +217,15 @@ extern "C" {
 #define Request_setWaterTankZeroVolume_tag       6
 #define Request_setMode_tag                      7
 #define Request_setWaterSourceState_tag          8
-#define Request_getWaterTankVolume_tag           9
-#define Request_getWaterTankPressure_tag         10
-#define Request_getWaterSourceState_tag          11
-#define Request_GetError_tag                     12
+#define Request_getWaterSourceList_tag           9
+#define Request_getWaterTankList_tag             10
+#define Request_getWaterTankVolume_tag           11
+#define Request_getWaterTankPressure_tag         12
+#define Request_getWaterSourceState_tag          13
+#define Request_GetError_tag                     14
+#define Request_removeWaterSource_tag            15
+#define Request_removeWaterTank_tag              16
+#define Request_reset_tag                        17
 #define Response_id_tag                          1
 #define Response_message_tag                     2
 #define Response_error_tag                       3
@@ -230,10 +240,15 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankMaxVolume,message.setWat
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankZeroVolume,message.setWaterTankZeroVolume),   6) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setMode,message.setMode),   7) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterSourceState,message.setWaterSourceState),   8) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankVolume,message.getWaterTankVolume),   9) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankPressure,message.getWaterTankPressure),  10) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSourceState,message.getWaterSourceState),  11) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,GetError,message.GetError),  12)
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSourceList,message.getWaterSourceList),   9) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankList,message.getWaterTankList),  10) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankVolume,message.getWaterTankVolume),  11) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankPressure,message.getWaterTankPressure),  12) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSourceState,message.getWaterSourceState),  13) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,GetError,message.GetError),  14) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterSource,message.removeWaterSource),  15) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterTank,message.removeWaterTank),  16) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  17)
 #define Request_CALLBACK NULL
 #define Request_DEFAULT NULL
 #define Request_message_createWaterSource_MSGTYPE CreateWaterSource
@@ -243,10 +258,15 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,GetError,message.GetError),  12)
 #define Request_message_setWaterTankZeroVolume_MSGTYPE SetWaterTankZeroVolume
 #define Request_message_setMode_MSGTYPE SetMode
 #define Request_message_setWaterSourceState_MSGTYPE SetWaterSourceState
+#define Request_message_getWaterSourceList_MSGTYPE GetWaterSourceList
+#define Request_message_getWaterTankList_MSGTYPE GetWaterTankList
 #define Request_message_getWaterTankVolume_MSGTYPE GetWaterTankVolume
 #define Request_message_getWaterTankPressure_MSGTYPE GetWaterTankPressure
 #define Request_message_getWaterSourceState_MSGTYPE GetWaterSourceState
 #define Request_message_GetError_MSGTYPE GetError
+#define Request_message_removeWaterSource_MSGTYPE RemoveWaterSource
+#define Request_message_removeWaterTank_MSGTYPE RemoveWaterTank
+#define Request_message_reset_MSGTYPE Reset
 
 #define Value_FIELDLIST(X, a) \
 X(a, STATIC,   ONEOF,    BOOL,     (value,boolValue,value.boolValue),   2) \

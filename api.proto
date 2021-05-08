@@ -13,10 +13,15 @@ message Request {
         SetWaterTankZeroVolume setWaterTankZeroVolume = 6;
         SetMode setMode = 7;
         SetWaterSourceState setWaterSourceState = 8;
-        GetWaterTankVolume getWaterTankVolume = 9;
-        GetWaterTankPressure getWaterTankPressure = 10;
-        GetWaterSourceState getWaterSourceState = 11;
-        GetError GetError = 12;
+        GetWaterSourceList getWaterSourceList = 9;
+        GetWaterTankList getWaterTankList = 10;
+        GetWaterTankVolume getWaterTankVolume = 11;
+        GetWaterTankPressure getWaterTankPressure = 12;
+        GetWaterSourceState getWaterSourceState = 13;
+        GetError GetError = 14;
+        RemoveWaterSource removeWaterSource = 15;
+        RemoveWaterTank removeWaterTank = 16;
+        Reset reset = 17;
     }
 }
 
