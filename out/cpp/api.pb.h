@@ -62,6 +62,7 @@ typedef struct _CreateWaterTank {
     pb_callback_t name; 
     uint32_t volumeReaderPin; 
     double volumeFactor; 
+    double pressureFactor; 
     pb_callback_t waterSourceName; 
 } CreateWaterTank;
 
@@ -145,7 +146,7 @@ extern "C" {
 #define Value_init_default                       {0, {0}}
 #define Response_init_default                    {0, false, Value_init_default, 0}
 #define CreateWaterSource_init_default           {{{NULL}, NULL}, 0, {{NULL}, NULL}}
-#define CreateWaterTank_init_default             {{{NULL}, NULL}, 0, 0, {{NULL}, NULL}}
+#define CreateWaterTank_init_default             {{{NULL}, NULL}, 0, 0, 0, {{NULL}, NULL}}
 #define SetWaterTankMinimumVolume_init_default   {{{NULL}, NULL}, 0}
 #define SetWaterTankMaxVolume_init_default       {{{NULL}, NULL}, 0}
 #define SetWaterTankZeroVolume_init_default      {{{NULL}, NULL}, 0}
@@ -164,7 +165,7 @@ extern "C" {
 #define Value_init_zero                          {0, {0}}
 #define Response_init_zero                       {0, false, Value_init_zero, 0}
 #define CreateWaterSource_init_zero              {{{NULL}, NULL}, 0, {{NULL}, NULL}}
-#define CreateWaterTank_init_zero                {{{NULL}, NULL}, 0, 0, {{NULL}, NULL}}
+#define CreateWaterTank_init_zero                {{{NULL}, NULL}, 0, 0, 0, {{NULL}, NULL}}
 #define SetWaterTankMinimumVolume_init_zero      {{{NULL}, NULL}, 0}
 #define SetWaterTankMaxVolume_init_zero          {{{NULL}, NULL}, 0}
 #define SetWaterTankZeroVolume_init_zero         {{{NULL}, NULL}, 0}
@@ -195,7 +196,8 @@ extern "C" {
 #define CreateWaterTank_name_tag                 1
 #define CreateWaterTank_volumeReaderPin_tag      2
 #define CreateWaterTank_volumeFactor_tag         3
-#define CreateWaterTank_waterSourceName_tag      4
+#define CreateWaterTank_pressureFactor_tag       4
+#define CreateWaterTank_waterSourceName_tag      5
 #define SetMode_mode_tag                         1
 #define SetWaterSourceState_waterSourceName_tag  1
 #define SetWaterSourceState_state_tag            2
@@ -295,7 +297,8 @@ X(a, CALLBACK, OPTIONAL, STRING,   waterTankName,     3)
 X(a, CALLBACK, SINGULAR, STRING,   name,              1) \
 X(a, STATIC,   SINGULAR, UINT32,   volumeReaderPin,   2) \
 X(a, STATIC,   SINGULAR, DOUBLE,   volumeFactor,      3) \
-X(a, CALLBACK, OPTIONAL, STRING,   waterSourceName,   4)
+X(a, STATIC,   SINGULAR, DOUBLE,   pressureFactor,    4) \
+X(a, CALLBACK, OPTIONAL, STRING,   waterSourceName,   5)
 #define CreateWaterTank_CALLBACK pb_default_field_callback
 #define CreateWaterTank_DEFAULT NULL
 

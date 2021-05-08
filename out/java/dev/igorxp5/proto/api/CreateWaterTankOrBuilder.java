@@ -32,17 +32,23 @@ public interface CreateWaterTankOrBuilder extends
   double getVolumeFactor();
 
   /**
-   * <code>string waterSourceName = 4;</code>
+   * <code>double pressureFactor = 4;</code>
+   * @return The pressureFactor.
+   */
+  double getPressureFactor();
+
+  /**
+   * <code>string waterSourceName = 5;</code>
    * @return Whether the waterSourceName field is set.
    */
   boolean hasWaterSourceName();
   /**
-   * <code>string waterSourceName = 4;</code>
+   * <code>string waterSourceName = 5;</code>
    * @return The waterSourceName.
    */
   java.lang.String getWaterSourceName();
   /**
-   * <code>string waterSourceName = 4;</code>
+   * <code>string waterSourceName = 5;</code>
    * @return The bytes for waterSourceName.
    */
   com.google.protobuf.ByteString

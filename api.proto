@@ -50,7 +50,8 @@ message CreateWaterTank {
     string name = 1;
     uint32 volumeReaderPin = 2;
     double volumeFactor = 3;
-    optional string waterSourceName = 4;
+    double pressureFactor = 4;
+    optional string waterSourceName = 5;
 }
 
 message SetWaterTankMinimumVolume {
