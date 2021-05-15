@@ -118,7 +118,7 @@ public final class Api {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tapi.proto\"\234\006\n\007Request\022\n\n\002id\030\001 \001(\004\022/\n\021c" +
+      "\n\tapi.proto\"\234\006\n\007Request\022\n\n\002id\030\001 \001(\r\022/\n\021c" +
       "reateWaterSource\030\002 \001(\0132\022.CreateWaterSour" +
       "ceH\000\022+\n\017createWaterTank\030\003 \001(\0132\020.CreateWa" +
       "terTankH\000\022?\n\031setWaterTankMinimumVolume\030\004" +
@@ -138,35 +138,35 @@ public final class Api {
       "\022/\n\021removeWaterSource\030\017 \001(\0132\022.RemoveWate" +
       "rSourceH\000\022+\n\017removeWaterTank\030\020 \001(\0132\020.Rem" +
       "oveWaterTankH\000\022\027\n\005reset\030\021 \001(\0132\006.ResetH\000B" +
-      "\t\n\007message\"g\n\005Value\022\023\n\tboolValue\030\002 \001(\010H\000" +
-      "\022\022\n\010intValue\030\003 \001(\005H\000\022\025\n\013doubleValue\030\004 \001(" +
-      "\001H\000\022\025\n\013stringVlaue\030\005 \001(\tH\000B\007\n\005value\">\n\010R" +
-      "esponse\022\n\n\002id\030\001 \001(\004\022\027\n\007message\030\002 \001(\0132\006.V" +
-      "alue\022\r\n\005error\030\003 \001(\010\"\\\n\021CreateWaterSource" +
-      "\022\014\n\004name\030\001 \001(\t\022\013\n\003pin\030\002 \001(\r\022\032\n\rwaterTank" +
-      "Name\030\003 \001(\tH\000\210\001\001B\020\n\016_waterTankName\"\230\001\n\017Cr" +
-      "eateWaterTank\022\014\n\004name\030\001 \001(\t\022\027\n\017volumeRea" +
-      "derPin\030\002 \001(\r\022\024\n\014volumeFactor\030\003 \001(\001\022\026\n\016pr" +
-      "essureFactor\030\004 \001(\001\022\034\n\017waterSourceName\030\005 " +
-      "\001(\tH\000\210\001\001B\022\n\020_waterSourceName\"A\n\031SetWater" +
-      "TankMinimumVolume\022\025\n\rwaterTankName\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\001\"=\n\025SetWaterTankMaxVolume" +
-      "\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\">" +
-      "\n\026SetWaterTankZeroVolume\022\025\n\rwaterTankNam" +
-      "e\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"I\n\007SetMode\022\033\n\004mod" +
-      "e\030\001 \001(\0162\r.SetMode.Mode\"!\n\004Mode\022\r\n\tAUTOMA" +
-      "TIC\020\000\022\n\n\006MANUAL\020\001\"=\n\023SetWaterSourceState" +
-      "\022\027\n\017waterSourceName\030\001 \001(\t\022\r\n\005state\030\002 \001(\010" +
-      "\")\n\020GetWaterTankList\022\025\n\rwaterTankName\030\001 " +
-      "\003(\t\"-\n\022GetWaterSourceList\022\027\n\017waterSource" +
-      "Name\030\001 \003(\t\"+\n\022GetWaterTankVolume\022\025\n\rwate" +
-      "rTankName\030\001 \001(\t\"-\n\024GetWaterTankPressure\022" +
-      "\025\n\rwaterTankName\030\001 \001(\t\".\n\023GetWaterSource" +
-      "State\022\027\n\017waterSourceName\030\001 \001(\t\",\n\021Remove" +
-      "WaterSource\022\027\n\017waterSourceName\030\001 \001(\t\"(\n\017" +
-      "RemoveWaterTank\022\025\n\rwaterTankName\030\001 \001(\t\"\007" +
-      "\n\005Reset\"\031\n\010GetError\022\r\n\005error\030\001 \003(\tB\031\n\025de" +
-      "v.igorxp5.proto.apiP\001b\006proto3"
+      "\t\n\007message\"f\n\005Value\022\023\n\tboolValue\030\002 \001(\010H\000" +
+      "\022\022\n\010intValue\030\003 \001(\005H\000\022\024\n\nfloatValue\030\004 \001(\002" +
+      "H\000\022\025\n\013stringVlaue\030\005 \001(\tH\000B\007\n\005value\">\n\010Re" +
+      "sponse\022\n\n\002id\030\001 \001(\r\022\027\n\007message\030\002 \001(\0132\006.Va" +
+      "lue\022\r\n\005error\030\003 \001(\010\"\\\n\021CreateWaterSource\022" +
+      "\014\n\004name\030\001 \001(\t\022\013\n\003pin\030\002 \001(\r\022\032\n\rwaterTankN" +
+      "ame\030\003 \001(\tH\000\210\001\001B\020\n\016_waterTankName\"\230\001\n\017Cre" +
+      "ateWaterTank\022\014\n\004name\030\001 \001(\t\022\027\n\017volumeRead" +
+      "erPin\030\002 \001(\r\022\024\n\014volumeFactor\030\003 \001(\002\022\026\n\016pre" +
+      "ssureFactor\030\004 \001(\002\022\034\n\017waterSourceName\030\005 \001" +
+      "(\tH\000\210\001\001B\022\n\020_waterSourceName\"A\n\031SetWaterT" +
+      "ankMinimumVolume\022\025\n\rwaterTankName\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\002\"=\n\025SetWaterTankMaxVolume\022" +
+      "\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\">\n" +
+      "\026SetWaterTankZeroVolume\022\025\n\rwaterTankName" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\"I\n\007SetMode\022\033\n\004mode" +
+      "\030\001 \001(\0162\r.SetMode.Mode\"!\n\004Mode\022\r\n\tAUTOMAT" +
+      "IC\020\000\022\n\n\006MANUAL\020\001\"=\n\023SetWaterSourceState\022" +
+      "\027\n\017waterSourceName\030\001 \001(\t\022\r\n\005state\030\002 \001(\010\"" +
+      ")\n\020GetWaterTankList\022\025\n\rwaterTankName\030\001 \003" +
+      "(\t\"-\n\022GetWaterSourceList\022\027\n\017waterSourceN" +
+      "ame\030\001 \003(\t\"+\n\022GetWaterTankVolume\022\025\n\rwater" +
+      "TankName\030\001 \001(\t\"-\n\024GetWaterTankPressure\022\025" +
+      "\n\rwaterTankName\030\001 \001(\t\".\n\023GetWaterSourceS" +
+      "tate\022\027\n\017waterSourceName\030\001 \001(\t\",\n\021RemoveW" +
+      "aterSource\022\027\n\017waterSourceName\030\001 \001(\t\"(\n\017R" +
+      "emoveWaterTank\022\025\n\rwaterTankName\030\001 \001(\t\"\007\n" +
+      "\005Reset\"\031\n\010GetError\022\r\n\005error\030\001 \003(\tB\031\n\025dev" +
+      ".igorxp5.proto.apiP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -183,7 +183,7 @@ public final class Api {
     internal_static_Value_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Value_descriptor,
-        new java.lang.String[] { "BoolValue", "IntValue", "DoubleValue", "StringVlaue", "Value", });
+        new java.lang.String[] { "BoolValue", "IntValue", "FloatValue", "StringVlaue", "Value", });
     internal_static_Response_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_Response_fieldAccessorTable = new

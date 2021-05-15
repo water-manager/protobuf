@@ -1,0 +1,14 @@
+CreateWaterSource.name max_size:20
+CreateWaterTank.name max_size:20
+SetWaterTankMinimumVolume.waterTankName max_size:20
+SetWaterTankMaxVolume.waterTankName max_size:20
+SetWaterTankZeroVolume.waterTankName max_size:20
+SetWaterSourceState.waterSourceName max_size:20
+GetWaterTankList.waterTankName max_size:20
+GetWaterSourceList.waterSourceName max_size:20
+GetWaterTankVolume.waterTankName max_size:20
+GetWaterTankPressure.waterTankName max_size:20
+GetWaterSourceState.waterSourceName max_size:20
+RemoveWaterSource.waterSourceName max_size:20
+RemoveWaterTank.waterTankName max_size:20
+GetError.error max_size:50

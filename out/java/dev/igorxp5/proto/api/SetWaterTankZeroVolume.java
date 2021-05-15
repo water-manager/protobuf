@@ -55,9 +55,9 @@ private static final long serialVersionUID = 0L;
             waterTankName_ = s;
             break;
           }
-          case 17: {
+          case 21: {
 
-            value_ = input.readDouble();
+            value_ = input.readFloat();
             break;
           }
           default: {
@@ -131,13 +131,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALUE_FIELD_NUMBER = 2;
-  private double value_;
+  private float value_;
   /**
-   * <code>double value = 2;</code>
+   * <code>float value = 2;</code>
    * @return The value.
    */
   @java.lang.Override
-  public double getValue() {
+  public float getValue() {
     return value_;
   }
 
@@ -158,8 +158,8 @@ private static final long serialVersionUID = 0L;
     if (!getWaterTankNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, waterTankName_);
     }
-    if (value_ != 0D) {
-      output.writeDouble(2, value_);
+    if (value_ != 0F) {
+      output.writeFloat(2, value_);
     }
     unknownFields.writeTo(output);
   }
@@ -173,9 +173,9 @@ private static final long serialVersionUID = 0L;
     if (!getWaterTankNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, waterTankName_);
     }
-    if (value_ != 0D) {
+    if (value_ != 0F) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(2, value_);
+        .computeFloatSize(2, value_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -194,8 +194,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getWaterTankName()
         .equals(other.getWaterTankName())) return false;
-    if (java.lang.Double.doubleToLongBits(getValue())
-        != java.lang.Double.doubleToLongBits(
+    if (java.lang.Float.floatToIntBits(getValue())
+        != java.lang.Float.floatToIntBits(
             other.getValue())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -211,8 +211,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + WATERTANKNAME_FIELD_NUMBER;
     hash = (53 * hash) + getWaterTankName().hashCode();
     hash = (37 * hash) + VALUE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getValue()));
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getValue());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -348,7 +348,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       waterTankName_ = "";
 
-      value_ = 0D;
+      value_ = 0F;
 
       return this;
     }
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
         waterTankName_ = other.waterTankName_;
         onChanged();
       }
-      if (other.getValue() != 0D) {
+      if (other.getValue() != 0F) {
         setValue(other.getValue());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -538,33 +538,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double value_ ;
+    private float value_ ;
     /**
-     * <code>double value = 2;</code>
+     * <code>float value = 2;</code>
      * @return The value.
      */
     @java.lang.Override
-    public double getValue() {
+    public float getValue() {
       return value_;
     }
     /**
-     * <code>double value = 2;</code>
+     * <code>float value = 2;</code>
      * @param value The value to set.
      * @return This builder for chaining.
      */
-    public Builder setValue(double value) {
+    public Builder setValue(float value) {
       
       value_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double value = 2;</code>
+     * <code>float value = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearValue() {
       
-      value_ = 0D;
+      value_ = 0F;
       onChanged();
       return this;
     }

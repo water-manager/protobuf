@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            id_ = input.readUInt64();
+            id_ = input.readUInt32();
             break;
           }
           case 18: {
@@ -379,13 +379,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private long id_;
+  private int id_;
   /**
-   * <code>uint64 id = 1;</code>
+   * <code>uint32 id = 1;</code>
    * @return The id.
    */
   @java.lang.Override
-  public long getId() {
+  public int getId() {
     return id_;
   }
 
@@ -899,8 +899,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0L) {
-      output.writeUInt64(1, id_);
+    if (id_ != 0) {
+      output.writeUInt32(1, id_);
     }
     if (messageCase_ == 2) {
       output.writeMessage(2, (dev.igorxp5.proto.api.CreateWaterSource) message_);
@@ -959,9 +959,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0L) {
+    if (id_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(1, id_);
+        .computeUInt32Size(1, id_);
     }
     if (messageCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
@@ -1125,8 +1125,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getId());
+    hash = (53 * hash) + getId();
     switch (messageCase_) {
       case 2:
         hash = (37 * hash) + CREATEWATERSOURCE_FIELD_NUMBER;
@@ -1328,7 +1327,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = 0L;
+      id_ = 0;
 
       messageCase_ = 0;
       message_ = null;
@@ -1520,7 +1519,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dev.igorxp5.proto.api.Request other) {
       if (other == dev.igorxp5.proto.api.Request.getDefaultInstance()) return this;
-      if (other.getId() != 0L) {
+      if (other.getId() != 0) {
         setId(other.getId());
       }
       switch (other.getMessageCase()) {
@@ -1636,33 +1635,33 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    private long id_ ;
+    private int id_ ;
     /**
-     * <code>uint64 id = 1;</code>
+     * <code>uint32 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
-    public long getId() {
+    public int getId() {
       return id_;
     }
     /**
-     * <code>uint64 id = 1;</code>
+     * <code>uint32 id = 1;</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setId(long value) {
+    public Builder setId(int value) {
       
       id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>uint64 id = 1;</code>
+     * <code>uint32 id = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
       
-      id_ = 0L;
+      id_ = 0;
       onChanged();
       return this;
     }

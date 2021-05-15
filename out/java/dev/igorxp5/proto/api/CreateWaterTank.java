@@ -62,14 +62,14 @@ private static final long serialVersionUID = 0L;
             volumeReaderPin_ = input.readUInt32();
             break;
           }
-          case 25: {
+          case 29: {
 
-            volumeFactor_ = input.readDouble();
+            volumeFactor_ = input.readFloat();
             break;
           }
-          case 33: {
+          case 37: {
 
-            pressureFactor_ = input.readDouble();
+            pressureFactor_ = input.readFloat();
             break;
           }
           case 42: {
@@ -161,24 +161,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VOLUMEFACTOR_FIELD_NUMBER = 3;
-  private double volumeFactor_;
+  private float volumeFactor_;
   /**
-   * <code>double volumeFactor = 3;</code>
+   * <code>float volumeFactor = 3;</code>
    * @return The volumeFactor.
    */
   @java.lang.Override
-  public double getVolumeFactor() {
+  public float getVolumeFactor() {
     return volumeFactor_;
   }
 
   public static final int PRESSUREFACTOR_FIELD_NUMBER = 4;
-  private double pressureFactor_;
+  private float pressureFactor_;
   /**
-   * <code>double pressureFactor = 4;</code>
+   * <code>float pressureFactor = 4;</code>
    * @return The pressureFactor.
    */
   @java.lang.Override
-  public double getPressureFactor() {
+  public float getPressureFactor() {
     return pressureFactor_;
   }
 
@@ -248,11 +248,11 @@ private static final long serialVersionUID = 0L;
     if (volumeReaderPin_ != 0) {
       output.writeUInt32(2, volumeReaderPin_);
     }
-    if (volumeFactor_ != 0D) {
-      output.writeDouble(3, volumeFactor_);
+    if (volumeFactor_ != 0F) {
+      output.writeFloat(3, volumeFactor_);
     }
-    if (pressureFactor_ != 0D) {
-      output.writeDouble(4, pressureFactor_);
+    if (pressureFactor_ != 0F) {
+      output.writeFloat(4, pressureFactor_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, waterSourceName_);
@@ -273,13 +273,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(2, volumeReaderPin_);
     }
-    if (volumeFactor_ != 0D) {
+    if (volumeFactor_ != 0F) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(3, volumeFactor_);
+        .computeFloatSize(3, volumeFactor_);
     }
-    if (pressureFactor_ != 0D) {
+    if (pressureFactor_ != 0F) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(4, pressureFactor_);
+        .computeFloatSize(4, pressureFactor_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, waterSourceName_);
@@ -303,11 +303,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (getVolumeReaderPin()
         != other.getVolumeReaderPin()) return false;
-    if (java.lang.Double.doubleToLongBits(getVolumeFactor())
-        != java.lang.Double.doubleToLongBits(
+    if (java.lang.Float.floatToIntBits(getVolumeFactor())
+        != java.lang.Float.floatToIntBits(
             other.getVolumeFactor())) return false;
-    if (java.lang.Double.doubleToLongBits(getPressureFactor())
-        != java.lang.Double.doubleToLongBits(
+    if (java.lang.Float.floatToIntBits(getPressureFactor())
+        != java.lang.Float.floatToIntBits(
             other.getPressureFactor())) return false;
     if (hasWaterSourceName() != other.hasWaterSourceName()) return false;
     if (hasWaterSourceName()) {
@@ -330,11 +330,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VOLUMEREADERPIN_FIELD_NUMBER;
     hash = (53 * hash) + getVolumeReaderPin();
     hash = (37 * hash) + VOLUMEFACTOR_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getVolumeFactor()));
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getVolumeFactor());
     hash = (37 * hash) + PRESSUREFACTOR_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getPressureFactor()));
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getPressureFactor());
     if (hasWaterSourceName()) {
       hash = (37 * hash) + WATERSOURCENAME_FIELD_NUMBER;
       hash = (53 * hash) + getWaterSourceName().hashCode();
@@ -476,9 +476,9 @@ private static final long serialVersionUID = 0L;
 
       volumeReaderPin_ = 0;
 
-      volumeFactor_ = 0D;
+      volumeFactor_ = 0F;
 
-      pressureFactor_ = 0D;
+      pressureFactor_ = 0F;
 
       waterSourceName_ = "";
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -574,10 +574,10 @@ private static final long serialVersionUID = 0L;
       if (other.getVolumeReaderPin() != 0) {
         setVolumeReaderPin(other.getVolumeReaderPin());
       }
-      if (other.getVolumeFactor() != 0D) {
+      if (other.getVolumeFactor() != 0F) {
         setVolumeFactor(other.getVolumeFactor());
       }
-      if (other.getPressureFactor() != 0D) {
+      if (other.getPressureFactor() != 0F) {
         setPressureFactor(other.getPressureFactor());
       }
       if (other.hasWaterSourceName()) {
@@ -722,64 +722,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double volumeFactor_ ;
+    private float volumeFactor_ ;
     /**
-     * <code>double volumeFactor = 3;</code>
+     * <code>float volumeFactor = 3;</code>
      * @return The volumeFactor.
      */
     @java.lang.Override
-    public double getVolumeFactor() {
+    public float getVolumeFactor() {
       return volumeFactor_;
     }
     /**
-     * <code>double volumeFactor = 3;</code>
+     * <code>float volumeFactor = 3;</code>
      * @param value The volumeFactor to set.
      * @return This builder for chaining.
      */
-    public Builder setVolumeFactor(double value) {
+    public Builder setVolumeFactor(float value) {
       
       volumeFactor_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double volumeFactor = 3;</code>
+     * <code>float volumeFactor = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearVolumeFactor() {
       
-      volumeFactor_ = 0D;
+      volumeFactor_ = 0F;
       onChanged();
       return this;
     }
 
-    private double pressureFactor_ ;
+    private float pressureFactor_ ;
     /**
-     * <code>double pressureFactor = 4;</code>
+     * <code>float pressureFactor = 4;</code>
      * @return The pressureFactor.
      */
     @java.lang.Override
-    public double getPressureFactor() {
+    public float getPressureFactor() {
       return pressureFactor_;
     }
     /**
-     * <code>double pressureFactor = 4;</code>
+     * <code>float pressureFactor = 4;</code>
      * @param value The pressureFactor to set.
      * @return This builder for chaining.
      */
-    public Builder setPressureFactor(double value) {
+    public Builder setPressureFactor(float value) {
       
       pressureFactor_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double pressureFactor = 4;</code>
+     * <code>float pressureFactor = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearPressureFactor() {
       
-      pressureFactor_ = 0D;
+      pressureFactor_ = 0F;
       onChanged();
       return this;
     }

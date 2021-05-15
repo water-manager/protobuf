@@ -20,8 +20,8 @@ public interface SetWaterTankMaxVolumeOrBuilder extends
       getWaterTankNameBytes();
 
   /**
-   * <code>double value = 2;</code>
+   * <code>float value = 2;</code>
    * @return The value.
    */
-  double getValue();
+  float getValue();
 }

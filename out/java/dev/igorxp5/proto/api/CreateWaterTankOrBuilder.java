@@ -26,16 +26,16 @@ public interface CreateWaterTankOrBuilder extends
   int getVolumeReaderPin();
 
   /**
-   * <code>double volumeFactor = 3;</code>
+   * <code>float volumeFactor = 3;</code>
    * @return The volumeFactor.
    */
-  double getVolumeFactor();
+  float getVolumeFactor();
 
   /**
-   * <code>double pressureFactor = 4;</code>
+   * <code>float pressureFactor = 4;</code>
    * @return The pressureFactor.
    */
-  double getPressureFactor();
+  float getPressureFactor();
 
   /**
    * <code>string waterSourceName = 5;</code>

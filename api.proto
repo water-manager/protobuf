@@ -4,7 +4,7 @@ option java_multiple_files = true;
 option java_package = "dev.igorxp5.proto.api";
 
 message Request {
-    uint64 id = 1;
+    uint32 id = 1;
     oneof message {
         CreateWaterSource createWaterSource = 2;
         CreateWaterTank createWaterTank = 3;
@@ -29,13 +29,13 @@ message Value {
     oneof value {
         bool boolValue = 2;
         int32 intValue = 3;
-        double doubleValue = 4;
+        float floatValue = 4;
         string stringVlaue = 5;
     }
 }
 
 message Response {
-    uint64 id = 1;
+    uint32 id = 1;
     Value message = 2;
     bool error = 3;
 }
@@ -49,24 +49,24 @@ message CreateWaterSource {
 message CreateWaterTank {
     string name = 1;
     uint32 volumeReaderPin = 2;
-    double volumeFactor = 3;
-    double pressureFactor = 4;
+    float volumeFactor = 3;
+    float pressureFactor = 4;
     optional string waterSourceName = 5;
 }
 
 message SetWaterTankMinimumVolume {
     string waterTankName = 1;
-    double value = 2;
+    float value = 2;
 }
 
 message SetWaterTankMaxVolume {
     string waterTankName = 1;
-    double value = 2;
+    float value = 2;
 }
 
 message SetWaterTankZeroVolume {
     string waterTankName = 1;
-    double value = 2;
+    float value = 2;
 }
 
 message SetMode {

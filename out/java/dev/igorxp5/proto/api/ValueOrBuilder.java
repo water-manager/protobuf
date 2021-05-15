@@ -30,15 +30,15 @@ public interface ValueOrBuilder extends
   int getIntValue();
 
   /**
-   * <code>double doubleValue = 4;</code>
-   * @return Whether the doubleValue field is set.
+   * <code>float floatValue = 4;</code>
+   * @return Whether the floatValue field is set.
    */
-  boolean hasDoubleValue();
+  boolean hasFloatValue();
   /**
-   * <code>double doubleValue = 4;</code>
-   * @return The doubleValue.
+   * <code>float floatValue = 4;</code>
+   * @return The floatValue.
    */
-  double getDoubleValue();
+  float getFloatValue();
 
   /**
    * <code>string stringVlaue = 5;</code>

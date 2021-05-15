@@ -58,9 +58,9 @@ private static final long serialVersionUID = 0L;
             value_ = input.readInt32();
             break;
           }
-          case 33: {
+          case 37: {
             valueCase_ = 4;
-            value_ = input.readDouble();
+            value_ = input.readFloat();
             break;
           }
           case 42: {
@@ -108,7 +108,7 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     BOOLVALUE(2),
     INTVALUE(3),
-    DOUBLEVALUE(4),
+    FLOATVALUE(4),
     STRINGVLAUE(5),
     VALUE_NOT_SET(0);
     private final int value;
@@ -129,7 +129,7 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 2: return BOOLVALUE;
         case 3: return INTVALUE;
-        case 4: return DOUBLEVALUE;
+        case 4: return FLOATVALUE;
         case 5: return STRINGVLAUE;
         case 0: return VALUE_NOT_SET;
         default: return null;
@@ -188,25 +188,25 @@ private static final long serialVersionUID = 0L;
     return 0;
   }
 
-  public static final int DOUBLEVALUE_FIELD_NUMBER = 4;
+  public static final int FLOATVALUE_FIELD_NUMBER = 4;
   /**
-   * <code>double doubleValue = 4;</code>
-   * @return Whether the doubleValue field is set.
+   * <code>float floatValue = 4;</code>
+   * @return Whether the floatValue field is set.
    */
   @java.lang.Override
-  public boolean hasDoubleValue() {
+  public boolean hasFloatValue() {
     return valueCase_ == 4;
   }
   /**
-   * <code>double doubleValue = 4;</code>
-   * @return The doubleValue.
+   * <code>float floatValue = 4;</code>
+   * @return The floatValue.
    */
   @java.lang.Override
-  public double getDoubleValue() {
+  public float getFloatValue() {
     if (valueCase_ == 4) {
-      return (java.lang.Double) value_;
+      return (java.lang.Float) value_;
     }
-    return 0D;
+    return 0F;
   }
 
   public static final int STRINGVLAUE_FIELD_NUMBER = 5;
@@ -284,8 +284,8 @@ private static final long serialVersionUID = 0L;
           3, (int)((java.lang.Integer) value_));
     }
     if (valueCase_ == 4) {
-      output.writeDouble(
-          4, (double)((java.lang.Double) value_));
+      output.writeFloat(
+          4, (float)((java.lang.Float) value_));
     }
     if (valueCase_ == 5) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, value_);
@@ -311,8 +311,8 @@ private static final long serialVersionUID = 0L;
     }
     if (valueCase_ == 4) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(
-            4, (double)((java.lang.Double) value_));
+        .computeFloatSize(
+            4, (float)((java.lang.Float) value_));
     }
     if (valueCase_ == 5) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, value_);
@@ -343,9 +343,9 @@ private static final long serialVersionUID = 0L;
             != other.getIntValue()) return false;
         break;
       case 4:
-        if (java.lang.Double.doubleToLongBits(getDoubleValue())
-            != java.lang.Double.doubleToLongBits(
-                other.getDoubleValue())) return false;
+        if (java.lang.Float.floatToIntBits(getFloatValue())
+            != java.lang.Float.floatToIntBits(
+                other.getFloatValue())) return false;
         break;
       case 5:
         if (!getStringVlaue()
@@ -376,9 +376,9 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getIntValue();
         break;
       case 4:
-        hash = (37 * hash) + DOUBLEVALUE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getDoubleValue()));
+        hash = (37 * hash) + FLOATVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getFloatValue());
         break;
       case 5:
         hash = (37 * hash) + STRINGVLAUE_FIELD_NUMBER;
@@ -618,8 +618,8 @@ private static final long serialVersionUID = 0L;
           setIntValue(other.getIntValue());
           break;
         }
-        case DOUBLEVALUE: {
-          setDoubleValue(other.getDoubleValue());
+        case FLOATVALUE: {
+          setFloatValue(other.getFloatValue());
           break;
         }
         case STRINGVLAUE: {
@@ -759,38 +759,38 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
-     * <code>double doubleValue = 4;</code>
-     * @return Whether the doubleValue field is set.
+     * <code>float floatValue = 4;</code>
+     * @return Whether the floatValue field is set.
      */
-    public boolean hasDoubleValue() {
+    public boolean hasFloatValue() {
       return valueCase_ == 4;
     }
     /**
-     * <code>double doubleValue = 4;</code>
-     * @return The doubleValue.
+     * <code>float floatValue = 4;</code>
+     * @return The floatValue.
      */
-    public double getDoubleValue() {
+    public float getFloatValue() {
       if (valueCase_ == 4) {
-        return (java.lang.Double) value_;
+        return (java.lang.Float) value_;
       }
-      return 0D;
+      return 0F;
     }
     /**
-     * <code>double doubleValue = 4;</code>
-     * @param value The doubleValue to set.
+     * <code>float floatValue = 4;</code>
+     * @param value The floatValue to set.
      * @return This builder for chaining.
      */
-    public Builder setDoubleValue(double value) {
+    public Builder setFloatValue(float value) {
       valueCase_ = 4;
       value_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double doubleValue = 4;</code>
+     * <code>float floatValue = 4;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDoubleValue() {
+    public Builder clearFloatValue() {
       if (valueCase_ == 4) {
         valueCase_ = 0;
         value_ = null;

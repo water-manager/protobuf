@@ -8,10 +8,10 @@ public interface RequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint64 id = 1;</code>
+   * <code>uint32 id = 1;</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
    * <code>.CreateWaterSource createWaterSource = 2;</code>
