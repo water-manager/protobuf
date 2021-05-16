@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
     BOOLVALUE(2),
     INTVALUE(3),
     FLOATVALUE(4),
-    STRINGVLAUE(5),
+    STRINGVALUE(5),
     VALUE_NOT_SET(0);
     private final int value;
     private ValueCase(int value) {
@@ -130,7 +130,7 @@ private static final long serialVersionUID = 0L;
         case 2: return BOOLVALUE;
         case 3: return INTVALUE;
         case 4: return FLOATVALUE;
-        case 5: return STRINGVLAUE;
+        case 5: return STRINGVALUE;
         case 0: return VALUE_NOT_SET;
         default: return null;
       }
@@ -209,19 +209,19 @@ private static final long serialVersionUID = 0L;
     return 0F;
   }
 
-  public static final int STRINGVLAUE_FIELD_NUMBER = 5;
+  public static final int STRINGVALUE_FIELD_NUMBER = 5;
   /**
-   * <code>string stringVlaue = 5;</code>
-   * @return Whether the stringVlaue field is set.
+   * <code>string stringValue = 5;</code>
+   * @return Whether the stringValue field is set.
    */
-  public boolean hasStringVlaue() {
+  public boolean hasStringValue() {
     return valueCase_ == 5;
   }
   /**
-   * <code>string stringVlaue = 5;</code>
-   * @return The stringVlaue.
+   * <code>string stringValue = 5;</code>
+   * @return The stringValue.
    */
-  public java.lang.String getStringVlaue() {
+  public java.lang.String getStringValue() {
     java.lang.Object ref = "";
     if (valueCase_ == 5) {
       ref = value_;
@@ -239,11 +239,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string stringVlaue = 5;</code>
-   * @return The bytes for stringVlaue.
+   * <code>string stringValue = 5;</code>
+   * @return The bytes for stringValue.
    */
   public com.google.protobuf.ByteString
-      getStringVlaueBytes() {
+      getStringValueBytes() {
     java.lang.Object ref = "";
     if (valueCase_ == 5) {
       ref = value_;
@@ -348,8 +348,8 @@ private static final long serialVersionUID = 0L;
                 other.getFloatValue())) return false;
         break;
       case 5:
-        if (!getStringVlaue()
-            .equals(other.getStringVlaue())) return false;
+        if (!getStringValue()
+            .equals(other.getStringValue())) return false;
         break;
       case 0:
       default:
@@ -381,8 +381,8 @@ private static final long serialVersionUID = 0L;
             getFloatValue());
         break;
       case 5:
-        hash = (37 * hash) + STRINGVLAUE_FIELD_NUMBER;
-        hash = (53 * hash) + getStringVlaue().hashCode();
+        hash = (37 * hash) + STRINGVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getStringValue().hashCode();
         break;
       case 0:
       default:
@@ -622,7 +622,7 @@ private static final long serialVersionUID = 0L;
           setFloatValue(other.getFloatValue());
           break;
         }
-        case STRINGVLAUE: {
+        case STRINGVALUE: {
           valueCase_ = 5;
           value_ = other.value_;
           onChanged();
@@ -800,19 +800,19 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
-     * <code>string stringVlaue = 5;</code>
-     * @return Whether the stringVlaue field is set.
+     * <code>string stringValue = 5;</code>
+     * @return Whether the stringValue field is set.
      */
     @java.lang.Override
-    public boolean hasStringVlaue() {
+    public boolean hasStringValue() {
       return valueCase_ == 5;
     }
     /**
-     * <code>string stringVlaue = 5;</code>
-     * @return The stringVlaue.
+     * <code>string stringValue = 5;</code>
+     * @return The stringValue.
      */
     @java.lang.Override
-    public java.lang.String getStringVlaue() {
+    public java.lang.String getStringValue() {
       java.lang.Object ref = "";
       if (valueCase_ == 5) {
         ref = value_;
@@ -830,12 +830,12 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string stringVlaue = 5;</code>
-     * @return The bytes for stringVlaue.
+     * <code>string stringValue = 5;</code>
+     * @return The bytes for stringValue.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getStringVlaueBytes() {
+        getStringValueBytes() {
       java.lang.Object ref = "";
       if (valueCase_ == 5) {
         ref = value_;
@@ -853,11 +853,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string stringVlaue = 5;</code>
-     * @param value The stringVlaue to set.
+     * <code>string stringValue = 5;</code>
+     * @param value The stringValue to set.
      * @return This builder for chaining.
      */
-    public Builder setStringVlaue(
+    public Builder setStringValue(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
@@ -868,10 +868,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string stringVlaue = 5;</code>
+     * <code>string stringValue = 5;</code>
      * @return This builder for chaining.
      */
-    public Builder clearStringVlaue() {
+    public Builder clearStringValue() {
       if (valueCase_ == 5) {
         valueCase_ = 0;
         value_ = null;
@@ -880,11 +880,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string stringVlaue = 5;</code>
-     * @param value The bytes for stringVlaue to set.
+     * <code>string stringValue = 5;</code>
+     * @param value The bytes for stringValue to set.
      * @return This builder for chaining.
      */
-    public Builder setStringVlaueBytes(
+    public Builder setStringValueBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();

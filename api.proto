@@ -30,7 +30,7 @@ message Value {
         bool boolValue = 2;
         int32 intValue = 3;
         float floatValue = 4;
-        string stringVlaue = 5;
+        string stringValue = 5;
     }
 }
 

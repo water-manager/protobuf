@@ -12,4 +12,4 @@ GetWaterSourceState.waterSourceName max_size:20
 RemoveWaterSource.waterSourceName max_size:20
 RemoveWaterTank.waterTankName max_size:20
 GetError.error max_size:50
-Value.stringVlaue max_size:100
+Value.stringValue max_size:100

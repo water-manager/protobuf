@@ -41,21 +41,21 @@ public interface ValueOrBuilder extends
   float getFloatValue();
 
   /**
-   * <code>string stringVlaue = 5;</code>
-   * @return Whether the stringVlaue field is set.
+   * <code>string stringValue = 5;</code>
+   * @return Whether the stringValue field is set.
    */
-  boolean hasStringVlaue();
+  boolean hasStringValue();
   /**
-   * <code>string stringVlaue = 5;</code>
-   * @return The stringVlaue.
+   * <code>string stringValue = 5;</code>
+   * @return The stringValue.
    */
-  java.lang.String getStringVlaue();
+  java.lang.String getStringValue();
   /**
-   * <code>string stringVlaue = 5;</code>
-   * @return The bytes for stringVlaue.
+   * <code>string stringValue = 5;</code>
+   * @return The bytes for stringValue.
    */
   com.google.protobuf.ByteString
-      getStringVlaueBytes();
+      getStringValueBytes();
 
   public dev.igorxp5.proto.api.Value.ValueCase getValueCase();
 }

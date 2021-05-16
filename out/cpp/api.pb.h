@@ -96,7 +96,7 @@ typedef struct _Value {
         bool boolValue;
         int32_t intValue;
         float floatValue;
-        char stringVlaue[100];
+        char stringValue[100];
     } value; 
 } Value;
 
@@ -210,7 +210,7 @@ extern "C" {
 #define Value_boolValue_tag                      2
 #define Value_intValue_tag                       3
 #define Value_floatValue_tag                     4
-#define Value_stringVlaue_tag                    5
+#define Value_stringValue_tag                    5
 #define Request_id_tag                           1
 #define Request_createWaterSource_tag            2
 #define Request_createWaterTank_tag              3
@@ -274,7 +274,7 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  17)
 X(a, STATIC,   ONEOF,    BOOL,     (value,boolValue,value.boolValue),   2) \
 X(a, STATIC,   ONEOF,    INT32,    (value,intValue,value.intValue),   3) \
 X(a, STATIC,   ONEOF,    FLOAT,    (value,floatValue,value.floatValue),   4) \
-X(a, STATIC,   ONEOF,    STRING,   (value,stringVlaue,value.stringVlaue),   5)
+X(a, STATIC,   ONEOF,    STRING,   (value,stringValue,value.stringValue),   5)
 #define Value_CALLBACK NULL
 #define Value_DEFAULT NULL
 

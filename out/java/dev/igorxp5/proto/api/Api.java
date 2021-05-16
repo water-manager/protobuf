@@ -140,7 +140,7 @@ public final class Api {
       "oveWaterTankH\000\022\027\n\005reset\030\021 \001(\0132\006.ResetH\000B" +
       "\t\n\007message\"f\n\005Value\022\023\n\tboolValue\030\002 \001(\010H\000" +
       "\022\022\n\010intValue\030\003 \001(\005H\000\022\024\n\nfloatValue\030\004 \001(\002" +
-      "H\000\022\025\n\013stringVlaue\030\005 \001(\tH\000B\007\n\005value\">\n\010Re" +
+      "H\000\022\025\n\013stringValue\030\005 \001(\tH\000B\007\n\005value\">\n\010Re" +
       "sponse\022\n\n\002id\030\001 \001(\r\022\027\n\007message\030\002 \001(\0132\006.Va" +
       "lue\022\r\n\005error\030\003 \001(\010\"\\\n\021CreateWaterSource\022" +
       "\014\n\004name\030\001 \001(\t\022\013\n\003pin\030\002 \001(\r\022\032\n\rwaterTankN" +
@@ -183,7 +183,7 @@ public final class Api {
     internal_static_Value_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Value_descriptor,
-        new java.lang.String[] { "BoolValue", "IntValue", "FloatValue", "StringVlaue", "Value", });
+        new java.lang.String[] { "BoolValue", "IntValue", "FloatValue", "StringValue", "Value", });
     internal_static_Response_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_Response_fieldAccessorTable = new
