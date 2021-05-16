@@ -96,7 +96,7 @@ typedef struct _Value {
         bool boolValue;
         int32_t intValue;
         float floatValue;
-        pb_callback_t stringVlaue;
+        char stringVlaue[100];
     } value; 
 } Value;
 
@@ -274,8 +274,8 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  17)
 X(a, STATIC,   ONEOF,    BOOL,     (value,boolValue,value.boolValue),   2) \
 X(a, STATIC,   ONEOF,    INT32,    (value,intValue,value.intValue),   3) \
 X(a, STATIC,   ONEOF,    FLOAT,    (value,floatValue,value.floatValue),   4) \
-X(a, CALLBACK, ONEOF,    STRING,   (value,stringVlaue,value.stringVlaue),   5)
-#define Value_CALLBACK pb_default_field_callback
+X(a, STATIC,   ONEOF,    STRING,   (value,stringVlaue,value.stringVlaue),   5)
+#define Value_CALLBACK NULL
 #define Value_DEFAULT NULL
 
 #define Response_FIELDLIST(X, a) \
@@ -419,8 +419,6 @@ extern const pb_msgdesc_t GetError_msg;
 
 /* Maximum encoded size of messages (where known) */
 /* Request_size depends on runtime parameters */
-/* Value_size depends on runtime parameters */
-/* Response_size depends on runtime parameters */
 /* CreateWaterSource_size depends on runtime parameters */
 /* CreateWaterTank_size depends on runtime parameters */
 /* GetWaterTankList_size depends on runtime parameters */
@@ -432,11 +430,13 @@ extern const pb_msgdesc_t GetError_msg;
 #define RemoveWaterSource_size                   21
 #define RemoveWaterTank_size                     21
 #define Reset_size                               0
+#define Response_size                            111
 #define SetMode_size                             2
 #define SetWaterSourceState_size                 23
 #define SetWaterTankMaxVolume_size               26
 #define SetWaterTankMinimumVolume_size           26
 #define SetWaterTankZeroVolume_size              26
+#define Value_size                               101
 
 #ifdef __cplusplus
 } /* extern "C" */
