@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Value() {
+    listValue_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -38,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -69,6 +71,15 @@ private static final long serialVersionUID = 0L;
             value_ = s;
             break;
           }
+          case 50: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              listValue_ = new java.util.ArrayList<dev.igorxp5.proto.api.Value>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            listValue_.add(
+                input.readMessage(dev.igorxp5.proto.api.Value.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -84,6 +95,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        listValue_ = java.util.Collections.unmodifiableList(listValue_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -261,6 +275,46 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int LISTVALUE_FIELD_NUMBER = 6;
+  private java.util.List<dev.igorxp5.proto.api.Value> listValue_;
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  @java.lang.Override
+  public java.util.List<dev.igorxp5.proto.api.Value> getListValueList() {
+    return listValue_;
+  }
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends dev.igorxp5.proto.api.ValueOrBuilder> 
+      getListValueOrBuilderList() {
+    return listValue_;
+  }
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  @java.lang.Override
+  public int getListValueCount() {
+    return listValue_.size();
+  }
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.Value getListValue(int index) {
+    return listValue_.get(index);
+  }
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.ValueOrBuilder getListValueOrBuilder(
+      int index) {
+    return listValue_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -290,6 +344,9 @@ private static final long serialVersionUID = 0L;
     if (valueCase_ == 5) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, value_);
     }
+    for (int i = 0; i < listValue_.size(); i++) {
+      output.writeMessage(6, listValue_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -317,6 +374,10 @@ private static final long serialVersionUID = 0L;
     if (valueCase_ == 5) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, value_);
     }
+    for (int i = 0; i < listValue_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, listValue_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -332,6 +393,8 @@ private static final long serialVersionUID = 0L;
     }
     dev.igorxp5.proto.api.Value other = (dev.igorxp5.proto.api.Value) obj;
 
+    if (!getListValueList()
+        .equals(other.getListValueList())) return false;
     if (!getValueCase().equals(other.getValueCase())) return false;
     switch (valueCase_) {
       case 2:
@@ -365,6 +428,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (getListValueCount() > 0) {
+      hash = (37 * hash) + LISTVALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getListValueList().hashCode();
+    }
     switch (valueCase_) {
       case 2:
         hash = (37 * hash) + BOOLVALUE_FIELD_NUMBER;
@@ -515,11 +582,18 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getListValueFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      if (listValueBuilder_ == null) {
+        listValue_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        listValueBuilder_.clear();
+      }
       valueCase_ = 0;
       value_ = null;
       return this;
@@ -548,6 +622,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dev.igorxp5.proto.api.Value buildPartial() {
       dev.igorxp5.proto.api.Value result = new dev.igorxp5.proto.api.Value(this);
+      int from_bitField0_ = bitField0_;
       if (valueCase_ == 2) {
         result.value_ = value_;
       }
@@ -559,6 +634,15 @@ private static final long serialVersionUID = 0L;
       }
       if (valueCase_ == 5) {
         result.value_ = value_;
+      }
+      if (listValueBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          listValue_ = java.util.Collections.unmodifiableList(listValue_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.listValue_ = listValue_;
+      } else {
+        result.listValue_ = listValueBuilder_.build();
       }
       result.valueCase_ = valueCase_;
       onBuilt();
@@ -609,6 +693,32 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dev.igorxp5.proto.api.Value other) {
       if (other == dev.igorxp5.proto.api.Value.getDefaultInstance()) return this;
+      if (listValueBuilder_ == null) {
+        if (!other.listValue_.isEmpty()) {
+          if (listValue_.isEmpty()) {
+            listValue_ = other.listValue_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureListValueIsMutable();
+            listValue_.addAll(other.listValue_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.listValue_.isEmpty()) {
+          if (listValueBuilder_.isEmpty()) {
+            listValueBuilder_.dispose();
+            listValueBuilder_ = null;
+            listValue_ = other.listValue_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            listValueBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getListValueFieldBuilder() : null;
+          } else {
+            listValueBuilder_.addAllMessages(other.listValue_);
+          }
+        }
+      }
       switch (other.getValueCase()) {
         case BOOLVALUE: {
           setBoolValue(other.getBoolValue());
@@ -675,6 +785,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <code>bool boolValue = 2;</code>
@@ -894,6 +1005,246 @@ private static final long serialVersionUID = 0L;
       value_ = value;
       onChanged();
       return this;
+    }
+
+    private java.util.List<dev.igorxp5.proto.api.Value> listValue_ =
+      java.util.Collections.emptyList();
+    private void ensureListValueIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        listValue_ = new java.util.ArrayList<dev.igorxp5.proto.api.Value>(listValue_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder> listValueBuilder_;
+
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public java.util.List<dev.igorxp5.proto.api.Value> getListValueList() {
+      if (listValueBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(listValue_);
+      } else {
+        return listValueBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public int getListValueCount() {
+      if (listValueBuilder_ == null) {
+        return listValue_.size();
+      } else {
+        return listValueBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public dev.igorxp5.proto.api.Value getListValue(int index) {
+      if (listValueBuilder_ == null) {
+        return listValue_.get(index);
+      } else {
+        return listValueBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder setListValue(
+        int index, dev.igorxp5.proto.api.Value value) {
+      if (listValueBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureListValueIsMutable();
+        listValue_.set(index, value);
+        onChanged();
+      } else {
+        listValueBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder setListValue(
+        int index, dev.igorxp5.proto.api.Value.Builder builderForValue) {
+      if (listValueBuilder_ == null) {
+        ensureListValueIsMutable();
+        listValue_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        listValueBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder addListValue(dev.igorxp5.proto.api.Value value) {
+      if (listValueBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureListValueIsMutable();
+        listValue_.add(value);
+        onChanged();
+      } else {
+        listValueBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder addListValue(
+        int index, dev.igorxp5.proto.api.Value value) {
+      if (listValueBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureListValueIsMutable();
+        listValue_.add(index, value);
+        onChanged();
+      } else {
+        listValueBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder addListValue(
+        dev.igorxp5.proto.api.Value.Builder builderForValue) {
+      if (listValueBuilder_ == null) {
+        ensureListValueIsMutable();
+        listValue_.add(builderForValue.build());
+        onChanged();
+      } else {
+        listValueBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder addListValue(
+        int index, dev.igorxp5.proto.api.Value.Builder builderForValue) {
+      if (listValueBuilder_ == null) {
+        ensureListValueIsMutable();
+        listValue_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        listValueBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder addAllListValue(
+        java.lang.Iterable<? extends dev.igorxp5.proto.api.Value> values) {
+      if (listValueBuilder_ == null) {
+        ensureListValueIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, listValue_);
+        onChanged();
+      } else {
+        listValueBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder clearListValue() {
+      if (listValueBuilder_ == null) {
+        listValue_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        listValueBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public Builder removeListValue(int index) {
+      if (listValueBuilder_ == null) {
+        ensureListValueIsMutable();
+        listValue_.remove(index);
+        onChanged();
+      } else {
+        listValueBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public dev.igorxp5.proto.api.Value.Builder getListValueBuilder(
+        int index) {
+      return getListValueFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public dev.igorxp5.proto.api.ValueOrBuilder getListValueOrBuilder(
+        int index) {
+      if (listValueBuilder_ == null) {
+        return listValue_.get(index);  } else {
+        return listValueBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public java.util.List<? extends dev.igorxp5.proto.api.ValueOrBuilder> 
+         getListValueOrBuilderList() {
+      if (listValueBuilder_ != null) {
+        return listValueBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(listValue_);
+      }
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public dev.igorxp5.proto.api.Value.Builder addListValueBuilder() {
+      return getListValueFieldBuilder().addBuilder(
+          dev.igorxp5.proto.api.Value.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public dev.igorxp5.proto.api.Value.Builder addListValueBuilder(
+        int index) {
+      return getListValueFieldBuilder().addBuilder(
+          index, dev.igorxp5.proto.api.Value.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Value listValue = 6;</code>
+     */
+    public java.util.List<dev.igorxp5.proto.api.Value.Builder> 
+         getListValueBuilderList() {
+      return getListValueFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder> 
+        getListValueFieldBuilder() {
+      if (listValueBuilder_ == null) {
+        listValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder>(
+                listValue_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        listValue_ = null;
+      }
+      return listValueBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

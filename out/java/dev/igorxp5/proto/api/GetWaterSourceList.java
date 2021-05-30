@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetWaterSourceList() {
-    waterSourceName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -39,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -50,15 +48,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              waterSourceName_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            waterSourceName_.add(s);
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -74,9 +63,6 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        waterSourceName_ = waterSourceName_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -94,41 +80,6 @@ private static final long serialVersionUID = 0L;
             dev.igorxp5.proto.api.GetWaterSourceList.class, dev.igorxp5.proto.api.GetWaterSourceList.Builder.class);
   }
 
-  public static final int WATERSOURCENAME_FIELD_NUMBER = 1;
-  private com.google.protobuf.LazyStringList waterSourceName_;
-  /**
-   * <code>repeated string waterSourceName = 1;</code>
-   * @return A list containing the waterSourceName.
-   */
-  public com.google.protobuf.ProtocolStringList
-      getWaterSourceNameList() {
-    return waterSourceName_;
-  }
-  /**
-   * <code>repeated string waterSourceName = 1;</code>
-   * @return The count of waterSourceName.
-   */
-  public int getWaterSourceNameCount() {
-    return waterSourceName_.size();
-  }
-  /**
-   * <code>repeated string waterSourceName = 1;</code>
-   * @param index The index of the element to return.
-   * @return The waterSourceName at the given index.
-   */
-  public java.lang.String getWaterSourceName(int index) {
-    return waterSourceName_.get(index);
-  }
-  /**
-   * <code>repeated string waterSourceName = 1;</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the waterSourceName at the given index.
-   */
-  public com.google.protobuf.ByteString
-      getWaterSourceNameBytes(int index) {
-    return waterSourceName_.getByteString(index);
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -143,9 +94,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < waterSourceName_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, waterSourceName_.getRaw(i));
-    }
     unknownFields.writeTo(output);
   }
 
@@ -155,14 +103,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    {
-      int dataSize = 0;
-      for (int i = 0; i < waterSourceName_.size(); i++) {
-        dataSize += computeStringSizeNoTag(waterSourceName_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getWaterSourceNameList().size();
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -178,8 +118,6 @@ private static final long serialVersionUID = 0L;
     }
     dev.igorxp5.proto.api.GetWaterSourceList other = (dev.igorxp5.proto.api.GetWaterSourceList) obj;
 
-    if (!getWaterSourceNameList()
-        .equals(other.getWaterSourceNameList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -191,10 +129,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getWaterSourceNameCount() > 0) {
-      hash = (37 * hash) + WATERSOURCENAME_FIELD_NUMBER;
-      hash = (53 * hash) + getWaterSourceNameList().hashCode();
-    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -328,8 +262,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      waterSourceName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -356,12 +288,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dev.igorxp5.proto.api.GetWaterSourceList buildPartial() {
       dev.igorxp5.proto.api.GetWaterSourceList result = new dev.igorxp5.proto.api.GetWaterSourceList(this);
-      int from_bitField0_ = bitField0_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        waterSourceName_ = waterSourceName_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.waterSourceName_ = waterSourceName_;
       onBuilt();
       return result;
     }
@@ -410,16 +336,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dev.igorxp5.proto.api.GetWaterSourceList other) {
       if (other == dev.igorxp5.proto.api.GetWaterSourceList.getDefaultInstance()) return this;
-      if (!other.waterSourceName_.isEmpty()) {
-        if (waterSourceName_.isEmpty()) {
-          waterSourceName_ = other.waterSourceName_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureWaterSourceNameIsMutable();
-          waterSourceName_.addAll(other.waterSourceName_);
-        }
-        onChanged();
-      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -446,117 +362,6 @@ private static final long serialVersionUID = 0L;
           mergeFrom(parsedMessage);
         }
       }
-      return this;
-    }
-    private int bitField0_;
-
-    private com.google.protobuf.LazyStringList waterSourceName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureWaterSourceNameIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        waterSourceName_ = new com.google.protobuf.LazyStringArrayList(waterSourceName_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @return A list containing the waterSourceName.
-     */
-    public com.google.protobuf.ProtocolStringList
-        getWaterSourceNameList() {
-      return waterSourceName_.getUnmodifiableView();
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @return The count of waterSourceName.
-     */
-    public int getWaterSourceNameCount() {
-      return waterSourceName_.size();
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @param index The index of the element to return.
-     * @return The waterSourceName at the given index.
-     */
-    public java.lang.String getWaterSourceName(int index) {
-      return waterSourceName_.get(index);
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the waterSourceName at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getWaterSourceNameBytes(int index) {
-      return waterSourceName_.getByteString(index);
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @param index The index to set the value at.
-     * @param value The waterSourceName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setWaterSourceName(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWaterSourceNameIsMutable();
-      waterSourceName_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @param value The waterSourceName to add.
-     * @return This builder for chaining.
-     */
-    public Builder addWaterSourceName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWaterSourceNameIsMutable();
-      waterSourceName_.add(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @param values The waterSourceName to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllWaterSourceName(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureWaterSourceNameIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, waterSourceName_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearWaterSourceName() {
-      waterSourceName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string waterSourceName = 1;</code>
-     * @param value The bytes of the waterSourceName to add.
-     * @return This builder for chaining.
-     */
-    public Builder addWaterSourceNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      ensureWaterSourceNameIsMutable();
-      waterSourceName_.add(value);
-      onChanged();
       return this;
     }
     @java.lang.Override

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\025dev.igorxp5.proto.apiP\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\tapi.proto\"\x9c\x06\n\x07Request\x12\n\n\x02id\x18\x01 \x01(\r\x12/\n\x11\x63reateWaterSource\x18\x02 \x01(\x0b\x32\x12.CreateWaterSourceH\x00\x12+\n\x0f\x63reateWaterTank\x18\x03 \x01(\x0b\x32\x10.CreateWaterTankH\x00\x12?\n\x19setWaterTankMinimumVolume\x18\x04 \x01(\x0b\x32\x1a.SetWaterTankMinimumVolumeH\x00\x12\x37\n\x15setWaterTankMaxVolume\x18\x05 \x01(\x0b\x32\x16.SetWaterTankMaxVolumeH\x00\x12\x39\n\x16setWaterTankZeroVolume\x18\x06 \x01(\x0b\x32\x17.SetWaterTankZeroVolumeH\x00\x12\x1b\n\x07setMode\x18\x07 \x01(\x0b\x32\x08.SetModeH\x00\x12\x33\n\x13setWaterSourceState\x18\x08 \x01(\x0b\x32\x14.SetWaterSourceStateH\x00\x12\x31\n\x12getWaterSourceList\x18\t \x01(\x0b\x32\x13.GetWaterSourceListH\x00\x12-\n\x10getWaterTankList\x18\n \x01(\x0b\x32\x11.GetWaterTankListH\x00\x12\x31\n\x12getWaterTankVolume\x18\x0b \x01(\x0b\x32\x13.GetWaterTankVolumeH\x00\x12\x35\n\x14getWaterTankPressure\x18\x0c \x01(\x0b\x32\x15.GetWaterTankPressureH\x00\x12\x33\n\x13getWaterSourceState\x18\r \x01(\x0b\x32\x14.GetWaterSourceStateH\x00\x12\x1d\n\x08GetError\x18\x0e \x01(\x0b\x32\t.GetErrorH\x00\x12/\n\x11removeWaterSource\x18\x0f \x01(\x0b\x32\x12.RemoveWaterSourceH\x00\x12+\n\x0fremoveWaterTank\x18\x10 \x01(\x0b\x32\x10.RemoveWaterTankH\x00\x12\x17\n\x05reset\x18\x11 \x01(\x0b\x32\x06.ResetH\x00\x42\t\n\x07message\"f\n\x05Value\x12\x13\n\tboolValue\x18\x02 \x01(\x08H\x00\x12\x12\n\x08intValue\x18\x03 \x01(\x05H\x00\x12\x14\n\nfloatValue\x18\x04 \x01(\x02H\x00\x12\x15\n\x0bstringValue\x18\x05 \x01(\tH\x00\x42\x07\n\x05value\">\n\x08Response\x12\n\n\x02id\x18\x01 \x01(\r\x12\x17\n\x07message\x18\x02 \x01(\x0b\x32\x06.Value\x12\r\n\x05\x65rror\x18\x03 \x01(\x08\"\\\n\x11\x43reateWaterSource\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03pin\x18\x02 \x01(\r\x12\x1a\n\rwaterTankName\x18\x03 \x01(\tH\x00\x88\x01\x01\x42\x10\n\x0e_waterTankName\"\x98\x01\n\x0f\x43reateWaterTank\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x17\n\x0fvolumeReaderPin\x18\x02 \x01(\r\x12\x14\n\x0cvolumeFactor\x18\x03 \x01(\x02\x12\x16\n\x0epressureFactor\x18\x04 \x01(\x02\x12\x1c\n\x0fwaterSourceName\x18\x05 \x01(\tH\x00\x88\x01\x01\x42\x12\n\x10_waterSourceName\"A\n\x19SetWaterTankMinimumVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"=\n\x15SetWaterTankMaxVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\">\n\x16SetWaterTankZeroVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"I\n\x07SetMode\x12\x1b\n\x04mode\x18\x01 \x01(\x0e\x32\r.SetMode.Mode\"!\n\x04Mode\x12\r\n\tAUTOMATIC\x10\x00\x12\n\n\x06MANUAL\x10\x01\"=\n\x13SetWaterSourceState\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\x08\")\n\x10GetWaterTankList\x12\x15\n\rwaterTankName\x18\x01 \x03(\t\"-\n\x12GetWaterSourceList\x12\x17\n\x0fwaterSourceName\x18\x01 \x03(\t\"+\n\x12GetWaterTankVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\"-\n\x14GetWaterTankPressure\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\".\n\x13GetWaterSourceState\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\",\n\x11RemoveWaterSource\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\"(\n\x0fRemoveWaterTank\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\"\x07\n\x05Reset\"\x19\n\x08GetError\x12\r\n\x05\x65rror\x18\x01 \x03(\tB\x19\n\x15\x64\x65v.igorxp5.proto.apiP\x01\x62\x06proto3'
+  serialized_pb=b'\n\tapi.proto\"\x9c\x06\n\x07Request\x12\n\n\x02id\x18\x01 \x01(\r\x12/\n\x11\x63reateWaterSource\x18\x02 \x01(\x0b\x32\x12.CreateWaterSourceH\x00\x12+\n\x0f\x63reateWaterTank\x18\x03 \x01(\x0b\x32\x10.CreateWaterTankH\x00\x12?\n\x19setWaterTankMinimumVolume\x18\x04 \x01(\x0b\x32\x1a.SetWaterTankMinimumVolumeH\x00\x12\x37\n\x15setWaterTankMaxVolume\x18\x05 \x01(\x0b\x32\x16.SetWaterTankMaxVolumeH\x00\x12\x39\n\x16setWaterTankZeroVolume\x18\x06 \x01(\x0b\x32\x17.SetWaterTankZeroVolumeH\x00\x12\x1b\n\x07setMode\x18\x07 \x01(\x0b\x32\x08.SetModeH\x00\x12\x33\n\x13setWaterSourceState\x18\x08 \x01(\x0b\x32\x14.SetWaterSourceStateH\x00\x12\x31\n\x12getWaterSourceList\x18\t \x01(\x0b\x32\x13.GetWaterSourceListH\x00\x12-\n\x10getWaterTankList\x18\n \x01(\x0b\x32\x11.GetWaterTankListH\x00\x12\x31\n\x12getWaterTankVolume\x18\x0b \x01(\x0b\x32\x13.GetWaterTankVolumeH\x00\x12\x35\n\x14getWaterTankPressure\x18\x0c \x01(\x0b\x32\x15.GetWaterTankPressureH\x00\x12\x33\n\x13getWaterSourceState\x18\r \x01(\x0b\x32\x14.GetWaterSourceStateH\x00\x12\x1d\n\x08GetError\x18\x0e \x01(\x0b\x32\t.GetErrorH\x00\x12/\n\x11removeWaterSource\x18\x0f \x01(\x0b\x32\x12.RemoveWaterSourceH\x00\x12+\n\x0fremoveWaterTank\x18\x10 \x01(\x0b\x32\x10.RemoveWaterTankH\x00\x12\x17\n\x05reset\x18\x11 \x01(\x0b\x32\x06.ResetH\x00\x42\t\n\x07message\"\x81\x01\n\x05Value\x12\x13\n\tboolValue\x18\x02 \x01(\x08H\x00\x12\x12\n\x08intValue\x18\x03 \x01(\x05H\x00\x12\x14\n\nfloatValue\x18\x04 \x01(\x02H\x00\x12\x15\n\x0bstringValue\x18\x05 \x01(\tH\x00\x12\x19\n\tlistValue\x18\x06 \x03(\x0b\x32\x06.ValueB\x07\n\x05value\">\n\x08Response\x12\n\n\x02id\x18\x01 \x01(\r\x12\x17\n\x07message\x18\x02 \x01(\x0b\x32\x06.Value\x12\r\n\x05\x65rror\x18\x03 \x01(\x08\"\\\n\x11\x43reateWaterSource\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03pin\x18\x02 \x01(\r\x12\x1a\n\rwaterTankName\x18\x03 \x01(\tH\x00\x88\x01\x01\x42\x10\n\x0e_waterTankName\"\x98\x01\n\x0f\x43reateWaterTank\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x17\n\x0fvolumeReaderPin\x18\x02 \x01(\r\x12\x14\n\x0cvolumeFactor\x18\x03 \x01(\x02\x12\x16\n\x0epressureFactor\x18\x04 \x01(\x02\x12\x1c\n\x0fwaterSourceName\x18\x05 \x01(\tH\x00\x88\x01\x01\x42\x12\n\x10_waterSourceName\"A\n\x19SetWaterTankMinimumVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"=\n\x15SetWaterTankMaxVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\">\n\x16SetWaterTankZeroVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"I\n\x07SetMode\x12\x1b\n\x04mode\x18\x01 \x01(\x0e\x32\r.SetMode.Mode\"!\n\x04Mode\x12\r\n\tAUTOMATIC\x10\x00\x12\n\n\x06MANUAL\x10\x01\"=\n\x13SetWaterSourceState\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\x08\"\x12\n\x10GetWaterTankList\"\x14\n\x12GetWaterSourceList\"+\n\x12GetWaterTankVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\"-\n\x14GetWaterTankPressure\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\".\n\x13GetWaterSourceState\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\",\n\x11RemoveWaterSource\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\"(\n\x0fRemoveWaterTank\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\"\x07\n\x05Reset\"\x19\n\x08GetError\x12\r\n\x05\x65rror\x18\x01 \x03(\tB\x19\n\x15\x64\x65v.igorxp5.proto.apiP\x01\x62\x06proto3'
 )
 
 
@@ -44,8 +44,8 @@ _SETMODE_MODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1463,
-  serialized_end=1496,
+  serialized_start=1491,
+  serialized_end=1524,
 )
 _sym_db.RegisterEnumDescriptor(_SETMODE_MODE)
 
@@ -235,6 +235,13 @@ _VALUE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='listValue', full_name='Value.listValue', index=4,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -252,8 +259,8 @@ _VALUE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=812,
-  serialized_end=914,
+  serialized_start=813,
+  serialized_end=942,
 )
 
 
@@ -298,8 +305,8 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=916,
-  serialized_end=978,
+  serialized_start=944,
+  serialized_end=1006,
 )
 
 
@@ -349,8 +356,8 @@ _CREATEWATERSOURCE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=980,
-  serialized_end=1072,
+  serialized_start=1008,
+  serialized_end=1100,
 )
 
 
@@ -414,8 +421,8 @@ _CREATEWATERTANK = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1075,
-  serialized_end=1227,
+  serialized_start=1103,
+  serialized_end=1255,
 )
 
 
@@ -453,8 +460,8 @@ _SETWATERTANKMINIMUMVOLUME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1229,
-  serialized_end=1294,
+  serialized_start=1257,
+  serialized_end=1322,
 )
 
 
@@ -492,8 +499,8 @@ _SETWATERTANKMAXVOLUME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1296,
-  serialized_end=1357,
+  serialized_start=1324,
+  serialized_end=1385,
 )
 
 
@@ -531,8 +538,8 @@ _SETWATERTANKZEROVOLUME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1359,
-  serialized_end=1421,
+  serialized_start=1387,
+  serialized_end=1449,
 )
 
 
@@ -564,8 +571,8 @@ _SETMODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1423,
-  serialized_end=1496,
+  serialized_start=1451,
+  serialized_end=1524,
 )
 
 
@@ -603,8 +610,8 @@ _SETWATERSOURCESTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1498,
-  serialized_end=1559,
+  serialized_start=1526,
+  serialized_end=1587,
 )
 
 
@@ -616,13 +623,6 @@ _GETWATERTANKLIST = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
-    _descriptor.FieldDescriptor(
-      name='waterTankName', full_name='GetWaterTankList.waterTankName', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -635,8 +635,8 @@ _GETWATERTANKLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1561,
-  serialized_end=1602,
+  serialized_start=1589,
+  serialized_end=1607,
 )
 
 
@@ -648,13 +648,6 @@ _GETWATERSOURCELIST = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
-    _descriptor.FieldDescriptor(
-      name='waterSourceName', full_name='GetWaterSourceList.waterSourceName', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -667,8 +660,8 @@ _GETWATERSOURCELIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1604,
-  serialized_end=1649,
+  serialized_start=1609,
+  serialized_end=1629,
 )
 
 
@@ -699,8 +692,8 @@ _GETWATERTANKVOLUME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1651,
-  serialized_end=1694,
+  serialized_start=1631,
+  serialized_end=1674,
 )
 
 
@@ -731,8 +724,8 @@ _GETWATERTANKPRESSURE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1696,
-  serialized_end=1741,
+  serialized_start=1676,
+  serialized_end=1721,
 )
 
 
@@ -763,8 +756,8 @@ _GETWATERSOURCESTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1743,
-  serialized_end=1789,
+  serialized_start=1723,
+  serialized_end=1769,
 )
 
 
@@ -795,8 +788,8 @@ _REMOVEWATERSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1791,
-  serialized_end=1835,
+  serialized_start=1771,
+  serialized_end=1815,
 )
 
 
@@ -827,8 +820,8 @@ _REMOVEWATERTANK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1837,
-  serialized_end=1877,
+  serialized_start=1817,
+  serialized_end=1857,
 )
 
 
@@ -852,8 +845,8 @@ _RESET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1879,
-  serialized_end=1886,
+  serialized_start=1859,
+  serialized_end=1866,
 )
 
 
@@ -884,8 +877,8 @@ _GETERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1888,
-  serialized_end=1913,
+  serialized_start=1868,
+  serialized_end=1893,
 )
 
 _REQUEST.fields_by_name['createWaterSource'].message_type = _CREATEWATERSOURCE
@@ -952,6 +945,7 @@ _REQUEST.fields_by_name['removeWaterTank'].containing_oneof = _REQUEST.oneofs_by
 _REQUEST.oneofs_by_name['message'].fields.append(
   _REQUEST.fields_by_name['reset'])
 _REQUEST.fields_by_name['reset'].containing_oneof = _REQUEST.oneofs_by_name['message']
+_VALUE.fields_by_name['listValue'].message_type = _VALUE
 _VALUE.oneofs_by_name['value'].fields.append(
   _VALUE.fields_by_name['boolValue'])
 _VALUE.fields_by_name['boolValue'].containing_oneof = _VALUE.oneofs_by_name['value']

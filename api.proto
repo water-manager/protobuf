@@ -32,6 +32,7 @@ message Value {
         float floatValue = 4;
         string stringValue = 5;
     }
+    repeated Value listValue = 6;
 }
 
 message Response {
@@ -83,11 +84,9 @@ message SetWaterSourceState {
 }
 
 message GetWaterTankList {
-    repeated string waterTankName = 1;
 }
 
 message GetWaterSourceList {
-    repeated string waterSourceName = 1;
 }
 
 message GetWaterTankVolume {

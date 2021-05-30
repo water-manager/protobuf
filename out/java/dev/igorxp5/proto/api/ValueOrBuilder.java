@@ -57,5 +57,29 @@ public interface ValueOrBuilder extends
   com.google.protobuf.ByteString
       getStringValueBytes();
 
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  java.util.List<dev.igorxp5.proto.api.Value> 
+      getListValueList();
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  dev.igorxp5.proto.api.Value getListValue(int index);
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  int getListValueCount();
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  java.util.List<? extends dev.igorxp5.proto.api.ValueOrBuilder> 
+      getListValueOrBuilderList();
+  /**
+   * <code>repeated .Value listValue = 6;</code>
+   */
+  dev.igorxp5.proto.api.ValueOrBuilder getListValueOrBuilder(
+      int index);
+
   public dev.igorxp5.proto.api.Value.ValueCase getValueCase();
 }

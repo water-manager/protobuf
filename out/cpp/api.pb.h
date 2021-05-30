@@ -21,11 +21,11 @@ typedef struct _GetError {
 } GetError;
 
 typedef struct _GetWaterSourceList { 
-    pb_callback_t waterSourceName; 
+    char dummy_field;
 } GetWaterSourceList;
 
 typedef struct _GetWaterTankList { 
-    pb_callback_t waterTankName; 
+    char dummy_field;
 } GetWaterTankList;
 
 typedef struct _Reset { 
@@ -98,6 +98,7 @@ typedef struct _Value {
         float floatValue;
         char stringValue[100];
     } value; 
+    pb_callback_t listValue; 
 } Value;
 
 typedef struct _Request { 
@@ -143,7 +144,7 @@ extern "C" {
 
 /* Initializer values for message structs */
 #define Request_init_default                     {0, 0, {CreateWaterSource_init_default}}
-#define Value_init_default                       {0, {0}}
+#define Value_init_default                       {0, {0}, {{NULL}, NULL}}
 #define Response_init_default                    {0, false, Value_init_default, 0}
 #define CreateWaterSource_init_default           {"", 0, {{NULL}, NULL}}
 #define CreateWaterTank_init_default             {"", 0, 0, 0, {{NULL}, NULL}}
@@ -152,8 +153,8 @@ extern "C" {
 #define SetWaterTankZeroVolume_init_default      {"", 0}
 #define SetMode_init_default                     {_SetMode_Mode_MIN}
 #define SetWaterSourceState_init_default         {"", 0}
-#define GetWaterTankList_init_default            {{{NULL}, NULL}}
-#define GetWaterSourceList_init_default          {{{NULL}, NULL}}
+#define GetWaterTankList_init_default            {0}
+#define GetWaterSourceList_init_default          {0}
 #define GetWaterTankVolume_init_default          {""}
 #define GetWaterTankPressure_init_default        {""}
 #define GetWaterSourceState_init_default         {""}
@@ -162,7 +163,7 @@ extern "C" {
 #define Reset_init_default                       {0}
 #define GetError_init_default                    {{{NULL}, NULL}}
 #define Request_init_zero                        {0, 0, {CreateWaterSource_init_zero}}
-#define Value_init_zero                          {0, {0}}
+#define Value_init_zero                          {0, {0}, {{NULL}, NULL}}
 #define Response_init_zero                       {0, false, Value_init_zero, 0}
 #define CreateWaterSource_init_zero              {"", 0, {{NULL}, NULL}}
 #define CreateWaterTank_init_zero                {"", 0, 0, 0, {{NULL}, NULL}}
@@ -171,8 +172,8 @@ extern "C" {
 #define SetWaterTankZeroVolume_init_zero         {"", 0}
 #define SetMode_init_zero                        {_SetMode_Mode_MIN}
 #define SetWaterSourceState_init_zero            {"", 0}
-#define GetWaterTankList_init_zero               {{{NULL}, NULL}}
-#define GetWaterSourceList_init_zero             {{{NULL}, NULL}}
+#define GetWaterTankList_init_zero               {0}
+#define GetWaterSourceList_init_zero             {0}
 #define GetWaterTankVolume_init_zero             {""}
 #define GetWaterTankPressure_init_zero           {""}
 #define GetWaterSourceState_init_zero            {""}
@@ -183,8 +184,6 @@ extern "C" {
 
 /* Field tags (for use in manual encoding/decoding) */
 #define GetError_error_tag                       1
-#define GetWaterSourceList_waterSourceName_tag   1
-#define GetWaterTankList_waterTankName_tag       1
 #define CreateWaterSource_name_tag               1
 #define CreateWaterSource_pin_tag                2
 #define CreateWaterSource_waterTankName_tag      3
@@ -211,6 +210,7 @@ extern "C" {
 #define Value_intValue_tag                       3
 #define Value_floatValue_tag                     4
 #define Value_stringValue_tag                    5
+#define Value_listValue_tag                      6
 #define Request_id_tag                           1
 #define Request_createWaterSource_tag            2
 #define Request_createWaterTank_tag              3
@@ -274,9 +274,11 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  17)
 X(a, STATIC,   ONEOF,    BOOL,     (value,boolValue,value.boolValue),   2) \
 X(a, STATIC,   ONEOF,    INT32,    (value,intValue,value.intValue),   3) \
 X(a, STATIC,   ONEOF,    FLOAT,    (value,floatValue,value.floatValue),   4) \
-X(a, STATIC,   ONEOF,    STRING,   (value,stringValue,value.stringValue),   5)
-#define Value_CALLBACK NULL
+X(a, STATIC,   ONEOF,    STRING,   (value,stringValue,value.stringValue),   5) \
+X(a, CALLBACK, REPEATED, MESSAGE,  listValue,         6)
+#define Value_CALLBACK pb_default_field_callback
 #define Value_DEFAULT NULL
+#define Value_listValue_MSGTYPE Value
 
 #define Response_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UINT32,   id,                1) \
@@ -332,13 +334,13 @@ X(a, STATIC,   SINGULAR, BOOL,     state,             2)
 #define SetWaterSourceState_DEFAULT NULL
 
 #define GetWaterTankList_FIELDLIST(X, a) \
-X(a, CALLBACK, REPEATED, STRING,   waterTankName,     1)
-#define GetWaterTankList_CALLBACK pb_default_field_callback
+
+#define GetWaterTankList_CALLBACK NULL
 #define GetWaterTankList_DEFAULT NULL
 
 #define GetWaterSourceList_FIELDLIST(X, a) \
-X(a, CALLBACK, REPEATED, STRING,   waterSourceName,   1)
-#define GetWaterSourceList_CALLBACK pb_default_field_callback
+
+#define GetWaterSourceList_CALLBACK NULL
 #define GetWaterSourceList_DEFAULT NULL
 
 #define GetWaterTankVolume_FIELDLIST(X, a) \
@@ -419,24 +421,24 @@ extern const pb_msgdesc_t GetError_msg;
 
 /* Maximum encoded size of messages (where known) */
 /* Request_size depends on runtime parameters */
+/* Value_size depends on runtime parameters */
+/* Response_size depends on runtime parameters */
 /* CreateWaterSource_size depends on runtime parameters */
 /* CreateWaterTank_size depends on runtime parameters */
-/* GetWaterTankList_size depends on runtime parameters */
-/* GetWaterSourceList_size depends on runtime parameters */
 /* GetError_size depends on runtime parameters */
+#define GetWaterSourceList_size                  0
 #define GetWaterSourceState_size                 21
+#define GetWaterTankList_size                    0
 #define GetWaterTankPressure_size                21
 #define GetWaterTankVolume_size                  21
 #define RemoveWaterSource_size                   21
 #define RemoveWaterTank_size                     21
 #define Reset_size                               0
-#define Response_size                            111
 #define SetMode_size                             2
 #define SetWaterSourceState_size                 23
 #define SetWaterTankMaxVolume_size               26
 #define SetWaterTankMinimumVolume_size           26
 #define SetWaterTankZeroVolume_size              26
-#define Value_size                               101
 
 #ifdef __cplusplus
 } /* extern "C" */
