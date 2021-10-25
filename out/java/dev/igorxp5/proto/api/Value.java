@@ -50,34 +50,26 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 16: {
-            valueCase_ = 2;
-            value_ = input.readBool();
+          case 10: {
+            dev.igorxp5.proto.api.PrimitiveValue.Builder subBuilder = null;
+            if (value_ != null) {
+              subBuilder = value_.toBuilder();
+            }
+            value_ = input.readMessage(dev.igorxp5.proto.api.PrimitiveValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(value_);
+              value_ = subBuilder.buildPartial();
+            }
+
             break;
           }
-          case 24: {
-            valueCase_ = 3;
-            value_ = input.readInt32();
-            break;
-          }
-          case 37: {
-            valueCase_ = 4;
-            value_ = input.readFloat();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            valueCase_ = 5;
-            value_ = s;
-            break;
-          }
-          case 50: {
+          case 18: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              listValue_ = new java.util.ArrayList<dev.igorxp5.proto.api.Value>();
+              listValue_ = new java.util.ArrayList<dev.igorxp5.proto.api.PrimitiveValue>();
               mutable_bitField0_ |= 0x00000001;
             }
             listValue_.add(
-                input.readMessage(dev.igorxp5.proto.api.Value.parser(), extensionRegistry));
+                input.readMessage(dev.igorxp5.proto.api.PrimitiveValue.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -115,202 +107,68 @@ private static final long serialVersionUID = 0L;
             dev.igorxp5.proto.api.Value.class, dev.igorxp5.proto.api.Value.Builder.class);
   }
 
-  private int valueCase_ = 0;
-  private java.lang.Object value_;
-  public enum ValueCase
-      implements com.google.protobuf.Internal.EnumLite,
-          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-    BOOLVALUE(2),
-    INTVALUE(3),
-    FLOATVALUE(4),
-    STRINGVALUE(5),
-    VALUE_NOT_SET(0);
-    private final int value;
-    private ValueCase(int value) {
-      this.value = value;
-    }
-    /**
-     * @param value The number of the enum to look for.
-     * @return The enum associated with the given number.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static ValueCase valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static ValueCase forNumber(int value) {
-      switch (value) {
-        case 2: return BOOLVALUE;
-        case 3: return INTVALUE;
-        case 4: return FLOATVALUE;
-        case 5: return STRINGVALUE;
-        case 0: return VALUE_NOT_SET;
-        default: return null;
-      }
-    }
-    public int getNumber() {
-      return this.value;
-    }
-  };
-
-  public ValueCase
-  getValueCase() {
-    return ValueCase.forNumber(
-        valueCase_);
-  }
-
-  public static final int BOOLVALUE_FIELD_NUMBER = 2;
+  public static final int VALUE_FIELD_NUMBER = 1;
+  private dev.igorxp5.proto.api.PrimitiveValue value_;
   /**
-   * <code>bool boolValue = 2;</code>
-   * @return Whether the boolValue field is set.
+   * <code>.PrimitiveValue value = 1;</code>
+   * @return Whether the value field is set.
    */
   @java.lang.Override
-  public boolean hasBoolValue() {
-    return valueCase_ == 2;
+  public boolean hasValue() {
+    return value_ != null;
   }
   /**
-   * <code>bool boolValue = 2;</code>
-   * @return The boolValue.
+   * <code>.PrimitiveValue value = 1;</code>
+   * @return The value.
    */
   @java.lang.Override
-  public boolean getBoolValue() {
-    if (valueCase_ == 2) {
-      return (java.lang.Boolean) value_;
-    }
-    return false;
+  public dev.igorxp5.proto.api.PrimitiveValue getValue() {
+    return value_ == null ? dev.igorxp5.proto.api.PrimitiveValue.getDefaultInstance() : value_;
+  }
+  /**
+   * <code>.PrimitiveValue value = 1;</code>
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.PrimitiveValueOrBuilder getValueOrBuilder() {
+    return getValue();
   }
 
-  public static final int INTVALUE_FIELD_NUMBER = 3;
+  public static final int LISTVALUE_FIELD_NUMBER = 2;
+  private java.util.List<dev.igorxp5.proto.api.PrimitiveValue> listValue_;
   /**
-   * <code>int32 intValue = 3;</code>
-   * @return Whether the intValue field is set.
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
   @java.lang.Override
-  public boolean hasIntValue() {
-    return valueCase_ == 3;
-  }
-  /**
-   * <code>int32 intValue = 3;</code>
-   * @return The intValue.
-   */
-  @java.lang.Override
-  public int getIntValue() {
-    if (valueCase_ == 3) {
-      return (java.lang.Integer) value_;
-    }
-    return 0;
-  }
-
-  public static final int FLOATVALUE_FIELD_NUMBER = 4;
-  /**
-   * <code>float floatValue = 4;</code>
-   * @return Whether the floatValue field is set.
-   */
-  @java.lang.Override
-  public boolean hasFloatValue() {
-    return valueCase_ == 4;
-  }
-  /**
-   * <code>float floatValue = 4;</code>
-   * @return The floatValue.
-   */
-  @java.lang.Override
-  public float getFloatValue() {
-    if (valueCase_ == 4) {
-      return (java.lang.Float) value_;
-    }
-    return 0F;
-  }
-
-  public static final int STRINGVALUE_FIELD_NUMBER = 5;
-  /**
-   * <code>string stringValue = 5;</code>
-   * @return Whether the stringValue field is set.
-   */
-  public boolean hasStringValue() {
-    return valueCase_ == 5;
-  }
-  /**
-   * <code>string stringValue = 5;</code>
-   * @return The stringValue.
-   */
-  public java.lang.String getStringValue() {
-    java.lang.Object ref = "";
-    if (valueCase_ == 5) {
-      ref = value_;
-    }
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      if (valueCase_ == 5) {
-        value_ = s;
-      }
-      return s;
-    }
-  }
-  /**
-   * <code>string stringValue = 5;</code>
-   * @return The bytes for stringValue.
-   */
-  public com.google.protobuf.ByteString
-      getStringValueBytes() {
-    java.lang.Object ref = "";
-    if (valueCase_ == 5) {
-      ref = value_;
-    }
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      if (valueCase_ == 5) {
-        value_ = b;
-      }
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int LISTVALUE_FIELD_NUMBER = 6;
-  private java.util.List<dev.igorxp5.proto.api.Value> listValue_;
-  /**
-   * <code>repeated .Value listValue = 6;</code>
-   */
-  @java.lang.Override
-  public java.util.List<dev.igorxp5.proto.api.Value> getListValueList() {
+  public java.util.List<dev.igorxp5.proto.api.PrimitiveValue> getListValueList() {
     return listValue_;
   }
   /**
-   * <code>repeated .Value listValue = 6;</code>
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
   @java.lang.Override
-  public java.util.List<? extends dev.igorxp5.proto.api.ValueOrBuilder> 
+  public java.util.List<? extends dev.igorxp5.proto.api.PrimitiveValueOrBuilder> 
       getListValueOrBuilderList() {
     return listValue_;
   }
   /**
-   * <code>repeated .Value listValue = 6;</code>
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
   @java.lang.Override
   public int getListValueCount() {
     return listValue_.size();
   }
   /**
-   * <code>repeated .Value listValue = 6;</code>
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
   @java.lang.Override
-  public dev.igorxp5.proto.api.Value getListValue(int index) {
+  public dev.igorxp5.proto.api.PrimitiveValue getListValue(int index) {
     return listValue_.get(index);
   }
   /**
-   * <code>repeated .Value listValue = 6;</code>
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
   @java.lang.Override
-  public dev.igorxp5.proto.api.ValueOrBuilder getListValueOrBuilder(
+  public dev.igorxp5.proto.api.PrimitiveValueOrBuilder getListValueOrBuilder(
       int index) {
     return listValue_.get(index);
   }
@@ -329,23 +187,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (valueCase_ == 2) {
-      output.writeBool(
-          2, (boolean)((java.lang.Boolean) value_));
-    }
-    if (valueCase_ == 3) {
-      output.writeInt32(
-          3, (int)((java.lang.Integer) value_));
-    }
-    if (valueCase_ == 4) {
-      output.writeFloat(
-          4, (float)((java.lang.Float) value_));
-    }
-    if (valueCase_ == 5) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, value_);
+    if (value_ != null) {
+      output.writeMessage(1, getValue());
     }
     for (int i = 0; i < listValue_.size(); i++) {
-      output.writeMessage(6, listValue_.get(i));
+      output.writeMessage(2, listValue_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -356,27 +202,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (valueCase_ == 2) {
+    if (value_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(
-            2, (boolean)((java.lang.Boolean) value_));
-    }
-    if (valueCase_ == 3) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(
-            3, (int)((java.lang.Integer) value_));
-    }
-    if (valueCase_ == 4) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(
-            4, (float)((java.lang.Float) value_));
-    }
-    if (valueCase_ == 5) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, value_);
+        .computeMessageSize(1, getValue());
     }
     for (int i = 0; i < listValue_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, listValue_.get(i));
+        .computeMessageSize(2, listValue_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -393,30 +225,13 @@ private static final long serialVersionUID = 0L;
     }
     dev.igorxp5.proto.api.Value other = (dev.igorxp5.proto.api.Value) obj;
 
+    if (hasValue() != other.hasValue()) return false;
+    if (hasValue()) {
+      if (!getValue()
+          .equals(other.getValue())) return false;
+    }
     if (!getListValueList()
         .equals(other.getListValueList())) return false;
-    if (!getValueCase().equals(other.getValueCase())) return false;
-    switch (valueCase_) {
-      case 2:
-        if (getBoolValue()
-            != other.getBoolValue()) return false;
-        break;
-      case 3:
-        if (getIntValue()
-            != other.getIntValue()) return false;
-        break;
-      case 4:
-        if (java.lang.Float.floatToIntBits(getFloatValue())
-            != java.lang.Float.floatToIntBits(
-                other.getFloatValue())) return false;
-        break;
-      case 5:
-        if (!getStringValue()
-            .equals(other.getStringValue())) return false;
-        break;
-      case 0:
-      default:
-    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -428,31 +243,13 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasValue()) {
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue().hashCode();
+    }
     if (getListValueCount() > 0) {
       hash = (37 * hash) + LISTVALUE_FIELD_NUMBER;
       hash = (53 * hash) + getListValueList().hashCode();
-    }
-    switch (valueCase_) {
-      case 2:
-        hash = (37 * hash) + BOOLVALUE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getBoolValue());
-        break;
-      case 3:
-        hash = (37 * hash) + INTVALUE_FIELD_NUMBER;
-        hash = (53 * hash) + getIntValue();
-        break;
-      case 4:
-        hash = (37 * hash) + FLOATVALUE_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getFloatValue());
-        break;
-      case 5:
-        hash = (37 * hash) + STRINGVALUE_FIELD_NUMBER;
-        hash = (53 * hash) + getStringValue().hashCode();
-        break;
-      case 0:
-      default:
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -588,14 +385,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      if (valueBuilder_ == null) {
+        value_ = null;
+      } else {
+        value_ = null;
+        valueBuilder_ = null;
+      }
       if (listValueBuilder_ == null) {
         listValue_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         listValueBuilder_.clear();
       }
-      valueCase_ = 0;
-      value_ = null;
       return this;
     }
 
@@ -623,17 +424,10 @@ private static final long serialVersionUID = 0L;
     public dev.igorxp5.proto.api.Value buildPartial() {
       dev.igorxp5.proto.api.Value result = new dev.igorxp5.proto.api.Value(this);
       int from_bitField0_ = bitField0_;
-      if (valueCase_ == 2) {
+      if (valueBuilder_ == null) {
         result.value_ = value_;
-      }
-      if (valueCase_ == 3) {
-        result.value_ = value_;
-      }
-      if (valueCase_ == 4) {
-        result.value_ = value_;
-      }
-      if (valueCase_ == 5) {
-        result.value_ = value_;
+      } else {
+        result.value_ = valueBuilder_.build();
       }
       if (listValueBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -644,7 +438,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.listValue_ = listValueBuilder_.build();
       }
-      result.valueCase_ = valueCase_;
       onBuilt();
       return result;
     }
@@ -693,6 +486,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(dev.igorxp5.proto.api.Value other) {
       if (other == dev.igorxp5.proto.api.Value.getDefaultInstance()) return this;
+      if (other.hasValue()) {
+        mergeValue(other.getValue());
+      }
       if (listValueBuilder_ == null) {
         if (!other.listValue_.isEmpty()) {
           if (listValue_.isEmpty()) {
@@ -717,29 +513,6 @@ private static final long serialVersionUID = 0L;
           } else {
             listValueBuilder_.addAllMessages(other.listValue_);
           }
-        }
-      }
-      switch (other.getValueCase()) {
-        case BOOLVALUE: {
-          setBoolValue(other.getBoolValue());
-          break;
-        }
-        case INTVALUE: {
-          setIntValue(other.getIntValue());
-          break;
-        }
-        case FLOATVALUE: {
-          setFloatValue(other.getFloatValue());
-          break;
-        }
-        case STRINGVALUE: {
-          valueCase_ = 5;
-          value_ = other.value_;
-          onChanged();
-          break;
-        }
-        case VALUE_NOT_SET: {
-          break;
         }
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -770,259 +543,143 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int valueCase_ = 0;
-    private java.lang.Object value_;
-    public ValueCase
-        getValueCase() {
-      return ValueCase.forNumber(
-          valueCase_);
-    }
-
-    public Builder clearValue() {
-      valueCase_ = 0;
-      value_ = null;
-      onChanged();
-      return this;
-    }
-
     private int bitField0_;
 
+    private dev.igorxp5.proto.api.PrimitiveValue value_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.PrimitiveValue, dev.igorxp5.proto.api.PrimitiveValue.Builder, dev.igorxp5.proto.api.PrimitiveValueOrBuilder> valueBuilder_;
     /**
-     * <code>bool boolValue = 2;</code>
-     * @return Whether the boolValue field is set.
+     * <code>.PrimitiveValue value = 1;</code>
+     * @return Whether the value field is set.
      */
-    public boolean hasBoolValue() {
-      return valueCase_ == 2;
+    public boolean hasValue() {
+      return valueBuilder_ != null || value_ != null;
     }
     /**
-     * <code>bool boolValue = 2;</code>
-     * @return The boolValue.
+     * <code>.PrimitiveValue value = 1;</code>
+     * @return The value.
      */
-    public boolean getBoolValue() {
-      if (valueCase_ == 2) {
-        return (java.lang.Boolean) value_;
-      }
-      return false;
-    }
-    /**
-     * <code>bool boolValue = 2;</code>
-     * @param value The boolValue to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBoolValue(boolean value) {
-      valueCase_ = 2;
-      value_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool boolValue = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBoolValue() {
-      if (valueCase_ == 2) {
-        valueCase_ = 0;
-        value_ = null;
-        onChanged();
-      }
-      return this;
-    }
-
-    /**
-     * <code>int32 intValue = 3;</code>
-     * @return Whether the intValue field is set.
-     */
-    public boolean hasIntValue() {
-      return valueCase_ == 3;
-    }
-    /**
-     * <code>int32 intValue = 3;</code>
-     * @return The intValue.
-     */
-    public int getIntValue() {
-      if (valueCase_ == 3) {
-        return (java.lang.Integer) value_;
-      }
-      return 0;
-    }
-    /**
-     * <code>int32 intValue = 3;</code>
-     * @param value The intValue to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIntValue(int value) {
-      valueCase_ = 3;
-      value_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 intValue = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIntValue() {
-      if (valueCase_ == 3) {
-        valueCase_ = 0;
-        value_ = null;
-        onChanged();
-      }
-      return this;
-    }
-
-    /**
-     * <code>float floatValue = 4;</code>
-     * @return Whether the floatValue field is set.
-     */
-    public boolean hasFloatValue() {
-      return valueCase_ == 4;
-    }
-    /**
-     * <code>float floatValue = 4;</code>
-     * @return The floatValue.
-     */
-    public float getFloatValue() {
-      if (valueCase_ == 4) {
-        return (java.lang.Float) value_;
-      }
-      return 0F;
-    }
-    /**
-     * <code>float floatValue = 4;</code>
-     * @param value The floatValue to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFloatValue(float value) {
-      valueCase_ = 4;
-      value_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>float floatValue = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFloatValue() {
-      if (valueCase_ == 4) {
-        valueCase_ = 0;
-        value_ = null;
-        onChanged();
-      }
-      return this;
-    }
-
-    /**
-     * <code>string stringValue = 5;</code>
-     * @return Whether the stringValue field is set.
-     */
-    @java.lang.Override
-    public boolean hasStringValue() {
-      return valueCase_ == 5;
-    }
-    /**
-     * <code>string stringValue = 5;</code>
-     * @return The stringValue.
-     */
-    @java.lang.Override
-    public java.lang.String getStringValue() {
-      java.lang.Object ref = "";
-      if (valueCase_ == 5) {
-        ref = value_;
-      }
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (valueCase_ == 5) {
-          value_ = s;
-        }
-        return s;
+    public dev.igorxp5.proto.api.PrimitiveValue getValue() {
+      if (valueBuilder_ == null) {
+        return value_ == null ? dev.igorxp5.proto.api.PrimitiveValue.getDefaultInstance() : value_;
       } else {
-        return (java.lang.String) ref;
+        return valueBuilder_.getMessage();
       }
     }
     /**
-     * <code>string stringValue = 5;</code>
-     * @return The bytes for stringValue.
+     * <code>.PrimitiveValue value = 1;</code>
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getStringValueBytes() {
-      java.lang.Object ref = "";
-      if (valueCase_ == 5) {
-        ref = value_;
-      }
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        if (valueCase_ == 5) {
-          value_ = b;
+    public Builder setValue(dev.igorxp5.proto.api.PrimitiveValue value) {
+      if (valueBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
         }
-        return b;
+        value_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        valueBuilder_.setMessage(value);
       }
-    }
-    /**
-     * <code>string stringValue = 5;</code>
-     * @param value The stringValue to set.
-     * @return This builder for chaining.
-     */
-    public Builder setStringValue(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  valueCase_ = 5;
-      value_ = value;
-      onChanged();
+
       return this;
     }
     /**
-     * <code>string stringValue = 5;</code>
-     * @return This builder for chaining.
+     * <code>.PrimitiveValue value = 1;</code>
      */
-    public Builder clearStringValue() {
-      if (valueCase_ == 5) {
-        valueCase_ = 0;
+    public Builder setValue(
+        dev.igorxp5.proto.api.PrimitiveValue.Builder builderForValue) {
+      if (valueBuilder_ == null) {
+        value_ = builderForValue.build();
+        onChanged();
+      } else {
+        valueBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.PrimitiveValue value = 1;</code>
+     */
+    public Builder mergeValue(dev.igorxp5.proto.api.PrimitiveValue value) {
+      if (valueBuilder_ == null) {
+        if (value_ != null) {
+          value_ =
+            dev.igorxp5.proto.api.PrimitiveValue.newBuilder(value_).mergeFrom(value).buildPartial();
+        } else {
+          value_ = value;
+        }
+        onChanged();
+      } else {
+        valueBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.PrimitiveValue value = 1;</code>
+     */
+    public Builder clearValue() {
+      if (valueBuilder_ == null) {
         value_ = null;
         onChanged();
+      } else {
+        value_ = null;
+        valueBuilder_ = null;
       }
+
       return this;
     }
     /**
-     * <code>string stringValue = 5;</code>
-     * @param value The bytes for stringValue to set.
-     * @return This builder for chaining.
+     * <code>.PrimitiveValue value = 1;</code>
      */
-    public Builder setStringValueBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      valueCase_ = 5;
-      value_ = value;
+    public dev.igorxp5.proto.api.PrimitiveValue.Builder getValueBuilder() {
+      
       onChanged();
-      return this;
+      return getValueFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.PrimitiveValue value = 1;</code>
+     */
+    public dev.igorxp5.proto.api.PrimitiveValueOrBuilder getValueOrBuilder() {
+      if (valueBuilder_ != null) {
+        return valueBuilder_.getMessageOrBuilder();
+      } else {
+        return value_ == null ?
+            dev.igorxp5.proto.api.PrimitiveValue.getDefaultInstance() : value_;
+      }
+    }
+    /**
+     * <code>.PrimitiveValue value = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.PrimitiveValue, dev.igorxp5.proto.api.PrimitiveValue.Builder, dev.igorxp5.proto.api.PrimitiveValueOrBuilder> 
+        getValueFieldBuilder() {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dev.igorxp5.proto.api.PrimitiveValue, dev.igorxp5.proto.api.PrimitiveValue.Builder, dev.igorxp5.proto.api.PrimitiveValueOrBuilder>(
+                getValue(),
+                getParentForChildren(),
+                isClean());
+        value_ = null;
+      }
+      return valueBuilder_;
     }
 
-    private java.util.List<dev.igorxp5.proto.api.Value> listValue_ =
+    private java.util.List<dev.igorxp5.proto.api.PrimitiveValue> listValue_ =
       java.util.Collections.emptyList();
     private void ensureListValueIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        listValue_ = new java.util.ArrayList<dev.igorxp5.proto.api.Value>(listValue_);
+        listValue_ = new java.util.ArrayList<dev.igorxp5.proto.api.PrimitiveValue>(listValue_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder> listValueBuilder_;
+        dev.igorxp5.proto.api.PrimitiveValue, dev.igorxp5.proto.api.PrimitiveValue.Builder, dev.igorxp5.proto.api.PrimitiveValueOrBuilder> listValueBuilder_;
 
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public java.util.List<dev.igorxp5.proto.api.Value> getListValueList() {
+    public java.util.List<dev.igorxp5.proto.api.PrimitiveValue> getListValueList() {
       if (listValueBuilder_ == null) {
         return java.util.Collections.unmodifiableList(listValue_);
       } else {
@@ -1030,7 +687,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public int getListValueCount() {
       if (listValueBuilder_ == null) {
@@ -1040,9 +697,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public dev.igorxp5.proto.api.Value getListValue(int index) {
+    public dev.igorxp5.proto.api.PrimitiveValue getListValue(int index) {
       if (listValueBuilder_ == null) {
         return listValue_.get(index);
       } else {
@@ -1050,10 +707,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public Builder setListValue(
-        int index, dev.igorxp5.proto.api.Value value) {
+        int index, dev.igorxp5.proto.api.PrimitiveValue value) {
       if (listValueBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1067,10 +724,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public Builder setListValue(
-        int index, dev.igorxp5.proto.api.Value.Builder builderForValue) {
+        int index, dev.igorxp5.proto.api.PrimitiveValue.Builder builderForValue) {
       if (listValueBuilder_ == null) {
         ensureListValueIsMutable();
         listValue_.set(index, builderForValue.build());
@@ -1081,9 +738,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public Builder addListValue(dev.igorxp5.proto.api.Value value) {
+    public Builder addListValue(dev.igorxp5.proto.api.PrimitiveValue value) {
       if (listValueBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1097,10 +754,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public Builder addListValue(
-        int index, dev.igorxp5.proto.api.Value value) {
+        int index, dev.igorxp5.proto.api.PrimitiveValue value) {
       if (listValueBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1114,10 +771,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public Builder addListValue(
-        dev.igorxp5.proto.api.Value.Builder builderForValue) {
+        dev.igorxp5.proto.api.PrimitiveValue.Builder builderForValue) {
       if (listValueBuilder_ == null) {
         ensureListValueIsMutable();
         listValue_.add(builderForValue.build());
@@ -1128,10 +785,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public Builder addListValue(
-        int index, dev.igorxp5.proto.api.Value.Builder builderForValue) {
+        int index, dev.igorxp5.proto.api.PrimitiveValue.Builder builderForValue) {
       if (listValueBuilder_ == null) {
         ensureListValueIsMutable();
         listValue_.add(index, builderForValue.build());
@@ -1142,10 +799,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public Builder addAllListValue(
-        java.lang.Iterable<? extends dev.igorxp5.proto.api.Value> values) {
+        java.lang.Iterable<? extends dev.igorxp5.proto.api.PrimitiveValue> values) {
       if (listValueBuilder_ == null) {
         ensureListValueIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1157,7 +814,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public Builder clearListValue() {
       if (listValueBuilder_ == null) {
@@ -1170,7 +827,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
     public Builder removeListValue(int index) {
       if (listValueBuilder_ == null) {
@@ -1183,16 +840,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public dev.igorxp5.proto.api.Value.Builder getListValueBuilder(
+    public dev.igorxp5.proto.api.PrimitiveValue.Builder getListValueBuilder(
         int index) {
       return getListValueFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public dev.igorxp5.proto.api.ValueOrBuilder getListValueOrBuilder(
+    public dev.igorxp5.proto.api.PrimitiveValueOrBuilder getListValueOrBuilder(
         int index) {
       if (listValueBuilder_ == null) {
         return listValue_.get(index);  } else {
@@ -1200,9 +857,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public java.util.List<? extends dev.igorxp5.proto.api.ValueOrBuilder> 
+    public java.util.List<? extends dev.igorxp5.proto.api.PrimitiveValueOrBuilder> 
          getListValueOrBuilderList() {
       if (listValueBuilder_ != null) {
         return listValueBuilder_.getMessageOrBuilderList();
@@ -1211,33 +868,33 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public dev.igorxp5.proto.api.Value.Builder addListValueBuilder() {
+    public dev.igorxp5.proto.api.PrimitiveValue.Builder addListValueBuilder() {
       return getListValueFieldBuilder().addBuilder(
-          dev.igorxp5.proto.api.Value.getDefaultInstance());
+          dev.igorxp5.proto.api.PrimitiveValue.getDefaultInstance());
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public dev.igorxp5.proto.api.Value.Builder addListValueBuilder(
+    public dev.igorxp5.proto.api.PrimitiveValue.Builder addListValueBuilder(
         int index) {
       return getListValueFieldBuilder().addBuilder(
-          index, dev.igorxp5.proto.api.Value.getDefaultInstance());
+          index, dev.igorxp5.proto.api.PrimitiveValue.getDefaultInstance());
     }
     /**
-     * <code>repeated .Value listValue = 6;</code>
+     * <code>repeated .PrimitiveValue listValue = 2;</code>
      */
-    public java.util.List<dev.igorxp5.proto.api.Value.Builder> 
+    public java.util.List<dev.igorxp5.proto.api.PrimitiveValue.Builder> 
          getListValueBuilderList() {
       return getListValueFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder> 
+        dev.igorxp5.proto.api.PrimitiveValue, dev.igorxp5.proto.api.PrimitiveValue.Builder, dev.igorxp5.proto.api.PrimitiveValueOrBuilder> 
         getListValueFieldBuilder() {
       if (listValueBuilder_ == null) {
         listValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder>(
+            dev.igorxp5.proto.api.PrimitiveValue, dev.igorxp5.proto.api.PrimitiveValue.Builder, dev.igorxp5.proto.api.PrimitiveValueOrBuilder>(
                 listValue_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),

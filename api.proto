@@ -25,14 +25,18 @@ message Request {
     }
 }
 
-message Value {
-    oneof value {
+message PrimitiveValue {
+    oneof content {
         bool boolValue = 2;
         int32 intValue = 3;
         float floatValue = 4;
         string stringValue = 5;
     }
-    repeated Value listValue = 6;
+}
+
+message Value {
+    PrimitiveValue value = 1;
+    repeated PrimitiveValue listValue = 2;
 }
 
 message Response {

@@ -8,78 +8,41 @@ public interface ValueOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool boolValue = 2;</code>
-   * @return Whether the boolValue field is set.
+   * <code>.PrimitiveValue value = 1;</code>
+   * @return Whether the value field is set.
    */
-  boolean hasBoolValue();
+  boolean hasValue();
   /**
-   * <code>bool boolValue = 2;</code>
-   * @return The boolValue.
+   * <code>.PrimitiveValue value = 1;</code>
+   * @return The value.
    */
-  boolean getBoolValue();
+  dev.igorxp5.proto.api.PrimitiveValue getValue();
+  /**
+   * <code>.PrimitiveValue value = 1;</code>
+   */
+  dev.igorxp5.proto.api.PrimitiveValueOrBuilder getValueOrBuilder();
 
   /**
-   * <code>int32 intValue = 3;</code>
-   * @return Whether the intValue field is set.
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
-  boolean hasIntValue();
-  /**
-   * <code>int32 intValue = 3;</code>
-   * @return The intValue.
-   */
-  int getIntValue();
-
-  /**
-   * <code>float floatValue = 4;</code>
-   * @return Whether the floatValue field is set.
-   */
-  boolean hasFloatValue();
-  /**
-   * <code>float floatValue = 4;</code>
-   * @return The floatValue.
-   */
-  float getFloatValue();
-
-  /**
-   * <code>string stringValue = 5;</code>
-   * @return Whether the stringValue field is set.
-   */
-  boolean hasStringValue();
-  /**
-   * <code>string stringValue = 5;</code>
-   * @return The stringValue.
-   */
-  java.lang.String getStringValue();
-  /**
-   * <code>string stringValue = 5;</code>
-   * @return The bytes for stringValue.
-   */
-  com.google.protobuf.ByteString
-      getStringValueBytes();
-
-  /**
-   * <code>repeated .Value listValue = 6;</code>
-   */
-  java.util.List<dev.igorxp5.proto.api.Value> 
+  java.util.List<dev.igorxp5.proto.api.PrimitiveValue> 
       getListValueList();
   /**
-   * <code>repeated .Value listValue = 6;</code>
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
-  dev.igorxp5.proto.api.Value getListValue(int index);
+  dev.igorxp5.proto.api.PrimitiveValue getListValue(int index);
   /**
-   * <code>repeated .Value listValue = 6;</code>
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
   int getListValueCount();
   /**
-   * <code>repeated .Value listValue = 6;</code>
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
-  java.util.List<? extends dev.igorxp5.proto.api.ValueOrBuilder> 
+  java.util.List<? extends dev.igorxp5.proto.api.PrimitiveValueOrBuilder> 
       getListValueOrBuilderList();
   /**
-   * <code>repeated .Value listValue = 6;</code>
+   * <code>repeated .PrimitiveValue listValue = 2;</code>
    */
-  dev.igorxp5.proto.api.ValueOrBuilder getListValueOrBuilder(
+  dev.igorxp5.proto.api.PrimitiveValueOrBuilder getListValueOrBuilder(
       int index);
-
-  public dev.igorxp5.proto.api.Value.ValueCase getValueCase();
 }

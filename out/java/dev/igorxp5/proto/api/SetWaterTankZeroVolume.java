@@ -155,10 +155,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWaterTankNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(waterTankName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, waterTankName_);
     }
-    if (value_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(value_) != 0) {
       output.writeFloat(2, value_);
     }
     unknownFields.writeTo(output);
@@ -170,10 +170,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWaterTankNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(waterTankName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, waterTankName_);
     }
-    if (value_ != 0F) {
+    if (java.lang.Float.floatToRawIntBits(value_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(2, value_);
     }

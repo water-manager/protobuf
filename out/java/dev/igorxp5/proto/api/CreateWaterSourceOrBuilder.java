@@ -26,17 +26,17 @@ public interface CreateWaterSourceOrBuilder extends
   int getPin();
 
   /**
-   * <code>string waterTankName = 3;</code>
+   * <code>optional string waterTankName = 3;</code>
    * @return Whether the waterTankName field is set.
    */
   boolean hasWaterTankName();
   /**
-   * <code>string waterTankName = 3;</code>
+   * <code>optional string waterTankName = 3;</code>
    * @return The waterTankName.
    */
   java.lang.String getWaterTankName();
   /**
-   * <code>string waterTankName = 3;</code>
+   * <code>optional string waterTankName = 3;</code>
    * @return The bytes for waterTankName.
    */
   com.google.protobuf.ByteString

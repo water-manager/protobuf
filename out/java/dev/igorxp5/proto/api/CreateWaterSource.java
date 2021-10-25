@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
   public static final int WATERTANKNAME_FIELD_NUMBER = 3;
   private volatile java.lang.Object waterTankName_;
   /**
-   * <code>string waterTankName = 3;</code>
+   * <code>optional string waterTankName = 3;</code>
    * @return Whether the waterTankName field is set.
    */
   @java.lang.Override
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>string waterTankName = 3;</code>
+   * <code>optional string waterTankName = 3;</code>
    * @return The waterTankName.
    */
   @java.lang.Override
@@ -178,7 +178,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string waterTankName = 3;</code>
+   * <code>optional string waterTankName = 3;</code>
    * @return The bytes for waterTankName.
    */
   @java.lang.Override
@@ -210,7 +210,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     if (pin_ != 0) {
@@ -228,7 +228,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     if (pin_ != 0) {
@@ -654,14 +654,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object waterTankName_ = "";
     /**
-     * <code>string waterTankName = 3;</code>
+     * <code>optional string waterTankName = 3;</code>
      * @return Whether the waterTankName field is set.
      */
     public boolean hasWaterTankName() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>string waterTankName = 3;</code>
+     * <code>optional string waterTankName = 3;</code>
      * @return The waterTankName.
      */
     public java.lang.String getWaterTankName() {
@@ -677,7 +677,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string waterTankName = 3;</code>
+     * <code>optional string waterTankName = 3;</code>
      * @return The bytes for waterTankName.
      */
     public com.google.protobuf.ByteString
@@ -694,7 +694,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string waterTankName = 3;</code>
+     * <code>optional string waterTankName = 3;</code>
      * @param value The waterTankName to set.
      * @return This builder for chaining.
      */
@@ -709,7 +709,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string waterTankName = 3;</code>
+     * <code>optional string waterTankName = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearWaterTankName() {
@@ -719,7 +719,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string waterTankName = 3;</code>
+     * <code>optional string waterTankName = 3;</code>
      * @param value The bytes for waterTankName to set.
      * @return This builder for chaining.
      */
