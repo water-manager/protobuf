@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Response() {
+    error_ = 0;
   }
 
   @java.lang.Override
@@ -38,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -67,8 +69,9 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 24: {
-
-            error_ = input.readBool();
+            int rawValue = input.readEnum();
+            bitField0_ |= 0x00000001;
+            error_ = rawValue;
             break;
           }
           default: {
@@ -103,6 +106,124 @@ private static final long serialVersionUID = 0L;
             dev.igorxp5.proto.api.Response.class, dev.igorxp5.proto.api.Response.Builder.class);
   }
 
+  /**
+   * Protobuf enum {@code Response.Exception}
+   */
+  public enum Exception
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>EXCEPTION = 0;</code>
+     */
+    EXCEPTION(0),
+    /**
+     * <code>RUNTIME_ERROR = 1;</code>
+     */
+    RUNTIME_ERROR(1),
+    /**
+     * <code>INVALID_REQUEST = 2;</code>
+     */
+    INVALID_REQUEST(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>EXCEPTION = 0;</code>
+     */
+    public static final int EXCEPTION_VALUE = 0;
+    /**
+     * <code>RUNTIME_ERROR = 1;</code>
+     */
+    public static final int RUNTIME_ERROR_VALUE = 1;
+    /**
+     * <code>INVALID_REQUEST = 2;</code>
+     */
+    public static final int INVALID_REQUEST_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Exception valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Exception forNumber(int value) {
+      switch (value) {
+        case 0: return EXCEPTION;
+        case 1: return RUNTIME_ERROR;
+        case 2: return INVALID_REQUEST;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Exception>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Exception> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Exception>() {
+            public Exception findValueByNumber(int number) {
+              return Exception.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return dev.igorxp5.proto.api.Response.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Exception[] VALUES = values();
+
+    public static Exception valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Exception(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:Response.Exception)
+  }
+
+  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   private int id_;
   /**
@@ -141,14 +262,29 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ERROR_FIELD_NUMBER = 3;
-  private boolean error_;
+  private int error_;
   /**
-   * <code>bool error = 3;</code>
+   * <code>optional .Response.Exception error = 3;</code>
+   * @return Whether the error field is set.
+   */
+  @java.lang.Override public boolean hasError() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional .Response.Exception error = 3;</code>
+   * @return The enum numeric value on the wire for error.
+   */
+  @java.lang.Override public int getErrorValue() {
+    return error_;
+  }
+  /**
+   * <code>optional .Response.Exception error = 3;</code>
    * @return The error.
    */
-  @java.lang.Override
-  public boolean getError() {
-    return error_;
+  @java.lang.Override public dev.igorxp5.proto.api.Response.Exception getError() {
+    @SuppressWarnings("deprecation")
+    dev.igorxp5.proto.api.Response.Exception result = dev.igorxp5.proto.api.Response.Exception.valueOf(error_);
+    return result == null ? dev.igorxp5.proto.api.Response.Exception.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -171,8 +307,8 @@ private static final long serialVersionUID = 0L;
     if (message_ != null) {
       output.writeMessage(2, getMessage());
     }
-    if (error_ != false) {
-      output.writeBool(3, error_);
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeEnum(3, error_);
     }
     unknownFields.writeTo(output);
   }
@@ -191,9 +327,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getMessage());
     }
-    if (error_ != false) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, error_);
+        .computeEnumSize(3, error_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -217,8 +353,10 @@ private static final long serialVersionUID = 0L;
       if (!getMessage()
           .equals(other.getMessage())) return false;
     }
-    if (getError()
-        != other.getError()) return false;
+    if (hasError() != other.hasError()) return false;
+    if (hasError()) {
+      if (error_ != other.error_) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -236,9 +374,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
     }
-    hash = (37 * hash) + ERROR_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getError());
+    if (hasError()) {
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + error_;
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -380,8 +519,8 @@ private static final long serialVersionUID = 0L;
         message_ = null;
         messageBuilder_ = null;
       }
-      error_ = false;
-
+      error_ = 0;
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -408,13 +547,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dev.igorxp5.proto.api.Response buildPartial() {
       dev.igorxp5.proto.api.Response result = new dev.igorxp5.proto.api.Response(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.id_ = id_;
       if (messageBuilder_ == null) {
         result.message_ = message_;
       } else {
         result.message_ = messageBuilder_.build();
       }
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        to_bitField0_ |= 0x00000001;
+      }
       result.error_ = error_;
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -469,7 +614,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMessage()) {
         mergeMessage(other.getMessage());
       }
-      if (other.getError() != false) {
+      if (other.hasError()) {
         setError(other.getError());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -500,6 +645,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private int id_ ;
     /**
@@ -651,33 +797,63 @@ private static final long serialVersionUID = 0L;
       return messageBuilder_;
     }
 
-    private boolean error_ ;
+    private int error_ = 0;
     /**
-     * <code>bool error = 3;</code>
-     * @return The error.
+     * <code>optional .Response.Exception error = 3;</code>
+     * @return Whether the error field is set.
      */
-    @java.lang.Override
-    public boolean getError() {
+    @java.lang.Override public boolean hasError() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional .Response.Exception error = 3;</code>
+     * @return The enum numeric value on the wire for error.
+     */
+    @java.lang.Override public int getErrorValue() {
       return error_;
     }
     /**
-     * <code>bool error = 3;</code>
-     * @param value The error to set.
+     * <code>optional .Response.Exception error = 3;</code>
+     * @param value The enum numeric value on the wire for error to set.
      * @return This builder for chaining.
      */
-    public Builder setError(boolean value) {
-      
+    public Builder setErrorValue(int value) {
+      bitField0_ |= 0x00000001;
       error_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool error = 3;</code>
+     * <code>optional .Response.Exception error = 3;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public dev.igorxp5.proto.api.Response.Exception getError() {
+      @SuppressWarnings("deprecation")
+      dev.igorxp5.proto.api.Response.Exception result = dev.igorxp5.proto.api.Response.Exception.valueOf(error_);
+      return result == null ? dev.igorxp5.proto.api.Response.Exception.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>optional .Response.Exception error = 3;</code>
+     * @param value The error to set.
+     * @return This builder for chaining.
+     */
+    public Builder setError(dev.igorxp5.proto.api.Response.Exception value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000001;
+      error_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .Response.Exception error = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearError() {
-      
-      error_ = false;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      error_ = 0;
       onChanged();
       return this;
     }

@@ -194,62 +194,47 @@ public interface RequestOrBuilder extends
   dev.igorxp5.proto.api.GetWaterSourceStateOrBuilder getGetWaterSourceStateOrBuilder();
 
   /**
-   * <code>.GetError GetError = 14;</code>
-   * @return Whether the getError field is set.
-   */
-  boolean hasGetError();
-  /**
-   * <code>.GetError GetError = 14;</code>
-   * @return The getError.
-   */
-  dev.igorxp5.proto.api.GetError getGetError();
-  /**
-   * <code>.GetError GetError = 14;</code>
-   */
-  dev.igorxp5.proto.api.GetErrorOrBuilder getGetErrorOrBuilder();
-
-  /**
-   * <code>.RemoveWaterSource removeWaterSource = 15;</code>
+   * <code>.RemoveWaterSource removeWaterSource = 14;</code>
    * @return Whether the removeWaterSource field is set.
    */
   boolean hasRemoveWaterSource();
   /**
-   * <code>.RemoveWaterSource removeWaterSource = 15;</code>
+   * <code>.RemoveWaterSource removeWaterSource = 14;</code>
    * @return The removeWaterSource.
    */
   dev.igorxp5.proto.api.RemoveWaterSource getRemoveWaterSource();
   /**
-   * <code>.RemoveWaterSource removeWaterSource = 15;</code>
+   * <code>.RemoveWaterSource removeWaterSource = 14;</code>
    */
   dev.igorxp5.proto.api.RemoveWaterSourceOrBuilder getRemoveWaterSourceOrBuilder();
 
   /**
-   * <code>.RemoveWaterTank removeWaterTank = 16;</code>
+   * <code>.RemoveWaterTank removeWaterTank = 15;</code>
    * @return Whether the removeWaterTank field is set.
    */
   boolean hasRemoveWaterTank();
   /**
-   * <code>.RemoveWaterTank removeWaterTank = 16;</code>
+   * <code>.RemoveWaterTank removeWaterTank = 15;</code>
    * @return The removeWaterTank.
    */
   dev.igorxp5.proto.api.RemoveWaterTank getRemoveWaterTank();
   /**
-   * <code>.RemoveWaterTank removeWaterTank = 16;</code>
+   * <code>.RemoveWaterTank removeWaterTank = 15;</code>
    */
   dev.igorxp5.proto.api.RemoveWaterTankOrBuilder getRemoveWaterTankOrBuilder();
 
   /**
-   * <code>.Reset reset = 17;</code>
+   * <code>.Reset reset = 16;</code>
    * @return Whether the reset field is set.
    */
   boolean hasReset();
   /**
-   * <code>.Reset reset = 17;</code>
+   * <code>.Reset reset = 16;</code>
    * @return The reset.
    */
   dev.igorxp5.proto.api.Reset getReset();
   /**
-   * <code>.Reset reset = 17;</code>
+   * <code>.Reset reset = 16;</code>
    */
   dev.igorxp5.proto.api.ResetOrBuilder getResetOrBuilder();
 

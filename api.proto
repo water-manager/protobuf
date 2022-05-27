@@ -18,10 +18,9 @@ message Request {
         GetWaterTankVolume getWaterTankVolume = 11;
         GetWaterTankPressure getWaterTankPressure = 12;
         GetWaterSourceState getWaterSourceState = 13;
-        GetError GetError = 14;
-        RemoveWaterSource removeWaterSource = 15;
-        RemoveWaterTank removeWaterTank = 16;
-        Reset reset = 17;
+        RemoveWaterSource removeWaterSource = 14;
+        RemoveWaterTank removeWaterTank = 15;
+        Reset reset = 16;
     }
 }
 
@@ -42,7 +41,12 @@ message Value {
 message Response {
     uint32 id = 1;
     Value message = 2;
-    bool error = 3;
+    enum Exception {
+        EXCEPTION = 0;
+        RUNTIME_ERROR = 1;
+        INVALID_REQUEST = 2;
+    }
+    optional Exception error = 3;
 }
 
 message CreateWaterSource {
@@ -114,8 +118,4 @@ message RemoveWaterTank {
 }
 
 message Reset {
-}
-
-message GetError {
-    repeated string error = 1;
 }

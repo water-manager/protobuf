@@ -9,6 +9,5 @@ GetWaterTankPressure.waterTankName max_size:20
 GetWaterSourceState.waterSourceName max_size:20
 RemoveWaterSource.waterSourceName max_size:20
 RemoveWaterTank.waterTankName max_size:20
-GetError.error max_count:10
 PrimitiveValue.stringValue max_size:50
 Value.listValue max_count:10

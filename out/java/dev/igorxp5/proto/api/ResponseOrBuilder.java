@@ -29,8 +29,18 @@ public interface ResponseOrBuilder extends
   dev.igorxp5.proto.api.ValueOrBuilder getMessageOrBuilder();
 
   /**
-   * <code>bool error = 3;</code>
+   * <code>optional .Response.Exception error = 3;</code>
+   * @return Whether the error field is set.
+   */
+  boolean hasError();
+  /**
+   * <code>optional .Response.Exception error = 3;</code>
+   * @return The enum numeric value on the wire for error.
+   */
+  int getErrorValue();
+  /**
+   * <code>optional .Response.Exception error = 3;</code>
    * @return The error.
    */
-  boolean getError();
+  dev.igorxp5.proto.api.Response.Exception getError();
 }

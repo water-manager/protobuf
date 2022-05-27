@@ -63,8 +63,6 @@ PB_BIND(RemoveWaterTank, RemoveWaterTank, AUTO)
 PB_BIND(Reset, Reset, AUTO)
 
 
-PB_BIND(GetError, GetError, AUTO)
-
 
 
 
