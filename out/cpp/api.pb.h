@@ -37,7 +37,8 @@ typedef struct _Reset {
 typedef struct _CreateWaterSource { 
     char name[20]; 
     uint32_t pin; 
-    pb_callback_t waterTankName; 
+    bool has_waterTankName;
+    char waterTankName[20]; 
 } CreateWaterSource;
 
 typedef struct _CreateWaterTank { 
@@ -45,7 +46,8 @@ typedef struct _CreateWaterTank {
     uint32_t volumeReaderPin; 
     float volumeFactor; 
     float pressureFactor; 
-    pb_callback_t waterSourceName; 
+    bool has_waterSourceName;
+    char waterSourceName[20]; 
 } CreateWaterTank;
 
 typedef struct _GetWaterSourceState { 
@@ -159,8 +161,8 @@ extern "C" {
 #define PrimitiveValue_init_default              {0, {0}}
 #define Value_init_default                       {false, PrimitiveValue_init_default, 0, {PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default}}
 #define Response_init_default                    {0, false, Value_init_default, false, _Response_Exception_MIN}
-#define CreateWaterSource_init_default           {"", 0, {{NULL}, NULL}}
-#define CreateWaterTank_init_default             {"", 0, 0, 0, {{NULL}, NULL}}
+#define CreateWaterSource_init_default           {"", 0, false, ""}
+#define CreateWaterTank_init_default             {"", 0, 0, 0, false, ""}
 #define SetWaterTankMinimumVolume_init_default   {"", 0}
 #define SetWaterTankMaxVolume_init_default       {"", 0}
 #define SetWaterTankZeroVolume_init_default      {"", 0}
@@ -178,8 +180,8 @@ extern "C" {
 #define PrimitiveValue_init_zero                 {0, {0}}
 #define Value_init_zero                          {false, PrimitiveValue_init_zero, 0, {PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero}}
 #define Response_init_zero                       {0, false, Value_init_zero, false, _Response_Exception_MIN}
-#define CreateWaterSource_init_zero              {"", 0, {{NULL}, NULL}}
-#define CreateWaterTank_init_zero                {"", 0, 0, 0, {{NULL}, NULL}}
+#define CreateWaterSource_init_zero              {"", 0, false, ""}
+#define CreateWaterTank_init_zero                {"", 0, 0, 0, false, ""}
 #define SetWaterTankMinimumVolume_init_zero      {"", 0}
 #define SetWaterTankMaxVolume_init_zero          {"", 0}
 #define SetWaterTankZeroVolume_init_zero         {"", 0}
@@ -306,8 +308,8 @@ X(a, STATIC,   OPTIONAL, UENUM,    error,             3)
 #define CreateWaterSource_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   name,              1) \
 X(a, STATIC,   SINGULAR, UINT32,   pin,               2) \
-X(a, CALLBACK, OPTIONAL, STRING,   waterTankName,     3)
-#define CreateWaterSource_CALLBACK pb_default_field_callback
+X(a, STATIC,   OPTIONAL, STRING,   waterTankName,     3)
+#define CreateWaterSource_CALLBACK NULL
 #define CreateWaterSource_DEFAULT NULL
 
 #define CreateWaterTank_FIELDLIST(X, a) \
@@ -315,8 +317,8 @@ X(a, STATIC,   SINGULAR, STRING,   name,              1) \
 X(a, STATIC,   SINGULAR, UINT32,   volumeReaderPin,   2) \
 X(a, STATIC,   SINGULAR, FLOAT,    volumeFactor,      3) \
 X(a, STATIC,   SINGULAR, FLOAT,    pressureFactor,    4) \
-X(a, CALLBACK, OPTIONAL, STRING,   waterSourceName,   5)
-#define CreateWaterTank_CALLBACK pb_default_field_callback
+X(a, STATIC,   OPTIONAL, STRING,   waterSourceName,   5)
+#define CreateWaterTank_CALLBACK NULL
 #define CreateWaterTank_DEFAULT NULL
 
 #define SetWaterTankMinimumVolume_FIELDLIST(X, a) \
@@ -430,9 +432,8 @@ extern const pb_msgdesc_t Reset_msg;
 #define Reset_fields &Reset_msg
 
 /* Maximum encoded size of messages (where known) */
-/* Request_size depends on runtime parameters */
-/* CreateWaterSource_size depends on runtime parameters */
-/* CreateWaterTank_size depends on runtime parameters */
+#define CreateWaterSource_size                   48
+#define CreateWaterTank_size                     58
 #define GetWaterSourceList_size                  0
 #define GetWaterSourceState_size                 21
 #define GetWaterTankList_size                    0
@@ -441,6 +442,7 @@ extern const pb_msgdesc_t Reset_msg;
 #define PrimitiveValue_size                      51
 #define RemoveWaterSource_size                   21
 #define RemoveWaterTank_size                     21
+#define Request_size                             66
 #define Reset_size                               0
 #define Response_size                            594
 #define SetMode_size                             2
