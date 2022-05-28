@@ -35,31 +35,31 @@ typedef struct _Reset {
 } Reset;
 
 typedef struct _CreateWaterSource { 
-    char name[20]; 
+    char name[21]; 
     uint32_t pin; 
     bool has_waterTankName;
-    char waterTankName[20]; 
+    char waterTankName[21]; 
 } CreateWaterSource;
 
 typedef struct _CreateWaterTank { 
-    char name[20]; 
+    char name[21]; 
     uint32_t volumeReaderPin; 
     float volumeFactor; 
     float pressureFactor; 
     bool has_waterSourceName;
-    char waterSourceName[20]; 
+    char waterSourceName[21]; 
 } CreateWaterTank;
 
 typedef struct _GetWaterSourceState { 
-    char waterSourceName[20]; 
+    char waterSourceName[21]; 
 } GetWaterSourceState;
 
 typedef struct _GetWaterTankPressure { 
-    char waterTankName[20]; 
+    char waterTankName[21]; 
 } GetWaterTankPressure;
 
 typedef struct _GetWaterTankVolume { 
-    char waterTankName[20]; 
+    char waterTankName[21]; 
 } GetWaterTankVolume;
 
 typedef struct _PrimitiveValue { 
@@ -68,16 +68,16 @@ typedef struct _PrimitiveValue {
         bool boolValue;
         int32_t intValue;
         float floatValue;
-        char stringValue[50];
+        char stringValue[101];
     } content; 
 } PrimitiveValue;
 
 typedef struct _RemoveWaterSource { 
-    char waterSourceName[20]; 
+    char waterSourceName[21]; 
 } RemoveWaterSource;
 
 typedef struct _RemoveWaterTank { 
-    char waterTankName[20]; 
+    char waterTankName[21]; 
 } RemoveWaterTank;
 
 typedef struct _SetMode { 
@@ -85,22 +85,22 @@ typedef struct _SetMode {
 } SetMode;
 
 typedef struct _SetWaterSourceState { 
-    char waterSourceName[20]; 
+    char waterSourceName[21]; 
     bool state; 
 } SetWaterSourceState;
 
 typedef struct _SetWaterTankMaxVolume { 
-    char waterTankName[20]; 
+    char waterTankName[21]; 
     float value; 
 } SetWaterTankMaxVolume;
 
 typedef struct _SetWaterTankMinimumVolume { 
-    char waterTankName[20]; 
+    char waterTankName[21]; 
     float value; 
 } SetWaterTankMinimumVolume;
 
 typedef struct _SetWaterTankZeroVolume { 
-    char waterTankName[20]; 
+    char waterTankName[21]; 
     float value; 
 } SetWaterTankZeroVolume;
 
@@ -432,25 +432,25 @@ extern const pb_msgdesc_t Reset_msg;
 #define Reset_fields &Reset_msg
 
 /* Maximum encoded size of messages (where known) */
-#define CreateWaterSource_size                   48
-#define CreateWaterTank_size                     58
+#define CreateWaterSource_size                   50
+#define CreateWaterTank_size                     60
 #define GetWaterSourceList_size                  0
-#define GetWaterSourceState_size                 21
+#define GetWaterSourceState_size                 22
 #define GetWaterTankList_size                    0
-#define GetWaterTankPressure_size                21
-#define GetWaterTankVolume_size                  21
-#define PrimitiveValue_size                      51
-#define RemoveWaterSource_size                   21
-#define RemoveWaterTank_size                     21
-#define Request_size                             66
+#define GetWaterTankPressure_size                22
+#define GetWaterTankVolume_size                  22
+#define PrimitiveValue_size                      102
+#define RemoveWaterSource_size                   22
+#define RemoveWaterTank_size                     22
+#define Request_size                             68
 #define Reset_size                               0
-#define Response_size                            594
+#define Response_size                            1155
 #define SetMode_size                             2
-#define SetWaterSourceState_size                 23
-#define SetWaterTankMaxVolume_size               26
-#define SetWaterTankMinimumVolume_size           26
-#define SetWaterTankZeroVolume_size              26
-#define Value_size                               583
+#define SetWaterSourceState_size                 24
+#define SetWaterTankMaxVolume_size               27
+#define SetWaterTankMinimumVolume_size           27
+#define SetWaterTankZeroVolume_size              27
+#define Value_size                               1144
 
 #ifdef __cplusplus
 } /* extern "C" */
