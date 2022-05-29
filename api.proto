@@ -14,10 +14,10 @@ message Request {
         SetMode setMode = 7;
         SetWaterSourceState setWaterSourceState = 8;
         GetWaterSourceList getWaterSourceList = 9;
-        GetWaterTankList getWaterTankList = 10;
-        GetWaterTankVolume getWaterTankVolume = 11;
-        GetWaterTankPressure getWaterTankPressure = 12;
-        GetWaterSourceState getWaterSourceState = 13;
+        GetWaterSource getWaterSource = 10;
+        GetWaterTankList getWaterTankList = 11;
+        GetWaterTankVolume getWaterTankVolume = 12;
+        GetWaterTankPressure getWaterTankPressure = 13;
         RemoveWaterSource removeWaterSource = 14;
         RemoveWaterTank removeWaterTank = 15;
         Reset reset = 16;
@@ -36,6 +36,7 @@ message PrimitiveValue {
 message Value {
     PrimitiveValue value = 1;
     repeated PrimitiveValue listValue = 2;
+    WaterSourceState waterSource = 3;
 }
 
 message Response {
@@ -105,7 +106,7 @@ message GetWaterTankPressure {
     string waterTankName = 1;
 }
 
-message GetWaterSourceState {
+message GetWaterSource {
     string waterSourceName = 1;
 }
 
@@ -118,4 +119,11 @@ message RemoveWaterTank {
 }
 
 message Reset {
+}
+
+message WaterSourceState {
+    string name = 1;
+    uint32 pin = 2;
+    bool enabled = 3;
+    optional string sourceWaterTank = 4;
 }

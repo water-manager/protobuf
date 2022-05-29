@@ -45,4 +45,19 @@ public interface ValueOrBuilder extends
    */
   dev.igorxp5.proto.api.PrimitiveValueOrBuilder getListValueOrBuilder(
       int index);
+
+  /**
+   * <code>.WaterSourceState waterSource = 3;</code>
+   * @return Whether the waterSource field is set.
+   */
+  boolean hasWaterSource();
+  /**
+   * <code>.WaterSourceState waterSource = 3;</code>
+   * @return The waterSource.
+   */
+  dev.igorxp5.proto.api.WaterSourceState getWaterSource();
+  /**
+   * <code>.WaterSourceState waterSource = 3;</code>
+   */
+  dev.igorxp5.proto.api.WaterSourceStateOrBuilder getWaterSourceOrBuilder();
 }

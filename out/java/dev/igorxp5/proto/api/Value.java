@@ -72,6 +72,19 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(dev.igorxp5.proto.api.PrimitiveValue.parser(), extensionRegistry));
             break;
           }
+          case 26: {
+            dev.igorxp5.proto.api.WaterSourceState.Builder subBuilder = null;
+            if (waterSource_ != null) {
+              subBuilder = waterSource_.toBuilder();
+            }
+            waterSource_ = input.readMessage(dev.igorxp5.proto.api.WaterSourceState.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(waterSource_);
+              waterSource_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -173,6 +186,32 @@ private static final long serialVersionUID = 0L;
     return listValue_.get(index);
   }
 
+  public static final int WATERSOURCE_FIELD_NUMBER = 3;
+  private dev.igorxp5.proto.api.WaterSourceState waterSource_;
+  /**
+   * <code>.WaterSourceState waterSource = 3;</code>
+   * @return Whether the waterSource field is set.
+   */
+  @java.lang.Override
+  public boolean hasWaterSource() {
+    return waterSource_ != null;
+  }
+  /**
+   * <code>.WaterSourceState waterSource = 3;</code>
+   * @return The waterSource.
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.WaterSourceState getWaterSource() {
+    return waterSource_ == null ? dev.igorxp5.proto.api.WaterSourceState.getDefaultInstance() : waterSource_;
+  }
+  /**
+   * <code>.WaterSourceState waterSource = 3;</code>
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.WaterSourceStateOrBuilder getWaterSourceOrBuilder() {
+    return getWaterSource();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -193,6 +232,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < listValue_.size(); i++) {
       output.writeMessage(2, listValue_.get(i));
     }
+    if (waterSource_ != null) {
+      output.writeMessage(3, getWaterSource());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -209,6 +251,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < listValue_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, listValue_.get(i));
+    }
+    if (waterSource_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getWaterSource());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -232,6 +278,11 @@ private static final long serialVersionUID = 0L;
     }
     if (!getListValueList()
         .equals(other.getListValueList())) return false;
+    if (hasWaterSource() != other.hasWaterSource()) return false;
+    if (hasWaterSource()) {
+      if (!getWaterSource()
+          .equals(other.getWaterSource())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -250,6 +301,10 @@ private static final long serialVersionUID = 0L;
     if (getListValueCount() > 0) {
       hash = (37 * hash) + LISTVALUE_FIELD_NUMBER;
       hash = (53 * hash) + getListValueList().hashCode();
+    }
+    if (hasWaterSource()) {
+      hash = (37 * hash) + WATERSOURCE_FIELD_NUMBER;
+      hash = (53 * hash) + getWaterSource().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -397,6 +452,12 @@ private static final long serialVersionUID = 0L;
       } else {
         listValueBuilder_.clear();
       }
+      if (waterSourceBuilder_ == null) {
+        waterSource_ = null;
+      } else {
+        waterSource_ = null;
+        waterSourceBuilder_ = null;
+      }
       return this;
     }
 
@@ -437,6 +498,11 @@ private static final long serialVersionUID = 0L;
         result.listValue_ = listValue_;
       } else {
         result.listValue_ = listValueBuilder_.build();
+      }
+      if (waterSourceBuilder_ == null) {
+        result.waterSource_ = waterSource_;
+      } else {
+        result.waterSource_ = waterSourceBuilder_.build();
       }
       onBuilt();
       return result;
@@ -514,6 +580,9 @@ private static final long serialVersionUID = 0L;
             listValueBuilder_.addAllMessages(other.listValue_);
           }
         }
+      }
+      if (other.hasWaterSource()) {
+        mergeWaterSource(other.getWaterSource());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -902,6 +971,125 @@ private static final long serialVersionUID = 0L;
         listValue_ = null;
       }
       return listValueBuilder_;
+    }
+
+    private dev.igorxp5.proto.api.WaterSourceState waterSource_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.WaterSourceState, dev.igorxp5.proto.api.WaterSourceState.Builder, dev.igorxp5.proto.api.WaterSourceStateOrBuilder> waterSourceBuilder_;
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     * @return Whether the waterSource field is set.
+     */
+    public boolean hasWaterSource() {
+      return waterSourceBuilder_ != null || waterSource_ != null;
+    }
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     * @return The waterSource.
+     */
+    public dev.igorxp5.proto.api.WaterSourceState getWaterSource() {
+      if (waterSourceBuilder_ == null) {
+        return waterSource_ == null ? dev.igorxp5.proto.api.WaterSourceState.getDefaultInstance() : waterSource_;
+      } else {
+        return waterSourceBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     */
+    public Builder setWaterSource(dev.igorxp5.proto.api.WaterSourceState value) {
+      if (waterSourceBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        waterSource_ = value;
+        onChanged();
+      } else {
+        waterSourceBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     */
+    public Builder setWaterSource(
+        dev.igorxp5.proto.api.WaterSourceState.Builder builderForValue) {
+      if (waterSourceBuilder_ == null) {
+        waterSource_ = builderForValue.build();
+        onChanged();
+      } else {
+        waterSourceBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     */
+    public Builder mergeWaterSource(dev.igorxp5.proto.api.WaterSourceState value) {
+      if (waterSourceBuilder_ == null) {
+        if (waterSource_ != null) {
+          waterSource_ =
+            dev.igorxp5.proto.api.WaterSourceState.newBuilder(waterSource_).mergeFrom(value).buildPartial();
+        } else {
+          waterSource_ = value;
+        }
+        onChanged();
+      } else {
+        waterSourceBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     */
+    public Builder clearWaterSource() {
+      if (waterSourceBuilder_ == null) {
+        waterSource_ = null;
+        onChanged();
+      } else {
+        waterSource_ = null;
+        waterSourceBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     */
+    public dev.igorxp5.proto.api.WaterSourceState.Builder getWaterSourceBuilder() {
+      
+      onChanged();
+      return getWaterSourceFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     */
+    public dev.igorxp5.proto.api.WaterSourceStateOrBuilder getWaterSourceOrBuilder() {
+      if (waterSourceBuilder_ != null) {
+        return waterSourceBuilder_.getMessageOrBuilder();
+      } else {
+        return waterSource_ == null ?
+            dev.igorxp5.proto.api.WaterSourceState.getDefaultInstance() : waterSource_;
+      }
+    }
+    /**
+     * <code>.WaterSourceState waterSource = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.WaterSourceState, dev.igorxp5.proto.api.WaterSourceState.Builder, dev.igorxp5.proto.api.WaterSourceStateOrBuilder> 
+        getWaterSourceFieldBuilder() {
+      if (waterSourceBuilder_ == null) {
+        waterSourceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dev.igorxp5.proto.api.WaterSourceState, dev.igorxp5.proto.api.WaterSourceState.Builder, dev.igorxp5.proto.api.WaterSourceStateOrBuilder>(
+                getWaterSource(),
+                getParentForChildren(),
+                isClean());
+        waterSource_ = null;
+      }
+      return waterSourceBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

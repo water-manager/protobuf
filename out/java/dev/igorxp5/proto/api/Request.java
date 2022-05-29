@@ -166,8 +166,22 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 82: {
-            dev.igorxp5.proto.api.GetWaterTankList.Builder subBuilder = null;
+            dev.igorxp5.proto.api.GetWaterSource.Builder subBuilder = null;
             if (messageCase_ == 10) {
+              subBuilder = ((dev.igorxp5.proto.api.GetWaterSource) message_).toBuilder();
+            }
+            message_ =
+                input.readMessage(dev.igorxp5.proto.api.GetWaterSource.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((dev.igorxp5.proto.api.GetWaterSource) message_);
+              message_ = subBuilder.buildPartial();
+            }
+            messageCase_ = 10;
+            break;
+          }
+          case 90: {
+            dev.igorxp5.proto.api.GetWaterTankList.Builder subBuilder = null;
+            if (messageCase_ == 11) {
               subBuilder = ((dev.igorxp5.proto.api.GetWaterTankList) message_).toBuilder();
             }
             message_ =
@@ -176,12 +190,12 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom((dev.igorxp5.proto.api.GetWaterTankList) message_);
               message_ = subBuilder.buildPartial();
             }
-            messageCase_ = 10;
+            messageCase_ = 11;
             break;
           }
-          case 90: {
+          case 98: {
             dev.igorxp5.proto.api.GetWaterTankVolume.Builder subBuilder = null;
-            if (messageCase_ == 11) {
+            if (messageCase_ == 12) {
               subBuilder = ((dev.igorxp5.proto.api.GetWaterTankVolume) message_).toBuilder();
             }
             message_ =
@@ -190,32 +204,18 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom((dev.igorxp5.proto.api.GetWaterTankVolume) message_);
               message_ = subBuilder.buildPartial();
             }
-            messageCase_ = 11;
+            messageCase_ = 12;
             break;
           }
-          case 98: {
+          case 106: {
             dev.igorxp5.proto.api.GetWaterTankPressure.Builder subBuilder = null;
-            if (messageCase_ == 12) {
+            if (messageCase_ == 13) {
               subBuilder = ((dev.igorxp5.proto.api.GetWaterTankPressure) message_).toBuilder();
             }
             message_ =
                 input.readMessage(dev.igorxp5.proto.api.GetWaterTankPressure.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom((dev.igorxp5.proto.api.GetWaterTankPressure) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 12;
-            break;
-          }
-          case 106: {
-            dev.igorxp5.proto.api.GetWaterSourceState.Builder subBuilder = null;
-            if (messageCase_ == 13) {
-              subBuilder = ((dev.igorxp5.proto.api.GetWaterSourceState) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(dev.igorxp5.proto.api.GetWaterSourceState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((dev.igorxp5.proto.api.GetWaterSourceState) message_);
               message_ = subBuilder.buildPartial();
             }
             messageCase_ = 13;
@@ -308,10 +308,10 @@ private static final long serialVersionUID = 0L;
     SETMODE(7),
     SETWATERSOURCESTATE(8),
     GETWATERSOURCELIST(9),
-    GETWATERTANKLIST(10),
-    GETWATERTANKVOLUME(11),
-    GETWATERTANKPRESSURE(12),
-    GETWATERSOURCESTATE(13),
+    GETWATERSOURCE(10),
+    GETWATERTANKLIST(11),
+    GETWATERTANKVOLUME(12),
+    GETWATERTANKPRESSURE(13),
     REMOVEWATERSOURCE(14),
     REMOVEWATERTANK(15),
     RESET(16),
@@ -340,10 +340,10 @@ private static final long serialVersionUID = 0L;
         case 7: return SETMODE;
         case 8: return SETWATERSOURCESTATE;
         case 9: return GETWATERSOURCELIST;
-        case 10: return GETWATERTANKLIST;
-        case 11: return GETWATERTANKVOLUME;
-        case 12: return GETWATERTANKPRESSURE;
-        case 13: return GETWATERSOURCESTATE;
+        case 10: return GETWATERSOURCE;
+        case 11: return GETWATERTANKLIST;
+        case 12: return GETWATERTANKVOLUME;
+        case 13: return GETWATERTANKPRESSURE;
         case 14: return REMOVEWATERSOURCE;
         case 15: return REMOVEWATERTANK;
         case 16: return RESET;
@@ -621,128 +621,128 @@ private static final long serialVersionUID = 0L;
     return dev.igorxp5.proto.api.GetWaterSourceList.getDefaultInstance();
   }
 
-  public static final int GETWATERTANKLIST_FIELD_NUMBER = 10;
+  public static final int GETWATERSOURCE_FIELD_NUMBER = 10;
   /**
-   * <code>.GetWaterTankList getWaterTankList = 10;</code>
+   * <code>.GetWaterSource getWaterSource = 10;</code>
+   * @return Whether the getWaterSource field is set.
+   */
+  @java.lang.Override
+  public boolean hasGetWaterSource() {
+    return messageCase_ == 10;
+  }
+  /**
+   * <code>.GetWaterSource getWaterSource = 10;</code>
+   * @return The getWaterSource.
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.GetWaterSource getGetWaterSource() {
+    if (messageCase_ == 10) {
+       return (dev.igorxp5.proto.api.GetWaterSource) message_;
+    }
+    return dev.igorxp5.proto.api.GetWaterSource.getDefaultInstance();
+  }
+  /**
+   * <code>.GetWaterSource getWaterSource = 10;</code>
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.GetWaterSourceOrBuilder getGetWaterSourceOrBuilder() {
+    if (messageCase_ == 10) {
+       return (dev.igorxp5.proto.api.GetWaterSource) message_;
+    }
+    return dev.igorxp5.proto.api.GetWaterSource.getDefaultInstance();
+  }
+
+  public static final int GETWATERTANKLIST_FIELD_NUMBER = 11;
+  /**
+   * <code>.GetWaterTankList getWaterTankList = 11;</code>
    * @return Whether the getWaterTankList field is set.
    */
   @java.lang.Override
   public boolean hasGetWaterTankList() {
-    return messageCase_ == 10;
+    return messageCase_ == 11;
   }
   /**
-   * <code>.GetWaterTankList getWaterTankList = 10;</code>
+   * <code>.GetWaterTankList getWaterTankList = 11;</code>
    * @return The getWaterTankList.
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.GetWaterTankList getGetWaterTankList() {
-    if (messageCase_ == 10) {
+    if (messageCase_ == 11) {
        return (dev.igorxp5.proto.api.GetWaterTankList) message_;
     }
     return dev.igorxp5.proto.api.GetWaterTankList.getDefaultInstance();
   }
   /**
-   * <code>.GetWaterTankList getWaterTankList = 10;</code>
+   * <code>.GetWaterTankList getWaterTankList = 11;</code>
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.GetWaterTankListOrBuilder getGetWaterTankListOrBuilder() {
-    if (messageCase_ == 10) {
+    if (messageCase_ == 11) {
        return (dev.igorxp5.proto.api.GetWaterTankList) message_;
     }
     return dev.igorxp5.proto.api.GetWaterTankList.getDefaultInstance();
   }
 
-  public static final int GETWATERTANKVOLUME_FIELD_NUMBER = 11;
+  public static final int GETWATERTANKVOLUME_FIELD_NUMBER = 12;
   /**
-   * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+   * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
    * @return Whether the getWaterTankVolume field is set.
    */
   @java.lang.Override
   public boolean hasGetWaterTankVolume() {
-    return messageCase_ == 11;
+    return messageCase_ == 12;
   }
   /**
-   * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+   * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
    * @return The getWaterTankVolume.
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.GetWaterTankVolume getGetWaterTankVolume() {
-    if (messageCase_ == 11) {
+    if (messageCase_ == 12) {
        return (dev.igorxp5.proto.api.GetWaterTankVolume) message_;
     }
     return dev.igorxp5.proto.api.GetWaterTankVolume.getDefaultInstance();
   }
   /**
-   * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+   * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.GetWaterTankVolumeOrBuilder getGetWaterTankVolumeOrBuilder() {
-    if (messageCase_ == 11) {
+    if (messageCase_ == 12) {
        return (dev.igorxp5.proto.api.GetWaterTankVolume) message_;
     }
     return dev.igorxp5.proto.api.GetWaterTankVolume.getDefaultInstance();
   }
 
-  public static final int GETWATERTANKPRESSURE_FIELD_NUMBER = 12;
+  public static final int GETWATERTANKPRESSURE_FIELD_NUMBER = 13;
   /**
-   * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+   * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
    * @return Whether the getWaterTankPressure field is set.
    */
   @java.lang.Override
   public boolean hasGetWaterTankPressure() {
-    return messageCase_ == 12;
+    return messageCase_ == 13;
   }
   /**
-   * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+   * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
    * @return The getWaterTankPressure.
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.GetWaterTankPressure getGetWaterTankPressure() {
-    if (messageCase_ == 12) {
+    if (messageCase_ == 13) {
        return (dev.igorxp5.proto.api.GetWaterTankPressure) message_;
     }
     return dev.igorxp5.proto.api.GetWaterTankPressure.getDefaultInstance();
   }
   /**
-   * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+   * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.GetWaterTankPressureOrBuilder getGetWaterTankPressureOrBuilder() {
-    if (messageCase_ == 12) {
+    if (messageCase_ == 13) {
        return (dev.igorxp5.proto.api.GetWaterTankPressure) message_;
     }
     return dev.igorxp5.proto.api.GetWaterTankPressure.getDefaultInstance();
-  }
-
-  public static final int GETWATERSOURCESTATE_FIELD_NUMBER = 13;
-  /**
-   * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-   * @return Whether the getWaterSourceState field is set.
-   */
-  @java.lang.Override
-  public boolean hasGetWaterSourceState() {
-    return messageCase_ == 13;
-  }
-  /**
-   * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-   * @return The getWaterSourceState.
-   */
-  @java.lang.Override
-  public dev.igorxp5.proto.api.GetWaterSourceState getGetWaterSourceState() {
-    if (messageCase_ == 13) {
-       return (dev.igorxp5.proto.api.GetWaterSourceState) message_;
-    }
-    return dev.igorxp5.proto.api.GetWaterSourceState.getDefaultInstance();
-  }
-  /**
-   * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-   */
-  @java.lang.Override
-  public dev.igorxp5.proto.api.GetWaterSourceStateOrBuilder getGetWaterSourceStateOrBuilder() {
-    if (messageCase_ == 13) {
-       return (dev.igorxp5.proto.api.GetWaterSourceState) message_;
-    }
-    return dev.igorxp5.proto.api.GetWaterSourceState.getDefaultInstance();
   }
 
   public static final int REMOVEWATERSOURCE_FIELD_NUMBER = 14;
@@ -880,16 +880,16 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(9, (dev.igorxp5.proto.api.GetWaterSourceList) message_);
     }
     if (messageCase_ == 10) {
-      output.writeMessage(10, (dev.igorxp5.proto.api.GetWaterTankList) message_);
+      output.writeMessage(10, (dev.igorxp5.proto.api.GetWaterSource) message_);
     }
     if (messageCase_ == 11) {
-      output.writeMessage(11, (dev.igorxp5.proto.api.GetWaterTankVolume) message_);
+      output.writeMessage(11, (dev.igorxp5.proto.api.GetWaterTankList) message_);
     }
     if (messageCase_ == 12) {
-      output.writeMessage(12, (dev.igorxp5.proto.api.GetWaterTankPressure) message_);
+      output.writeMessage(12, (dev.igorxp5.proto.api.GetWaterTankVolume) message_);
     }
     if (messageCase_ == 13) {
-      output.writeMessage(13, (dev.igorxp5.proto.api.GetWaterSourceState) message_);
+      output.writeMessage(13, (dev.igorxp5.proto.api.GetWaterTankPressure) message_);
     }
     if (messageCase_ == 14) {
       output.writeMessage(14, (dev.igorxp5.proto.api.RemoveWaterSource) message_);
@@ -947,19 +947,19 @@ private static final long serialVersionUID = 0L;
     }
     if (messageCase_ == 10) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, (dev.igorxp5.proto.api.GetWaterTankList) message_);
+        .computeMessageSize(10, (dev.igorxp5.proto.api.GetWaterSource) message_);
     }
     if (messageCase_ == 11) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, (dev.igorxp5.proto.api.GetWaterTankVolume) message_);
+        .computeMessageSize(11, (dev.igorxp5.proto.api.GetWaterTankList) message_);
     }
     if (messageCase_ == 12) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(12, (dev.igorxp5.proto.api.GetWaterTankPressure) message_);
+        .computeMessageSize(12, (dev.igorxp5.proto.api.GetWaterTankVolume) message_);
     }
     if (messageCase_ == 13) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(13, (dev.igorxp5.proto.api.GetWaterSourceState) message_);
+        .computeMessageSize(13, (dev.igorxp5.proto.api.GetWaterTankPressure) message_);
     }
     if (messageCase_ == 14) {
       size += com.google.protobuf.CodedOutputStream
@@ -1025,20 +1025,20 @@ private static final long serialVersionUID = 0L;
             .equals(other.getGetWaterSourceList())) return false;
         break;
       case 10:
+        if (!getGetWaterSource()
+            .equals(other.getGetWaterSource())) return false;
+        break;
+      case 11:
         if (!getGetWaterTankList()
             .equals(other.getGetWaterTankList())) return false;
         break;
-      case 11:
+      case 12:
         if (!getGetWaterTankVolume()
             .equals(other.getGetWaterTankVolume())) return false;
         break;
-      case 12:
+      case 13:
         if (!getGetWaterTankPressure()
             .equals(other.getGetWaterTankPressure())) return false;
-        break;
-      case 13:
-        if (!getGetWaterSourceState()
-            .equals(other.getGetWaterSourceState())) return false;
         break;
       case 14:
         if (!getRemoveWaterSource()
@@ -1102,20 +1102,20 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getGetWaterSourceList().hashCode();
         break;
       case 10:
+        hash = (37 * hash) + GETWATERSOURCE_FIELD_NUMBER;
+        hash = (53 * hash) + getGetWaterSource().hashCode();
+        break;
+      case 11:
         hash = (37 * hash) + GETWATERTANKLIST_FIELD_NUMBER;
         hash = (53 * hash) + getGetWaterTankList().hashCode();
         break;
-      case 11:
+      case 12:
         hash = (37 * hash) + GETWATERTANKVOLUME_FIELD_NUMBER;
         hash = (53 * hash) + getGetWaterTankVolume().hashCode();
         break;
-      case 12:
+      case 13:
         hash = (37 * hash) + GETWATERTANKPRESSURE_FIELD_NUMBER;
         hash = (53 * hash) + getGetWaterTankPressure().hashCode();
-        break;
-      case 13:
-        hash = (37 * hash) + GETWATERSOURCESTATE_FIELD_NUMBER;
-        hash = (53 * hash) + getGetWaterSourceState().hashCode();
         break;
       case 14:
         hash = (37 * hash) + REMOVEWATERSOURCE_FIELD_NUMBER;
@@ -1353,31 +1353,31 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (messageCase_ == 10) {
+        if (getWaterSourceBuilder_ == null) {
+          result.message_ = message_;
+        } else {
+          result.message_ = getWaterSourceBuilder_.build();
+        }
+      }
+      if (messageCase_ == 11) {
         if (getWaterTankListBuilder_ == null) {
           result.message_ = message_;
         } else {
           result.message_ = getWaterTankListBuilder_.build();
         }
       }
-      if (messageCase_ == 11) {
+      if (messageCase_ == 12) {
         if (getWaterTankVolumeBuilder_ == null) {
           result.message_ = message_;
         } else {
           result.message_ = getWaterTankVolumeBuilder_.build();
         }
       }
-      if (messageCase_ == 12) {
+      if (messageCase_ == 13) {
         if (getWaterTankPressureBuilder_ == null) {
           result.message_ = message_;
         } else {
           result.message_ = getWaterTankPressureBuilder_.build();
-        }
-      }
-      if (messageCase_ == 13) {
-        if (getWaterSourceStateBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = getWaterSourceStateBuilder_.build();
         }
       }
       if (messageCase_ == 14) {
@@ -1486,6 +1486,10 @@ private static final long serialVersionUID = 0L;
           mergeGetWaterSourceList(other.getGetWaterSourceList());
           break;
         }
+        case GETWATERSOURCE: {
+          mergeGetWaterSource(other.getGetWaterSource());
+          break;
+        }
         case GETWATERTANKLIST: {
           mergeGetWaterTankList(other.getGetWaterTankList());
           break;
@@ -1496,10 +1500,6 @@ private static final long serialVersionUID = 0L;
         }
         case GETWATERTANKPRESSURE: {
           mergeGetWaterTankPressure(other.getGetWaterTankPressure());
-          break;
-        }
-        case GETWATERSOURCESTATE: {
-          mergeGetWaterSourceState(other.getGetWaterSourceState());
           break;
         }
         case REMOVEWATERSOURCE: {
@@ -2722,35 +2722,176 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.GetWaterSource, dev.igorxp5.proto.api.GetWaterSource.Builder, dev.igorxp5.proto.api.GetWaterSourceOrBuilder> getWaterSourceBuilder_;
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     * @return Whether the getWaterSource field is set.
+     */
+    @java.lang.Override
+    public boolean hasGetWaterSource() {
+      return messageCase_ == 10;
+    }
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     * @return The getWaterSource.
+     */
+    @java.lang.Override
+    public dev.igorxp5.proto.api.GetWaterSource getGetWaterSource() {
+      if (getWaterSourceBuilder_ == null) {
+        if (messageCase_ == 10) {
+          return (dev.igorxp5.proto.api.GetWaterSource) message_;
+        }
+        return dev.igorxp5.proto.api.GetWaterSource.getDefaultInstance();
+      } else {
+        if (messageCase_ == 10) {
+          return getWaterSourceBuilder_.getMessage();
+        }
+        return dev.igorxp5.proto.api.GetWaterSource.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     */
+    public Builder setGetWaterSource(dev.igorxp5.proto.api.GetWaterSource value) {
+      if (getWaterSourceBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        message_ = value;
+        onChanged();
+      } else {
+        getWaterSourceBuilder_.setMessage(value);
+      }
+      messageCase_ = 10;
+      return this;
+    }
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     */
+    public Builder setGetWaterSource(
+        dev.igorxp5.proto.api.GetWaterSource.Builder builderForValue) {
+      if (getWaterSourceBuilder_ == null) {
+        message_ = builderForValue.build();
+        onChanged();
+      } else {
+        getWaterSourceBuilder_.setMessage(builderForValue.build());
+      }
+      messageCase_ = 10;
+      return this;
+    }
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     */
+    public Builder mergeGetWaterSource(dev.igorxp5.proto.api.GetWaterSource value) {
+      if (getWaterSourceBuilder_ == null) {
+        if (messageCase_ == 10 &&
+            message_ != dev.igorxp5.proto.api.GetWaterSource.getDefaultInstance()) {
+          message_ = dev.igorxp5.proto.api.GetWaterSource.newBuilder((dev.igorxp5.proto.api.GetWaterSource) message_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          message_ = value;
+        }
+        onChanged();
+      } else {
+        if (messageCase_ == 10) {
+          getWaterSourceBuilder_.mergeFrom(value);
+        }
+        getWaterSourceBuilder_.setMessage(value);
+      }
+      messageCase_ = 10;
+      return this;
+    }
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     */
+    public Builder clearGetWaterSource() {
+      if (getWaterSourceBuilder_ == null) {
+        if (messageCase_ == 10) {
+          messageCase_ = 0;
+          message_ = null;
+          onChanged();
+        }
+      } else {
+        if (messageCase_ == 10) {
+          messageCase_ = 0;
+          message_ = null;
+        }
+        getWaterSourceBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     */
+    public dev.igorxp5.proto.api.GetWaterSource.Builder getGetWaterSourceBuilder() {
+      return getGetWaterSourceFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     */
+    @java.lang.Override
+    public dev.igorxp5.proto.api.GetWaterSourceOrBuilder getGetWaterSourceOrBuilder() {
+      if ((messageCase_ == 10) && (getWaterSourceBuilder_ != null)) {
+        return getWaterSourceBuilder_.getMessageOrBuilder();
+      } else {
+        if (messageCase_ == 10) {
+          return (dev.igorxp5.proto.api.GetWaterSource) message_;
+        }
+        return dev.igorxp5.proto.api.GetWaterSource.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.GetWaterSource getWaterSource = 10;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.GetWaterSource, dev.igorxp5.proto.api.GetWaterSource.Builder, dev.igorxp5.proto.api.GetWaterSourceOrBuilder> 
+        getGetWaterSourceFieldBuilder() {
+      if (getWaterSourceBuilder_ == null) {
+        if (!(messageCase_ == 10)) {
+          message_ = dev.igorxp5.proto.api.GetWaterSource.getDefaultInstance();
+        }
+        getWaterSourceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dev.igorxp5.proto.api.GetWaterSource, dev.igorxp5.proto.api.GetWaterSource.Builder, dev.igorxp5.proto.api.GetWaterSourceOrBuilder>(
+                (dev.igorxp5.proto.api.GetWaterSource) message_,
+                getParentForChildren(),
+                isClean());
+        message_ = null;
+      }
+      messageCase_ = 10;
+      onChanged();;
+      return getWaterSourceBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.GetWaterTankList, dev.igorxp5.proto.api.GetWaterTankList.Builder, dev.igorxp5.proto.api.GetWaterTankListOrBuilder> getWaterTankListBuilder_;
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      * @return Whether the getWaterTankList field is set.
      */
     @java.lang.Override
     public boolean hasGetWaterTankList() {
-      return messageCase_ == 10;
+      return messageCase_ == 11;
     }
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      * @return The getWaterTankList.
      */
     @java.lang.Override
     public dev.igorxp5.proto.api.GetWaterTankList getGetWaterTankList() {
       if (getWaterTankListBuilder_ == null) {
-        if (messageCase_ == 10) {
+        if (messageCase_ == 11) {
           return (dev.igorxp5.proto.api.GetWaterTankList) message_;
         }
         return dev.igorxp5.proto.api.GetWaterTankList.getDefaultInstance();
       } else {
-        if (messageCase_ == 10) {
+        if (messageCase_ == 11) {
           return getWaterTankListBuilder_.getMessage();
         }
         return dev.igorxp5.proto.api.GetWaterTankList.getDefaultInstance();
       }
     }
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      */
     public Builder setGetWaterTankList(dev.igorxp5.proto.api.GetWaterTankList value) {
       if (getWaterTankListBuilder_ == null) {
@@ -2762,11 +2903,11 @@ private static final long serialVersionUID = 0L;
       } else {
         getWaterTankListBuilder_.setMessage(value);
       }
-      messageCase_ = 10;
+      messageCase_ = 11;
       return this;
     }
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      */
     public Builder setGetWaterTankList(
         dev.igorxp5.proto.api.GetWaterTankList.Builder builderForValue) {
@@ -2776,15 +2917,15 @@ private static final long serialVersionUID = 0L;
       } else {
         getWaterTankListBuilder_.setMessage(builderForValue.build());
       }
-      messageCase_ = 10;
+      messageCase_ = 11;
       return this;
     }
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      */
     public Builder mergeGetWaterTankList(dev.igorxp5.proto.api.GetWaterTankList value) {
       if (getWaterTankListBuilder_ == null) {
-        if (messageCase_ == 10 &&
+        if (messageCase_ == 11 &&
             message_ != dev.igorxp5.proto.api.GetWaterTankList.getDefaultInstance()) {
           message_ = dev.igorxp5.proto.api.GetWaterTankList.newBuilder((dev.igorxp5.proto.api.GetWaterTankList) message_)
               .mergeFrom(value).buildPartial();
@@ -2793,26 +2934,26 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (messageCase_ == 10) {
+        if (messageCase_ == 11) {
           getWaterTankListBuilder_.mergeFrom(value);
         }
         getWaterTankListBuilder_.setMessage(value);
       }
-      messageCase_ = 10;
+      messageCase_ = 11;
       return this;
     }
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      */
     public Builder clearGetWaterTankList() {
       if (getWaterTankListBuilder_ == null) {
-        if (messageCase_ == 10) {
+        if (messageCase_ == 11) {
           messageCase_ = 0;
           message_ = null;
           onChanged();
         }
       } else {
-        if (messageCase_ == 10) {
+        if (messageCase_ == 11) {
           messageCase_ = 0;
           message_ = null;
         }
@@ -2821,33 +2962,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      */
     public dev.igorxp5.proto.api.GetWaterTankList.Builder getGetWaterTankListBuilder() {
       return getGetWaterTankListFieldBuilder().getBuilder();
     }
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      */
     @java.lang.Override
     public dev.igorxp5.proto.api.GetWaterTankListOrBuilder getGetWaterTankListOrBuilder() {
-      if ((messageCase_ == 10) && (getWaterTankListBuilder_ != null)) {
+      if ((messageCase_ == 11) && (getWaterTankListBuilder_ != null)) {
         return getWaterTankListBuilder_.getMessageOrBuilder();
       } else {
-        if (messageCase_ == 10) {
+        if (messageCase_ == 11) {
           return (dev.igorxp5.proto.api.GetWaterTankList) message_;
         }
         return dev.igorxp5.proto.api.GetWaterTankList.getDefaultInstance();
       }
     }
     /**
-     * <code>.GetWaterTankList getWaterTankList = 10;</code>
+     * <code>.GetWaterTankList getWaterTankList = 11;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.GetWaterTankList, dev.igorxp5.proto.api.GetWaterTankList.Builder, dev.igorxp5.proto.api.GetWaterTankListOrBuilder> 
         getGetWaterTankListFieldBuilder() {
       if (getWaterTankListBuilder_ == null) {
-        if (!(messageCase_ == 10)) {
+        if (!(messageCase_ == 11)) {
           message_ = dev.igorxp5.proto.api.GetWaterTankList.getDefaultInstance();
         }
         getWaterTankListBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2857,7 +2998,7 @@ private static final long serialVersionUID = 0L;
                 isClean());
         message_ = null;
       }
-      messageCase_ = 10;
+      messageCase_ = 11;
       onChanged();;
       return getWaterTankListBuilder_;
     }
@@ -2865,33 +3006,33 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.GetWaterTankVolume, dev.igorxp5.proto.api.GetWaterTankVolume.Builder, dev.igorxp5.proto.api.GetWaterTankVolumeOrBuilder> getWaterTankVolumeBuilder_;
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      * @return Whether the getWaterTankVolume field is set.
      */
     @java.lang.Override
     public boolean hasGetWaterTankVolume() {
-      return messageCase_ == 11;
+      return messageCase_ == 12;
     }
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      * @return The getWaterTankVolume.
      */
     @java.lang.Override
     public dev.igorxp5.proto.api.GetWaterTankVolume getGetWaterTankVolume() {
       if (getWaterTankVolumeBuilder_ == null) {
-        if (messageCase_ == 11) {
+        if (messageCase_ == 12) {
           return (dev.igorxp5.proto.api.GetWaterTankVolume) message_;
         }
         return dev.igorxp5.proto.api.GetWaterTankVolume.getDefaultInstance();
       } else {
-        if (messageCase_ == 11) {
+        if (messageCase_ == 12) {
           return getWaterTankVolumeBuilder_.getMessage();
         }
         return dev.igorxp5.proto.api.GetWaterTankVolume.getDefaultInstance();
       }
     }
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      */
     public Builder setGetWaterTankVolume(dev.igorxp5.proto.api.GetWaterTankVolume value) {
       if (getWaterTankVolumeBuilder_ == null) {
@@ -2903,11 +3044,11 @@ private static final long serialVersionUID = 0L;
       } else {
         getWaterTankVolumeBuilder_.setMessage(value);
       }
-      messageCase_ = 11;
+      messageCase_ = 12;
       return this;
     }
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      */
     public Builder setGetWaterTankVolume(
         dev.igorxp5.proto.api.GetWaterTankVolume.Builder builderForValue) {
@@ -2917,15 +3058,15 @@ private static final long serialVersionUID = 0L;
       } else {
         getWaterTankVolumeBuilder_.setMessage(builderForValue.build());
       }
-      messageCase_ = 11;
+      messageCase_ = 12;
       return this;
     }
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      */
     public Builder mergeGetWaterTankVolume(dev.igorxp5.proto.api.GetWaterTankVolume value) {
       if (getWaterTankVolumeBuilder_ == null) {
-        if (messageCase_ == 11 &&
+        if (messageCase_ == 12 &&
             message_ != dev.igorxp5.proto.api.GetWaterTankVolume.getDefaultInstance()) {
           message_ = dev.igorxp5.proto.api.GetWaterTankVolume.newBuilder((dev.igorxp5.proto.api.GetWaterTankVolume) message_)
               .mergeFrom(value).buildPartial();
@@ -2934,26 +3075,26 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (messageCase_ == 11) {
+        if (messageCase_ == 12) {
           getWaterTankVolumeBuilder_.mergeFrom(value);
         }
         getWaterTankVolumeBuilder_.setMessage(value);
       }
-      messageCase_ = 11;
+      messageCase_ = 12;
       return this;
     }
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      */
     public Builder clearGetWaterTankVolume() {
       if (getWaterTankVolumeBuilder_ == null) {
-        if (messageCase_ == 11) {
+        if (messageCase_ == 12) {
           messageCase_ = 0;
           message_ = null;
           onChanged();
         }
       } else {
-        if (messageCase_ == 11) {
+        if (messageCase_ == 12) {
           messageCase_ = 0;
           message_ = null;
         }
@@ -2962,33 +3103,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      */
     public dev.igorxp5.proto.api.GetWaterTankVolume.Builder getGetWaterTankVolumeBuilder() {
       return getGetWaterTankVolumeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      */
     @java.lang.Override
     public dev.igorxp5.proto.api.GetWaterTankVolumeOrBuilder getGetWaterTankVolumeOrBuilder() {
-      if ((messageCase_ == 11) && (getWaterTankVolumeBuilder_ != null)) {
+      if ((messageCase_ == 12) && (getWaterTankVolumeBuilder_ != null)) {
         return getWaterTankVolumeBuilder_.getMessageOrBuilder();
       } else {
-        if (messageCase_ == 11) {
+        if (messageCase_ == 12) {
           return (dev.igorxp5.proto.api.GetWaterTankVolume) message_;
         }
         return dev.igorxp5.proto.api.GetWaterTankVolume.getDefaultInstance();
       }
     }
     /**
-     * <code>.GetWaterTankVolume getWaterTankVolume = 11;</code>
+     * <code>.GetWaterTankVolume getWaterTankVolume = 12;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.GetWaterTankVolume, dev.igorxp5.proto.api.GetWaterTankVolume.Builder, dev.igorxp5.proto.api.GetWaterTankVolumeOrBuilder> 
         getGetWaterTankVolumeFieldBuilder() {
       if (getWaterTankVolumeBuilder_ == null) {
-        if (!(messageCase_ == 11)) {
+        if (!(messageCase_ == 12)) {
           message_ = dev.igorxp5.proto.api.GetWaterTankVolume.getDefaultInstance();
         }
         getWaterTankVolumeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2998,7 +3139,7 @@ private static final long serialVersionUID = 0L;
                 isClean());
         message_ = null;
       }
-      messageCase_ = 11;
+      messageCase_ = 12;
       onChanged();;
       return getWaterTankVolumeBuilder_;
     }
@@ -3006,33 +3147,33 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.GetWaterTankPressure, dev.igorxp5.proto.api.GetWaterTankPressure.Builder, dev.igorxp5.proto.api.GetWaterTankPressureOrBuilder> getWaterTankPressureBuilder_;
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      * @return Whether the getWaterTankPressure field is set.
      */
     @java.lang.Override
     public boolean hasGetWaterTankPressure() {
-      return messageCase_ == 12;
+      return messageCase_ == 13;
     }
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      * @return The getWaterTankPressure.
      */
     @java.lang.Override
     public dev.igorxp5.proto.api.GetWaterTankPressure getGetWaterTankPressure() {
       if (getWaterTankPressureBuilder_ == null) {
-        if (messageCase_ == 12) {
+        if (messageCase_ == 13) {
           return (dev.igorxp5.proto.api.GetWaterTankPressure) message_;
         }
         return dev.igorxp5.proto.api.GetWaterTankPressure.getDefaultInstance();
       } else {
-        if (messageCase_ == 12) {
+        if (messageCase_ == 13) {
           return getWaterTankPressureBuilder_.getMessage();
         }
         return dev.igorxp5.proto.api.GetWaterTankPressure.getDefaultInstance();
       }
     }
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      */
     public Builder setGetWaterTankPressure(dev.igorxp5.proto.api.GetWaterTankPressure value) {
       if (getWaterTankPressureBuilder_ == null) {
@@ -3044,11 +3185,11 @@ private static final long serialVersionUID = 0L;
       } else {
         getWaterTankPressureBuilder_.setMessage(value);
       }
-      messageCase_ = 12;
+      messageCase_ = 13;
       return this;
     }
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      */
     public Builder setGetWaterTankPressure(
         dev.igorxp5.proto.api.GetWaterTankPressure.Builder builderForValue) {
@@ -3058,15 +3199,15 @@ private static final long serialVersionUID = 0L;
       } else {
         getWaterTankPressureBuilder_.setMessage(builderForValue.build());
       }
-      messageCase_ = 12;
+      messageCase_ = 13;
       return this;
     }
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      */
     public Builder mergeGetWaterTankPressure(dev.igorxp5.proto.api.GetWaterTankPressure value) {
       if (getWaterTankPressureBuilder_ == null) {
-        if (messageCase_ == 12 &&
+        if (messageCase_ == 13 &&
             message_ != dev.igorxp5.proto.api.GetWaterTankPressure.getDefaultInstance()) {
           message_ = dev.igorxp5.proto.api.GetWaterTankPressure.newBuilder((dev.igorxp5.proto.api.GetWaterTankPressure) message_)
               .mergeFrom(value).buildPartial();
@@ -3075,26 +3216,26 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (messageCase_ == 12) {
+        if (messageCase_ == 13) {
           getWaterTankPressureBuilder_.mergeFrom(value);
         }
         getWaterTankPressureBuilder_.setMessage(value);
       }
-      messageCase_ = 12;
+      messageCase_ = 13;
       return this;
     }
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      */
     public Builder clearGetWaterTankPressure() {
       if (getWaterTankPressureBuilder_ == null) {
-        if (messageCase_ == 12) {
+        if (messageCase_ == 13) {
           messageCase_ = 0;
           message_ = null;
           onChanged();
         }
       } else {
-        if (messageCase_ == 12) {
+        if (messageCase_ == 13) {
           messageCase_ = 0;
           message_ = null;
         }
@@ -3103,33 +3244,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      */
     public dev.igorxp5.proto.api.GetWaterTankPressure.Builder getGetWaterTankPressureBuilder() {
       return getGetWaterTankPressureFieldBuilder().getBuilder();
     }
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      */
     @java.lang.Override
     public dev.igorxp5.proto.api.GetWaterTankPressureOrBuilder getGetWaterTankPressureOrBuilder() {
-      if ((messageCase_ == 12) && (getWaterTankPressureBuilder_ != null)) {
+      if ((messageCase_ == 13) && (getWaterTankPressureBuilder_ != null)) {
         return getWaterTankPressureBuilder_.getMessageOrBuilder();
       } else {
-        if (messageCase_ == 12) {
+        if (messageCase_ == 13) {
           return (dev.igorxp5.proto.api.GetWaterTankPressure) message_;
         }
         return dev.igorxp5.proto.api.GetWaterTankPressure.getDefaultInstance();
       }
     }
     /**
-     * <code>.GetWaterTankPressure getWaterTankPressure = 12;</code>
+     * <code>.GetWaterTankPressure getWaterTankPressure = 13;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.GetWaterTankPressure, dev.igorxp5.proto.api.GetWaterTankPressure.Builder, dev.igorxp5.proto.api.GetWaterTankPressureOrBuilder> 
         getGetWaterTankPressureFieldBuilder() {
       if (getWaterTankPressureBuilder_ == null) {
-        if (!(messageCase_ == 12)) {
+        if (!(messageCase_ == 13)) {
           message_ = dev.igorxp5.proto.api.GetWaterTankPressure.getDefaultInstance();
         }
         getWaterTankPressureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3139,150 +3280,9 @@ private static final long serialVersionUID = 0L;
                 isClean());
         message_ = null;
       }
-      messageCase_ = 12;
+      messageCase_ = 13;
       onChanged();;
       return getWaterTankPressureBuilder_;
-    }
-
-    private com.google.protobuf.SingleFieldBuilderV3<
-        dev.igorxp5.proto.api.GetWaterSourceState, dev.igorxp5.proto.api.GetWaterSourceState.Builder, dev.igorxp5.proto.api.GetWaterSourceStateOrBuilder> getWaterSourceStateBuilder_;
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     * @return Whether the getWaterSourceState field is set.
-     */
-    @java.lang.Override
-    public boolean hasGetWaterSourceState() {
-      return messageCase_ == 13;
-    }
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     * @return The getWaterSourceState.
-     */
-    @java.lang.Override
-    public dev.igorxp5.proto.api.GetWaterSourceState getGetWaterSourceState() {
-      if (getWaterSourceStateBuilder_ == null) {
-        if (messageCase_ == 13) {
-          return (dev.igorxp5.proto.api.GetWaterSourceState) message_;
-        }
-        return dev.igorxp5.proto.api.GetWaterSourceState.getDefaultInstance();
-      } else {
-        if (messageCase_ == 13) {
-          return getWaterSourceStateBuilder_.getMessage();
-        }
-        return dev.igorxp5.proto.api.GetWaterSourceState.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     */
-    public Builder setGetWaterSourceState(dev.igorxp5.proto.api.GetWaterSourceState value) {
-      if (getWaterSourceStateBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        message_ = value;
-        onChanged();
-      } else {
-        getWaterSourceStateBuilder_.setMessage(value);
-      }
-      messageCase_ = 13;
-      return this;
-    }
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     */
-    public Builder setGetWaterSourceState(
-        dev.igorxp5.proto.api.GetWaterSourceState.Builder builderForValue) {
-      if (getWaterSourceStateBuilder_ == null) {
-        message_ = builderForValue.build();
-        onChanged();
-      } else {
-        getWaterSourceStateBuilder_.setMessage(builderForValue.build());
-      }
-      messageCase_ = 13;
-      return this;
-    }
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     */
-    public Builder mergeGetWaterSourceState(dev.igorxp5.proto.api.GetWaterSourceState value) {
-      if (getWaterSourceStateBuilder_ == null) {
-        if (messageCase_ == 13 &&
-            message_ != dev.igorxp5.proto.api.GetWaterSourceState.getDefaultInstance()) {
-          message_ = dev.igorxp5.proto.api.GetWaterSourceState.newBuilder((dev.igorxp5.proto.api.GetWaterSourceState) message_)
-              .mergeFrom(value).buildPartial();
-        } else {
-          message_ = value;
-        }
-        onChanged();
-      } else {
-        if (messageCase_ == 13) {
-          getWaterSourceStateBuilder_.mergeFrom(value);
-        }
-        getWaterSourceStateBuilder_.setMessage(value);
-      }
-      messageCase_ = 13;
-      return this;
-    }
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     */
-    public Builder clearGetWaterSourceState() {
-      if (getWaterSourceStateBuilder_ == null) {
-        if (messageCase_ == 13) {
-          messageCase_ = 0;
-          message_ = null;
-          onChanged();
-        }
-      } else {
-        if (messageCase_ == 13) {
-          messageCase_ = 0;
-          message_ = null;
-        }
-        getWaterSourceStateBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     */
-    public dev.igorxp5.proto.api.GetWaterSourceState.Builder getGetWaterSourceStateBuilder() {
-      return getGetWaterSourceStateFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     */
-    @java.lang.Override
-    public dev.igorxp5.proto.api.GetWaterSourceStateOrBuilder getGetWaterSourceStateOrBuilder() {
-      if ((messageCase_ == 13) && (getWaterSourceStateBuilder_ != null)) {
-        return getWaterSourceStateBuilder_.getMessageOrBuilder();
-      } else {
-        if (messageCase_ == 13) {
-          return (dev.igorxp5.proto.api.GetWaterSourceState) message_;
-        }
-        return dev.igorxp5.proto.api.GetWaterSourceState.getDefaultInstance();
-      }
-    }
-    /**
-     * <code>.GetWaterSourceState getWaterSourceState = 13;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        dev.igorxp5.proto.api.GetWaterSourceState, dev.igorxp5.proto.api.GetWaterSourceState.Builder, dev.igorxp5.proto.api.GetWaterSourceStateOrBuilder> 
-        getGetWaterSourceStateFieldBuilder() {
-      if (getWaterSourceStateBuilder_ == null) {
-        if (!(messageCase_ == 13)) {
-          message_ = dev.igorxp5.proto.api.GetWaterSourceState.getDefaultInstance();
-        }
-        getWaterSourceStateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            dev.igorxp5.proto.api.GetWaterSourceState, dev.igorxp5.proto.api.GetWaterSourceState.Builder, dev.igorxp5.proto.api.GetWaterSourceStateOrBuilder>(
-                (dev.igorxp5.proto.api.GetWaterSourceState) message_,
-                getParentForChildren(),
-                isClean());
-        message_ = null;
-      }
-      messageCase_ = 13;
-      onChanged();;
-      return getWaterSourceStateBuilder_;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
