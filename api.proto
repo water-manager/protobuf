@@ -59,7 +59,7 @@ message CreateWaterSource {
 
 message CreateWaterTank {
     string name = 1;
-    uint32 volumeReaderPin = 2;
+    uint32 pressureSensorPin = 2;
     float volumeFactor = 3;
     float pressureFactor = 4;
     optional string waterSourceName = 5;

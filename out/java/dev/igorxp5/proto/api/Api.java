@@ -160,30 +160,30 @@ public final class Api {
       "_ERROR\020\001\022\023\n\017INVALID_REQUEST\020\002B\010\n\006_error\"" +
       "\\\n\021CreateWaterSource\022\014\n\004name\030\001 \001(\t\022\013\n\003pi" +
       "n\030\002 \001(\r\022\032\n\rwaterTankName\030\003 \001(\tH\000\210\001\001B\020\n\016_" +
-      "waterTankName\"\230\001\n\017CreateWaterTank\022\014\n\004nam" +
-      "e\030\001 \001(\t\022\027\n\017volumeReaderPin\030\002 \001(\r\022\024\n\014volu" +
-      "meFactor\030\003 \001(\002\022\026\n\016pressureFactor\030\004 \001(\002\022\034" +
-      "\n\017waterSourceName\030\005 \001(\tH\000\210\001\001B\022\n\020_waterSo" +
-      "urceName\"A\n\031SetWaterTankMinimumVolume\022\025\n" +
-      "\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\"=\n\025S" +
-      "etWaterTankMaxVolume\022\025\n\rwaterTankName\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\002\">\n\026SetWaterTankZeroVo" +
-      "lume\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\002\"D\n\007SetMode\022\033\n\004mode\030\001 \001(\0162\r.SetMode.Mo" +
-      "de\"\034\n\004Mode\022\n\n\006MANUAL\020\000\022\010\n\004AUTO\020\001\"\t\n\007GetM" +
-      "ode\"=\n\023SetWaterSourceState\022\027\n\017waterSourc" +
-      "eName\030\001 \001(\t\022\r\n\005state\030\002 \001(\010\"\022\n\020GetWaterTa" +
-      "nkList\"\024\n\022GetWaterSourceList\"+\n\022GetWater" +
-      "TankVolume\022\025\n\rwaterTankName\030\001 \001(\t\"-\n\024Get" +
-      "WaterTankPressure\022\025\n\rwaterTankName\030\001 \001(\t" +
-      "\")\n\016GetWaterSource\022\027\n\017waterSourceName\030\001 " +
-      "\001(\t\",\n\021RemoveWaterSource\022\027\n\017waterSourceN" +
-      "ame\030\001 \001(\t\"(\n\017RemoveWaterTank\022\025\n\rwaterTan" +
-      "kName\030\001 \001(\t\"\007\n\005Reset\"p\n\020WaterSourceState" +
-      "\022\014\n\004name\030\001 \001(\t\022\013\n\003pin\030\002 \001(\r\022\017\n\007enabled\030\003" +
-      " \001(\010\022\034\n\017sourceWaterTank\030\004 \001(\tH\000\210\001\001B\022\n\020_s" +
-      "ourceWaterTankB\031\n\025dev.igorxp5.proto.apiP" +
-      "\001b\006proto3"
+      "waterTankName\"\232\001\n\017CreateWaterTank\022\014\n\004nam" +
+      "e\030\001 \001(\t\022\031\n\021pressureSensorPin\030\002 \001(\r\022\024\n\014vo" +
+      "lumeFactor\030\003 \001(\002\022\026\n\016pressureFactor\030\004 \001(\002" +
+      "\022\034\n\017waterSourceName\030\005 \001(\tH\000\210\001\001B\022\n\020_water" +
+      "SourceName\"A\n\031SetWaterTankMinimumVolume\022" +
+      "\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\"=\n" +
+      "\025SetWaterTankMaxVolume\022\025\n\rwaterTankName\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\002\">\n\026SetWaterTankZero" +
+      "Volume\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\002\"D\n\007SetMode\022\033\n\004mode\030\001 \001(\0162\r.SetMode." +
+      "Mode\"\034\n\004Mode\022\n\n\006MANUAL\020\000\022\010\n\004AUTO\020\001\"\t\n\007Ge" +
+      "tMode\"=\n\023SetWaterSourceState\022\027\n\017waterSou" +
+      "rceName\030\001 \001(\t\022\r\n\005state\030\002 \001(\010\"\022\n\020GetWater" +
+      "TankList\"\024\n\022GetWaterSourceList\"+\n\022GetWat" +
+      "erTankVolume\022\025\n\rwaterTankName\030\001 \001(\t\"-\n\024G" +
+      "etWaterTankPressure\022\025\n\rwaterTankName\030\001 \001" +
+      "(\t\")\n\016GetWaterSource\022\027\n\017waterSourceName\030" +
+      "\001 \001(\t\",\n\021RemoveWaterSource\022\027\n\017waterSourc" +
+      "eName\030\001 \001(\t\"(\n\017RemoveWaterTank\022\025\n\rwaterT" +
+      "ankName\030\001 \001(\t\"\007\n\005Reset\"p\n\020WaterSourceSta" +
+      "te\022\014\n\004name\030\001 \001(\t\022\013\n\003pin\030\002 \001(\r\022\017\n\007enabled" +
+      "\030\003 \001(\010\022\034\n\017sourceWaterTank\030\004 \001(\tH\000\210\001\001B\022\n\020" +
+      "_sourceWaterTankB\031\n\025dev.igorxp5.proto.ap" +
+      "iP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -224,7 +224,7 @@ public final class Api {
     internal_static_CreateWaterTank_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateWaterTank_descriptor,
-        new java.lang.String[] { "Name", "VolumeReaderPin", "VolumeFactor", "PressureFactor", "WaterSourceName", "WaterSourceName", });
+        new java.lang.String[] { "Name", "PressureSensorPin", "VolumeFactor", "PressureFactor", "WaterSourceName", "WaterSourceName", });
     internal_static_SetWaterTankMinimumVolume_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_SetWaterTankMinimumVolume_fieldAccessorTable = new

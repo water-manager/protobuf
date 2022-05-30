@@ -47,7 +47,7 @@ typedef struct _CreateWaterSource {
 
 typedef struct _CreateWaterTank { 
     char name[21]; 
-    uint32_t volumeReaderPin; 
+    uint32_t pressureSensorPin; 
     float volumeFactor; 
     float pressureFactor; 
     bool has_waterSourceName;
@@ -220,7 +220,7 @@ extern "C" {
 #define CreateWaterSource_pin_tag                2
 #define CreateWaterSource_waterTankName_tag      3
 #define CreateWaterTank_name_tag                 1
-#define CreateWaterTank_volumeReaderPin_tag      2
+#define CreateWaterTank_pressureSensorPin_tag    2
 #define CreateWaterTank_volumeFactor_tag         3
 #define CreateWaterTank_pressureFactor_tag       4
 #define CreateWaterTank_waterSourceName_tag      5
@@ -343,7 +343,7 @@ X(a, STATIC,   OPTIONAL, STRING,   waterTankName,     3)
 
 #define CreateWaterTank_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   name,              1) \
-X(a, STATIC,   SINGULAR, UINT32,   volumeReaderPin,   2) \
+X(a, STATIC,   SINGULAR, UINT32,   pressureSensorPin,   2) \
 X(a, STATIC,   SINGULAR, FLOAT,    volumeFactor,      3) \
 X(a, STATIC,   SINGULAR, FLOAT,    pressureFactor,    4) \
 X(a, STATIC,   OPTIONAL, STRING,   waterSourceName,   5)

@@ -59,7 +59,7 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            volumeReaderPin_ = input.readUInt32();
+            pressureSensorPin_ = input.readUInt32();
             break;
           }
           case 29: {
@@ -149,15 +149,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int VOLUMEREADERPIN_FIELD_NUMBER = 2;
-  private int volumeReaderPin_;
+  public static final int PRESSURESENSORPIN_FIELD_NUMBER = 2;
+  private int pressureSensorPin_;
   /**
-   * <code>uint32 volumeReaderPin = 2;</code>
-   * @return The volumeReaderPin.
+   * <code>uint32 pressureSensorPin = 2;</code>
+   * @return The pressureSensorPin.
    */
   @java.lang.Override
-  public int getVolumeReaderPin() {
-    return volumeReaderPin_;
+  public int getPressureSensorPin() {
+    return pressureSensorPin_;
   }
 
   public static final int VOLUMEFACTOR_FIELD_NUMBER = 3;
@@ -245,8 +245,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (volumeReaderPin_ != 0) {
-      output.writeUInt32(2, volumeReaderPin_);
+    if (pressureSensorPin_ != 0) {
+      output.writeUInt32(2, pressureSensorPin_);
     }
     if (java.lang.Float.floatToRawIntBits(volumeFactor_) != 0) {
       output.writeFloat(3, volumeFactor_);
@@ -269,9 +269,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (volumeReaderPin_ != 0) {
+    if (pressureSensorPin_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(2, volumeReaderPin_);
+        .computeUInt32Size(2, pressureSensorPin_);
     }
     if (java.lang.Float.floatToRawIntBits(volumeFactor_) != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -301,8 +301,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getName()
         .equals(other.getName())) return false;
-    if (getVolumeReaderPin()
-        != other.getVolumeReaderPin()) return false;
+    if (getPressureSensorPin()
+        != other.getPressureSensorPin()) return false;
     if (java.lang.Float.floatToIntBits(getVolumeFactor())
         != java.lang.Float.floatToIntBits(
             other.getVolumeFactor())) return false;
@@ -327,8 +327,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + VOLUMEREADERPIN_FIELD_NUMBER;
-    hash = (53 * hash) + getVolumeReaderPin();
+    hash = (37 * hash) + PRESSURESENSORPIN_FIELD_NUMBER;
+    hash = (53 * hash) + getPressureSensorPin();
     hash = (37 * hash) + VOLUMEFACTOR_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getVolumeFactor());
@@ -474,7 +474,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       name_ = "";
 
-      volumeReaderPin_ = 0;
+      pressureSensorPin_ = 0;
 
       volumeFactor_ = 0F;
 
@@ -511,7 +511,7 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.name_ = name_;
-      result.volumeReaderPin_ = volumeReaderPin_;
+      result.pressureSensorPin_ = pressureSensorPin_;
       result.volumeFactor_ = volumeFactor_;
       result.pressureFactor_ = pressureFactor_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -571,8 +571,8 @@ private static final long serialVersionUID = 0L;
         name_ = other.name_;
         onChanged();
       }
-      if (other.getVolumeReaderPin() != 0) {
-        setVolumeReaderPin(other.getVolumeReaderPin());
+      if (other.getPressureSensorPin() != 0) {
+        setPressureSensorPin(other.getPressureSensorPin());
       }
       if (other.getVolumeFactor() != 0F) {
         setVolumeFactor(other.getVolumeFactor());
@@ -691,33 +691,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int volumeReaderPin_ ;
+    private int pressureSensorPin_ ;
     /**
-     * <code>uint32 volumeReaderPin = 2;</code>
-     * @return The volumeReaderPin.
+     * <code>uint32 pressureSensorPin = 2;</code>
+     * @return The pressureSensorPin.
      */
     @java.lang.Override
-    public int getVolumeReaderPin() {
-      return volumeReaderPin_;
+    public int getPressureSensorPin() {
+      return pressureSensorPin_;
     }
     /**
-     * <code>uint32 volumeReaderPin = 2;</code>
-     * @param value The volumeReaderPin to set.
+     * <code>uint32 pressureSensorPin = 2;</code>
+     * @param value The pressureSensorPin to set.
      * @return This builder for chaining.
      */
-    public Builder setVolumeReaderPin(int value) {
+    public Builder setPressureSensorPin(int value) {
       
-      volumeReaderPin_ = value;
+      pressureSensorPin_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>uint32 volumeReaderPin = 2;</code>
+     * <code>uint32 pressureSensorPin = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearVolumeReaderPin() {
+    public Builder clearPressureSensorPin() {
       
-      volumeReaderPin_ = 0;
+      pressureSensorPin_ = 0;
       onChanged();
       return this;
     }

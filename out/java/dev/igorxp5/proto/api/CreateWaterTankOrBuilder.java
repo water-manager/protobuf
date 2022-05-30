@@ -20,10 +20,10 @@ public interface CreateWaterTankOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>uint32 volumeReaderPin = 2;</code>
-   * @return The volumeReaderPin.
+   * <code>uint32 pressureSensorPin = 2;</code>
+   * @return The pressureSensorPin.
    */
-  int getVolumeReaderPin();
+  int getPressureSensorPin();
 
   /**
    * <code>float volumeFactor = 3;</code>
