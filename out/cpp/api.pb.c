@@ -36,6 +36,9 @@ PB_BIND(SetWaterTankZeroVolume, SetWaterTankZeroVolume, AUTO)
 PB_BIND(SetMode, SetMode, AUTO)
 
 
+PB_BIND(GetMode, GetMode, AUTO)
+
+
 PB_BIND(SetWaterSourceState, SetWaterSourceState, AUTO)
 
 

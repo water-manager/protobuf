@@ -12,15 +12,16 @@ message Request {
         SetWaterTankMaxVolume setWaterTankMaxVolume = 5;
         SetWaterTankZeroVolume setWaterTankZeroVolume = 6;
         SetMode setMode = 7;
-        SetWaterSourceState setWaterSourceState = 8;
-        GetWaterSourceList getWaterSourceList = 9;
-        GetWaterSource getWaterSource = 10;
-        GetWaterTankList getWaterTankList = 11;
-        GetWaterTankVolume getWaterTankVolume = 12;
-        GetWaterTankPressure getWaterTankPressure = 13;
-        RemoveWaterSource removeWaterSource = 14;
-        RemoveWaterTank removeWaterTank = 15;
-        Reset reset = 16;
+        GetMode getMode = 8;
+        SetWaterSourceState setWaterSourceState = 9;
+        GetWaterSourceList getWaterSourceList = 10;
+        GetWaterSource getWaterSource = 11;
+        GetWaterTankList getWaterTankList = 12;
+        GetWaterTankVolume getWaterTankVolume = 13;
+        GetWaterTankPressure getWaterTankPressure = 14;
+        RemoveWaterSource removeWaterSource = 15;
+        RemoveWaterTank removeWaterTank = 16;
+        Reset reset = 17;
     }
 }
 
@@ -81,10 +82,13 @@ message SetWaterTankZeroVolume {
 
 message SetMode {
     enum Mode {
-        AUTOMATIC = 0;
-        MANUAL = 1;
+        MANUAL = 0;
+        AUTO = 1;
     }
     Mode mode = 1;
+}
+
+message GetMode {
 }
 
 message SetWaterSourceState {

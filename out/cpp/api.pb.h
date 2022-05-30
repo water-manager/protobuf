@@ -17,11 +17,15 @@ typedef enum _Response_Exception {
 } Response_Exception;
 
 typedef enum _SetMode_Mode { 
-    SetMode_Mode_AUTOMATIC = 0, 
-    SetMode_Mode_MANUAL = 1 
+    SetMode_Mode_MANUAL = 0, 
+    SetMode_Mode_AUTO = 1 
 } SetMode_Mode;
 
 /* Struct definitions */
+typedef struct _GetMode { 
+    char dummy_field;
+} GetMode;
+
 typedef struct _GetWaterSourceList { 
     char dummy_field;
 } GetWaterSourceList;
@@ -122,6 +126,7 @@ typedef struct _Request {
         SetWaterTankMaxVolume setWaterTankMaxVolume;
         SetWaterTankZeroVolume setWaterTankZeroVolume;
         SetMode setMode;
+        GetMode getMode;
         SetWaterSourceState setWaterSourceState;
         GetWaterSourceList getWaterSourceList;
         GetWaterSource getWaterSource;
@@ -157,9 +162,9 @@ typedef struct _Response {
 #define _Response_Exception_MAX Response_Exception_INVALID_REQUEST
 #define _Response_Exception_ARRAYSIZE ((Response_Exception)(Response_Exception_INVALID_REQUEST+1))
 
-#define _SetMode_Mode_MIN SetMode_Mode_AUTOMATIC
-#define _SetMode_Mode_MAX SetMode_Mode_MANUAL
-#define _SetMode_Mode_ARRAYSIZE ((SetMode_Mode)(SetMode_Mode_MANUAL+1))
+#define _SetMode_Mode_MIN SetMode_Mode_MANUAL
+#define _SetMode_Mode_MAX SetMode_Mode_AUTO
+#define _SetMode_Mode_ARRAYSIZE ((SetMode_Mode)(SetMode_Mode_AUTO+1))
 
 
 #ifdef __cplusplus
@@ -177,6 +182,7 @@ extern "C" {
 #define SetWaterTankMaxVolume_init_default       {"", 0}
 #define SetWaterTankZeroVolume_init_default      {"", 0}
 #define SetMode_init_default                     {_SetMode_Mode_MIN}
+#define GetMode_init_default                     {0}
 #define SetWaterSourceState_init_default         {"", 0}
 #define GetWaterTankList_init_default            {0}
 #define GetWaterSourceList_init_default          {0}
@@ -197,6 +203,7 @@ extern "C" {
 #define SetWaterTankMaxVolume_init_zero          {"", 0}
 #define SetWaterTankZeroVolume_init_zero         {"", 0}
 #define SetMode_init_zero                        {_SetMode_Mode_MIN}
+#define GetMode_init_zero                        {0}
 #define SetWaterSourceState_init_zero            {"", 0}
 #define GetWaterTankList_init_zero               {0}
 #define GetWaterSourceList_init_zero             {0}
@@ -246,15 +253,16 @@ extern "C" {
 #define Request_setWaterTankMaxVolume_tag        5
 #define Request_setWaterTankZeroVolume_tag       6
 #define Request_setMode_tag                      7
-#define Request_setWaterSourceState_tag          8
-#define Request_getWaterSourceList_tag           9
-#define Request_getWaterSource_tag               10
-#define Request_getWaterTankList_tag             11
-#define Request_getWaterTankVolume_tag           12
-#define Request_getWaterTankPressure_tag         13
-#define Request_removeWaterSource_tag            14
-#define Request_removeWaterTank_tag              15
-#define Request_reset_tag                        16
+#define Request_getMode_tag                      8
+#define Request_setWaterSourceState_tag          9
+#define Request_getWaterSourceList_tag           10
+#define Request_getWaterSource_tag               11
+#define Request_getWaterTankList_tag             12
+#define Request_getWaterTankVolume_tag           13
+#define Request_getWaterTankPressure_tag         14
+#define Request_removeWaterSource_tag            15
+#define Request_removeWaterTank_tag              16
+#define Request_reset_tag                        17
 #define Value_value_tag                          1
 #define Value_listValue_tag                      2
 #define Value_waterSource_tag                    3
@@ -271,15 +279,16 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankMinimumVolume,message.se
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankMaxVolume,message.setWaterTankMaxVolume),   5) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankZeroVolume,message.setWaterTankZeroVolume),   6) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setMode,message.setMode),   7) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterSourceState,message.setWaterSourceState),   8) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSourceList,message.getWaterSourceList),   9) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSource,message.getWaterSource),  10) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankList,message.getWaterTankList),  11) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankVolume,message.getWaterTankVolume),  12) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankPressure,message.getWaterTankPressure),  13) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterSource,message.removeWaterSource),  14) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterTank,message.removeWaterTank),  15) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  16)
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getMode,message.getMode),   8) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterSourceState,message.setWaterSourceState),   9) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSourceList,message.getWaterSourceList),  10) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSource,message.getWaterSource),  11) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankList,message.getWaterTankList),  12) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankVolume,message.getWaterTankVolume),  13) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankPressure,message.getWaterTankPressure),  14) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterSource,message.removeWaterSource),  15) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterTank,message.removeWaterTank),  16) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  17)
 #define Request_CALLBACK NULL
 #define Request_DEFAULT NULL
 #define Request_message_createWaterSource_MSGTYPE CreateWaterSource
@@ -288,6 +297,7 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  16)
 #define Request_message_setWaterTankMaxVolume_MSGTYPE SetWaterTankMaxVolume
 #define Request_message_setWaterTankZeroVolume_MSGTYPE SetWaterTankZeroVolume
 #define Request_message_setMode_MSGTYPE SetMode
+#define Request_message_getMode_MSGTYPE GetMode
 #define Request_message_setWaterSourceState_MSGTYPE SetWaterSourceState
 #define Request_message_getWaterSourceList_MSGTYPE GetWaterSourceList
 #define Request_message_getWaterSource_MSGTYPE GetWaterSource
@@ -363,6 +373,11 @@ X(a, STATIC,   SINGULAR, UENUM,    mode,              1)
 #define SetMode_CALLBACK NULL
 #define SetMode_DEFAULT NULL
 
+#define GetMode_FIELDLIST(X, a) \
+
+#define GetMode_CALLBACK NULL
+#define GetMode_DEFAULT NULL
+
 #define SetWaterSourceState_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   waterSourceName,   1) \
 X(a, STATIC,   SINGULAR, BOOL,     state,             2)
@@ -427,6 +442,7 @@ extern const pb_msgdesc_t SetWaterTankMinimumVolume_msg;
 extern const pb_msgdesc_t SetWaterTankMaxVolume_msg;
 extern const pb_msgdesc_t SetWaterTankZeroVolume_msg;
 extern const pb_msgdesc_t SetMode_msg;
+extern const pb_msgdesc_t GetMode_msg;
 extern const pb_msgdesc_t SetWaterSourceState_msg;
 extern const pb_msgdesc_t GetWaterTankList_msg;
 extern const pb_msgdesc_t GetWaterSourceList_msg;
@@ -449,6 +465,7 @@ extern const pb_msgdesc_t WaterSourceState_msg;
 #define SetWaterTankMaxVolume_fields &SetWaterTankMaxVolume_msg
 #define SetWaterTankZeroVolume_fields &SetWaterTankZeroVolume_msg
 #define SetMode_fields &SetMode_msg
+#define GetMode_fields &GetMode_msg
 #define SetWaterSourceState_fields &SetWaterSourceState_msg
 #define GetWaterTankList_fields &GetWaterTankList_msg
 #define GetWaterSourceList_fields &GetWaterSourceList_msg
@@ -463,6 +480,7 @@ extern const pb_msgdesc_t WaterSourceState_msg;
 /* Maximum encoded size of messages (where known) */
 #define CreateWaterSource_size                   50
 #define CreateWaterTank_size                     60
+#define GetMode_size                             0
 #define GetWaterSourceList_size                  0
 #define GetWaterSource_size                      22
 #define GetWaterTankList_size                    0

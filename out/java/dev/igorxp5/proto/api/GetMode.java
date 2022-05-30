@@ -4,26 +4,25 @@
 package dev.igorxp5.proto.api;
 
 /**
- * Protobuf type {@code SetMode}
+ * Protobuf type {@code GetMode}
  */
-public final class SetMode extends
+public final class GetMode extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:SetMode)
-    SetModeOrBuilder {
+    // @@protoc_insertion_point(message_implements:GetMode)
+    GetModeOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use SetMode.newBuilder() to construct.
-  private SetMode(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetMode.newBuilder() to construct.
+  private GetMode(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SetMode() {
-    mode_ = 0;
+  private GetMode() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new SetMode();
+    return new GetMode();
   }
 
   @java.lang.Override
@@ -31,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SetMode(
+  private GetMode(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -49,12 +48,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            mode_ = rawValue;
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -76,142 +69,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dev.igorxp5.proto.api.Api.internal_static_SetMode_descriptor;
+    return dev.igorxp5.proto.api.Api.internal_static_GetMode_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dev.igorxp5.proto.api.Api.internal_static_SetMode_fieldAccessorTable
+    return dev.igorxp5.proto.api.Api.internal_static_GetMode_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dev.igorxp5.proto.api.SetMode.class, dev.igorxp5.proto.api.SetMode.Builder.class);
-  }
-
-  /**
-   * Protobuf enum {@code SetMode.Mode}
-   */
-  public enum Mode
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>MANUAL = 0;</code>
-     */
-    MANUAL(0),
-    /**
-     * <code>AUTO = 1;</code>
-     */
-    AUTO(1),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>MANUAL = 0;</code>
-     */
-    public static final int MANUAL_VALUE = 0;
-    /**
-     * <code>AUTO = 1;</code>
-     */
-    public static final int AUTO_VALUE = 1;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static Mode valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static Mode forNumber(int value) {
-      switch (value) {
-        case 0: return MANUAL;
-        case 1: return AUTO;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<Mode>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        Mode> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Mode>() {
-            public Mode findValueByNumber(int number) {
-              return Mode.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return dev.igorxp5.proto.api.SetMode.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final Mode[] VALUES = values();
-
-    public static Mode valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private Mode(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:SetMode.Mode)
-  }
-
-  public static final int MODE_FIELD_NUMBER = 1;
-  private int mode_;
-  /**
-   * <code>.SetMode.Mode mode = 1;</code>
-   * @return The enum numeric value on the wire for mode.
-   */
-  @java.lang.Override public int getModeValue() {
-    return mode_;
-  }
-  /**
-   * <code>.SetMode.Mode mode = 1;</code>
-   * @return The mode.
-   */
-  @java.lang.Override public dev.igorxp5.proto.api.SetMode.Mode getMode() {
-    @SuppressWarnings("deprecation")
-    dev.igorxp5.proto.api.SetMode.Mode result = dev.igorxp5.proto.api.SetMode.Mode.valueOf(mode_);
-    return result == null ? dev.igorxp5.proto.api.SetMode.Mode.UNRECOGNIZED : result;
+            dev.igorxp5.proto.api.GetMode.class, dev.igorxp5.proto.api.GetMode.Builder.class);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -228,9 +94,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (mode_ != dev.igorxp5.proto.api.SetMode.Mode.MANUAL.getNumber()) {
-      output.writeEnum(1, mode_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -240,10 +103,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (mode_ != dev.igorxp5.proto.api.SetMode.Mode.MANUAL.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(1, mode_);
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -254,12 +113,11 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dev.igorxp5.proto.api.SetMode)) {
+    if (!(obj instanceof dev.igorxp5.proto.api.GetMode)) {
       return super.equals(obj);
     }
-    dev.igorxp5.proto.api.SetMode other = (dev.igorxp5.proto.api.SetMode) obj;
+    dev.igorxp5.proto.api.GetMode other = (dev.igorxp5.proto.api.GetMode) obj;
 
-    if (mode_ != other.mode_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -271,76 +129,74 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + MODE_FIELD_NUMBER;
-    hash = (53 * hash) + mode_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static dev.igorxp5.proto.api.SetMode parseFrom(
+  public static dev.igorxp5.proto.api.GetMode parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(
+  public static dev.igorxp5.proto.api.GetMode parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(
+  public static dev.igorxp5.proto.api.GetMode parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(
+  public static dev.igorxp5.proto.api.GetMode parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(byte[] data)
+  public static dev.igorxp5.proto.api.GetMode parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(
+  public static dev.igorxp5.proto.api.GetMode parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(java.io.InputStream input)
+  public static dev.igorxp5.proto.api.GetMode parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(
+  public static dev.igorxp5.proto.api.GetMode parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetMode parseDelimitedFrom(java.io.InputStream input)
+  public static dev.igorxp5.proto.api.GetMode parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.SetMode parseDelimitedFrom(
+  public static dev.igorxp5.proto.api.GetMode parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(
+  public static dev.igorxp5.proto.api.GetMode parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.SetMode parseFrom(
+  public static dev.igorxp5.proto.api.GetMode parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -353,7 +209,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dev.igorxp5.proto.api.SetMode prototype) {
+  public static Builder newBuilder(dev.igorxp5.proto.api.GetMode prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -369,26 +225,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code SetMode}
+   * Protobuf type {@code GetMode}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:SetMode)
-      dev.igorxp5.proto.api.SetModeOrBuilder {
+      // @@protoc_insertion_point(builder_implements:GetMode)
+      dev.igorxp5.proto.api.GetModeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dev.igorxp5.proto.api.Api.internal_static_SetMode_descriptor;
+      return dev.igorxp5.proto.api.Api.internal_static_GetMode_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dev.igorxp5.proto.api.Api.internal_static_SetMode_fieldAccessorTable
+      return dev.igorxp5.proto.api.Api.internal_static_GetMode_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dev.igorxp5.proto.api.SetMode.class, dev.igorxp5.proto.api.SetMode.Builder.class);
+              dev.igorxp5.proto.api.GetMode.class, dev.igorxp5.proto.api.GetMode.Builder.class);
     }
 
-    // Construct using dev.igorxp5.proto.api.SetMode.newBuilder()
+    // Construct using dev.igorxp5.proto.api.GetMode.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -406,25 +262,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      mode_ = 0;
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dev.igorxp5.proto.api.Api.internal_static_SetMode_descriptor;
+      return dev.igorxp5.proto.api.Api.internal_static_GetMode_descriptor;
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.SetMode getDefaultInstanceForType() {
-      return dev.igorxp5.proto.api.SetMode.getDefaultInstance();
+    public dev.igorxp5.proto.api.GetMode getDefaultInstanceForType() {
+      return dev.igorxp5.proto.api.GetMode.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.SetMode build() {
-      dev.igorxp5.proto.api.SetMode result = buildPartial();
+    public dev.igorxp5.proto.api.GetMode build() {
+      dev.igorxp5.proto.api.GetMode result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -432,9 +286,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.SetMode buildPartial() {
-      dev.igorxp5.proto.api.SetMode result = new dev.igorxp5.proto.api.SetMode(this);
-      result.mode_ = mode_;
+    public dev.igorxp5.proto.api.GetMode buildPartial() {
+      dev.igorxp5.proto.api.GetMode result = new dev.igorxp5.proto.api.GetMode(this);
       onBuilt();
       return result;
     }
@@ -473,19 +326,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dev.igorxp5.proto.api.SetMode) {
-        return mergeFrom((dev.igorxp5.proto.api.SetMode)other);
+      if (other instanceof dev.igorxp5.proto.api.GetMode) {
+        return mergeFrom((dev.igorxp5.proto.api.GetMode)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dev.igorxp5.proto.api.SetMode other) {
-      if (other == dev.igorxp5.proto.api.SetMode.getDefaultInstance()) return this;
-      if (other.mode_ != 0) {
-        setModeValue(other.getModeValue());
-      }
+    public Builder mergeFrom(dev.igorxp5.proto.api.GetMode other) {
+      if (other == dev.igorxp5.proto.api.GetMode.getDefaultInstance()) return this;
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -501,71 +351,17 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dev.igorxp5.proto.api.SetMode parsedMessage = null;
+      dev.igorxp5.proto.api.GetMode parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dev.igorxp5.proto.api.SetMode) e.getUnfinishedMessage();
+        parsedMessage = (dev.igorxp5.proto.api.GetMode) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
           mergeFrom(parsedMessage);
         }
       }
-      return this;
-    }
-
-    private int mode_ = 0;
-    /**
-     * <code>.SetMode.Mode mode = 1;</code>
-     * @return The enum numeric value on the wire for mode.
-     */
-    @java.lang.Override public int getModeValue() {
-      return mode_;
-    }
-    /**
-     * <code>.SetMode.Mode mode = 1;</code>
-     * @param value The enum numeric value on the wire for mode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setModeValue(int value) {
-      
-      mode_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.SetMode.Mode mode = 1;</code>
-     * @return The mode.
-     */
-    @java.lang.Override
-    public dev.igorxp5.proto.api.SetMode.Mode getMode() {
-      @SuppressWarnings("deprecation")
-      dev.igorxp5.proto.api.SetMode.Mode result = dev.igorxp5.proto.api.SetMode.Mode.valueOf(mode_);
-      return result == null ? dev.igorxp5.proto.api.SetMode.Mode.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.SetMode.Mode mode = 1;</code>
-     * @param value The mode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMode(dev.igorxp5.proto.api.SetMode.Mode value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      mode_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.SetMode.Mode mode = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMode() {
-      
-      mode_ = 0;
-      onChanged();
       return this;
     }
     @java.lang.Override
@@ -581,41 +377,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:SetMode)
+    // @@protoc_insertion_point(builder_scope:GetMode)
   }
 
-  // @@protoc_insertion_point(class_scope:SetMode)
-  private static final dev.igorxp5.proto.api.SetMode DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:GetMode)
+  private static final dev.igorxp5.proto.api.GetMode DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dev.igorxp5.proto.api.SetMode();
+    DEFAULT_INSTANCE = new dev.igorxp5.proto.api.GetMode();
   }
 
-  public static dev.igorxp5.proto.api.SetMode getDefaultInstance() {
+  public static dev.igorxp5.proto.api.GetMode getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SetMode>
-      PARSER = new com.google.protobuf.AbstractParser<SetMode>() {
+  private static final com.google.protobuf.Parser<GetMode>
+      PARSER = new com.google.protobuf.AbstractParser<GetMode>() {
     @java.lang.Override
-    public SetMode parsePartialFrom(
+    public GetMode parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SetMode(input, extensionRegistry);
+      return new GetMode(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SetMode> parser() {
+  public static com.google.protobuf.Parser<GetMode> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<SetMode> getParserForType() {
+  public com.google.protobuf.Parser<GetMode> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dev.igorxp5.proto.api.SetMode getDefaultInstanceForType() {
+  public dev.igorxp5.proto.api.GetMode getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
