@@ -58,13 +58,9 @@ typedef struct _GetWaterSource {
     char waterSourceName[21]; 
 } GetWaterSource;
 
-typedef struct _GetWaterTankPressure { 
+typedef struct _GetWaterTank { 
     char waterTankName[21]; 
-} GetWaterTankPressure;
-
-typedef struct _GetWaterTankVolume { 
-    char waterTankName[21]; 
-} GetWaterTankVolume;
+} GetWaterTank;
 
 typedef struct _PrimitiveValue { 
     pb_size_t which_content;
@@ -103,6 +99,16 @@ typedef struct _SetWaterTankMinimumVolume {
     float value; 
 } SetWaterTankMinimumVolume;
 
+typedef struct _SetWaterTankPressureFactor { 
+    char waterTankName[21]; 
+    float value; 
+} SetWaterTankPressureFactor;
+
+typedef struct _SetWaterTankVolumeFactor { 
+    char waterTankName[21]; 
+    float value; 
+} SetWaterTankVolumeFactor;
+
 typedef struct _SetWaterTankZeroVolume { 
     char waterTankName[21]; 
     float value; 
@@ -116,6 +122,22 @@ typedef struct _WaterSourceState {
     char sourceWaterTank[21]; 
 } WaterSourceState;
 
+typedef struct _WaterTankState { 
+    char name[21]; 
+    uint32_t pressureSensorPin; 
+    bool isFilling; 
+    float volumeFactor; 
+    float pressureFactor; 
+    float minimumVolume; 
+    float maxVolume; 
+    float zeroVolumePressure; 
+    uint32_t rawPressureValue; 
+    float pressure; 
+    float volume; 
+    bool has_waterSource;
+    char waterSource[21]; 
+} WaterTankState;
+
 typedef struct _Request { 
     uint32_t id; 
     pb_size_t which_message;
@@ -125,14 +147,15 @@ typedef struct _Request {
         SetWaterTankMinimumVolume setWaterTankMinimumVolume;
         SetWaterTankMaxVolume setWaterTankMaxVolume;
         SetWaterTankZeroVolume setWaterTankZeroVolume;
+        SetWaterTankVolumeFactor setWaterTankVolumeFactor;
+        SetWaterTankPressureFactor setWaterTankPressureFactor;
         SetMode setMode;
         GetMode getMode;
         SetWaterSourceState setWaterSourceState;
         GetWaterSourceList getWaterSourceList;
         GetWaterSource getWaterSource;
+        GetWaterTank getWaterTank;
         GetWaterTankList getWaterTankList;
-        GetWaterTankVolume getWaterTankVolume;
-        GetWaterTankPressure getWaterTankPressure;
         RemoveWaterSource removeWaterSource;
         RemoveWaterTank removeWaterTank;
         Reset reset;
@@ -146,6 +169,8 @@ typedef struct _Value {
     PrimitiveValue listValue[10]; 
     bool has_waterSource;
     WaterSourceState waterSource; 
+    bool has_waterTank;
+    WaterTankState waterTank; 
 } Value;
 
 typedef struct _Response { 
@@ -174,46 +199,50 @@ extern "C" {
 /* Initializer values for message structs */
 #define Request_init_default                     {0, 0, {CreateWaterSource_init_default}}
 #define PrimitiveValue_init_default              {0, {0}}
-#define Value_init_default                       {false, PrimitiveValue_init_default, 0, {PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default}, false, WaterSourceState_init_default}
+#define Value_init_default                       {false, PrimitiveValue_init_default, 0, {PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default}, false, WaterSourceState_init_default, false, WaterTankState_init_default}
 #define Response_init_default                    {0, false, Value_init_default, false, _Response_Exception_MIN}
 #define CreateWaterSource_init_default           {"", 0, false, ""}
 #define CreateWaterTank_init_default             {"", 0, 0, 0, false, ""}
 #define SetWaterTankMinimumVolume_init_default   {"", 0}
 #define SetWaterTankMaxVolume_init_default       {"", 0}
 #define SetWaterTankZeroVolume_init_default      {"", 0}
+#define SetWaterTankVolumeFactor_init_default    {"", 0}
+#define SetWaterTankPressureFactor_init_default  {"", 0}
 #define SetMode_init_default                     {_SetMode_Mode_MIN}
 #define GetMode_init_default                     {0}
 #define SetWaterSourceState_init_default         {"", 0}
 #define GetWaterTankList_init_default            {0}
 #define GetWaterSourceList_init_default          {0}
-#define GetWaterTankVolume_init_default          {""}
-#define GetWaterTankPressure_init_default        {""}
 #define GetWaterSource_init_default              {""}
+#define GetWaterTank_init_default                {""}
 #define RemoveWaterSource_init_default           {""}
 #define RemoveWaterTank_init_default             {""}
 #define Reset_init_default                       {0}
 #define WaterSourceState_init_default            {"", 0, 0, false, ""}
+#define WaterTankState_init_default              {"", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, false, ""}
 #define Request_init_zero                        {0, 0, {CreateWaterSource_init_zero}}
 #define PrimitiveValue_init_zero                 {0, {0}}
-#define Value_init_zero                          {false, PrimitiveValue_init_zero, 0, {PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero}, false, WaterSourceState_init_zero}
+#define Value_init_zero                          {false, PrimitiveValue_init_zero, 0, {PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero}, false, WaterSourceState_init_zero, false, WaterTankState_init_zero}
 #define Response_init_zero                       {0, false, Value_init_zero, false, _Response_Exception_MIN}
 #define CreateWaterSource_init_zero              {"", 0, false, ""}
 #define CreateWaterTank_init_zero                {"", 0, 0, 0, false, ""}
 #define SetWaterTankMinimumVolume_init_zero      {"", 0}
 #define SetWaterTankMaxVolume_init_zero          {"", 0}
 #define SetWaterTankZeroVolume_init_zero         {"", 0}
+#define SetWaterTankVolumeFactor_init_zero       {"", 0}
+#define SetWaterTankPressureFactor_init_zero     {"", 0}
 #define SetMode_init_zero                        {_SetMode_Mode_MIN}
 #define GetMode_init_zero                        {0}
 #define SetWaterSourceState_init_zero            {"", 0}
 #define GetWaterTankList_init_zero               {0}
 #define GetWaterSourceList_init_zero             {0}
-#define GetWaterTankVolume_init_zero             {""}
-#define GetWaterTankPressure_init_zero           {""}
 #define GetWaterSource_init_zero                 {""}
+#define GetWaterTank_init_zero                   {""}
 #define RemoveWaterSource_init_zero              {""}
 #define RemoveWaterTank_init_zero                {""}
 #define Reset_init_zero                          {0}
 #define WaterSourceState_init_zero               {"", 0, 0, false, ""}
+#define WaterTankState_init_zero                 {"", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, false, ""}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define CreateWaterSource_name_tag               1
@@ -225,8 +254,7 @@ extern "C" {
 #define CreateWaterTank_pressureFactor_tag       4
 #define CreateWaterTank_waterSourceName_tag      5
 #define GetWaterSource_waterSourceName_tag       1
-#define GetWaterTankPressure_waterTankName_tag   1
-#define GetWaterTankVolume_waterTankName_tag     1
+#define GetWaterTank_waterTankName_tag           1
 #define PrimitiveValue_boolValue_tag             2
 #define PrimitiveValue_intValue_tag              3
 #define PrimitiveValue_floatValue_tag            4
@@ -240,32 +268,50 @@ extern "C" {
 #define SetWaterTankMaxVolume_value_tag          2
 #define SetWaterTankMinimumVolume_waterTankName_tag 1
 #define SetWaterTankMinimumVolume_value_tag      2
+#define SetWaterTankPressureFactor_waterTankName_tag 1
+#define SetWaterTankPressureFactor_value_tag     2
+#define SetWaterTankVolumeFactor_waterTankName_tag 1
+#define SetWaterTankVolumeFactor_value_tag       2
 #define SetWaterTankZeroVolume_waterTankName_tag 1
 #define SetWaterTankZeroVolume_value_tag         2
 #define WaterSourceState_name_tag                1
 #define WaterSourceState_pin_tag                 2
 #define WaterSourceState_enabled_tag             3
 #define WaterSourceState_sourceWaterTank_tag     4
+#define WaterTankState_name_tag                  1
+#define WaterTankState_pressureSensorPin_tag     2
+#define WaterTankState_isFilling_tag             3
+#define WaterTankState_volumeFactor_tag          4
+#define WaterTankState_pressureFactor_tag        5
+#define WaterTankState_minimumVolume_tag         6
+#define WaterTankState_maxVolume_tag             7
+#define WaterTankState_zeroVolumePressure_tag    8
+#define WaterTankState_rawPressureValue_tag      9
+#define WaterTankState_pressure_tag              10
+#define WaterTankState_volume_tag                11
+#define WaterTankState_waterSource_tag           12
 #define Request_id_tag                           1
 #define Request_createWaterSource_tag            2
 #define Request_createWaterTank_tag              3
 #define Request_setWaterTankMinimumVolume_tag    4
 #define Request_setWaterTankMaxVolume_tag        5
 #define Request_setWaterTankZeroVolume_tag       6
-#define Request_setMode_tag                      7
-#define Request_getMode_tag                      8
-#define Request_setWaterSourceState_tag          9
-#define Request_getWaterSourceList_tag           10
-#define Request_getWaterSource_tag               11
-#define Request_getWaterTankList_tag             12
-#define Request_getWaterTankVolume_tag           13
-#define Request_getWaterTankPressure_tag         14
-#define Request_removeWaterSource_tag            15
-#define Request_removeWaterTank_tag              16
-#define Request_reset_tag                        17
+#define Request_setWaterTankVolumeFactor_tag     7
+#define Request_setWaterTankPressureFactor_tag   8
+#define Request_setMode_tag                      9
+#define Request_getMode_tag                      10
+#define Request_setWaterSourceState_tag          11
+#define Request_getWaterSourceList_tag           12
+#define Request_getWaterSource_tag               13
+#define Request_getWaterTank_tag                 14
+#define Request_getWaterTankList_tag             15
+#define Request_removeWaterSource_tag            16
+#define Request_removeWaterTank_tag              17
+#define Request_reset_tag                        18
 #define Value_value_tag                          1
 #define Value_listValue_tag                      2
 #define Value_waterSource_tag                    3
+#define Value_waterTank_tag                      4
 #define Response_id_tag                          1
 #define Response_message_tag                     2
 #define Response_error_tag                       3
@@ -278,17 +324,18 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,createWaterTank,message.createWaterT
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankMinimumVolume,message.setWaterTankMinimumVolume),   4) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankMaxVolume,message.setWaterTankMaxVolume),   5) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankZeroVolume,message.setWaterTankZeroVolume),   6) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,setMode,message.setMode),   7) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getMode,message.getMode),   8) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterSourceState,message.setWaterSourceState),   9) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSourceList,message.getWaterSourceList),  10) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSource,message.getWaterSource),  11) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankList,message.getWaterTankList),  12) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankVolume,message.getWaterTankVolume),  13) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankPressure,message.getWaterTankPressure),  14) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterSource,message.removeWaterSource),  15) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterTank,message.removeWaterTank),  16) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  17)
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankVolumeFactor,message.setWaterTankVolumeFactor),   7) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterTankPressureFactor,message.setWaterTankPressureFactor),   8) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,setMode,message.setMode),   9) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getMode,message.getMode),  10) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,setWaterSourceState,message.setWaterSourceState),  11) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSourceList,message.getWaterSourceList),  12) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterSource,message.getWaterSource),  13) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTank,message.getWaterTank),  14) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankList,message.getWaterTankList),  15) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterSource,message.removeWaterSource),  16) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterTank,message.removeWaterTank),  17) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  18)
 #define Request_CALLBACK NULL
 #define Request_DEFAULT NULL
 #define Request_message_createWaterSource_MSGTYPE CreateWaterSource
@@ -296,14 +343,15 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  17)
 #define Request_message_setWaterTankMinimumVolume_MSGTYPE SetWaterTankMinimumVolume
 #define Request_message_setWaterTankMaxVolume_MSGTYPE SetWaterTankMaxVolume
 #define Request_message_setWaterTankZeroVolume_MSGTYPE SetWaterTankZeroVolume
+#define Request_message_setWaterTankVolumeFactor_MSGTYPE SetWaterTankVolumeFactor
+#define Request_message_setWaterTankPressureFactor_MSGTYPE SetWaterTankPressureFactor
 #define Request_message_setMode_MSGTYPE SetMode
 #define Request_message_getMode_MSGTYPE GetMode
 #define Request_message_setWaterSourceState_MSGTYPE SetWaterSourceState
 #define Request_message_getWaterSourceList_MSGTYPE GetWaterSourceList
 #define Request_message_getWaterSource_MSGTYPE GetWaterSource
+#define Request_message_getWaterTank_MSGTYPE GetWaterTank
 #define Request_message_getWaterTankList_MSGTYPE GetWaterTankList
-#define Request_message_getWaterTankVolume_MSGTYPE GetWaterTankVolume
-#define Request_message_getWaterTankPressure_MSGTYPE GetWaterTankPressure
 #define Request_message_removeWaterSource_MSGTYPE RemoveWaterSource
 #define Request_message_removeWaterTank_MSGTYPE RemoveWaterTank
 #define Request_message_reset_MSGTYPE Reset
@@ -319,12 +367,14 @@ X(a, STATIC,   ONEOF,    STRING,   (content,stringValue,content.stringValue),   
 #define Value_FIELDLIST(X, a) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  value,             1) \
 X(a, STATIC,   REPEATED, MESSAGE,  listValue,         2) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  waterSource,       3)
+X(a, STATIC,   OPTIONAL, MESSAGE,  waterSource,       3) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  waterTank,         4)
 #define Value_CALLBACK NULL
 #define Value_DEFAULT NULL
 #define Value_value_MSGTYPE PrimitiveValue
 #define Value_listValue_MSGTYPE PrimitiveValue
 #define Value_waterSource_MSGTYPE WaterSourceState
+#define Value_waterTank_MSGTYPE WaterTankState
 
 #define Response_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UINT32,   id,                1) \
@@ -368,6 +418,18 @@ X(a, STATIC,   SINGULAR, FLOAT,    value,             2)
 #define SetWaterTankZeroVolume_CALLBACK NULL
 #define SetWaterTankZeroVolume_DEFAULT NULL
 
+#define SetWaterTankVolumeFactor_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, STRING,   waterTankName,     1) \
+X(a, STATIC,   SINGULAR, FLOAT,    value,             2)
+#define SetWaterTankVolumeFactor_CALLBACK NULL
+#define SetWaterTankVolumeFactor_DEFAULT NULL
+
+#define SetWaterTankPressureFactor_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, STRING,   waterTankName,     1) \
+X(a, STATIC,   SINGULAR, FLOAT,    value,             2)
+#define SetWaterTankPressureFactor_CALLBACK NULL
+#define SetWaterTankPressureFactor_DEFAULT NULL
+
 #define SetMode_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UENUM,    mode,              1)
 #define SetMode_CALLBACK NULL
@@ -394,20 +456,15 @@ X(a, STATIC,   SINGULAR, BOOL,     state,             2)
 #define GetWaterSourceList_CALLBACK NULL
 #define GetWaterSourceList_DEFAULT NULL
 
-#define GetWaterTankVolume_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, STRING,   waterTankName,     1)
-#define GetWaterTankVolume_CALLBACK NULL
-#define GetWaterTankVolume_DEFAULT NULL
-
-#define GetWaterTankPressure_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, STRING,   waterTankName,     1)
-#define GetWaterTankPressure_CALLBACK NULL
-#define GetWaterTankPressure_DEFAULT NULL
-
 #define GetWaterSource_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   waterSourceName,   1)
 #define GetWaterSource_CALLBACK NULL
 #define GetWaterSource_DEFAULT NULL
+
+#define GetWaterTank_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, STRING,   waterTankName,     1)
+#define GetWaterTank_CALLBACK NULL
+#define GetWaterTank_DEFAULT NULL
 
 #define RemoveWaterSource_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   waterSourceName,   1)
@@ -432,6 +489,22 @@ X(a, STATIC,   OPTIONAL, STRING,   sourceWaterTank,   4)
 #define WaterSourceState_CALLBACK NULL
 #define WaterSourceState_DEFAULT NULL
 
+#define WaterTankState_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, STRING,   name,              1) \
+X(a, STATIC,   SINGULAR, UINT32,   pressureSensorPin,   2) \
+X(a, STATIC,   SINGULAR, BOOL,     isFilling,         3) \
+X(a, STATIC,   SINGULAR, FLOAT,    volumeFactor,      4) \
+X(a, STATIC,   SINGULAR, FLOAT,    pressureFactor,    5) \
+X(a, STATIC,   SINGULAR, FLOAT,    minimumVolume,     6) \
+X(a, STATIC,   SINGULAR, FLOAT,    maxVolume,         7) \
+X(a, STATIC,   SINGULAR, FLOAT,    zeroVolumePressure,   8) \
+X(a, STATIC,   SINGULAR, UINT32,   rawPressureValue,   9) \
+X(a, STATIC,   SINGULAR, FLOAT,    pressure,         10) \
+X(a, STATIC,   SINGULAR, FLOAT,    volume,           11) \
+X(a, STATIC,   OPTIONAL, STRING,   waterSource,      12)
+#define WaterTankState_CALLBACK NULL
+#define WaterTankState_DEFAULT NULL
+
 extern const pb_msgdesc_t Request_msg;
 extern const pb_msgdesc_t PrimitiveValue_msg;
 extern const pb_msgdesc_t Value_msg;
@@ -441,18 +514,20 @@ extern const pb_msgdesc_t CreateWaterTank_msg;
 extern const pb_msgdesc_t SetWaterTankMinimumVolume_msg;
 extern const pb_msgdesc_t SetWaterTankMaxVolume_msg;
 extern const pb_msgdesc_t SetWaterTankZeroVolume_msg;
+extern const pb_msgdesc_t SetWaterTankVolumeFactor_msg;
+extern const pb_msgdesc_t SetWaterTankPressureFactor_msg;
 extern const pb_msgdesc_t SetMode_msg;
 extern const pb_msgdesc_t GetMode_msg;
 extern const pb_msgdesc_t SetWaterSourceState_msg;
 extern const pb_msgdesc_t GetWaterTankList_msg;
 extern const pb_msgdesc_t GetWaterSourceList_msg;
-extern const pb_msgdesc_t GetWaterTankVolume_msg;
-extern const pb_msgdesc_t GetWaterTankPressure_msg;
 extern const pb_msgdesc_t GetWaterSource_msg;
+extern const pb_msgdesc_t GetWaterTank_msg;
 extern const pb_msgdesc_t RemoveWaterSource_msg;
 extern const pb_msgdesc_t RemoveWaterTank_msg;
 extern const pb_msgdesc_t Reset_msg;
 extern const pb_msgdesc_t WaterSourceState_msg;
+extern const pb_msgdesc_t WaterTankState_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define Request_fields &Request_msg
@@ -464,18 +539,20 @@ extern const pb_msgdesc_t WaterSourceState_msg;
 #define SetWaterTankMinimumVolume_fields &SetWaterTankMinimumVolume_msg
 #define SetWaterTankMaxVolume_fields &SetWaterTankMaxVolume_msg
 #define SetWaterTankZeroVolume_fields &SetWaterTankZeroVolume_msg
+#define SetWaterTankVolumeFactor_fields &SetWaterTankVolumeFactor_msg
+#define SetWaterTankPressureFactor_fields &SetWaterTankPressureFactor_msg
 #define SetMode_fields &SetMode_msg
 #define GetMode_fields &GetMode_msg
 #define SetWaterSourceState_fields &SetWaterSourceState_msg
 #define GetWaterTankList_fields &GetWaterTankList_msg
 #define GetWaterSourceList_fields &GetWaterSourceList_msg
-#define GetWaterTankVolume_fields &GetWaterTankVolume_msg
-#define GetWaterTankPressure_fields &GetWaterTankPressure_msg
 #define GetWaterSource_fields &GetWaterSource_msg
+#define GetWaterTank_fields &GetWaterTank_msg
 #define RemoveWaterSource_fields &RemoveWaterSource_msg
 #define RemoveWaterTank_fields &RemoveWaterTank_msg
 #define Reset_fields &Reset_msg
 #define WaterSourceState_fields &WaterSourceState_msg
+#define WaterTankState_fields &WaterTankState_msg
 
 /* Maximum encoded size of messages (where known) */
 #define CreateWaterSource_size                   50
@@ -484,21 +561,23 @@ extern const pb_msgdesc_t WaterSourceState_msg;
 #define GetWaterSourceList_size                  0
 #define GetWaterSource_size                      22
 #define GetWaterTankList_size                    0
-#define GetWaterTankPressure_size                22
-#define GetWaterTankVolume_size                  22
+#define GetWaterTank_size                        22
 #define PrimitiveValue_size                      102
 #define RemoveWaterSource_size                   22
 #define RemoveWaterTank_size                     22
 #define Request_size                             68
 #define Reset_size                               0
-#define Response_size                            1209
+#define Response_size                            1304
 #define SetMode_size                             2
 #define SetWaterSourceState_size                 24
 #define SetWaterTankMaxVolume_size               27
 #define SetWaterTankMinimumVolume_size           27
+#define SetWaterTankPressureFactor_size          27
+#define SetWaterTankVolumeFactor_size            27
 #define SetWaterTankZeroVolume_size              27
-#define Value_size                               1198
+#define Value_size                               1293
 #define WaterSourceState_size                    52
+#define WaterTankState_size                      93
 
 #ifdef __cplusplus
 } /* extern "C" */

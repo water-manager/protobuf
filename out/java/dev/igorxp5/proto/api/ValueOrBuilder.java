@@ -60,4 +60,19 @@ public interface ValueOrBuilder extends
    * <code>.WaterSourceState waterSource = 3;</code>
    */
   dev.igorxp5.proto.api.WaterSourceStateOrBuilder getWaterSourceOrBuilder();
+
+  /**
+   * <code>.WaterTankState waterTank = 4;</code>
+   * @return Whether the waterTank field is set.
+   */
+  boolean hasWaterTank();
+  /**
+   * <code>.WaterTankState waterTank = 4;</code>
+   * @return The waterTank.
+   */
+  dev.igorxp5.proto.api.WaterTankState getWaterTank();
+  /**
+   * <code>.WaterTankState waterTank = 4;</code>
+   */
+  dev.igorxp5.proto.api.WaterTankStateOrBuilder getWaterTankOrBuilder();
 }

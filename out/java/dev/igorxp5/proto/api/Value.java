@@ -85,6 +85,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 34: {
+            dev.igorxp5.proto.api.WaterTankState.Builder subBuilder = null;
+            if (waterTank_ != null) {
+              subBuilder = waterTank_.toBuilder();
+            }
+            waterTank_ = input.readMessage(dev.igorxp5.proto.api.WaterTankState.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(waterTank_);
+              waterTank_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -212,6 +225,32 @@ private static final long serialVersionUID = 0L;
     return getWaterSource();
   }
 
+  public static final int WATERTANK_FIELD_NUMBER = 4;
+  private dev.igorxp5.proto.api.WaterTankState waterTank_;
+  /**
+   * <code>.WaterTankState waterTank = 4;</code>
+   * @return Whether the waterTank field is set.
+   */
+  @java.lang.Override
+  public boolean hasWaterTank() {
+    return waterTank_ != null;
+  }
+  /**
+   * <code>.WaterTankState waterTank = 4;</code>
+   * @return The waterTank.
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.WaterTankState getWaterTank() {
+    return waterTank_ == null ? dev.igorxp5.proto.api.WaterTankState.getDefaultInstance() : waterTank_;
+  }
+  /**
+   * <code>.WaterTankState waterTank = 4;</code>
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.WaterTankStateOrBuilder getWaterTankOrBuilder() {
+    return getWaterTank();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -235,6 +274,9 @@ private static final long serialVersionUID = 0L;
     if (waterSource_ != null) {
       output.writeMessage(3, getWaterSource());
     }
+    if (waterTank_ != null) {
+      output.writeMessage(4, getWaterTank());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -255,6 +297,10 @@ private static final long serialVersionUID = 0L;
     if (waterSource_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getWaterSource());
+    }
+    if (waterTank_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getWaterTank());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -283,6 +329,11 @@ private static final long serialVersionUID = 0L;
       if (!getWaterSource()
           .equals(other.getWaterSource())) return false;
     }
+    if (hasWaterTank() != other.hasWaterTank()) return false;
+    if (hasWaterTank()) {
+      if (!getWaterTank()
+          .equals(other.getWaterTank())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -305,6 +356,10 @@ private static final long serialVersionUID = 0L;
     if (hasWaterSource()) {
       hash = (37 * hash) + WATERSOURCE_FIELD_NUMBER;
       hash = (53 * hash) + getWaterSource().hashCode();
+    }
+    if (hasWaterTank()) {
+      hash = (37 * hash) + WATERTANK_FIELD_NUMBER;
+      hash = (53 * hash) + getWaterTank().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -458,6 +513,12 @@ private static final long serialVersionUID = 0L;
         waterSource_ = null;
         waterSourceBuilder_ = null;
       }
+      if (waterTankBuilder_ == null) {
+        waterTank_ = null;
+      } else {
+        waterTank_ = null;
+        waterTankBuilder_ = null;
+      }
       return this;
     }
 
@@ -503,6 +564,11 @@ private static final long serialVersionUID = 0L;
         result.waterSource_ = waterSource_;
       } else {
         result.waterSource_ = waterSourceBuilder_.build();
+      }
+      if (waterTankBuilder_ == null) {
+        result.waterTank_ = waterTank_;
+      } else {
+        result.waterTank_ = waterTankBuilder_.build();
       }
       onBuilt();
       return result;
@@ -583,6 +649,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasWaterSource()) {
         mergeWaterSource(other.getWaterSource());
+      }
+      if (other.hasWaterTank()) {
+        mergeWaterTank(other.getWaterTank());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1090,6 +1159,125 @@ private static final long serialVersionUID = 0L;
         waterSource_ = null;
       }
       return waterSourceBuilder_;
+    }
+
+    private dev.igorxp5.proto.api.WaterTankState waterTank_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.WaterTankState, dev.igorxp5.proto.api.WaterTankState.Builder, dev.igorxp5.proto.api.WaterTankStateOrBuilder> waterTankBuilder_;
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     * @return Whether the waterTank field is set.
+     */
+    public boolean hasWaterTank() {
+      return waterTankBuilder_ != null || waterTank_ != null;
+    }
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     * @return The waterTank.
+     */
+    public dev.igorxp5.proto.api.WaterTankState getWaterTank() {
+      if (waterTankBuilder_ == null) {
+        return waterTank_ == null ? dev.igorxp5.proto.api.WaterTankState.getDefaultInstance() : waterTank_;
+      } else {
+        return waterTankBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     */
+    public Builder setWaterTank(dev.igorxp5.proto.api.WaterTankState value) {
+      if (waterTankBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        waterTank_ = value;
+        onChanged();
+      } else {
+        waterTankBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     */
+    public Builder setWaterTank(
+        dev.igorxp5.proto.api.WaterTankState.Builder builderForValue) {
+      if (waterTankBuilder_ == null) {
+        waterTank_ = builderForValue.build();
+        onChanged();
+      } else {
+        waterTankBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     */
+    public Builder mergeWaterTank(dev.igorxp5.proto.api.WaterTankState value) {
+      if (waterTankBuilder_ == null) {
+        if (waterTank_ != null) {
+          waterTank_ =
+            dev.igorxp5.proto.api.WaterTankState.newBuilder(waterTank_).mergeFrom(value).buildPartial();
+        } else {
+          waterTank_ = value;
+        }
+        onChanged();
+      } else {
+        waterTankBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     */
+    public Builder clearWaterTank() {
+      if (waterTankBuilder_ == null) {
+        waterTank_ = null;
+        onChanged();
+      } else {
+        waterTank_ = null;
+        waterTankBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     */
+    public dev.igorxp5.proto.api.WaterTankState.Builder getWaterTankBuilder() {
+      
+      onChanged();
+      return getWaterTankFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     */
+    public dev.igorxp5.proto.api.WaterTankStateOrBuilder getWaterTankOrBuilder() {
+      if (waterTankBuilder_ != null) {
+        return waterTankBuilder_.getMessageOrBuilder();
+      } else {
+        return waterTank_ == null ?
+            dev.igorxp5.proto.api.WaterTankState.getDefaultInstance() : waterTank_;
+      }
+    }
+    /**
+     * <code>.WaterTankState waterTank = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.WaterTankState, dev.igorxp5.proto.api.WaterTankState.Builder, dev.igorxp5.proto.api.WaterTankStateOrBuilder> 
+        getWaterTankFieldBuilder() {
+      if (waterTankBuilder_ == null) {
+        waterTankBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dev.igorxp5.proto.api.WaterTankState, dev.igorxp5.proto.api.WaterTankState.Builder, dev.igorxp5.proto.api.WaterTankStateOrBuilder>(
+                getWaterTank(),
+                getParentForChildren(),
+                isClean());
+        waterTank_ = null;
+      }
+      return waterTankBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

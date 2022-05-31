@@ -89,167 +89,182 @@ public interface RequestOrBuilder extends
   dev.igorxp5.proto.api.SetWaterTankZeroVolumeOrBuilder getSetWaterTankZeroVolumeOrBuilder();
 
   /**
-   * <code>.SetMode setMode = 7;</code>
+   * <code>.SetWaterTankVolumeFactor setWaterTankVolumeFactor = 7;</code>
+   * @return Whether the setWaterTankVolumeFactor field is set.
+   */
+  boolean hasSetWaterTankVolumeFactor();
+  /**
+   * <code>.SetWaterTankVolumeFactor setWaterTankVolumeFactor = 7;</code>
+   * @return The setWaterTankVolumeFactor.
+   */
+  dev.igorxp5.proto.api.SetWaterTankVolumeFactor getSetWaterTankVolumeFactor();
+  /**
+   * <code>.SetWaterTankVolumeFactor setWaterTankVolumeFactor = 7;</code>
+   */
+  dev.igorxp5.proto.api.SetWaterTankVolumeFactorOrBuilder getSetWaterTankVolumeFactorOrBuilder();
+
+  /**
+   * <code>.SetWaterTankPressureFactor setWaterTankPressureFactor = 8;</code>
+   * @return Whether the setWaterTankPressureFactor field is set.
+   */
+  boolean hasSetWaterTankPressureFactor();
+  /**
+   * <code>.SetWaterTankPressureFactor setWaterTankPressureFactor = 8;</code>
+   * @return The setWaterTankPressureFactor.
+   */
+  dev.igorxp5.proto.api.SetWaterTankPressureFactor getSetWaterTankPressureFactor();
+  /**
+   * <code>.SetWaterTankPressureFactor setWaterTankPressureFactor = 8;</code>
+   */
+  dev.igorxp5.proto.api.SetWaterTankPressureFactorOrBuilder getSetWaterTankPressureFactorOrBuilder();
+
+  /**
+   * <code>.SetMode setMode = 9;</code>
    * @return Whether the setMode field is set.
    */
   boolean hasSetMode();
   /**
-   * <code>.SetMode setMode = 7;</code>
+   * <code>.SetMode setMode = 9;</code>
    * @return The setMode.
    */
   dev.igorxp5.proto.api.SetMode getSetMode();
   /**
-   * <code>.SetMode setMode = 7;</code>
+   * <code>.SetMode setMode = 9;</code>
    */
   dev.igorxp5.proto.api.SetModeOrBuilder getSetModeOrBuilder();
 
   /**
-   * <code>.GetMode getMode = 8;</code>
+   * <code>.GetMode getMode = 10;</code>
    * @return Whether the getMode field is set.
    */
   boolean hasGetMode();
   /**
-   * <code>.GetMode getMode = 8;</code>
+   * <code>.GetMode getMode = 10;</code>
    * @return The getMode.
    */
   dev.igorxp5.proto.api.GetMode getGetMode();
   /**
-   * <code>.GetMode getMode = 8;</code>
+   * <code>.GetMode getMode = 10;</code>
    */
   dev.igorxp5.proto.api.GetModeOrBuilder getGetModeOrBuilder();
 
   /**
-   * <code>.SetWaterSourceState setWaterSourceState = 9;</code>
+   * <code>.SetWaterSourceState setWaterSourceState = 11;</code>
    * @return Whether the setWaterSourceState field is set.
    */
   boolean hasSetWaterSourceState();
   /**
-   * <code>.SetWaterSourceState setWaterSourceState = 9;</code>
+   * <code>.SetWaterSourceState setWaterSourceState = 11;</code>
    * @return The setWaterSourceState.
    */
   dev.igorxp5.proto.api.SetWaterSourceState getSetWaterSourceState();
   /**
-   * <code>.SetWaterSourceState setWaterSourceState = 9;</code>
+   * <code>.SetWaterSourceState setWaterSourceState = 11;</code>
    */
   dev.igorxp5.proto.api.SetWaterSourceStateOrBuilder getSetWaterSourceStateOrBuilder();
 
   /**
-   * <code>.GetWaterSourceList getWaterSourceList = 10;</code>
+   * <code>.GetWaterSourceList getWaterSourceList = 12;</code>
    * @return Whether the getWaterSourceList field is set.
    */
   boolean hasGetWaterSourceList();
   /**
-   * <code>.GetWaterSourceList getWaterSourceList = 10;</code>
+   * <code>.GetWaterSourceList getWaterSourceList = 12;</code>
    * @return The getWaterSourceList.
    */
   dev.igorxp5.proto.api.GetWaterSourceList getGetWaterSourceList();
   /**
-   * <code>.GetWaterSourceList getWaterSourceList = 10;</code>
+   * <code>.GetWaterSourceList getWaterSourceList = 12;</code>
    */
   dev.igorxp5.proto.api.GetWaterSourceListOrBuilder getGetWaterSourceListOrBuilder();
 
   /**
-   * <code>.GetWaterSource getWaterSource = 11;</code>
+   * <code>.GetWaterSource getWaterSource = 13;</code>
    * @return Whether the getWaterSource field is set.
    */
   boolean hasGetWaterSource();
   /**
-   * <code>.GetWaterSource getWaterSource = 11;</code>
+   * <code>.GetWaterSource getWaterSource = 13;</code>
    * @return The getWaterSource.
    */
   dev.igorxp5.proto.api.GetWaterSource getGetWaterSource();
   /**
-   * <code>.GetWaterSource getWaterSource = 11;</code>
+   * <code>.GetWaterSource getWaterSource = 13;</code>
    */
   dev.igorxp5.proto.api.GetWaterSourceOrBuilder getGetWaterSourceOrBuilder();
 
   /**
-   * <code>.GetWaterTankList getWaterTankList = 12;</code>
+   * <code>.GetWaterTank getWaterTank = 14;</code>
+   * @return Whether the getWaterTank field is set.
+   */
+  boolean hasGetWaterTank();
+  /**
+   * <code>.GetWaterTank getWaterTank = 14;</code>
+   * @return The getWaterTank.
+   */
+  dev.igorxp5.proto.api.GetWaterTank getGetWaterTank();
+  /**
+   * <code>.GetWaterTank getWaterTank = 14;</code>
+   */
+  dev.igorxp5.proto.api.GetWaterTankOrBuilder getGetWaterTankOrBuilder();
+
+  /**
+   * <code>.GetWaterTankList getWaterTankList = 15;</code>
    * @return Whether the getWaterTankList field is set.
    */
   boolean hasGetWaterTankList();
   /**
-   * <code>.GetWaterTankList getWaterTankList = 12;</code>
+   * <code>.GetWaterTankList getWaterTankList = 15;</code>
    * @return The getWaterTankList.
    */
   dev.igorxp5.proto.api.GetWaterTankList getGetWaterTankList();
   /**
-   * <code>.GetWaterTankList getWaterTankList = 12;</code>
+   * <code>.GetWaterTankList getWaterTankList = 15;</code>
    */
   dev.igorxp5.proto.api.GetWaterTankListOrBuilder getGetWaterTankListOrBuilder();
 
   /**
-   * <code>.GetWaterTankVolume getWaterTankVolume = 13;</code>
-   * @return Whether the getWaterTankVolume field is set.
-   */
-  boolean hasGetWaterTankVolume();
-  /**
-   * <code>.GetWaterTankVolume getWaterTankVolume = 13;</code>
-   * @return The getWaterTankVolume.
-   */
-  dev.igorxp5.proto.api.GetWaterTankVolume getGetWaterTankVolume();
-  /**
-   * <code>.GetWaterTankVolume getWaterTankVolume = 13;</code>
-   */
-  dev.igorxp5.proto.api.GetWaterTankVolumeOrBuilder getGetWaterTankVolumeOrBuilder();
-
-  /**
-   * <code>.GetWaterTankPressure getWaterTankPressure = 14;</code>
-   * @return Whether the getWaterTankPressure field is set.
-   */
-  boolean hasGetWaterTankPressure();
-  /**
-   * <code>.GetWaterTankPressure getWaterTankPressure = 14;</code>
-   * @return The getWaterTankPressure.
-   */
-  dev.igorxp5.proto.api.GetWaterTankPressure getGetWaterTankPressure();
-  /**
-   * <code>.GetWaterTankPressure getWaterTankPressure = 14;</code>
-   */
-  dev.igorxp5.proto.api.GetWaterTankPressureOrBuilder getGetWaterTankPressureOrBuilder();
-
-  /**
-   * <code>.RemoveWaterSource removeWaterSource = 15;</code>
+   * <code>.RemoveWaterSource removeWaterSource = 16;</code>
    * @return Whether the removeWaterSource field is set.
    */
   boolean hasRemoveWaterSource();
   /**
-   * <code>.RemoveWaterSource removeWaterSource = 15;</code>
+   * <code>.RemoveWaterSource removeWaterSource = 16;</code>
    * @return The removeWaterSource.
    */
   dev.igorxp5.proto.api.RemoveWaterSource getRemoveWaterSource();
   /**
-   * <code>.RemoveWaterSource removeWaterSource = 15;</code>
+   * <code>.RemoveWaterSource removeWaterSource = 16;</code>
    */
   dev.igorxp5.proto.api.RemoveWaterSourceOrBuilder getRemoveWaterSourceOrBuilder();
 
   /**
-   * <code>.RemoveWaterTank removeWaterTank = 16;</code>
+   * <code>.RemoveWaterTank removeWaterTank = 17;</code>
    * @return Whether the removeWaterTank field is set.
    */
   boolean hasRemoveWaterTank();
   /**
-   * <code>.RemoveWaterTank removeWaterTank = 16;</code>
+   * <code>.RemoveWaterTank removeWaterTank = 17;</code>
    * @return The removeWaterTank.
    */
   dev.igorxp5.proto.api.RemoveWaterTank getRemoveWaterTank();
   /**
-   * <code>.RemoveWaterTank removeWaterTank = 16;</code>
+   * <code>.RemoveWaterTank removeWaterTank = 17;</code>
    */
   dev.igorxp5.proto.api.RemoveWaterTankOrBuilder getRemoveWaterTankOrBuilder();
 
   /**
-   * <code>.Reset reset = 17;</code>
+   * <code>.Reset reset = 18;</code>
    * @return Whether the reset field is set.
    */
   boolean hasReset();
   /**
-   * <code>.Reset reset = 17;</code>
+   * <code>.Reset reset = 18;</code>
    * @return The reset.
    */
   dev.igorxp5.proto.api.Reset getReset();
   /**
-   * <code>.Reset reset = 17;</code>
+   * <code>.Reset reset = 18;</code>
    */
   dev.igorxp5.proto.api.ResetOrBuilder getResetOrBuilder();
 

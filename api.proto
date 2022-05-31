@@ -11,17 +11,18 @@ message Request {
         SetWaterTankMinimumVolume setWaterTankMinimumVolume = 4;
         SetWaterTankMaxVolume setWaterTankMaxVolume = 5;
         SetWaterTankZeroVolume setWaterTankZeroVolume = 6;
-        SetMode setMode = 7;
-        GetMode getMode = 8;
-        SetWaterSourceState setWaterSourceState = 9;
-        GetWaterSourceList getWaterSourceList = 10;
-        GetWaterSource getWaterSource = 11;
-        GetWaterTankList getWaterTankList = 12;
-        GetWaterTankVolume getWaterTankVolume = 13;
-        GetWaterTankPressure getWaterTankPressure = 14;
-        RemoveWaterSource removeWaterSource = 15;
-        RemoveWaterTank removeWaterTank = 16;
-        Reset reset = 17;
+        SetWaterTankVolumeFactor setWaterTankVolumeFactor = 7;
+        SetWaterTankPressureFactor setWaterTankPressureFactor = 8;
+        SetMode setMode = 9;
+        GetMode getMode = 10;
+        SetWaterSourceState setWaterSourceState = 11;
+        GetWaterSourceList getWaterSourceList = 12;
+        GetWaterSource getWaterSource = 13;
+        GetWaterTank getWaterTank = 14;
+        GetWaterTankList getWaterTankList = 15;
+        RemoveWaterSource removeWaterSource = 16;
+        RemoveWaterTank removeWaterTank = 17;
+        Reset reset = 18;
     }
 }
 
@@ -38,6 +39,7 @@ message Value {
     PrimitiveValue value = 1;
     repeated PrimitiveValue listValue = 2;
     WaterSourceState waterSource = 3;
+    WaterTankState waterTank = 4;
 }
 
 message Response {
@@ -80,6 +82,16 @@ message SetWaterTankZeroVolume {
     float value = 2;
 }
 
+message SetWaterTankVolumeFactor {
+    string waterTankName = 1;
+    float value = 2;
+}
+
+message SetWaterTankPressureFactor {
+    string waterTankName = 1;
+    float value = 2;
+}
+
 message SetMode {
     enum Mode {
         MANUAL = 0;
@@ -102,16 +114,12 @@ message GetWaterTankList {
 message GetWaterSourceList {
 }
 
-message GetWaterTankVolume {
-    string waterTankName = 1;
-}
-
-message GetWaterTankPressure {
-    string waterTankName = 1;
-}
-
 message GetWaterSource {
     string waterSourceName = 1;
+}
+
+message GetWaterTank {
+    string waterTankName = 1;
 }
 
 message RemoveWaterSource {
@@ -130,4 +138,21 @@ message WaterSourceState {
     uint32 pin = 2;
     bool enabled = 3;
     optional string sourceWaterTank = 4;
+}
+
+//FIXME: There are redudant properties
+
+message WaterTankState {
+    string name = 1;
+    uint32 pressureSensorPin = 2;
+    bool isFilling = 3;
+    float volumeFactor = 4;
+    float pressureFactor = 5;
+    float minimumVolume = 6;
+    float maxVolume = 7;
+    float zeroVolumePressure = 8;
+    uint32 rawPressureValue = 9;
+    float pressure = 10;
+    float volume = 11;
+    optional string waterSource = 12;
 }
