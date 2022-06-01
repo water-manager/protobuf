@@ -115,6 +115,11 @@ public final class Api {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_RemoveWaterTank_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_FillWaterTank_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_FillWaterTank_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Reset_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -138,7 +143,7 @@ public final class Api {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tapi.proto\"\317\006\n\007Request\022\n\n\002id\030\001 \001(\r\022/\n\021c" +
+      "\n\tapi.proto\"\370\006\n\007Request\022\n\n\002id\030\001 \001(\r\022/\n\021c" +
       "reateWaterSource\030\002 \001(\0132\022.CreateWaterSour" +
       "ceH\000\022+\n\017createWaterTank\030\003 \001(\0132\020.CreateWa" +
       "terTankH\000\022?\n\031setWaterTankMinimumVolume\030\004" +
@@ -158,54 +163,57 @@ public final class Api {
       "nkH\000\022-\n\020getWaterTankList\030\017 \001(\0132\021.GetWate" +
       "rTankListH\000\022/\n\021removeWaterSource\030\020 \001(\0132\022" +
       ".RemoveWaterSourceH\000\022+\n\017removeWaterTank\030" +
-      "\021 \001(\0132\020.RemoveWaterTankH\000\022\027\n\005reset\030\022 \001(\013" +
-      "2\006.ResetH\000B\t\n\007message\"q\n\016PrimitiveValue\022" +
-      "\023\n\tboolValue\030\002 \001(\010H\000\022\022\n\010intValue\030\003 \001(\005H\000" +
-      "\022\024\n\nfloatValue\030\004 \001(\002H\000\022\025\n\013stringValue\030\005 " +
-      "\001(\tH\000B\t\n\007content\"\227\001\n\005Value\022\036\n\005value\030\001 \001(" +
-      "\0132\017.PrimitiveValue\022\"\n\tlistValue\030\002 \003(\0132\017." +
-      "PrimitiveValue\022&\n\013waterSource\030\003 \001(\0132\021.Wa" +
-      "terSourceState\022\"\n\twaterTank\030\004 \001(\0132\017.Wate" +
-      "rTankState\"\246\001\n\010Response\022\n\n\002id\030\001 \001(\r\022\027\n\007m" +
-      "essage\030\002 \001(\0132\006.Value\022\'\n\005error\030\003 \001(\0162\023.Re" +
-      "sponse.ExceptionH\000\210\001\001\"B\n\tException\022\r\n\tEX" +
-      "CEPTION\020\000\022\021\n\rRUNTIME_ERROR\020\001\022\023\n\017INVALID_" +
-      "REQUEST\020\002B\010\n\006_error\"\\\n\021CreateWaterSource" +
-      "\022\014\n\004name\030\001 \001(\t\022\013\n\003pin\030\002 \001(\r\022\032\n\rwaterTank" +
-      "Name\030\003 \001(\tH\000\210\001\001B\020\n\016_waterTankName\"\232\001\n\017Cr" +
-      "eateWaterTank\022\014\n\004name\030\001 \001(\t\022\031\n\021pressureS" +
-      "ensorPin\030\002 \001(\r\022\024\n\014volumeFactor\030\003 \001(\002\022\026\n\016" +
-      "pressureFactor\030\004 \001(\002\022\034\n\017waterSourceName\030" +
-      "\005 \001(\tH\000\210\001\001B\022\n\020_waterSourceName\"A\n\031SetWat" +
-      "erTankMinimumVolume\022\025\n\rwaterTankName\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\002\"=\n\025SetWaterTankMaxVolu" +
-      "me\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001(\002" +
-      "\">\n\026SetWaterTankZeroVolume\022\025\n\rwaterTankN" +
-      "ame\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\"@\n\030SetWaterTank" +
-      "VolumeFactor\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\002\"B\n\032SetWaterTankPressureFactor" +
-      "\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\"D" +
-      "\n\007SetMode\022\033\n\004mode\030\001 \001(\0162\r.SetMode.Mode\"\034" +
-      "\n\004Mode\022\n\n\006MANUAL\020\000\022\010\n\004AUTO\020\001\"\t\n\007GetMode\"" +
-      "=\n\023SetWaterSourceState\022\027\n\017waterSourceNam" +
-      "e\030\001 \001(\t\022\r\n\005state\030\002 \001(\010\"\022\n\020GetWaterTankLi" +
-      "st\"\024\n\022GetWaterSourceList\")\n\016GetWaterSour" +
-      "ce\022\027\n\017waterSourceName\030\001 \001(\t\"%\n\014GetWaterT" +
-      "ank\022\025\n\rwaterTankName\030\001 \001(\t\",\n\021RemoveWate" +
-      "rSource\022\027\n\017waterSourceName\030\001 \001(\t\"(\n\017Remo" +
-      "veWaterTank\022\025\n\rwaterTankName\030\001 \001(\t\"\007\n\005Re" +
-      "set\"p\n\020WaterSourceState\022\014\n\004name\030\001 \001(\t\022\013\n" +
-      "\003pin\030\002 \001(\r\022\017\n\007enabled\030\003 \001(\010\022\034\n\017sourceWat" +
-      "erTank\030\004 \001(\tH\000\210\001\001B\022\n\020_sourceWaterTank\"\246\002" +
-      "\n\016WaterTankState\022\014\n\004name\030\001 \001(\t\022\031\n\021pressu" +
-      "reSensorPin\030\002 \001(\r\022\021\n\tisFilling\030\003 \001(\010\022\024\n\014" +
-      "volumeFactor\030\004 \001(\002\022\026\n\016pressureFactor\030\005 \001" +
-      "(\002\022\025\n\rminimumVolume\030\006 \001(\002\022\021\n\tmaxVolume\030\007" +
-      " \001(\002\022\032\n\022zeroVolumePressure\030\010 \001(\002\022\030\n\020rawP" +
-      "ressureValue\030\t \001(\r\022\020\n\010pressure\030\n \001(\002\022\016\n\006" +
-      "volume\030\013 \001(\002\022\030\n\013waterSource\030\014 \001(\tH\000\210\001\001B\016" +
-      "\n\014_waterSourceB\031\n\025dev.igorxp5.proto.apiP" +
-      "\001b\006proto3"
+      "\021 \001(\0132\020.RemoveWaterTankH\000\022\'\n\rfillWaterTa" +
+      "nk\030\022 \001(\0132\016.FillWaterTankH\000\022\027\n\005reset\030\023 \001(" +
+      "\0132\006.ResetH\000B\t\n\007message\"q\n\016PrimitiveValue" +
+      "\022\023\n\tboolValue\030\002 \001(\010H\000\022\022\n\010intValue\030\003 \001(\005H" +
+      "\000\022\024\n\nfloatValue\030\004 \001(\002H\000\022\025\n\013stringValue\030\005" +
+      " \001(\tH\000B\t\n\007content\"\227\001\n\005Value\022\036\n\005value\030\001 \001" +
+      "(\0132\017.PrimitiveValue\022\"\n\tlistValue\030\002 \003(\0132\017" +
+      ".PrimitiveValue\022&\n\013waterSource\030\003 \001(\0132\021.W" +
+      "aterSourceState\022\"\n\twaterTank\030\004 \001(\0132\017.Wat" +
+      "erTankState\"\246\001\n\010Response\022\n\n\002id\030\001 \001(\r\022\027\n\007" +
+      "message\030\002 \001(\0132\006.Value\022\'\n\005error\030\003 \001(\0162\023.R" +
+      "esponse.ExceptionH\000\210\001\001\"B\n\tException\022\r\n\tE" +
+      "XCEPTION\020\000\022\021\n\rRUNTIME_ERROR\020\001\022\023\n\017INVALID" +
+      "_REQUEST\020\002B\010\n\006_error\"\\\n\021CreateWaterSourc" +
+      "e\022\014\n\004name\030\001 \001(\t\022\013\n\003pin\030\002 \001(\r\022\032\n\rwaterTan" +
+      "kName\030\003 \001(\tH\000\210\001\001B\020\n\016_waterTankName\"\232\001\n\017C" +
+      "reateWaterTank\022\014\n\004name\030\001 \001(\t\022\031\n\021pressure" +
+      "SensorPin\030\002 \001(\r\022\024\n\014volumeFactor\030\003 \001(\002\022\026\n" +
+      "\016pressureFactor\030\004 \001(\002\022\034\n\017waterSourceName" +
+      "\030\005 \001(\tH\000\210\001\001B\022\n\020_waterSourceName\"A\n\031SetWa" +
+      "terTankMinimumVolume\022\025\n\rwaterTankName\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\002\"=\n\025SetWaterTankMaxVol" +
+      "ume\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\002\">\n\026SetWaterTankZeroVolume\022\025\n\rwaterTank" +
+      "Name\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\"@\n\030SetWaterTan" +
+      "kVolumeFactor\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\002\"B\n\032SetWaterTankPressureFacto" +
+      "r\022\025\n\rwaterTankName\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\"" +
+      "D\n\007SetMode\022\033\n\004mode\030\001 \001(\0162\r.SetMode.Mode\"" +
+      "\034\n\004Mode\022\n\n\006MANUAL\020\000\022\010\n\004AUTO\020\001\"\t\n\007GetMode" +
+      "\"=\n\023SetWaterSourceState\022\027\n\017waterSourceNa" +
+      "me\030\001 \001(\t\022\r\n\005state\030\002 \001(\010\"\022\n\020GetWaterTankL" +
+      "ist\"\024\n\022GetWaterSourceList\")\n\016GetWaterSou" +
+      "rce\022\027\n\017waterSourceName\030\001 \001(\t\"%\n\014GetWater" +
+      "Tank\022\025\n\rwaterTankName\030\001 \001(\t\",\n\021RemoveWat" +
+      "erSource\022\027\n\017waterSourceName\030\001 \001(\t\"(\n\017Rem" +
+      "oveWaterTank\022\025\n\rwaterTankName\030\001 \001(\t\"F\n\rF" +
+      "illWaterTank\022\025\n\rwaterTankName\030\001 \001(\t\022\017\n\007e" +
+      "nabled\030\002 \001(\010\022\r\n\005force\030\003 \001(\010\"\007\n\005Reset\"p\n\020" +
+      "WaterSourceState\022\014\n\004name\030\001 \001(\t\022\013\n\003pin\030\002 " +
+      "\001(\r\022\017\n\007enabled\030\003 \001(\010\022\034\n\017sourceWaterTank\030" +
+      "\004 \001(\tH\000\210\001\001B\022\n\020_sourceWaterTank\"\246\002\n\016Water" +
+      "TankState\022\014\n\004name\030\001 \001(\t\022\031\n\021pressureSenso" +
+      "rPin\030\002 \001(\r\022\021\n\tisFilling\030\003 \001(\010\022\024\n\014volumeF" +
+      "actor\030\004 \001(\002\022\026\n\016pressureFactor\030\005 \001(\002\022\025\n\rm" +
+      "inimumVolume\030\006 \001(\002\022\021\n\tmaxVolume\030\007 \001(\002\022\032\n" +
+      "\022zeroVolumePressure\030\010 \001(\002\022\030\n\020rawPressure" +
+      "Value\030\t \001(\r\022\020\n\010pressure\030\n \001(\002\022\016\n\006volume\030" +
+      "\013 \001(\002\022\030\n\013waterSource\030\014 \001(\tH\000\210\001\001B\016\n\014_wate" +
+      "rSourceB\031\n\025dev.igorxp5.proto.apiP\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -216,7 +224,7 @@ public final class Api {
     internal_static_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Request_descriptor,
-        new java.lang.String[] { "Id", "CreateWaterSource", "CreateWaterTank", "SetWaterTankMinimumVolume", "SetWaterTankMaxVolume", "SetWaterTankZeroVolume", "SetWaterTankVolumeFactor", "SetWaterTankPressureFactor", "SetMode", "GetMode", "SetWaterSourceState", "GetWaterSourceList", "GetWaterSource", "GetWaterTank", "GetWaterTankList", "RemoveWaterSource", "RemoveWaterTank", "Reset", "Message", });
+        new java.lang.String[] { "Id", "CreateWaterSource", "CreateWaterTank", "SetWaterTankMinimumVolume", "SetWaterTankMaxVolume", "SetWaterTankZeroVolume", "SetWaterTankVolumeFactor", "SetWaterTankPressureFactor", "SetMode", "GetMode", "SetWaterSourceState", "GetWaterSourceList", "GetWaterSource", "GetWaterTank", "GetWaterTankList", "RemoveWaterSource", "RemoveWaterTank", "FillWaterTank", "Reset", "Message", });
     internal_static_PrimitiveValue_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_PrimitiveValue_fieldAccessorTable = new
@@ -331,20 +339,26 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RemoveWaterTank_descriptor,
         new java.lang.String[] { "WaterTankName", });
-    internal_static_Reset_descriptor =
+    internal_static_FillWaterTank_descriptor =
       getDescriptor().getMessageTypes().get(20);
+    internal_static_FillWaterTank_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_FillWaterTank_descriptor,
+        new java.lang.String[] { "WaterTankName", "Enabled", "Force", });
+    internal_static_Reset_descriptor =
+      getDescriptor().getMessageTypes().get(21);
     internal_static_Reset_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Reset_descriptor,
         new java.lang.String[] { });
     internal_static_WaterSourceState_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_WaterSourceState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WaterSourceState_descriptor,
         new java.lang.String[] { "Name", "Pin", "Enabled", "SourceWaterTank", "SourceWaterTank", });
     internal_static_WaterTankState_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_WaterTankState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WaterTankState_descriptor,

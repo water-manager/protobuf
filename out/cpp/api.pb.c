@@ -66,6 +66,9 @@ PB_BIND(RemoveWaterSource, RemoveWaterSource, AUTO)
 PB_BIND(RemoveWaterTank, RemoveWaterTank, AUTO)
 
 
+PB_BIND(FillWaterTank, FillWaterTank, AUTO)
+
+
 PB_BIND(Reset, Reset, AUTO)
 
 

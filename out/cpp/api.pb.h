@@ -54,6 +54,12 @@ typedef struct _CreateWaterTank {
     char waterSourceName[21]; 
 } CreateWaterTank;
 
+typedef struct _FillWaterTank { 
+    char waterTankName[21]; 
+    bool enabled; 
+    bool force; 
+} FillWaterTank;
+
 typedef struct _GetWaterSource { 
     char waterSourceName[21]; 
 } GetWaterSource;
@@ -158,6 +164,7 @@ typedef struct _Request {
         GetWaterTankList getWaterTankList;
         RemoveWaterSource removeWaterSource;
         RemoveWaterTank removeWaterTank;
+        FillWaterTank fillWaterTank;
         Reset reset;
     } message; 
 } Request;
@@ -217,6 +224,7 @@ extern "C" {
 #define GetWaterTank_init_default                {""}
 #define RemoveWaterSource_init_default           {""}
 #define RemoveWaterTank_init_default             {""}
+#define FillWaterTank_init_default               {"", 0, 0}
 #define Reset_init_default                       {0}
 #define WaterSourceState_init_default            {"", 0, 0, false, ""}
 #define WaterTankState_init_default              {"", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, false, ""}
@@ -240,6 +248,7 @@ extern "C" {
 #define GetWaterTank_init_zero                   {""}
 #define RemoveWaterSource_init_zero              {""}
 #define RemoveWaterTank_init_zero                {""}
+#define FillWaterTank_init_zero                  {"", 0, 0}
 #define Reset_init_zero                          {0}
 #define WaterSourceState_init_zero               {"", 0, 0, false, ""}
 #define WaterTankState_init_zero                 {"", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, false, ""}
@@ -253,6 +262,9 @@ extern "C" {
 #define CreateWaterTank_volumeFactor_tag         3
 #define CreateWaterTank_pressureFactor_tag       4
 #define CreateWaterTank_waterSourceName_tag      5
+#define FillWaterTank_waterTankName_tag          1
+#define FillWaterTank_enabled_tag                2
+#define FillWaterTank_force_tag                  3
 #define GetWaterSource_waterSourceName_tag       1
 #define GetWaterTank_waterTankName_tag           1
 #define PrimitiveValue_boolValue_tag             2
@@ -307,7 +319,8 @@ extern "C" {
 #define Request_getWaterTankList_tag             15
 #define Request_removeWaterSource_tag            16
 #define Request_removeWaterTank_tag              17
-#define Request_reset_tag                        18
+#define Request_fillWaterTank_tag                18
+#define Request_reset_tag                        19
 #define Value_value_tag                          1
 #define Value_listValue_tag                      2
 #define Value_waterSource_tag                    3
@@ -335,7 +348,8 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTank,message.getWaterTank), 
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,getWaterTankList,message.getWaterTankList),  15) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterSource,message.removeWaterSource),  16) \
 X(a, STATIC,   ONEOF,    MESSAGE,  (message,removeWaterTank,message.removeWaterTank),  17) \
-X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  18)
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,fillWaterTank,message.fillWaterTank),  18) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  19)
 #define Request_CALLBACK NULL
 #define Request_DEFAULT NULL
 #define Request_message_createWaterSource_MSGTYPE CreateWaterSource
@@ -354,6 +368,7 @@ X(a, STATIC,   ONEOF,    MESSAGE,  (message,reset,message.reset),  18)
 #define Request_message_getWaterTankList_MSGTYPE GetWaterTankList
 #define Request_message_removeWaterSource_MSGTYPE RemoveWaterSource
 #define Request_message_removeWaterTank_MSGTYPE RemoveWaterTank
+#define Request_message_fillWaterTank_MSGTYPE FillWaterTank
 #define Request_message_reset_MSGTYPE Reset
 
 #define PrimitiveValue_FIELDLIST(X, a) \
@@ -476,6 +491,13 @@ X(a, STATIC,   SINGULAR, STRING,   waterTankName,     1)
 #define RemoveWaterTank_CALLBACK NULL
 #define RemoveWaterTank_DEFAULT NULL
 
+#define FillWaterTank_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, STRING,   waterTankName,     1) \
+X(a, STATIC,   SINGULAR, BOOL,     enabled,           2) \
+X(a, STATIC,   SINGULAR, BOOL,     force,             3)
+#define FillWaterTank_CALLBACK NULL
+#define FillWaterTank_DEFAULT NULL
+
 #define Reset_FIELDLIST(X, a) \
 
 #define Reset_CALLBACK NULL
@@ -525,6 +547,7 @@ extern const pb_msgdesc_t GetWaterSource_msg;
 extern const pb_msgdesc_t GetWaterTank_msg;
 extern const pb_msgdesc_t RemoveWaterSource_msg;
 extern const pb_msgdesc_t RemoveWaterTank_msg;
+extern const pb_msgdesc_t FillWaterTank_msg;
 extern const pb_msgdesc_t Reset_msg;
 extern const pb_msgdesc_t WaterSourceState_msg;
 extern const pb_msgdesc_t WaterTankState_msg;
@@ -550,6 +573,7 @@ extern const pb_msgdesc_t WaterTankState_msg;
 #define GetWaterTank_fields &GetWaterTank_msg
 #define RemoveWaterSource_fields &RemoveWaterSource_msg
 #define RemoveWaterTank_fields &RemoveWaterTank_msg
+#define FillWaterTank_fields &FillWaterTank_msg
 #define Reset_fields &Reset_msg
 #define WaterSourceState_fields &WaterSourceState_msg
 #define WaterTankState_fields &WaterTankState_msg
@@ -557,6 +581,7 @@ extern const pb_msgdesc_t WaterTankState_msg;
 /* Maximum encoded size of messages (where known) */
 #define CreateWaterSource_size                   50
 #define CreateWaterTank_size                     60
+#define FillWaterTank_size                       26
 #define GetMode_size                             0
 #define GetWaterSourceList_size                  0
 #define GetWaterSource_size                      22

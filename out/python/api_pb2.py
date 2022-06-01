@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tapi.proto\"\xcf\x06\n\x07Request\x12\n\n\x02id\x18\x01 \x01(\r\x12/\n\x11\x63reateWaterSource\x18\x02 \x01(\x0b\x32\x12.CreateWaterSourceH\x00\x12+\n\x0f\x63reateWaterTank\x18\x03 \x01(\x0b\x32\x10.CreateWaterTankH\x00\x12?\n\x19setWaterTankMinimumVolume\x18\x04 \x01(\x0b\x32\x1a.SetWaterTankMinimumVolumeH\x00\x12\x37\n\x15setWaterTankMaxVolume\x18\x05 \x01(\x0b\x32\x16.SetWaterTankMaxVolumeH\x00\x12\x39\n\x16setWaterTankZeroVolume\x18\x06 \x01(\x0b\x32\x17.SetWaterTankZeroVolumeH\x00\x12=\n\x18setWaterTankVolumeFactor\x18\x07 \x01(\x0b\x32\x19.SetWaterTankVolumeFactorH\x00\x12\x41\n\x1asetWaterTankPressureFactor\x18\x08 \x01(\x0b\x32\x1b.SetWaterTankPressureFactorH\x00\x12\x1b\n\x07setMode\x18\t \x01(\x0b\x32\x08.SetModeH\x00\x12\x1b\n\x07getMode\x18\n \x01(\x0b\x32\x08.GetModeH\x00\x12\x33\n\x13setWaterSourceState\x18\x0b \x01(\x0b\x32\x14.SetWaterSourceStateH\x00\x12\x31\n\x12getWaterSourceList\x18\x0c \x01(\x0b\x32\x13.GetWaterSourceListH\x00\x12)\n\x0egetWaterSource\x18\r \x01(\x0b\x32\x0f.GetWaterSourceH\x00\x12%\n\x0cgetWaterTank\x18\x0e \x01(\x0b\x32\r.GetWaterTankH\x00\x12-\n\x10getWaterTankList\x18\x0f \x01(\x0b\x32\x11.GetWaterTankListH\x00\x12/\n\x11removeWaterSource\x18\x10 \x01(\x0b\x32\x12.RemoveWaterSourceH\x00\x12+\n\x0fremoveWaterTank\x18\x11 \x01(\x0b\x32\x10.RemoveWaterTankH\x00\x12\x17\n\x05reset\x18\x12 \x01(\x0b\x32\x06.ResetH\x00\x42\t\n\x07message\"q\n\x0ePrimitiveValue\x12\x13\n\tboolValue\x18\x02 \x01(\x08H\x00\x12\x12\n\x08intValue\x18\x03 \x01(\x05H\x00\x12\x14\n\nfloatValue\x18\x04 \x01(\x02H\x00\x12\x15\n\x0bstringValue\x18\x05 \x01(\tH\x00\x42\t\n\x07\x63ontent\"\x97\x01\n\x05Value\x12\x1e\n\x05value\x18\x01 \x01(\x0b\x32\x0f.PrimitiveValue\x12\"\n\tlistValue\x18\x02 \x03(\x0b\x32\x0f.PrimitiveValue\x12&\n\x0bwaterSource\x18\x03 \x01(\x0b\x32\x11.WaterSourceState\x12\"\n\twaterTank\x18\x04 \x01(\x0b\x32\x0f.WaterTankState\"\xa6\x01\n\x08Response\x12\n\n\x02id\x18\x01 \x01(\r\x12\x17\n\x07message\x18\x02 \x01(\x0b\x32\x06.Value\x12\'\n\x05\x65rror\x18\x03 \x01(\x0e\x32\x13.Response.ExceptionH\x00\x88\x01\x01\"B\n\tException\x12\r\n\tEXCEPTION\x10\x00\x12\x11\n\rRUNTIME_ERROR\x10\x01\x12\x13\n\x0fINVALID_REQUEST\x10\x02\x42\x08\n\x06_error\"\\\n\x11\x43reateWaterSource\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03pin\x18\x02 \x01(\r\x12\x1a\n\rwaterTankName\x18\x03 \x01(\tH\x00\x88\x01\x01\x42\x10\n\x0e_waterTankName\"\x9a\x01\n\x0f\x43reateWaterTank\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x11pressureSensorPin\x18\x02 \x01(\r\x12\x14\n\x0cvolumeFactor\x18\x03 \x01(\x02\x12\x16\n\x0epressureFactor\x18\x04 \x01(\x02\x12\x1c\n\x0fwaterSourceName\x18\x05 \x01(\tH\x00\x88\x01\x01\x42\x12\n\x10_waterSourceName\"A\n\x19SetWaterTankMinimumVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"=\n\x15SetWaterTankMaxVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\">\n\x16SetWaterTankZeroVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"@\n\x18SetWaterTankVolumeFactor\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"B\n\x1aSetWaterTankPressureFactor\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"D\n\x07SetMode\x12\x1b\n\x04mode\x18\x01 \x01(\x0e\x32\r.SetMode.Mode\"\x1c\n\x04Mode\x12\n\n\x06MANUAL\x10\x00\x12\x08\n\x04\x41UTO\x10\x01\"\t\n\x07GetMode\"=\n\x13SetWaterSourceState\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\x08\"\x12\n\x10GetWaterTankList\"\x14\n\x12GetWaterSourceList\")\n\x0eGetWaterSource\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\"%\n\x0cGetWaterTank\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\",\n\x11RemoveWaterSource\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\"(\n\x0fRemoveWaterTank\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\"\x07\n\x05Reset\"p\n\x10WaterSourceState\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03pin\x18\x02 \x01(\r\x12\x0f\n\x07\x65nabled\x18\x03 \x01(\x08\x12\x1c\n\x0fsourceWaterTank\x18\x04 \x01(\tH\x00\x88\x01\x01\x42\x12\n\x10_sourceWaterTank\"\xa6\x02\n\x0eWaterTankState\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x11pressureSensorPin\x18\x02 \x01(\r\x12\x11\n\tisFilling\x18\x03 \x01(\x08\x12\x14\n\x0cvolumeFactor\x18\x04 \x01(\x02\x12\x16\n\x0epressureFactor\x18\x05 \x01(\x02\x12\x15\n\rminimumVolume\x18\x06 \x01(\x02\x12\x11\n\tmaxVolume\x18\x07 \x01(\x02\x12\x1a\n\x12zeroVolumePressure\x18\x08 \x01(\x02\x12\x18\n\x10rawPressureValue\x18\t \x01(\r\x12\x10\n\x08pressure\x18\n \x01(\x02\x12\x0e\n\x06volume\x18\x0b \x01(\x02\x12\x18\n\x0bwaterSource\x18\x0c \x01(\tH\x00\x88\x01\x01\x42\x0e\n\x0c_waterSourceB\x19\n\x15\x64\x65v.igorxp5.proto.apiP\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tapi.proto\"\xf8\x06\n\x07Request\x12\n\n\x02id\x18\x01 \x01(\r\x12/\n\x11\x63reateWaterSource\x18\x02 \x01(\x0b\x32\x12.CreateWaterSourceH\x00\x12+\n\x0f\x63reateWaterTank\x18\x03 \x01(\x0b\x32\x10.CreateWaterTankH\x00\x12?\n\x19setWaterTankMinimumVolume\x18\x04 \x01(\x0b\x32\x1a.SetWaterTankMinimumVolumeH\x00\x12\x37\n\x15setWaterTankMaxVolume\x18\x05 \x01(\x0b\x32\x16.SetWaterTankMaxVolumeH\x00\x12\x39\n\x16setWaterTankZeroVolume\x18\x06 \x01(\x0b\x32\x17.SetWaterTankZeroVolumeH\x00\x12=\n\x18setWaterTankVolumeFactor\x18\x07 \x01(\x0b\x32\x19.SetWaterTankVolumeFactorH\x00\x12\x41\n\x1asetWaterTankPressureFactor\x18\x08 \x01(\x0b\x32\x1b.SetWaterTankPressureFactorH\x00\x12\x1b\n\x07setMode\x18\t \x01(\x0b\x32\x08.SetModeH\x00\x12\x1b\n\x07getMode\x18\n \x01(\x0b\x32\x08.GetModeH\x00\x12\x33\n\x13setWaterSourceState\x18\x0b \x01(\x0b\x32\x14.SetWaterSourceStateH\x00\x12\x31\n\x12getWaterSourceList\x18\x0c \x01(\x0b\x32\x13.GetWaterSourceListH\x00\x12)\n\x0egetWaterSource\x18\r \x01(\x0b\x32\x0f.GetWaterSourceH\x00\x12%\n\x0cgetWaterTank\x18\x0e \x01(\x0b\x32\r.GetWaterTankH\x00\x12-\n\x10getWaterTankList\x18\x0f \x01(\x0b\x32\x11.GetWaterTankListH\x00\x12/\n\x11removeWaterSource\x18\x10 \x01(\x0b\x32\x12.RemoveWaterSourceH\x00\x12+\n\x0fremoveWaterTank\x18\x11 \x01(\x0b\x32\x10.RemoveWaterTankH\x00\x12\'\n\rfillWaterTank\x18\x12 \x01(\x0b\x32\x0e.FillWaterTankH\x00\x12\x17\n\x05reset\x18\x13 \x01(\x0b\x32\x06.ResetH\x00\x42\t\n\x07message\"q\n\x0ePrimitiveValue\x12\x13\n\tboolValue\x18\x02 \x01(\x08H\x00\x12\x12\n\x08intValue\x18\x03 \x01(\x05H\x00\x12\x14\n\nfloatValue\x18\x04 \x01(\x02H\x00\x12\x15\n\x0bstringValue\x18\x05 \x01(\tH\x00\x42\t\n\x07\x63ontent\"\x97\x01\n\x05Value\x12\x1e\n\x05value\x18\x01 \x01(\x0b\x32\x0f.PrimitiveValue\x12\"\n\tlistValue\x18\x02 \x03(\x0b\x32\x0f.PrimitiveValue\x12&\n\x0bwaterSource\x18\x03 \x01(\x0b\x32\x11.WaterSourceState\x12\"\n\twaterTank\x18\x04 \x01(\x0b\x32\x0f.WaterTankState\"\xa6\x01\n\x08Response\x12\n\n\x02id\x18\x01 \x01(\r\x12\x17\n\x07message\x18\x02 \x01(\x0b\x32\x06.Value\x12\'\n\x05\x65rror\x18\x03 \x01(\x0e\x32\x13.Response.ExceptionH\x00\x88\x01\x01\"B\n\tException\x12\r\n\tEXCEPTION\x10\x00\x12\x11\n\rRUNTIME_ERROR\x10\x01\x12\x13\n\x0fINVALID_REQUEST\x10\x02\x42\x08\n\x06_error\"\\\n\x11\x43reateWaterSource\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03pin\x18\x02 \x01(\r\x12\x1a\n\rwaterTankName\x18\x03 \x01(\tH\x00\x88\x01\x01\x42\x10\n\x0e_waterTankName\"\x9a\x01\n\x0f\x43reateWaterTank\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x11pressureSensorPin\x18\x02 \x01(\r\x12\x14\n\x0cvolumeFactor\x18\x03 \x01(\x02\x12\x16\n\x0epressureFactor\x18\x04 \x01(\x02\x12\x1c\n\x0fwaterSourceName\x18\x05 \x01(\tH\x00\x88\x01\x01\x42\x12\n\x10_waterSourceName\"A\n\x19SetWaterTankMinimumVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"=\n\x15SetWaterTankMaxVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\">\n\x16SetWaterTankZeroVolume\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"@\n\x18SetWaterTankVolumeFactor\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"B\n\x1aSetWaterTankPressureFactor\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02\"D\n\x07SetMode\x12\x1b\n\x04mode\x18\x01 \x01(\x0e\x32\r.SetMode.Mode\"\x1c\n\x04Mode\x12\n\n\x06MANUAL\x10\x00\x12\x08\n\x04\x41UTO\x10\x01\"\t\n\x07GetMode\"=\n\x13SetWaterSourceState\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\x08\"\x12\n\x10GetWaterTankList\"\x14\n\x12GetWaterSourceList\")\n\x0eGetWaterSource\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\"%\n\x0cGetWaterTank\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\",\n\x11RemoveWaterSource\x12\x17\n\x0fwaterSourceName\x18\x01 \x01(\t\"(\n\x0fRemoveWaterTank\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\"F\n\rFillWaterTank\x12\x15\n\rwaterTankName\x18\x01 \x01(\t\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\"\x07\n\x05Reset\"p\n\x10WaterSourceState\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03pin\x18\x02 \x01(\r\x12\x0f\n\x07\x65nabled\x18\x03 \x01(\x08\x12\x1c\n\x0fsourceWaterTank\x18\x04 \x01(\tH\x00\x88\x01\x01\x42\x12\n\x10_sourceWaterTank\"\xa6\x02\n\x0eWaterTankState\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x11pressureSensorPin\x18\x02 \x01(\r\x12\x11\n\tisFilling\x18\x03 \x01(\x08\x12\x14\n\x0cvolumeFactor\x18\x04 \x01(\x02\x12\x16\n\x0epressureFactor\x18\x05 \x01(\x02\x12\x15\n\rminimumVolume\x18\x06 \x01(\x02\x12\x11\n\tmaxVolume\x18\x07 \x01(\x02\x12\x1a\n\x12zeroVolumePressure\x18\x08 \x01(\x02\x12\x18\n\x10rawPressureValue\x18\t \x01(\r\x12\x10\n\x08pressure\x18\n \x01(\x02\x12\x0e\n\x06volume\x18\x0b \x01(\x02\x12\x18\n\x0bwaterSource\x18\x0c \x01(\tH\x00\x88\x01\x01\x42\x0e\n\x0c_waterSourceB\x19\n\x15\x64\x65v.igorxp5.proto.apiP\x01\x62\x06proto3')
 
 
 
@@ -38,6 +38,7 @@ _GETWATERSOURCE = DESCRIPTOR.message_types_by_name['GetWaterSource']
 _GETWATERTANK = DESCRIPTOR.message_types_by_name['GetWaterTank']
 _REMOVEWATERSOURCE = DESCRIPTOR.message_types_by_name['RemoveWaterSource']
 _REMOVEWATERTANK = DESCRIPTOR.message_types_by_name['RemoveWaterTank']
+_FILLWATERTANK = DESCRIPTOR.message_types_by_name['FillWaterTank']
 _RESET = DESCRIPTOR.message_types_by_name['Reset']
 _WATERSOURCESTATE = DESCRIPTOR.message_types_by_name['WaterSourceState']
 _WATERTANKSTATE = DESCRIPTOR.message_types_by_name['WaterTankState']
@@ -183,6 +184,13 @@ RemoveWaterTank = _reflection.GeneratedProtocolMessageType('RemoveWaterTank', (_
   })
 _sym_db.RegisterMessage(RemoveWaterTank)
 
+FillWaterTank = _reflection.GeneratedProtocolMessageType('FillWaterTank', (_message.Message,), {
+  'DESCRIPTOR' : _FILLWATERTANK,
+  '__module__' : 'api_pb2'
+  # @@protoc_insertion_point(class_scope:FillWaterTank)
+  })
+_sym_db.RegisterMessage(FillWaterTank)
+
 Reset = _reflection.GeneratedProtocolMessageType('Reset', (_message.Message,), {
   'DESCRIPTOR' : _RESET,
   '__module__' : 'api_pb2'
@@ -209,53 +217,55 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\025dev.igorxp5.proto.apiP\001'
   _REQUEST._serialized_start=14
-  _REQUEST._serialized_end=861
-  _PRIMITIVEVALUE._serialized_start=863
-  _PRIMITIVEVALUE._serialized_end=976
-  _VALUE._serialized_start=979
-  _VALUE._serialized_end=1130
-  _RESPONSE._serialized_start=1133
-  _RESPONSE._serialized_end=1299
-  _RESPONSE_EXCEPTION._serialized_start=1223
-  _RESPONSE_EXCEPTION._serialized_end=1289
-  _CREATEWATERSOURCE._serialized_start=1301
-  _CREATEWATERSOURCE._serialized_end=1393
-  _CREATEWATERTANK._serialized_start=1396
-  _CREATEWATERTANK._serialized_end=1550
-  _SETWATERTANKMINIMUMVOLUME._serialized_start=1552
-  _SETWATERTANKMINIMUMVOLUME._serialized_end=1617
-  _SETWATERTANKMAXVOLUME._serialized_start=1619
-  _SETWATERTANKMAXVOLUME._serialized_end=1680
-  _SETWATERTANKZEROVOLUME._serialized_start=1682
-  _SETWATERTANKZEROVOLUME._serialized_end=1744
-  _SETWATERTANKVOLUMEFACTOR._serialized_start=1746
-  _SETWATERTANKVOLUMEFACTOR._serialized_end=1810
-  _SETWATERTANKPRESSUREFACTOR._serialized_start=1812
-  _SETWATERTANKPRESSUREFACTOR._serialized_end=1878
-  _SETMODE._serialized_start=1880
-  _SETMODE._serialized_end=1948
-  _SETMODE_MODE._serialized_start=1920
-  _SETMODE_MODE._serialized_end=1948
-  _GETMODE._serialized_start=1950
-  _GETMODE._serialized_end=1959
-  _SETWATERSOURCESTATE._serialized_start=1961
-  _SETWATERSOURCESTATE._serialized_end=2022
-  _GETWATERTANKLIST._serialized_start=2024
-  _GETWATERTANKLIST._serialized_end=2042
-  _GETWATERSOURCELIST._serialized_start=2044
-  _GETWATERSOURCELIST._serialized_end=2064
-  _GETWATERSOURCE._serialized_start=2066
-  _GETWATERSOURCE._serialized_end=2107
-  _GETWATERTANK._serialized_start=2109
-  _GETWATERTANK._serialized_end=2146
-  _REMOVEWATERSOURCE._serialized_start=2148
-  _REMOVEWATERSOURCE._serialized_end=2192
-  _REMOVEWATERTANK._serialized_start=2194
-  _REMOVEWATERTANK._serialized_end=2234
-  _RESET._serialized_start=2236
-  _RESET._serialized_end=2243
-  _WATERSOURCESTATE._serialized_start=2245
-  _WATERSOURCESTATE._serialized_end=2357
-  _WATERTANKSTATE._serialized_start=2360
-  _WATERTANKSTATE._serialized_end=2654
+  _REQUEST._serialized_end=902
+  _PRIMITIVEVALUE._serialized_start=904
+  _PRIMITIVEVALUE._serialized_end=1017
+  _VALUE._serialized_start=1020
+  _VALUE._serialized_end=1171
+  _RESPONSE._serialized_start=1174
+  _RESPONSE._serialized_end=1340
+  _RESPONSE_EXCEPTION._serialized_start=1264
+  _RESPONSE_EXCEPTION._serialized_end=1330
+  _CREATEWATERSOURCE._serialized_start=1342
+  _CREATEWATERSOURCE._serialized_end=1434
+  _CREATEWATERTANK._serialized_start=1437
+  _CREATEWATERTANK._serialized_end=1591
+  _SETWATERTANKMINIMUMVOLUME._serialized_start=1593
+  _SETWATERTANKMINIMUMVOLUME._serialized_end=1658
+  _SETWATERTANKMAXVOLUME._serialized_start=1660
+  _SETWATERTANKMAXVOLUME._serialized_end=1721
+  _SETWATERTANKZEROVOLUME._serialized_start=1723
+  _SETWATERTANKZEROVOLUME._serialized_end=1785
+  _SETWATERTANKVOLUMEFACTOR._serialized_start=1787
+  _SETWATERTANKVOLUMEFACTOR._serialized_end=1851
+  _SETWATERTANKPRESSUREFACTOR._serialized_start=1853
+  _SETWATERTANKPRESSUREFACTOR._serialized_end=1919
+  _SETMODE._serialized_start=1921
+  _SETMODE._serialized_end=1989
+  _SETMODE_MODE._serialized_start=1961
+  _SETMODE_MODE._serialized_end=1989
+  _GETMODE._serialized_start=1991
+  _GETMODE._serialized_end=2000
+  _SETWATERSOURCESTATE._serialized_start=2002
+  _SETWATERSOURCESTATE._serialized_end=2063
+  _GETWATERTANKLIST._serialized_start=2065
+  _GETWATERTANKLIST._serialized_end=2083
+  _GETWATERSOURCELIST._serialized_start=2085
+  _GETWATERSOURCELIST._serialized_end=2105
+  _GETWATERSOURCE._serialized_start=2107
+  _GETWATERSOURCE._serialized_end=2148
+  _GETWATERTANK._serialized_start=2150
+  _GETWATERTANK._serialized_end=2187
+  _REMOVEWATERSOURCE._serialized_start=2189
+  _REMOVEWATERSOURCE._serialized_end=2233
+  _REMOVEWATERTANK._serialized_start=2235
+  _REMOVEWATERTANK._serialized_end=2275
+  _FILLWATERTANK._serialized_start=2277
+  _FILLWATERTANK._serialized_end=2347
+  _RESET._serialized_start=2349
+  _RESET._serialized_end=2356
+  _WATERSOURCESTATE._serialized_start=2358
+  _WATERSOURCESTATE._serialized_end=2470
+  _WATERTANKSTATE._serialized_start=2473
+  _WATERTANKSTATE._serialized_end=2767
 # @@protoc_insertion_point(module_scope)

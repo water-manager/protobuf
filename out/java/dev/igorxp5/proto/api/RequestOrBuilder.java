@@ -254,17 +254,32 @@ public interface RequestOrBuilder extends
   dev.igorxp5.proto.api.RemoveWaterTankOrBuilder getRemoveWaterTankOrBuilder();
 
   /**
-   * <code>.Reset reset = 18;</code>
+   * <code>.FillWaterTank fillWaterTank = 18;</code>
+   * @return Whether the fillWaterTank field is set.
+   */
+  boolean hasFillWaterTank();
+  /**
+   * <code>.FillWaterTank fillWaterTank = 18;</code>
+   * @return The fillWaterTank.
+   */
+  dev.igorxp5.proto.api.FillWaterTank getFillWaterTank();
+  /**
+   * <code>.FillWaterTank fillWaterTank = 18;</code>
+   */
+  dev.igorxp5.proto.api.FillWaterTankOrBuilder getFillWaterTankOrBuilder();
+
+  /**
+   * <code>.Reset reset = 19;</code>
    * @return Whether the reset field is set.
    */
   boolean hasReset();
   /**
-   * <code>.Reset reset = 18;</code>
+   * <code>.Reset reset = 19;</code>
    * @return The reset.
    */
   dev.igorxp5.proto.api.Reset getReset();
   /**
-   * <code>.Reset reset = 18;</code>
+   * <code>.Reset reset = 19;</code>
    */
   dev.igorxp5.proto.api.ResetOrBuilder getResetOrBuilder();
 
