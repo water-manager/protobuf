@@ -45,13 +45,21 @@ message Value {
 
 message Response {
     uint32 id = 1;
-    Value message = 2;
+    oneof content {
+        Value message = 2;
+        Error error = 3;
+    }
+}
+
+message Error {
+    string message = 1;
     enum Exception {
         EXCEPTION = 0;
         RUNTIME_ERROR = 1;
         INVALID_REQUEST = 2;
     }
-    optional Exception error = 3;
+    Exception type = 2;
+    string arg = 3;
 }
 
 message CreateWaterSource {
@@ -152,7 +160,7 @@ message WaterSourceState {
 message WaterTankState {
     string name = 1;
     uint32 pressureSensorPin = 2;
-    bool isFilling = 3;
+    bool filling = 3;
     float volumeFactor = 4;
     float pressureFactor = 5;
     float minimumVolume = 6;

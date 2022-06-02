@@ -10,11 +10,11 @@
 #endif
 
 /* Enum definitions */
-typedef enum _Response_Exception { 
-    Response_Exception_EXCEPTION = 0, 
-    Response_Exception_RUNTIME_ERROR = 1, 
-    Response_Exception_INVALID_REQUEST = 2 
-} Response_Exception;
+typedef enum _Error_Exception { 
+    Error_Exception_EXCEPTION = 0, 
+    Error_Exception_RUNTIME_ERROR = 1, 
+    Error_Exception_INVALID_REQUEST = 2 
+} Error_Exception;
 
 typedef enum _SetMode_Mode { 
     SetMode_Mode_MANUAL = 0, 
@@ -53,6 +53,12 @@ typedef struct _CreateWaterTank {
     bool has_waterSourceName;
     char waterSourceName[21]; 
 } CreateWaterTank;
+
+typedef struct _Error { 
+    char message[101]; 
+    Error_Exception type; 
+    char arg[21]; 
+} Error;
 
 typedef struct _FillWaterTank { 
     char waterTankName[21]; 
@@ -131,7 +137,7 @@ typedef struct _WaterSourceState {
 typedef struct _WaterTankState { 
     char name[21]; 
     uint32_t pressureSensorPin; 
-    bool isFilling; 
+    bool filling; 
     float volumeFactor; 
     float pressureFactor; 
     float minimumVolume; 
@@ -182,17 +188,18 @@ typedef struct _Value {
 
 typedef struct _Response { 
     uint32_t id; 
-    bool has_message;
-    Value message; 
-    bool has_error;
-    Response_Exception error; 
+    pb_size_t which_content;
+    union {
+        Value message;
+        Error error;
+    } content; 
 } Response;
 
 
 /* Helper constants for enums */
-#define _Response_Exception_MIN Response_Exception_EXCEPTION
-#define _Response_Exception_MAX Response_Exception_INVALID_REQUEST
-#define _Response_Exception_ARRAYSIZE ((Response_Exception)(Response_Exception_INVALID_REQUEST+1))
+#define _Error_Exception_MIN Error_Exception_EXCEPTION
+#define _Error_Exception_MAX Error_Exception_INVALID_REQUEST
+#define _Error_Exception_ARRAYSIZE ((Error_Exception)(Error_Exception_INVALID_REQUEST+1))
 
 #define _SetMode_Mode_MIN SetMode_Mode_MANUAL
 #define _SetMode_Mode_MAX SetMode_Mode_AUTO
@@ -207,7 +214,8 @@ extern "C" {
 #define Request_init_default                     {0, 0, {CreateWaterSource_init_default}}
 #define PrimitiveValue_init_default              {0, {0}}
 #define Value_init_default                       {false, PrimitiveValue_init_default, 0, {PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default, PrimitiveValue_init_default}, false, WaterSourceState_init_default, false, WaterTankState_init_default}
-#define Response_init_default                    {0, false, Value_init_default, false, _Response_Exception_MIN}
+#define Response_init_default                    {0, 0, {Value_init_default}}
+#define Error_init_default                       {"", _Error_Exception_MIN, ""}
 #define CreateWaterSource_init_default           {"", 0, false, ""}
 #define CreateWaterTank_init_default             {"", 0, 0, 0, false, ""}
 #define SetWaterTankMinimumVolume_init_default   {"", 0}
@@ -231,7 +239,8 @@ extern "C" {
 #define Request_init_zero                        {0, 0, {CreateWaterSource_init_zero}}
 #define PrimitiveValue_init_zero                 {0, {0}}
 #define Value_init_zero                          {false, PrimitiveValue_init_zero, 0, {PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero, PrimitiveValue_init_zero}, false, WaterSourceState_init_zero, false, WaterTankState_init_zero}
-#define Response_init_zero                       {0, false, Value_init_zero, false, _Response_Exception_MIN}
+#define Response_init_zero                       {0, 0, {Value_init_zero}}
+#define Error_init_zero                          {"", _Error_Exception_MIN, ""}
 #define CreateWaterSource_init_zero              {"", 0, false, ""}
 #define CreateWaterTank_init_zero                {"", 0, 0, 0, false, ""}
 #define SetWaterTankMinimumVolume_init_zero      {"", 0}
@@ -262,6 +271,9 @@ extern "C" {
 #define CreateWaterTank_volumeFactor_tag         3
 #define CreateWaterTank_pressureFactor_tag       4
 #define CreateWaterTank_waterSourceName_tag      5
+#define Error_message_tag                        1
+#define Error_type_tag                           2
+#define Error_arg_tag                            3
 #define FillWaterTank_waterTankName_tag          1
 #define FillWaterTank_enabled_tag                2
 #define FillWaterTank_force_tag                  3
@@ -292,7 +304,7 @@ extern "C" {
 #define WaterSourceState_sourceWaterTank_tag     4
 #define WaterTankState_name_tag                  1
 #define WaterTankState_pressureSensorPin_tag     2
-#define WaterTankState_isFilling_tag             3
+#define WaterTankState_filling_tag               3
 #define WaterTankState_volumeFactor_tag          4
 #define WaterTankState_pressureFactor_tag        5
 #define WaterTankState_minimumVolume_tag         6
@@ -393,11 +405,19 @@ X(a, STATIC,   OPTIONAL, MESSAGE,  waterTank,         4)
 
 #define Response_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UINT32,   id,                1) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  message,           2) \
-X(a, STATIC,   OPTIONAL, UENUM,    error,             3)
+X(a, STATIC,   ONEOF,    MESSAGE,  (content,message,content.message),   2) \
+X(a, STATIC,   ONEOF,    MESSAGE,  (content,error,content.error),   3)
 #define Response_CALLBACK NULL
 #define Response_DEFAULT NULL
-#define Response_message_MSGTYPE Value
+#define Response_content_message_MSGTYPE Value
+#define Response_content_error_MSGTYPE Error
+
+#define Error_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, STRING,   message,           1) \
+X(a, STATIC,   SINGULAR, UENUM,    type,              2) \
+X(a, STATIC,   SINGULAR, STRING,   arg,               3)
+#define Error_CALLBACK NULL
+#define Error_DEFAULT NULL
 
 #define CreateWaterSource_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   name,              1) \
@@ -514,7 +534,7 @@ X(a, STATIC,   OPTIONAL, STRING,   sourceWaterTank,   4)
 #define WaterTankState_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   name,              1) \
 X(a, STATIC,   SINGULAR, UINT32,   pressureSensorPin,   2) \
-X(a, STATIC,   SINGULAR, BOOL,     isFilling,         3) \
+X(a, STATIC,   SINGULAR, BOOL,     filling,           3) \
 X(a, STATIC,   SINGULAR, FLOAT,    volumeFactor,      4) \
 X(a, STATIC,   SINGULAR, FLOAT,    pressureFactor,    5) \
 X(a, STATIC,   SINGULAR, FLOAT,    minimumVolume,     6) \
@@ -531,6 +551,7 @@ extern const pb_msgdesc_t Request_msg;
 extern const pb_msgdesc_t PrimitiveValue_msg;
 extern const pb_msgdesc_t Value_msg;
 extern const pb_msgdesc_t Response_msg;
+extern const pb_msgdesc_t Error_msg;
 extern const pb_msgdesc_t CreateWaterSource_msg;
 extern const pb_msgdesc_t CreateWaterTank_msg;
 extern const pb_msgdesc_t SetWaterTankMinimumVolume_msg;
@@ -557,6 +578,7 @@ extern const pb_msgdesc_t WaterTankState_msg;
 #define PrimitiveValue_fields &PrimitiveValue_msg
 #define Value_fields &Value_msg
 #define Response_fields &Response_msg
+#define Error_fields &Error_msg
 #define CreateWaterSource_fields &CreateWaterSource_msg
 #define CreateWaterTank_fields &CreateWaterTank_msg
 #define SetWaterTankMinimumVolume_fields &SetWaterTankMinimumVolume_msg
@@ -581,6 +603,7 @@ extern const pb_msgdesc_t WaterTankState_msg;
 /* Maximum encoded size of messages (where known) */
 #define CreateWaterSource_size                   50
 #define CreateWaterTank_size                     60
+#define Error_size                               126
 #define FillWaterTank_size                       26
 #define GetMode_size                             0
 #define GetWaterSourceList_size                  0
@@ -592,7 +615,7 @@ extern const pb_msgdesc_t WaterTankState_msg;
 #define RemoveWaterTank_size                     22
 #define Request_size                             68
 #define Reset_size                               0
-#define Response_size                            1304
+#define Response_size                            1302
 #define SetMode_size                             2
 #define SetWaterSourceState_size                 24
 #define SetWaterTankMaxVolume_size               27

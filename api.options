@@ -19,3 +19,5 @@ WaterSourceState.name max_size:21
 WaterSourceState.sourceWaterTank max_size:21
 WaterTankState.name max_size:21
 WaterTankState.waterSource max_size:21
+Error.message max_size:101
+Error.arg max_size:21

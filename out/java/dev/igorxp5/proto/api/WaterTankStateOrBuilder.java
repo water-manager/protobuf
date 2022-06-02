@@ -26,10 +26,10 @@ public interface WaterTankStateOrBuilder extends
   int getPressureSensorPin();
 
   /**
-   * <code>bool isFilling = 3;</code>
-   * @return The isFilling.
+   * <code>bool filling = 3;</code>
+   * @return The filling.
    */
-  boolean getIsFilling();
+  boolean getFilling();
 
   /**
    * <code>float volumeFactor = 4;</code>

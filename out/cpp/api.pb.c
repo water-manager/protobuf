@@ -18,6 +18,9 @@ PB_BIND(Value, Value, 2)
 PB_BIND(Response, Response, 2)
 
 
+PB_BIND(Error, Error, AUTO)
+
+
 PB_BIND(CreateWaterSource, CreateWaterSource, AUTO)
 
 

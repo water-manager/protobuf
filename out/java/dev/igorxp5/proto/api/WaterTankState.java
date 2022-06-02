@@ -64,7 +64,7 @@ private static final long serialVersionUID = 0L;
           }
           case 24: {
 
-            isFilling_ = input.readBool();
+            filling_ = input.readBool();
             break;
           }
           case 37: {
@@ -195,15 +195,15 @@ private static final long serialVersionUID = 0L;
     return pressureSensorPin_;
   }
 
-  public static final int ISFILLING_FIELD_NUMBER = 3;
-  private boolean isFilling_;
+  public static final int FILLING_FIELD_NUMBER = 3;
+  private boolean filling_;
   /**
-   * <code>bool isFilling = 3;</code>
-   * @return The isFilling.
+   * <code>bool filling = 3;</code>
+   * @return The filling.
    */
   @java.lang.Override
-  public boolean getIsFilling() {
-    return isFilling_;
+  public boolean getFilling() {
+    return filling_;
   }
 
   public static final int VOLUMEFACTOR_FIELD_NUMBER = 4;
@@ -360,8 +360,8 @@ private static final long serialVersionUID = 0L;
     if (pressureSensorPin_ != 0) {
       output.writeUInt32(2, pressureSensorPin_);
     }
-    if (isFilling_ != false) {
-      output.writeBool(3, isFilling_);
+    if (filling_ != false) {
+      output.writeBool(3, filling_);
     }
     if (java.lang.Float.floatToRawIntBits(volumeFactor_) != 0) {
       output.writeFloat(4, volumeFactor_);
@@ -406,9 +406,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(2, pressureSensorPin_);
     }
-    if (isFilling_ != false) {
+    if (filling_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, isFilling_);
+        .computeBoolSize(3, filling_);
     }
     if (java.lang.Float.floatToRawIntBits(volumeFactor_) != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -464,8 +464,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (getPressureSensorPin()
         != other.getPressureSensorPin()) return false;
-    if (getIsFilling()
-        != other.getIsFilling()) return false;
+    if (getFilling()
+        != other.getFilling()) return false;
     if (java.lang.Float.floatToIntBits(getVolumeFactor())
         != java.lang.Float.floatToIntBits(
             other.getVolumeFactor())) return false;
@@ -509,9 +509,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + PRESSURESENSORPIN_FIELD_NUMBER;
     hash = (53 * hash) + getPressureSensorPin();
-    hash = (37 * hash) + ISFILLING_FIELD_NUMBER;
+    hash = (37 * hash) + FILLING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsFilling());
+        getFilling());
     hash = (37 * hash) + VOLUMEFACTOR_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getVolumeFactor());
@@ -676,7 +676,7 @@ private static final long serialVersionUID = 0L;
 
       pressureSensorPin_ = 0;
 
-      isFilling_ = false;
+      filling_ = false;
 
       volumeFactor_ = 0F;
 
@@ -726,7 +726,7 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       result.name_ = name_;
       result.pressureSensorPin_ = pressureSensorPin_;
-      result.isFilling_ = isFilling_;
+      result.filling_ = filling_;
       result.volumeFactor_ = volumeFactor_;
       result.pressureFactor_ = pressureFactor_;
       result.minimumVolume_ = minimumVolume_;
@@ -795,8 +795,8 @@ private static final long serialVersionUID = 0L;
       if (other.getPressureSensorPin() != 0) {
         setPressureSensorPin(other.getPressureSensorPin());
       }
-      if (other.getIsFilling() != false) {
-        setIsFilling(other.getIsFilling());
+      if (other.getFilling() != false) {
+        setFilling(other.getFilling());
       }
       if (other.getVolumeFactor() != 0F) {
         setVolumeFactor(other.getVolumeFactor());
@@ -964,33 +964,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean isFilling_ ;
+    private boolean filling_ ;
     /**
-     * <code>bool isFilling = 3;</code>
-     * @return The isFilling.
+     * <code>bool filling = 3;</code>
+     * @return The filling.
      */
     @java.lang.Override
-    public boolean getIsFilling() {
-      return isFilling_;
+    public boolean getFilling() {
+      return filling_;
     }
     /**
-     * <code>bool isFilling = 3;</code>
-     * @param value The isFilling to set.
+     * <code>bool filling = 3;</code>
+     * @param value The filling to set.
      * @return This builder for chaining.
      */
-    public Builder setIsFilling(boolean value) {
+    public Builder setFilling(boolean value) {
       
-      isFilling_ = value;
+      filling_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool isFilling = 3;</code>
+     * <code>bool filling = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearIsFilling() {
+    public Builder clearFilling() {
       
-      isFilling_ = false;
+      filling_ = false;
       onChanged();
       return this;
     }

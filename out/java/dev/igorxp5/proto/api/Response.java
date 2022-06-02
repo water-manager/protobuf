@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Response() {
-    error_ = 0;
   }
 
   @java.lang.Override
@@ -39,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -57,21 +55,30 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             dev.igorxp5.proto.api.Value.Builder subBuilder = null;
-            if (message_ != null) {
-              subBuilder = message_.toBuilder();
+            if (contentCase_ == 2) {
+              subBuilder = ((dev.igorxp5.proto.api.Value) content_).toBuilder();
             }
-            message_ = input.readMessage(dev.igorxp5.proto.api.Value.parser(), extensionRegistry);
+            content_ =
+                input.readMessage(dev.igorxp5.proto.api.Value.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(message_);
-              message_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom((dev.igorxp5.proto.api.Value) content_);
+              content_ = subBuilder.buildPartial();
             }
-
+            contentCase_ = 2;
             break;
           }
-          case 24: {
-            int rawValue = input.readEnum();
-            bitField0_ |= 0x00000001;
-            error_ = rawValue;
+          case 26: {
+            dev.igorxp5.proto.api.Error.Builder subBuilder = null;
+            if (contentCase_ == 3) {
+              subBuilder = ((dev.igorxp5.proto.api.Error) content_).toBuilder();
+            }
+            content_ =
+                input.readMessage(dev.igorxp5.proto.api.Error.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((dev.igorxp5.proto.api.Error) content_);
+              content_ = subBuilder.buildPartial();
+            }
+            contentCase_ = 3;
             break;
           }
           default: {
@@ -106,124 +113,47 @@ private static final long serialVersionUID = 0L;
             dev.igorxp5.proto.api.Response.class, dev.igorxp5.proto.api.Response.Builder.class);
   }
 
-  /**
-   * Protobuf enum {@code Response.Exception}
-   */
-  public enum Exception
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>EXCEPTION = 0;</code>
-     */
-    EXCEPTION(0),
-    /**
-     * <code>RUNTIME_ERROR = 1;</code>
-     */
-    RUNTIME_ERROR(1),
-    /**
-     * <code>INVALID_REQUEST = 2;</code>
-     */
-    INVALID_REQUEST(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>EXCEPTION = 0;</code>
-     */
-    public static final int EXCEPTION_VALUE = 0;
-    /**
-     * <code>RUNTIME_ERROR = 1;</code>
-     */
-    public static final int RUNTIME_ERROR_VALUE = 1;
-    /**
-     * <code>INVALID_REQUEST = 2;</code>
-     */
-    public static final int INVALID_REQUEST_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
+  private int contentCase_ = 0;
+  private java.lang.Object content_;
+  public enum ContentCase
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    MESSAGE(2),
+    ERROR(3),
+    CONTENT_NOT_SET(0);
+    private final int value;
+    private ContentCase(int value) {
+      this.value = value;
     }
-
     /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
-    public static Exception valueOf(int value) {
+    public static ContentCase valueOf(int value) {
       return forNumber(value);
     }
 
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static Exception forNumber(int value) {
+    public static ContentCase forNumber(int value) {
       switch (value) {
-        case 0: return EXCEPTION;
-        case 1: return RUNTIME_ERROR;
-        case 2: return INVALID_REQUEST;
+        case 2: return MESSAGE;
+        case 3: return ERROR;
+        case 0: return CONTENT_NOT_SET;
         default: return null;
       }
     }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<Exception>
-        internalGetValueMap() {
-      return internalValueMap;
+    public int getNumber() {
+      return this.value;
     }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        Exception> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Exception>() {
-            public Exception findValueByNumber(int number) {
-              return Exception.forNumber(number);
-            }
-          };
+  };
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return dev.igorxp5.proto.api.Response.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final Exception[] VALUES = values();
-
-    public static Exception valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private Exception(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:Response.Exception)
+  public ContentCase
+  getContentCase() {
+    return ContentCase.forNumber(
+        contentCase_);
   }
 
-  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   private int id_;
   /**
@@ -236,14 +166,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 2;
-  private dev.igorxp5.proto.api.Value message_;
   /**
    * <code>.Value message = 2;</code>
    * @return Whether the message field is set.
    */
   @java.lang.Override
   public boolean hasMessage() {
-    return message_ != null;
+    return contentCase_ == 2;
   }
   /**
    * <code>.Value message = 2;</code>
@@ -251,40 +180,51 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.Value getMessage() {
-    return message_ == null ? dev.igorxp5.proto.api.Value.getDefaultInstance() : message_;
+    if (contentCase_ == 2) {
+       return (dev.igorxp5.proto.api.Value) content_;
+    }
+    return dev.igorxp5.proto.api.Value.getDefaultInstance();
   }
   /**
    * <code>.Value message = 2;</code>
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.ValueOrBuilder getMessageOrBuilder() {
-    return getMessage();
+    if (contentCase_ == 2) {
+       return (dev.igorxp5.proto.api.Value) content_;
+    }
+    return dev.igorxp5.proto.api.Value.getDefaultInstance();
   }
 
   public static final int ERROR_FIELD_NUMBER = 3;
-  private int error_;
   /**
-   * <code>optional .Response.Exception error = 3;</code>
+   * <code>.Error error = 3;</code>
    * @return Whether the error field is set.
    */
-  @java.lang.Override public boolean hasError() {
-    return ((bitField0_ & 0x00000001) != 0);
+  @java.lang.Override
+  public boolean hasError() {
+    return contentCase_ == 3;
   }
   /**
-   * <code>optional .Response.Exception error = 3;</code>
-   * @return The enum numeric value on the wire for error.
-   */
-  @java.lang.Override public int getErrorValue() {
-    return error_;
-  }
-  /**
-   * <code>optional .Response.Exception error = 3;</code>
+   * <code>.Error error = 3;</code>
    * @return The error.
    */
-  @java.lang.Override public dev.igorxp5.proto.api.Response.Exception getError() {
-    @SuppressWarnings("deprecation")
-    dev.igorxp5.proto.api.Response.Exception result = dev.igorxp5.proto.api.Response.Exception.valueOf(error_);
-    return result == null ? dev.igorxp5.proto.api.Response.Exception.UNRECOGNIZED : result;
+  @java.lang.Override
+  public dev.igorxp5.proto.api.Error getError() {
+    if (contentCase_ == 3) {
+       return (dev.igorxp5.proto.api.Error) content_;
+    }
+    return dev.igorxp5.proto.api.Error.getDefaultInstance();
+  }
+  /**
+   * <code>.Error error = 3;</code>
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.ErrorOrBuilder getErrorOrBuilder() {
+    if (contentCase_ == 3) {
+       return (dev.igorxp5.proto.api.Error) content_;
+    }
+    return dev.igorxp5.proto.api.Error.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -304,11 +244,11 @@ private static final long serialVersionUID = 0L;
     if (id_ != 0) {
       output.writeUInt32(1, id_);
     }
-    if (message_ != null) {
-      output.writeMessage(2, getMessage());
+    if (contentCase_ == 2) {
+      output.writeMessage(2, (dev.igorxp5.proto.api.Value) content_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeEnum(3, error_);
+    if (contentCase_ == 3) {
+      output.writeMessage(3, (dev.igorxp5.proto.api.Error) content_);
     }
     unknownFields.writeTo(output);
   }
@@ -323,13 +263,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(1, id_);
     }
-    if (message_ != null) {
+    if (contentCase_ == 2) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getMessage());
+        .computeMessageSize(2, (dev.igorxp5.proto.api.Value) content_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (contentCase_ == 3) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(3, error_);
+        .computeMessageSize(3, (dev.igorxp5.proto.api.Error) content_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -348,14 +288,18 @@ private static final long serialVersionUID = 0L;
 
     if (getId()
         != other.getId()) return false;
-    if (hasMessage() != other.hasMessage()) return false;
-    if (hasMessage()) {
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
-    }
-    if (hasError() != other.hasError()) return false;
-    if (hasError()) {
-      if (error_ != other.error_) return false;
+    if (!getContentCase().equals(other.getContentCase())) return false;
+    switch (contentCase_) {
+      case 2:
+        if (!getMessage()
+            .equals(other.getMessage())) return false;
+        break;
+      case 3:
+        if (!getError()
+            .equals(other.getError())) return false;
+        break;
+      case 0:
+      default:
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -370,13 +314,17 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId();
-    if (hasMessage()) {
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-    }
-    if (hasError()) {
-      hash = (37 * hash) + ERROR_FIELD_NUMBER;
-      hash = (53 * hash) + error_;
+    switch (contentCase_) {
+      case 2:
+        hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getMessage().hashCode();
+        break;
+      case 3:
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
+        break;
+      case 0:
+      default:
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -513,14 +461,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = 0;
 
-      if (messageBuilder_ == null) {
-        message_ = null;
-      } else {
-        message_ = null;
-        messageBuilder_ = null;
-      }
-      error_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      contentCase_ = 0;
+      content_ = null;
       return this;
     }
 
@@ -547,19 +489,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public dev.igorxp5.proto.api.Response buildPartial() {
       dev.igorxp5.proto.api.Response result = new dev.igorxp5.proto.api.Response(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
       result.id_ = id_;
-      if (messageBuilder_ == null) {
-        result.message_ = message_;
-      } else {
-        result.message_ = messageBuilder_.build();
+      if (contentCase_ == 2) {
+        if (messageBuilder_ == null) {
+          result.content_ = content_;
+        } else {
+          result.content_ = messageBuilder_.build();
+        }
       }
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
+      if (contentCase_ == 3) {
+        if (errorBuilder_ == null) {
+          result.content_ = content_;
+        } else {
+          result.content_ = errorBuilder_.build();
+        }
       }
-      result.error_ = error_;
-      result.bitField0_ = to_bitField0_;
+      result.contentCase_ = contentCase_;
       onBuilt();
       return result;
     }
@@ -611,11 +556,18 @@ private static final long serialVersionUID = 0L;
       if (other.getId() != 0) {
         setId(other.getId());
       }
-      if (other.hasMessage()) {
-        mergeMessage(other.getMessage());
-      }
-      if (other.hasError()) {
-        setError(other.getError());
+      switch (other.getContentCase()) {
+        case MESSAGE: {
+          mergeMessage(other.getMessage());
+          break;
+        }
+        case ERROR: {
+          mergeError(other.getError());
+          break;
+        }
+        case CONTENT_NOT_SET: {
+          break;
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -645,7 +597,21 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
+    private int contentCase_ = 0;
+    private java.lang.Object content_;
+    public ContentCase
+        getContentCase() {
+      return ContentCase.forNumber(
+          contentCase_);
+    }
+
+    public Builder clearContent() {
+      contentCase_ = 0;
+      content_ = null;
+      onChanged();
+      return this;
+    }
+
 
     private int id_ ;
     /**
@@ -678,25 +644,32 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private dev.igorxp5.proto.api.Value message_;
     private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder> messageBuilder_;
     /**
      * <code>.Value message = 2;</code>
      * @return Whether the message field is set.
      */
+    @java.lang.Override
     public boolean hasMessage() {
-      return messageBuilder_ != null || message_ != null;
+      return contentCase_ == 2;
     }
     /**
      * <code>.Value message = 2;</code>
      * @return The message.
      */
+    @java.lang.Override
     public dev.igorxp5.proto.api.Value getMessage() {
       if (messageBuilder_ == null) {
-        return message_ == null ? dev.igorxp5.proto.api.Value.getDefaultInstance() : message_;
+        if (contentCase_ == 2) {
+          return (dev.igorxp5.proto.api.Value) content_;
+        }
+        return dev.igorxp5.proto.api.Value.getDefaultInstance();
       } else {
-        return messageBuilder_.getMessage();
+        if (contentCase_ == 2) {
+          return messageBuilder_.getMessage();
+        }
+        return dev.igorxp5.proto.api.Value.getDefaultInstance();
       }
     }
     /**
@@ -707,12 +680,12 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        message_ = value;
+        content_ = value;
         onChanged();
       } else {
         messageBuilder_.setMessage(value);
       }
-
+      contentCase_ = 2;
       return this;
     }
     /**
@@ -721,12 +694,12 @@ private static final long serialVersionUID = 0L;
     public Builder setMessage(
         dev.igorxp5.proto.api.Value.Builder builderForValue) {
       if (messageBuilder_ == null) {
-        message_ = builderForValue.build();
+        content_ = builderForValue.build();
         onChanged();
       } else {
         messageBuilder_.setMessage(builderForValue.build());
       }
-
+      contentCase_ = 2;
       return this;
     }
     /**
@@ -734,17 +707,21 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMessage(dev.igorxp5.proto.api.Value value) {
       if (messageBuilder_ == null) {
-        if (message_ != null) {
-          message_ =
-            dev.igorxp5.proto.api.Value.newBuilder(message_).mergeFrom(value).buildPartial();
+        if (contentCase_ == 2 &&
+            content_ != dev.igorxp5.proto.api.Value.getDefaultInstance()) {
+          content_ = dev.igorxp5.proto.api.Value.newBuilder((dev.igorxp5.proto.api.Value) content_)
+              .mergeFrom(value).buildPartial();
         } else {
-          message_ = value;
+          content_ = value;
         }
         onChanged();
       } else {
-        messageBuilder_.mergeFrom(value);
+        if (contentCase_ == 2) {
+          messageBuilder_.mergeFrom(value);
+        }
+        messageBuilder_.setMessage(value);
       }
-
+      contentCase_ = 2;
       return this;
     }
     /**
@@ -752,32 +729,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearMessage() {
       if (messageBuilder_ == null) {
-        message_ = null;
-        onChanged();
+        if (contentCase_ == 2) {
+          contentCase_ = 0;
+          content_ = null;
+          onChanged();
+        }
       } else {
-        message_ = null;
-        messageBuilder_ = null;
+        if (contentCase_ == 2) {
+          contentCase_ = 0;
+          content_ = null;
+        }
+        messageBuilder_.clear();
       }
-
       return this;
     }
     /**
      * <code>.Value message = 2;</code>
      */
     public dev.igorxp5.proto.api.Value.Builder getMessageBuilder() {
-      
-      onChanged();
       return getMessageFieldBuilder().getBuilder();
     }
     /**
      * <code>.Value message = 2;</code>
      */
+    @java.lang.Override
     public dev.igorxp5.proto.api.ValueOrBuilder getMessageOrBuilder() {
-      if (messageBuilder_ != null) {
+      if ((contentCase_ == 2) && (messageBuilder_ != null)) {
         return messageBuilder_.getMessageOrBuilder();
       } else {
-        return message_ == null ?
-            dev.igorxp5.proto.api.Value.getDefaultInstance() : message_;
+        if (contentCase_ == 2) {
+          return (dev.igorxp5.proto.api.Value) content_;
+        }
+        return dev.igorxp5.proto.api.Value.getDefaultInstance();
       }
     }
     /**
@@ -787,75 +770,160 @@ private static final long serialVersionUID = 0L;
         dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder> 
         getMessageFieldBuilder() {
       if (messageBuilder_ == null) {
+        if (!(contentCase_ == 2)) {
+          content_ = dev.igorxp5.proto.api.Value.getDefaultInstance();
+        }
         messageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             dev.igorxp5.proto.api.Value, dev.igorxp5.proto.api.Value.Builder, dev.igorxp5.proto.api.ValueOrBuilder>(
-                getMessage(),
+                (dev.igorxp5.proto.api.Value) content_,
                 getParentForChildren(),
                 isClean());
-        message_ = null;
+        content_ = null;
       }
+      contentCase_ = 2;
+      onChanged();;
       return messageBuilder_;
     }
 
-    private int error_ = 0;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.Error, dev.igorxp5.proto.api.Error.Builder, dev.igorxp5.proto.api.ErrorOrBuilder> errorBuilder_;
     /**
-     * <code>optional .Response.Exception error = 3;</code>
+     * <code>.Error error = 3;</code>
      * @return Whether the error field is set.
      */
-    @java.lang.Override public boolean hasError() {
-      return ((bitField0_ & 0x00000001) != 0);
+    @java.lang.Override
+    public boolean hasError() {
+      return contentCase_ == 3;
     }
     /**
-     * <code>optional .Response.Exception error = 3;</code>
-     * @return The enum numeric value on the wire for error.
-     */
-    @java.lang.Override public int getErrorValue() {
-      return error_;
-    }
-    /**
-     * <code>optional .Response.Exception error = 3;</code>
-     * @param value The enum numeric value on the wire for error to set.
-     * @return This builder for chaining.
-     */
-    public Builder setErrorValue(int value) {
-      bitField0_ |= 0x00000001;
-      error_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional .Response.Exception error = 3;</code>
+     * <code>.Error error = 3;</code>
      * @return The error.
      */
     @java.lang.Override
-    public dev.igorxp5.proto.api.Response.Exception getError() {
-      @SuppressWarnings("deprecation")
-      dev.igorxp5.proto.api.Response.Exception result = dev.igorxp5.proto.api.Response.Exception.valueOf(error_);
-      return result == null ? dev.igorxp5.proto.api.Response.Exception.UNRECOGNIZED : result;
+    public dev.igorxp5.proto.api.Error getError() {
+      if (errorBuilder_ == null) {
+        if (contentCase_ == 3) {
+          return (dev.igorxp5.proto.api.Error) content_;
+        }
+        return dev.igorxp5.proto.api.Error.getDefaultInstance();
+      } else {
+        if (contentCase_ == 3) {
+          return errorBuilder_.getMessage();
+        }
+        return dev.igorxp5.proto.api.Error.getDefaultInstance();
+      }
     }
     /**
-     * <code>optional .Response.Exception error = 3;</code>
-     * @param value The error to set.
-     * @return This builder for chaining.
+     * <code>.Error error = 3;</code>
      */
-    public Builder setError(dev.igorxp5.proto.api.Response.Exception value) {
-      if (value == null) {
-        throw new NullPointerException();
+    public Builder setError(dev.igorxp5.proto.api.Error value) {
+      if (errorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        content_ = value;
+        onChanged();
+      } else {
+        errorBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
-      error_ = value.getNumber();
-      onChanged();
+      contentCase_ = 3;
       return this;
     }
     /**
-     * <code>optional .Response.Exception error = 3;</code>
-     * @return This builder for chaining.
+     * <code>.Error error = 3;</code>
+     */
+    public Builder setError(
+        dev.igorxp5.proto.api.Error.Builder builderForValue) {
+      if (errorBuilder_ == null) {
+        content_ = builderForValue.build();
+        onChanged();
+      } else {
+        errorBuilder_.setMessage(builderForValue.build());
+      }
+      contentCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.Error error = 3;</code>
+     */
+    public Builder mergeError(dev.igorxp5.proto.api.Error value) {
+      if (errorBuilder_ == null) {
+        if (contentCase_ == 3 &&
+            content_ != dev.igorxp5.proto.api.Error.getDefaultInstance()) {
+          content_ = dev.igorxp5.proto.api.Error.newBuilder((dev.igorxp5.proto.api.Error) content_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          content_ = value;
+        }
+        onChanged();
+      } else {
+        if (contentCase_ == 3) {
+          errorBuilder_.mergeFrom(value);
+        }
+        errorBuilder_.setMessage(value);
+      }
+      contentCase_ = 3;
+      return this;
+    }
+    /**
+     * <code>.Error error = 3;</code>
      */
     public Builder clearError() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      error_ = 0;
-      onChanged();
+      if (errorBuilder_ == null) {
+        if (contentCase_ == 3) {
+          contentCase_ = 0;
+          content_ = null;
+          onChanged();
+        }
+      } else {
+        if (contentCase_ == 3) {
+          contentCase_ = 0;
+          content_ = null;
+        }
+        errorBuilder_.clear();
+      }
       return this;
+    }
+    /**
+     * <code>.Error error = 3;</code>
+     */
+    public dev.igorxp5.proto.api.Error.Builder getErrorBuilder() {
+      return getErrorFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Error error = 3;</code>
+     */
+    @java.lang.Override
+    public dev.igorxp5.proto.api.ErrorOrBuilder getErrorOrBuilder() {
+      if ((contentCase_ == 3) && (errorBuilder_ != null)) {
+        return errorBuilder_.getMessageOrBuilder();
+      } else {
+        if (contentCase_ == 3) {
+          return (dev.igorxp5.proto.api.Error) content_;
+        }
+        return dev.igorxp5.proto.api.Error.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.Error error = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.Error, dev.igorxp5.proto.api.Error.Builder, dev.igorxp5.proto.api.ErrorOrBuilder> 
+        getErrorFieldBuilder() {
+      if (errorBuilder_ == null) {
+        if (!(contentCase_ == 3)) {
+          content_ = dev.igorxp5.proto.api.Error.getDefaultInstance();
+        }
+        errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dev.igorxp5.proto.api.Error, dev.igorxp5.proto.api.Error.Builder, dev.igorxp5.proto.api.ErrorOrBuilder>(
+                (dev.igorxp5.proto.api.Error) content_,
+                getParentForChildren(),
+                isClean());
+        content_ = null;
+      }
+      contentCase_ = 3;
+      onChanged();;
+      return errorBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
