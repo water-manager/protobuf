@@ -64,10 +64,15 @@ private static final long serialVersionUID = 0L;
           }
           case 24: {
 
-            enabled_ = input.readBool();
+            active_ = input.readBool();
             break;
           }
-          case 34: {
+          case 32: {
+
+            turnedOn_ = input.readBool();
+            break;
+          }
+          case 42: {
             java.lang.String s = input.readStringRequireUtf8();
             bitField0_ |= 0x00000001;
             sourceWaterTank_ = s;
@@ -155,21 +160,32 @@ private static final long serialVersionUID = 0L;
     return pin_;
   }
 
-  public static final int ENABLED_FIELD_NUMBER = 3;
-  private boolean enabled_;
+  public static final int ACTIVE_FIELD_NUMBER = 3;
+  private boolean active_;
   /**
-   * <code>bool enabled = 3;</code>
-   * @return The enabled.
+   * <code>bool active = 3;</code>
+   * @return The active.
    */
   @java.lang.Override
-  public boolean getEnabled() {
-    return enabled_;
+  public boolean getActive() {
+    return active_;
   }
 
-  public static final int SOURCEWATERTANK_FIELD_NUMBER = 4;
+  public static final int TURNEDON_FIELD_NUMBER = 4;
+  private boolean turnedOn_;
+  /**
+   * <code>bool turnedOn = 4;</code>
+   * @return The turnedOn.
+   */
+  @java.lang.Override
+  public boolean getTurnedOn() {
+    return turnedOn_;
+  }
+
+  public static final int SOURCEWATERTANK_FIELD_NUMBER = 5;
   private volatile java.lang.Object sourceWaterTank_;
   /**
-   * <code>optional string sourceWaterTank = 4;</code>
+   * <code>optional string sourceWaterTank = 5;</code>
    * @return Whether the sourceWaterTank field is set.
    */
   @java.lang.Override
@@ -177,7 +193,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>optional string sourceWaterTank = 4;</code>
+   * <code>optional string sourceWaterTank = 5;</code>
    * @return The sourceWaterTank.
    */
   @java.lang.Override
@@ -194,7 +210,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string sourceWaterTank = 4;</code>
+   * <code>optional string sourceWaterTank = 5;</code>
    * @return The bytes for sourceWaterTank.
    */
   @java.lang.Override
@@ -232,11 +248,14 @@ private static final long serialVersionUID = 0L;
     if (pin_ != 0) {
       output.writeUInt32(2, pin_);
     }
-    if (enabled_ != false) {
-      output.writeBool(3, enabled_);
+    if (active_ != false) {
+      output.writeBool(3, active_);
+    }
+    if (turnedOn_ != false) {
+      output.writeBool(4, turnedOn_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sourceWaterTank_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, sourceWaterTank_);
     }
     unknownFields.writeTo(output);
   }
@@ -254,12 +273,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(2, pin_);
     }
-    if (enabled_ != false) {
+    if (active_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, enabled_);
+        .computeBoolSize(3, active_);
+    }
+    if (turnedOn_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, turnedOn_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sourceWaterTank_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, sourceWaterTank_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -280,8 +303,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (getPin()
         != other.getPin()) return false;
-    if (getEnabled()
-        != other.getEnabled()) return false;
+    if (getActive()
+        != other.getActive()) return false;
+    if (getTurnedOn()
+        != other.getTurnedOn()) return false;
     if (hasSourceWaterTank() != other.hasSourceWaterTank()) return false;
     if (hasSourceWaterTank()) {
       if (!getSourceWaterTank()
@@ -302,9 +327,12 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + PIN_FIELD_NUMBER;
     hash = (53 * hash) + getPin();
-    hash = (37 * hash) + ENABLED_FIELD_NUMBER;
+    hash = (37 * hash) + ACTIVE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getEnabled());
+        getActive());
+    hash = (37 * hash) + TURNEDON_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getTurnedOn());
     if (hasSourceWaterTank()) {
       hash = (37 * hash) + SOURCEWATERTANK_FIELD_NUMBER;
       hash = (53 * hash) + getSourceWaterTank().hashCode();
@@ -446,7 +474,9 @@ private static final long serialVersionUID = 0L;
 
       pin_ = 0;
 
-      enabled_ = false;
+      active_ = false;
+
+      turnedOn_ = false;
 
       sourceWaterTank_ = "";
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -480,7 +510,8 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       result.name_ = name_;
       result.pin_ = pin_;
-      result.enabled_ = enabled_;
+      result.active_ = active_;
+      result.turnedOn_ = turnedOn_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         to_bitField0_ |= 0x00000001;
       }
@@ -541,8 +572,11 @@ private static final long serialVersionUID = 0L;
       if (other.getPin() != 0) {
         setPin(other.getPin());
       }
-      if (other.getEnabled() != false) {
-        setEnabled(other.getEnabled());
+      if (other.getActive() != false) {
+        setActive(other.getActive());
+      }
+      if (other.getTurnedOn() != false) {
+        setTurnedOn(other.getTurnedOn());
       }
       if (other.hasSourceWaterTank()) {
         bitField0_ |= 0x00000001;
@@ -686,47 +720,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean enabled_ ;
+    private boolean active_ ;
     /**
-     * <code>bool enabled = 3;</code>
-     * @return The enabled.
+     * <code>bool active = 3;</code>
+     * @return The active.
      */
     @java.lang.Override
-    public boolean getEnabled() {
-      return enabled_;
+    public boolean getActive() {
+      return active_;
     }
     /**
-     * <code>bool enabled = 3;</code>
-     * @param value The enabled to set.
+     * <code>bool active = 3;</code>
+     * @param value The active to set.
      * @return This builder for chaining.
      */
-    public Builder setEnabled(boolean value) {
+    public Builder setActive(boolean value) {
       
-      enabled_ = value;
+      active_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool enabled = 3;</code>
+     * <code>bool active = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearEnabled() {
+    public Builder clearActive() {
       
-      enabled_ = false;
+      active_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean turnedOn_ ;
+    /**
+     * <code>bool turnedOn = 4;</code>
+     * @return The turnedOn.
+     */
+    @java.lang.Override
+    public boolean getTurnedOn() {
+      return turnedOn_;
+    }
+    /**
+     * <code>bool turnedOn = 4;</code>
+     * @param value The turnedOn to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTurnedOn(boolean value) {
+      
+      turnedOn_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool turnedOn = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTurnedOn() {
+      
+      turnedOn_ = false;
       onChanged();
       return this;
     }
 
     private java.lang.Object sourceWaterTank_ = "";
     /**
-     * <code>optional string sourceWaterTank = 4;</code>
+     * <code>optional string sourceWaterTank = 5;</code>
      * @return Whether the sourceWaterTank field is set.
      */
     public boolean hasSourceWaterTank() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional string sourceWaterTank = 4;</code>
+     * <code>optional string sourceWaterTank = 5;</code>
      * @return The sourceWaterTank.
      */
     public java.lang.String getSourceWaterTank() {
@@ -742,7 +807,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string sourceWaterTank = 4;</code>
+     * <code>optional string sourceWaterTank = 5;</code>
      * @return The bytes for sourceWaterTank.
      */
     public com.google.protobuf.ByteString
@@ -759,7 +824,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string sourceWaterTank = 4;</code>
+     * <code>optional string sourceWaterTank = 5;</code>
      * @param value The sourceWaterTank to set.
      * @return This builder for chaining.
      */
@@ -774,7 +839,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>optional string sourceWaterTank = 4;</code>
+     * <code>optional string sourceWaterTank = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearSourceWaterTank() {
@@ -784,7 +849,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>optional string sourceWaterTank = 4;</code>
+     * <code>optional string sourceWaterTank = 5;</code>
      * @param value The bytes for sourceWaterTank to set.
      * @return This builder for chaining.
      */

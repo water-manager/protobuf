@@ -7,7 +7,10 @@ SetWaterTankMaxVolume.waterTankName max_size:21
 SetWaterTankZeroVolume.waterTankName max_size:21
 SetWaterTankVolumeFactor.waterTankName max_size:21
 SetWaterTankPressureFactor.waterTankName max_size:21
+SetWaterTankPressureChangingValue.waterTankName max_size:21
+SetWaterTankActive.waterTankName max_size:21
 SetWaterSourceState.waterSourceName max_size:21
+SetWaterSourceActive.waterSourceName max_size:21
 GetWaterSource.waterSourceName max_size:21
 GetWaterTank.waterTankName max_size:21
 RemoveWaterSource.waterSourceName max_size:21

@@ -13,17 +13,20 @@ message Request {
         SetWaterTankZeroVolume setWaterTankZeroVolume = 6;
         SetWaterTankVolumeFactor setWaterTankVolumeFactor = 7;
         SetWaterTankPressureFactor setWaterTankPressureFactor = 8;
-        SetMode setMode = 9;
-        GetMode getMode = 10;
-        SetWaterSourceState setWaterSourceState = 11;
-        GetWaterSourceList getWaterSourceList = 12;
-        GetWaterSource getWaterSource = 13;
-        GetWaterTank getWaterTank = 14;
-        GetWaterTankList getWaterTankList = 15;
-        RemoveWaterSource removeWaterSource = 16;
-        RemoveWaterTank removeWaterTank = 17;
-        FillWaterTank fillWaterTank = 18;
-        Reset reset = 19;
+        SetWaterTankPressureChangingValue setWaterTankPressureChangingValue = 9;
+        SetWaterTankActive setWaterTankActive = 10;
+        SetMode setMode = 11;
+        GetMode getMode = 12;
+        SetWaterSourceState setWaterSourceState = 13;
+        SetWaterSourceActive setWaterSourceActive = 14;
+        GetWaterSourceList getWaterSourceList = 15;
+        GetWaterSource getWaterSource = 16;
+        GetWaterTank getWaterTank = 17;
+        GetWaterTankList getWaterTankList = 18;
+        RemoveWaterSource removeWaterSource = 19;
+        RemoveWaterTank removeWaterTank = 20;
+        FillWaterTank fillWaterTank = 21;
+        Reset reset = 22;
     }
 }
 
@@ -101,6 +104,16 @@ message SetWaterTankPressureFactor {
     float value = 2;
 }
 
+message SetWaterTankPressureChangingValue {
+    string waterTankName = 1;
+    float value = 2;
+}
+
+message SetWaterTankActive {
+    string waterTankName = 1;
+    bool active = 2;
+}
+
 message SetMode {
     enum Mode {
         MANUAL = 0;
@@ -115,6 +128,12 @@ message GetMode {
 message SetWaterSourceState {
     string waterSourceName = 1;
     bool state = 2;
+    bool force = 3;
+}
+
+message SetWaterSourceActive {
+    string waterSourceName = 1;
+    bool active = 2;
 }
 
 message GetWaterTankList {
@@ -151,23 +170,26 @@ message Reset {
 message WaterSourceState {
     string name = 1;
     uint32 pin = 2;
-    bool enabled = 3;
-    optional string sourceWaterTank = 4;
+    bool active = 3;
+    bool turnedOn = 4;
+    optional string sourceWaterTank = 5;
 }
 
-//FIXME: There are redudant properties
+//FIXME: There are redudant properties (rawPressureValue, pressure and volume)
 
 message WaterTankState {
     string name = 1;
     uint32 pressureSensorPin = 2;
     bool filling = 3;
-    float volumeFactor = 4;
-    float pressureFactor = 5;
-    float minimumVolume = 6;
-    float maxVolume = 7;
-    float zeroVolumePressure = 8;
-    uint32 rawPressureValue = 9;
-    float pressure = 10;
-    float volume = 11;
-    optional string waterSource = 12;
+    bool active = 4;
+    float volumeFactor = 5;
+    float pressureFactor = 6;
+    float minimumVolume = 7;
+    float maxVolume = 8;
+    float zeroVolumePressure = 9;
+    float pressureChangingValue = 10;
+    uint32 rawPressureValue = 11;
+    float pressure = 12;
+    float volume = 13;
+    optional string waterSource = 14;
 }

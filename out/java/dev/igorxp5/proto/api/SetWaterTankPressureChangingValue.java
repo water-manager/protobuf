@@ -4,26 +4,26 @@
 package dev.igorxp5.proto.api;
 
 /**
- * Protobuf type {@code SetWaterSourceState}
+ * Protobuf type {@code SetWaterTankPressureChangingValue}
  */
-public final class SetWaterSourceState extends
+public final class SetWaterTankPressureChangingValue extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:SetWaterSourceState)
-    SetWaterSourceStateOrBuilder {
+    // @@protoc_insertion_point(message_implements:SetWaterTankPressureChangingValue)
+    SetWaterTankPressureChangingValueOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use SetWaterSourceState.newBuilder() to construct.
-  private SetWaterSourceState(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use SetWaterTankPressureChangingValue.newBuilder() to construct.
+  private SetWaterTankPressureChangingValue(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SetWaterSourceState() {
-    waterSourceName_ = "";
+  private SetWaterTankPressureChangingValue() {
+    waterTankName_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new SetWaterSourceState();
+    return new SetWaterTankPressureChangingValue();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SetWaterSourceState(
+  private SetWaterTankPressureChangingValue(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,17 +52,12 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            waterSourceName_ = s;
+            waterTankName_ = s;
             break;
           }
-          case 16: {
+          case 21: {
 
-            state_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            force_ = input.readBool();
+            value_ = input.readFloat();
             break;
           }
           default: {
@@ -86,75 +81,64 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return dev.igorxp5.proto.api.Api.internal_static_SetWaterSourceState_descriptor;
+    return dev.igorxp5.proto.api.Api.internal_static_SetWaterTankPressureChangingValue_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return dev.igorxp5.proto.api.Api.internal_static_SetWaterSourceState_fieldAccessorTable
+    return dev.igorxp5.proto.api.Api.internal_static_SetWaterTankPressureChangingValue_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            dev.igorxp5.proto.api.SetWaterSourceState.class, dev.igorxp5.proto.api.SetWaterSourceState.Builder.class);
+            dev.igorxp5.proto.api.SetWaterTankPressureChangingValue.class, dev.igorxp5.proto.api.SetWaterTankPressureChangingValue.Builder.class);
   }
 
-  public static final int WATERSOURCENAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object waterSourceName_;
+  public static final int WATERTANKNAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object waterTankName_;
   /**
-   * <code>string waterSourceName = 1;</code>
-   * @return The waterSourceName.
+   * <code>string waterTankName = 1;</code>
+   * @return The waterTankName.
    */
   @java.lang.Override
-  public java.lang.String getWaterSourceName() {
-    java.lang.Object ref = waterSourceName_;
+  public java.lang.String getWaterTankName() {
+    java.lang.Object ref = waterTankName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      waterSourceName_ = s;
+      waterTankName_ = s;
       return s;
     }
   }
   /**
-   * <code>string waterSourceName = 1;</code>
-   * @return The bytes for waterSourceName.
+   * <code>string waterTankName = 1;</code>
+   * @return The bytes for waterTankName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getWaterSourceNameBytes() {
-    java.lang.Object ref = waterSourceName_;
+      getWaterTankNameBytes() {
+    java.lang.Object ref = waterTankName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      waterSourceName_ = b;
+      waterTankName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int STATE_FIELD_NUMBER = 2;
-  private boolean state_;
+  public static final int VALUE_FIELD_NUMBER = 2;
+  private float value_;
   /**
-   * <code>bool state = 2;</code>
-   * @return The state.
+   * <code>float value = 2;</code>
+   * @return The value.
    */
   @java.lang.Override
-  public boolean getState() {
-    return state_;
-  }
-
-  public static final int FORCE_FIELD_NUMBER = 3;
-  private boolean force_;
-  /**
-   * <code>bool force = 3;</code>
-   * @return The force.
-   */
-  @java.lang.Override
-  public boolean getForce() {
-    return force_;
+  public float getValue() {
+    return value_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -171,14 +155,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(waterSourceName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, waterSourceName_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(waterTankName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, waterTankName_);
     }
-    if (state_ != false) {
-      output.writeBool(2, state_);
-    }
-    if (force_ != false) {
-      output.writeBool(3, force_);
+    if (java.lang.Float.floatToRawIntBits(value_) != 0) {
+      output.writeFloat(2, value_);
     }
     unknownFields.writeTo(output);
   }
@@ -189,16 +170,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(waterSourceName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, waterSourceName_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(waterTankName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, waterTankName_);
     }
-    if (state_ != false) {
+    if (java.lang.Float.floatToRawIntBits(value_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(2, state_);
-    }
-    if (force_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, force_);
+        .computeFloatSize(2, value_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -210,17 +187,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof dev.igorxp5.proto.api.SetWaterSourceState)) {
+    if (!(obj instanceof dev.igorxp5.proto.api.SetWaterTankPressureChangingValue)) {
       return super.equals(obj);
     }
-    dev.igorxp5.proto.api.SetWaterSourceState other = (dev.igorxp5.proto.api.SetWaterSourceState) obj;
+    dev.igorxp5.proto.api.SetWaterTankPressureChangingValue other = (dev.igorxp5.proto.api.SetWaterTankPressureChangingValue) obj;
 
-    if (!getWaterSourceName()
-        .equals(other.getWaterSourceName())) return false;
-    if (getState()
-        != other.getState()) return false;
-    if (getForce()
-        != other.getForce()) return false;
+    if (!getWaterTankName()
+        .equals(other.getWaterTankName())) return false;
+    if (java.lang.Float.floatToIntBits(getValue())
+        != java.lang.Float.floatToIntBits(
+            other.getValue())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -232,82 +208,79 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + WATERSOURCENAME_FIELD_NUMBER;
-    hash = (53 * hash) + getWaterSourceName().hashCode();
-    hash = (37 * hash) + STATE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getState());
-    hash = (37 * hash) + FORCE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getForce());
+    hash = (37 * hash) + WATERTANKNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getWaterTankName().hashCode();
+    hash = (37 * hash) + VALUE_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getValue());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(byte[] data)
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(java.io.InputStream input)
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseDelimitedFrom(java.io.InputStream input)
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseDelimitedFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static dev.igorxp5.proto.api.SetWaterSourceState parseFrom(
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -320,7 +293,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(dev.igorxp5.proto.api.SetWaterSourceState prototype) {
+  public static Builder newBuilder(dev.igorxp5.proto.api.SetWaterTankPressureChangingValue prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -336,26 +309,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code SetWaterSourceState}
+   * Protobuf type {@code SetWaterTankPressureChangingValue}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:SetWaterSourceState)
-      dev.igorxp5.proto.api.SetWaterSourceStateOrBuilder {
+      // @@protoc_insertion_point(builder_implements:SetWaterTankPressureChangingValue)
+      dev.igorxp5.proto.api.SetWaterTankPressureChangingValueOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return dev.igorxp5.proto.api.Api.internal_static_SetWaterSourceState_descriptor;
+      return dev.igorxp5.proto.api.Api.internal_static_SetWaterTankPressureChangingValue_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return dev.igorxp5.proto.api.Api.internal_static_SetWaterSourceState_fieldAccessorTable
+      return dev.igorxp5.proto.api.Api.internal_static_SetWaterTankPressureChangingValue_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              dev.igorxp5.proto.api.SetWaterSourceState.class, dev.igorxp5.proto.api.SetWaterSourceState.Builder.class);
+              dev.igorxp5.proto.api.SetWaterTankPressureChangingValue.class, dev.igorxp5.proto.api.SetWaterTankPressureChangingValue.Builder.class);
     }
 
-    // Construct using dev.igorxp5.proto.api.SetWaterSourceState.newBuilder()
+    // Construct using dev.igorxp5.proto.api.SetWaterTankPressureChangingValue.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -373,11 +346,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      waterSourceName_ = "";
+      waterTankName_ = "";
 
-      state_ = false;
-
-      force_ = false;
+      value_ = 0F;
 
       return this;
     }
@@ -385,17 +356,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return dev.igorxp5.proto.api.Api.internal_static_SetWaterSourceState_descriptor;
+      return dev.igorxp5.proto.api.Api.internal_static_SetWaterTankPressureChangingValue_descriptor;
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.SetWaterSourceState getDefaultInstanceForType() {
-      return dev.igorxp5.proto.api.SetWaterSourceState.getDefaultInstance();
+    public dev.igorxp5.proto.api.SetWaterTankPressureChangingValue getDefaultInstanceForType() {
+      return dev.igorxp5.proto.api.SetWaterTankPressureChangingValue.getDefaultInstance();
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.SetWaterSourceState build() {
-      dev.igorxp5.proto.api.SetWaterSourceState result = buildPartial();
+    public dev.igorxp5.proto.api.SetWaterTankPressureChangingValue build() {
+      dev.igorxp5.proto.api.SetWaterTankPressureChangingValue result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -403,11 +374,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public dev.igorxp5.proto.api.SetWaterSourceState buildPartial() {
-      dev.igorxp5.proto.api.SetWaterSourceState result = new dev.igorxp5.proto.api.SetWaterSourceState(this);
-      result.waterSourceName_ = waterSourceName_;
-      result.state_ = state_;
-      result.force_ = force_;
+    public dev.igorxp5.proto.api.SetWaterTankPressureChangingValue buildPartial() {
+      dev.igorxp5.proto.api.SetWaterTankPressureChangingValue result = new dev.igorxp5.proto.api.SetWaterTankPressureChangingValue(this);
+      result.waterTankName_ = waterTankName_;
+      result.value_ = value_;
       onBuilt();
       return result;
     }
@@ -446,25 +416,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof dev.igorxp5.proto.api.SetWaterSourceState) {
-        return mergeFrom((dev.igorxp5.proto.api.SetWaterSourceState)other);
+      if (other instanceof dev.igorxp5.proto.api.SetWaterTankPressureChangingValue) {
+        return mergeFrom((dev.igorxp5.proto.api.SetWaterTankPressureChangingValue)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(dev.igorxp5.proto.api.SetWaterSourceState other) {
-      if (other == dev.igorxp5.proto.api.SetWaterSourceState.getDefaultInstance()) return this;
-      if (!other.getWaterSourceName().isEmpty()) {
-        waterSourceName_ = other.waterSourceName_;
+    public Builder mergeFrom(dev.igorxp5.proto.api.SetWaterTankPressureChangingValue other) {
+      if (other == dev.igorxp5.proto.api.SetWaterTankPressureChangingValue.getDefaultInstance()) return this;
+      if (!other.getWaterTankName().isEmpty()) {
+        waterTankName_ = other.waterTankName_;
         onChanged();
       }
-      if (other.getState() != false) {
-        setState(other.getState());
-      }
-      if (other.getForce() != false) {
-        setForce(other.getForce());
+      if (other.getValue() != 0F) {
+        setValue(other.getValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -481,11 +448,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      dev.igorxp5.proto.api.SetWaterSourceState parsedMessage = null;
+      dev.igorxp5.proto.api.SetWaterTankPressureChangingValue parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (dev.igorxp5.proto.api.SetWaterSourceState) e.getUnfinishedMessage();
+        parsedMessage = (dev.igorxp5.proto.api.SetWaterTankPressureChangingValue) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -495,140 +462,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object waterSourceName_ = "";
+    private java.lang.Object waterTankName_ = "";
     /**
-     * <code>string waterSourceName = 1;</code>
-     * @return The waterSourceName.
+     * <code>string waterTankName = 1;</code>
+     * @return The waterTankName.
      */
-    public java.lang.String getWaterSourceName() {
-      java.lang.Object ref = waterSourceName_;
+    public java.lang.String getWaterTankName() {
+      java.lang.Object ref = waterTankName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        waterSourceName_ = s;
+        waterTankName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string waterSourceName = 1;</code>
-     * @return The bytes for waterSourceName.
+     * <code>string waterTankName = 1;</code>
+     * @return The bytes for waterTankName.
      */
     public com.google.protobuf.ByteString
-        getWaterSourceNameBytes() {
-      java.lang.Object ref = waterSourceName_;
+        getWaterTankNameBytes() {
+      java.lang.Object ref = waterTankName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        waterSourceName_ = b;
+        waterTankName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string waterSourceName = 1;</code>
-     * @param value The waterSourceName to set.
+     * <code>string waterTankName = 1;</code>
+     * @param value The waterTankName to set.
      * @return This builder for chaining.
      */
-    public Builder setWaterSourceName(
+    public Builder setWaterTankName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      waterSourceName_ = value;
+      waterTankName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string waterSourceName = 1;</code>
+     * <code>string waterTankName = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearWaterSourceName() {
+    public Builder clearWaterTankName() {
       
-      waterSourceName_ = getDefaultInstance().getWaterSourceName();
+      waterTankName_ = getDefaultInstance().getWaterTankName();
       onChanged();
       return this;
     }
     /**
-     * <code>string waterSourceName = 1;</code>
-     * @param value The bytes for waterSourceName to set.
+     * <code>string waterTankName = 1;</code>
+     * @param value The bytes for waterTankName to set.
      * @return This builder for chaining.
      */
-    public Builder setWaterSourceNameBytes(
+    public Builder setWaterTankNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      waterSourceName_ = value;
+      waterTankName_ = value;
       onChanged();
       return this;
     }
 
-    private boolean state_ ;
+    private float value_ ;
     /**
-     * <code>bool state = 2;</code>
-     * @return The state.
+     * <code>float value = 2;</code>
+     * @return The value.
      */
     @java.lang.Override
-    public boolean getState() {
-      return state_;
+    public float getValue() {
+      return value_;
     }
     /**
-     * <code>bool state = 2;</code>
-     * @param value The state to set.
+     * <code>float value = 2;</code>
+     * @param value The value to set.
      * @return This builder for chaining.
      */
-    public Builder setState(boolean value) {
+    public Builder setValue(float value) {
       
-      state_ = value;
+      value_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool state = 2;</code>
+     * <code>float value = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearState() {
+    public Builder clearValue() {
       
-      state_ = false;
-      onChanged();
-      return this;
-    }
-
-    private boolean force_ ;
-    /**
-     * <code>bool force = 3;</code>
-     * @return The force.
-     */
-    @java.lang.Override
-    public boolean getForce() {
-      return force_;
-    }
-    /**
-     * <code>bool force = 3;</code>
-     * @param value The force to set.
-     * @return This builder for chaining.
-     */
-    public Builder setForce(boolean value) {
-      
-      force_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool force = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearForce() {
-      
-      force_ = false;
+      value_ = 0F;
       onChanged();
       return this;
     }
@@ -645,41 +581,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:SetWaterSourceState)
+    // @@protoc_insertion_point(builder_scope:SetWaterTankPressureChangingValue)
   }
 
-  // @@protoc_insertion_point(class_scope:SetWaterSourceState)
-  private static final dev.igorxp5.proto.api.SetWaterSourceState DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:SetWaterTankPressureChangingValue)
+  private static final dev.igorxp5.proto.api.SetWaterTankPressureChangingValue DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new dev.igorxp5.proto.api.SetWaterSourceState();
+    DEFAULT_INSTANCE = new dev.igorxp5.proto.api.SetWaterTankPressureChangingValue();
   }
 
-  public static dev.igorxp5.proto.api.SetWaterSourceState getDefaultInstance() {
+  public static dev.igorxp5.proto.api.SetWaterTankPressureChangingValue getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SetWaterSourceState>
-      PARSER = new com.google.protobuf.AbstractParser<SetWaterSourceState>() {
+  private static final com.google.protobuf.Parser<SetWaterTankPressureChangingValue>
+      PARSER = new com.google.protobuf.AbstractParser<SetWaterTankPressureChangingValue>() {
     @java.lang.Override
-    public SetWaterSourceState parsePartialFrom(
+    public SetWaterTankPressureChangingValue parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SetWaterSourceState(input, extensionRegistry);
+      return new SetWaterTankPressureChangingValue(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SetWaterSourceState> parser() {
+  public static com.google.protobuf.Parser<SetWaterTankPressureChangingValue> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<SetWaterSourceState> getParserForType() {
+  public com.google.protobuf.Parser<SetWaterTankPressureChangingValue> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public dev.igorxp5.proto.api.SetWaterSourceState getDefaultInstanceForType() {
+  public dev.igorxp5.proto.api.SetWaterTankPressureChangingValue getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

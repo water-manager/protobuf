@@ -26,23 +26,29 @@ public interface WaterSourceStateOrBuilder extends
   int getPin();
 
   /**
-   * <code>bool enabled = 3;</code>
-   * @return The enabled.
+   * <code>bool active = 3;</code>
+   * @return The active.
    */
-  boolean getEnabled();
+  boolean getActive();
 
   /**
-   * <code>optional string sourceWaterTank = 4;</code>
+   * <code>bool turnedOn = 4;</code>
+   * @return The turnedOn.
+   */
+  boolean getTurnedOn();
+
+  /**
+   * <code>optional string sourceWaterTank = 5;</code>
    * @return Whether the sourceWaterTank field is set.
    */
   boolean hasSourceWaterTank();
   /**
-   * <code>optional string sourceWaterTank = 4;</code>
+   * <code>optional string sourceWaterTank = 5;</code>
    * @return The sourceWaterTank.
    */
   java.lang.String getSourceWaterTank();
   /**
-   * <code>optional string sourceWaterTank = 4;</code>
+   * <code>optional string sourceWaterTank = 5;</code>
    * @return The bytes for sourceWaterTank.
    */
   com.google.protobuf.ByteString

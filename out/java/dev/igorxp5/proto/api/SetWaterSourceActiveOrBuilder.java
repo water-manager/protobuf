@@ -3,8 +3,8 @@
 
 package dev.igorxp5.proto.api;
 
-public interface SetWaterSourceStateOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:SetWaterSourceState)
+public interface SetWaterSourceActiveOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:SetWaterSourceActive)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -20,14 +20,8 @@ public interface SetWaterSourceStateOrBuilder extends
       getWaterSourceNameBytes();
 
   /**
-   * <code>bool state = 2;</code>
-   * @return The state.
+   * <code>bool active = 2;</code>
+   * @return The active.
    */
-  boolean getState();
-
-  /**
-   * <code>bool force = 3;</code>
-   * @return The force.
-   */
-  boolean getForce();
+  boolean getActive();
 }

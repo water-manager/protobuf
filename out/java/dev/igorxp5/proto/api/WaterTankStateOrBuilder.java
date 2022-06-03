@@ -32,65 +32,77 @@ public interface WaterTankStateOrBuilder extends
   boolean getFilling();
 
   /**
-   * <code>float volumeFactor = 4;</code>
+   * <code>bool active = 4;</code>
+   * @return The active.
+   */
+  boolean getActive();
+
+  /**
+   * <code>float volumeFactor = 5;</code>
    * @return The volumeFactor.
    */
   float getVolumeFactor();
 
   /**
-   * <code>float pressureFactor = 5;</code>
+   * <code>float pressureFactor = 6;</code>
    * @return The pressureFactor.
    */
   float getPressureFactor();
 
   /**
-   * <code>float minimumVolume = 6;</code>
+   * <code>float minimumVolume = 7;</code>
    * @return The minimumVolume.
    */
   float getMinimumVolume();
 
   /**
-   * <code>float maxVolume = 7;</code>
+   * <code>float maxVolume = 8;</code>
    * @return The maxVolume.
    */
   float getMaxVolume();
 
   /**
-   * <code>float zeroVolumePressure = 8;</code>
+   * <code>float zeroVolumePressure = 9;</code>
    * @return The zeroVolumePressure.
    */
   float getZeroVolumePressure();
 
   /**
-   * <code>uint32 rawPressureValue = 9;</code>
+   * <code>float pressureChangingValue = 10;</code>
+   * @return The pressureChangingValue.
+   */
+  float getPressureChangingValue();
+
+  /**
+   * <code>uint32 rawPressureValue = 11;</code>
    * @return The rawPressureValue.
    */
   int getRawPressureValue();
 
   /**
-   * <code>float pressure = 10;</code>
+   * <code>float pressure = 12;</code>
    * @return The pressure.
    */
   float getPressure();
 
   /**
-   * <code>float volume = 11;</code>
+   * <code>float volume = 13;</code>
    * @return The volume.
    */
   float getVolume();
 
   /**
-   * <code>optional string waterSource = 12;</code>
+   * <code>optional string waterSource = 14;</code>
    * @return Whether the waterSource field is set.
    */
   boolean hasWaterSource();
   /**
-   * <code>optional string waterSource = 12;</code>
+   * <code>optional string waterSource = 14;</code>
    * @return The waterSource.
    */
   java.lang.String getWaterSource();
   /**
-   * <code>optional string waterSource = 12;</code>
+   * <code>optional string waterSource = 14;</code>
    * @return The bytes for waterSource.
    */
   com.google.protobuf.ByteString
