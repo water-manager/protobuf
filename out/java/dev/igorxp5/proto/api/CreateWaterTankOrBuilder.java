@@ -38,17 +38,41 @@ public interface CreateWaterTankOrBuilder extends
   float getPressureFactor();
 
   /**
-   * <code>optional string waterSourceName = 5;</code>
+   * <code>float minimumVolume = 5;</code>
+   * @return The minimumVolume.
+   */
+  float getMinimumVolume();
+
+  /**
+   * <code>float maxVolume = 6;</code>
+   * @return The maxVolume.
+   */
+  float getMaxVolume();
+
+  /**
+   * <code>float zeroVolumePressure = 7;</code>
+   * @return The zeroVolumePressure.
+   */
+  float getZeroVolumePressure();
+
+  /**
+   * <code>float pressureChangingValue = 8;</code>
+   * @return The pressureChangingValue.
+   */
+  float getPressureChangingValue();
+
+  /**
+   * <code>optional string waterSourceName = 9;</code>
    * @return Whether the waterSourceName field is set.
    */
   boolean hasWaterSourceName();
   /**
-   * <code>optional string waterSourceName = 5;</code>
+   * <code>optional string waterSourceName = 9;</code>
    * @return The waterSourceName.
    */
   java.lang.String getWaterSourceName();
   /**
-   * <code>optional string waterSourceName = 5;</code>
+   * <code>optional string waterSourceName = 9;</code>
    * @return The bytes for waterSourceName.
    */
   com.google.protobuf.ByteString

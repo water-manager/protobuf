@@ -17,7 +17,7 @@ RemoveWaterSource.waterSourceName max_size:21
 RemoveWaterTank.waterTankName max_size:21
 FillWaterTank.waterTankName max_size:21
 PrimitiveValue.stringValue max_size:101
-Value.listValue max_count:10
+Value.listValue max_count:5
 WaterSourceState.name max_size:21
 WaterSourceState.sourceWaterTank max_size:21
 WaterTankState.name max_size:21

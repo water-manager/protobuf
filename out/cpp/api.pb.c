@@ -81,6 +81,9 @@ PB_BIND(RemoveWaterTank, RemoveWaterTank, AUTO)
 PB_BIND(FillWaterTank, FillWaterTank, AUTO)
 
 
+PB_BIND(Save, Save, AUTO)
+
+
 PB_BIND(Reset, Reset, AUTO)
 
 

@@ -26,7 +26,8 @@ message Request {
         RemoveWaterSource removeWaterSource = 19;
         RemoveWaterTank removeWaterTank = 20;
         FillWaterTank fillWaterTank = 21;
-        Reset reset = 22;
+        Save save = 22;
+        Reset reset = 23;
     }
 }
 
@@ -76,7 +77,11 @@ message CreateWaterTank {
     uint32 pressureSensorPin = 2;
     float volumeFactor = 3;
     float pressureFactor = 4;
-    optional string waterSourceName = 5;
+    float minimumVolume = 5;
+    float maxVolume = 6;
+    float zeroVolumePressure = 7;
+    float pressureChangingValue = 8;
+    optional string waterSourceName = 9;
 }
 
 message SetWaterTankMinimumVolume {
@@ -162,6 +167,9 @@ message FillWaterTank {
     string waterTankName = 1;
     bool enabled = 2;
     bool force = 3;
+}
+
+message Save {
 }
 
 message Reset {

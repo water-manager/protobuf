@@ -72,7 +72,27 @@ private static final long serialVersionUID = 0L;
             pressureFactor_ = input.readFloat();
             break;
           }
-          case 42: {
+          case 45: {
+
+            minimumVolume_ = input.readFloat();
+            break;
+          }
+          case 53: {
+
+            maxVolume_ = input.readFloat();
+            break;
+          }
+          case 61: {
+
+            zeroVolumePressure_ = input.readFloat();
+            break;
+          }
+          case 69: {
+
+            pressureChangingValue_ = input.readFloat();
+            break;
+          }
+          case 74: {
             java.lang.String s = input.readStringRequireUtf8();
             bitField0_ |= 0x00000001;
             waterSourceName_ = s;
@@ -182,10 +202,54 @@ private static final long serialVersionUID = 0L;
     return pressureFactor_;
   }
 
-  public static final int WATERSOURCENAME_FIELD_NUMBER = 5;
+  public static final int MINIMUMVOLUME_FIELD_NUMBER = 5;
+  private float minimumVolume_;
+  /**
+   * <code>float minimumVolume = 5;</code>
+   * @return The minimumVolume.
+   */
+  @java.lang.Override
+  public float getMinimumVolume() {
+    return minimumVolume_;
+  }
+
+  public static final int MAXVOLUME_FIELD_NUMBER = 6;
+  private float maxVolume_;
+  /**
+   * <code>float maxVolume = 6;</code>
+   * @return The maxVolume.
+   */
+  @java.lang.Override
+  public float getMaxVolume() {
+    return maxVolume_;
+  }
+
+  public static final int ZEROVOLUMEPRESSURE_FIELD_NUMBER = 7;
+  private float zeroVolumePressure_;
+  /**
+   * <code>float zeroVolumePressure = 7;</code>
+   * @return The zeroVolumePressure.
+   */
+  @java.lang.Override
+  public float getZeroVolumePressure() {
+    return zeroVolumePressure_;
+  }
+
+  public static final int PRESSURECHANGINGVALUE_FIELD_NUMBER = 8;
+  private float pressureChangingValue_;
+  /**
+   * <code>float pressureChangingValue = 8;</code>
+   * @return The pressureChangingValue.
+   */
+  @java.lang.Override
+  public float getPressureChangingValue() {
+    return pressureChangingValue_;
+  }
+
+  public static final int WATERSOURCENAME_FIELD_NUMBER = 9;
   private volatile java.lang.Object waterSourceName_;
   /**
-   * <code>optional string waterSourceName = 5;</code>
+   * <code>optional string waterSourceName = 9;</code>
    * @return Whether the waterSourceName field is set.
    */
   @java.lang.Override
@@ -193,7 +257,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>optional string waterSourceName = 5;</code>
+   * <code>optional string waterSourceName = 9;</code>
    * @return The waterSourceName.
    */
   @java.lang.Override
@@ -210,7 +274,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string waterSourceName = 5;</code>
+   * <code>optional string waterSourceName = 9;</code>
    * @return The bytes for waterSourceName.
    */
   @java.lang.Override
@@ -254,8 +318,20 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToRawIntBits(pressureFactor_) != 0) {
       output.writeFloat(4, pressureFactor_);
     }
+    if (java.lang.Float.floatToRawIntBits(minimumVolume_) != 0) {
+      output.writeFloat(5, minimumVolume_);
+    }
+    if (java.lang.Float.floatToRawIntBits(maxVolume_) != 0) {
+      output.writeFloat(6, maxVolume_);
+    }
+    if (java.lang.Float.floatToRawIntBits(zeroVolumePressure_) != 0) {
+      output.writeFloat(7, zeroVolumePressure_);
+    }
+    if (java.lang.Float.floatToRawIntBits(pressureChangingValue_) != 0) {
+      output.writeFloat(8, pressureChangingValue_);
+    }
     if (((bitField0_ & 0x00000001) != 0)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, waterSourceName_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, waterSourceName_);
     }
     unknownFields.writeTo(output);
   }
@@ -281,8 +357,24 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(4, pressureFactor_);
     }
+    if (java.lang.Float.floatToRawIntBits(minimumVolume_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(5, minimumVolume_);
+    }
+    if (java.lang.Float.floatToRawIntBits(maxVolume_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(6, maxVolume_);
+    }
+    if (java.lang.Float.floatToRawIntBits(zeroVolumePressure_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(7, zeroVolumePressure_);
+    }
+    if (java.lang.Float.floatToRawIntBits(pressureChangingValue_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeFloatSize(8, pressureChangingValue_);
+    }
     if (((bitField0_ & 0x00000001) != 0)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, waterSourceName_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, waterSourceName_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -309,6 +401,18 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getPressureFactor())
         != java.lang.Float.floatToIntBits(
             other.getPressureFactor())) return false;
+    if (java.lang.Float.floatToIntBits(getMinimumVolume())
+        != java.lang.Float.floatToIntBits(
+            other.getMinimumVolume())) return false;
+    if (java.lang.Float.floatToIntBits(getMaxVolume())
+        != java.lang.Float.floatToIntBits(
+            other.getMaxVolume())) return false;
+    if (java.lang.Float.floatToIntBits(getZeroVolumePressure())
+        != java.lang.Float.floatToIntBits(
+            other.getZeroVolumePressure())) return false;
+    if (java.lang.Float.floatToIntBits(getPressureChangingValue())
+        != java.lang.Float.floatToIntBits(
+            other.getPressureChangingValue())) return false;
     if (hasWaterSourceName() != other.hasWaterSourceName()) return false;
     if (hasWaterSourceName()) {
       if (!getWaterSourceName()
@@ -335,6 +439,18 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PRESSUREFACTOR_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getPressureFactor());
+    hash = (37 * hash) + MINIMUMVOLUME_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getMinimumVolume());
+    hash = (37 * hash) + MAXVOLUME_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getMaxVolume());
+    hash = (37 * hash) + ZEROVOLUMEPRESSURE_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getZeroVolumePressure());
+    hash = (37 * hash) + PRESSURECHANGINGVALUE_FIELD_NUMBER;
+    hash = (53 * hash) + java.lang.Float.floatToIntBits(
+        getPressureChangingValue());
     if (hasWaterSourceName()) {
       hash = (37 * hash) + WATERSOURCENAME_FIELD_NUMBER;
       hash = (53 * hash) + getWaterSourceName().hashCode();
@@ -480,6 +596,14 @@ private static final long serialVersionUID = 0L;
 
       pressureFactor_ = 0F;
 
+      minimumVolume_ = 0F;
+
+      maxVolume_ = 0F;
+
+      zeroVolumePressure_ = 0F;
+
+      pressureChangingValue_ = 0F;
+
       waterSourceName_ = "";
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -514,6 +638,10 @@ private static final long serialVersionUID = 0L;
       result.pressureSensorPin_ = pressureSensorPin_;
       result.volumeFactor_ = volumeFactor_;
       result.pressureFactor_ = pressureFactor_;
+      result.minimumVolume_ = minimumVolume_;
+      result.maxVolume_ = maxVolume_;
+      result.zeroVolumePressure_ = zeroVolumePressure_;
+      result.pressureChangingValue_ = pressureChangingValue_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         to_bitField0_ |= 0x00000001;
       }
@@ -579,6 +707,18 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getPressureFactor() != 0F) {
         setPressureFactor(other.getPressureFactor());
+      }
+      if (other.getMinimumVolume() != 0F) {
+        setMinimumVolume(other.getMinimumVolume());
+      }
+      if (other.getMaxVolume() != 0F) {
+        setMaxVolume(other.getMaxVolume());
+      }
+      if (other.getZeroVolumePressure() != 0F) {
+        setZeroVolumePressure(other.getZeroVolumePressure());
+      }
+      if (other.getPressureChangingValue() != 0F) {
+        setPressureChangingValue(other.getPressureChangingValue());
       }
       if (other.hasWaterSourceName()) {
         bitField0_ |= 0x00000001;
@@ -784,16 +924,140 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private float minimumVolume_ ;
+    /**
+     * <code>float minimumVolume = 5;</code>
+     * @return The minimumVolume.
+     */
+    @java.lang.Override
+    public float getMinimumVolume() {
+      return minimumVolume_;
+    }
+    /**
+     * <code>float minimumVolume = 5;</code>
+     * @param value The minimumVolume to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMinimumVolume(float value) {
+      
+      minimumVolume_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>float minimumVolume = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMinimumVolume() {
+      
+      minimumVolume_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private float maxVolume_ ;
+    /**
+     * <code>float maxVolume = 6;</code>
+     * @return The maxVolume.
+     */
+    @java.lang.Override
+    public float getMaxVolume() {
+      return maxVolume_;
+    }
+    /**
+     * <code>float maxVolume = 6;</code>
+     * @param value The maxVolume to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMaxVolume(float value) {
+      
+      maxVolume_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>float maxVolume = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMaxVolume() {
+      
+      maxVolume_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private float zeroVolumePressure_ ;
+    /**
+     * <code>float zeroVolumePressure = 7;</code>
+     * @return The zeroVolumePressure.
+     */
+    @java.lang.Override
+    public float getZeroVolumePressure() {
+      return zeroVolumePressure_;
+    }
+    /**
+     * <code>float zeroVolumePressure = 7;</code>
+     * @param value The zeroVolumePressure to set.
+     * @return This builder for chaining.
+     */
+    public Builder setZeroVolumePressure(float value) {
+      
+      zeroVolumePressure_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>float zeroVolumePressure = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearZeroVolumePressure() {
+      
+      zeroVolumePressure_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private float pressureChangingValue_ ;
+    /**
+     * <code>float pressureChangingValue = 8;</code>
+     * @return The pressureChangingValue.
+     */
+    @java.lang.Override
+    public float getPressureChangingValue() {
+      return pressureChangingValue_;
+    }
+    /**
+     * <code>float pressureChangingValue = 8;</code>
+     * @param value The pressureChangingValue to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPressureChangingValue(float value) {
+      
+      pressureChangingValue_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>float pressureChangingValue = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPressureChangingValue() {
+      
+      pressureChangingValue_ = 0F;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object waterSourceName_ = "";
     /**
-     * <code>optional string waterSourceName = 5;</code>
+     * <code>optional string waterSourceName = 9;</code>
      * @return Whether the waterSourceName field is set.
      */
     public boolean hasWaterSourceName() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional string waterSourceName = 5;</code>
+     * <code>optional string waterSourceName = 9;</code>
      * @return The waterSourceName.
      */
     public java.lang.String getWaterSourceName() {
@@ -809,7 +1073,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string waterSourceName = 5;</code>
+     * <code>optional string waterSourceName = 9;</code>
      * @return The bytes for waterSourceName.
      */
     public com.google.protobuf.ByteString
@@ -826,7 +1090,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string waterSourceName = 5;</code>
+     * <code>optional string waterSourceName = 9;</code>
      * @param value The waterSourceName to set.
      * @return This builder for chaining.
      */
@@ -841,7 +1105,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>optional string waterSourceName = 5;</code>
+     * <code>optional string waterSourceName = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearWaterSourceName() {
@@ -851,7 +1115,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>optional string waterSourceName = 5;</code>
+     * <code>optional string waterSourceName = 9;</code>
      * @param value The bytes for waterSourceName to set.
      * @return This builder for chaining.
      */

@@ -334,8 +334,22 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 178: {
-            dev.igorxp5.proto.api.Reset.Builder subBuilder = null;
+            dev.igorxp5.proto.api.Save.Builder subBuilder = null;
             if (messageCase_ == 22) {
+              subBuilder = ((dev.igorxp5.proto.api.Save) message_).toBuilder();
+            }
+            message_ =
+                input.readMessage(dev.igorxp5.proto.api.Save.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom((dev.igorxp5.proto.api.Save) message_);
+              message_ = subBuilder.buildPartial();
+            }
+            messageCase_ = 22;
+            break;
+          }
+          case 186: {
+            dev.igorxp5.proto.api.Reset.Builder subBuilder = null;
+            if (messageCase_ == 23) {
               subBuilder = ((dev.igorxp5.proto.api.Reset) message_).toBuilder();
             }
             message_ =
@@ -344,7 +358,7 @@ private static final long serialVersionUID = 0L;
               subBuilder.mergeFrom((dev.igorxp5.proto.api.Reset) message_);
               message_ = subBuilder.buildPartial();
             }
-            messageCase_ = 22;
+            messageCase_ = 23;
             break;
           }
           default: {
@@ -404,7 +418,8 @@ private static final long serialVersionUID = 0L;
     REMOVEWATERSOURCE(19),
     REMOVEWATERTANK(20),
     FILLWATERTANK(21),
-    RESET(22),
+    SAVE(22),
+    RESET(23),
     MESSAGE_NOT_SET(0);
     private final int value;
     private MessageCase(int value) {
@@ -442,7 +457,8 @@ private static final long serialVersionUID = 0L;
         case 19: return REMOVEWATERSOURCE;
         case 20: return REMOVEWATERTANK;
         case 21: return FILLWATERTANK;
-        case 22: return RESET;
+        case 22: return SAVE;
+        case 23: return RESET;
         case 0: return MESSAGE_NOT_SET;
         default: return null;
       }
@@ -1089,32 +1105,63 @@ private static final long serialVersionUID = 0L;
     return dev.igorxp5.proto.api.FillWaterTank.getDefaultInstance();
   }
 
-  public static final int RESET_FIELD_NUMBER = 22;
+  public static final int SAVE_FIELD_NUMBER = 22;
   /**
-   * <code>.Reset reset = 22;</code>
+   * <code>.Save save = 22;</code>
+   * @return Whether the save field is set.
+   */
+  @java.lang.Override
+  public boolean hasSave() {
+    return messageCase_ == 22;
+  }
+  /**
+   * <code>.Save save = 22;</code>
+   * @return The save.
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.Save getSave() {
+    if (messageCase_ == 22) {
+       return (dev.igorxp5.proto.api.Save) message_;
+    }
+    return dev.igorxp5.proto.api.Save.getDefaultInstance();
+  }
+  /**
+   * <code>.Save save = 22;</code>
+   */
+  @java.lang.Override
+  public dev.igorxp5.proto.api.SaveOrBuilder getSaveOrBuilder() {
+    if (messageCase_ == 22) {
+       return (dev.igorxp5.proto.api.Save) message_;
+    }
+    return dev.igorxp5.proto.api.Save.getDefaultInstance();
+  }
+
+  public static final int RESET_FIELD_NUMBER = 23;
+  /**
+   * <code>.Reset reset = 23;</code>
    * @return Whether the reset field is set.
    */
   @java.lang.Override
   public boolean hasReset() {
-    return messageCase_ == 22;
+    return messageCase_ == 23;
   }
   /**
-   * <code>.Reset reset = 22;</code>
+   * <code>.Reset reset = 23;</code>
    * @return The reset.
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.Reset getReset() {
-    if (messageCase_ == 22) {
+    if (messageCase_ == 23) {
        return (dev.igorxp5.proto.api.Reset) message_;
     }
     return dev.igorxp5.proto.api.Reset.getDefaultInstance();
   }
   /**
-   * <code>.Reset reset = 22;</code>
+   * <code>.Reset reset = 23;</code>
    */
   @java.lang.Override
   public dev.igorxp5.proto.api.ResetOrBuilder getResetOrBuilder() {
-    if (messageCase_ == 22) {
+    if (messageCase_ == 23) {
        return (dev.igorxp5.proto.api.Reset) message_;
     }
     return dev.igorxp5.proto.api.Reset.getDefaultInstance();
@@ -1198,7 +1245,10 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(21, (dev.igorxp5.proto.api.FillWaterTank) message_);
     }
     if (messageCase_ == 22) {
-      output.writeMessage(22, (dev.igorxp5.proto.api.Reset) message_);
+      output.writeMessage(22, (dev.igorxp5.proto.api.Save) message_);
+    }
+    if (messageCase_ == 23) {
+      output.writeMessage(23, (dev.igorxp5.proto.api.Reset) message_);
     }
     unknownFields.writeTo(output);
   }
@@ -1295,7 +1345,11 @@ private static final long serialVersionUID = 0L;
     }
     if (messageCase_ == 22) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(22, (dev.igorxp5.proto.api.Reset) message_);
+        .computeMessageSize(22, (dev.igorxp5.proto.api.Save) message_);
+    }
+    if (messageCase_ == 23) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(23, (dev.igorxp5.proto.api.Reset) message_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1397,6 +1451,10 @@ private static final long serialVersionUID = 0L;
             .equals(other.getFillWaterTank())) return false;
         break;
       case 22:
+        if (!getSave()
+            .equals(other.getSave())) return false;
+        break;
+      case 23:
         if (!getReset()
             .equals(other.getReset())) return false;
         break;
@@ -1498,6 +1556,10 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getFillWaterTank().hashCode();
         break;
       case 22:
+        hash = (37 * hash) + SAVE_FIELD_NUMBER;
+        hash = (53 * hash) + getSave().hashCode();
+        break;
+      case 23:
         hash = (37 * hash) + RESET_FIELD_NUMBER;
         hash = (53 * hash) + getReset().hashCode();
         break;
@@ -1809,6 +1871,13 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (messageCase_ == 22) {
+        if (saveBuilder_ == null) {
+          result.message_ = message_;
+        } else {
+          result.message_ = saveBuilder_.build();
+        }
+      }
+      if (messageCase_ == 23) {
         if (resetBuilder_ == null) {
           result.message_ = message_;
         } else {
@@ -1946,6 +2015,10 @@ private static final long serialVersionUID = 0L;
         }
         case FILLWATERTANK: {
           mergeFillWaterTank(other.getFillWaterTank());
+          break;
+        }
+        case SAVE: {
+          mergeSave(other.getSave());
           break;
         }
         case RESET: {
@@ -4852,35 +4925,176 @@ private static final long serialVersionUID = 0L;
     }
 
     private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.Save, dev.igorxp5.proto.api.Save.Builder, dev.igorxp5.proto.api.SaveOrBuilder> saveBuilder_;
+    /**
+     * <code>.Save save = 22;</code>
+     * @return Whether the save field is set.
+     */
+    @java.lang.Override
+    public boolean hasSave() {
+      return messageCase_ == 22;
+    }
+    /**
+     * <code>.Save save = 22;</code>
+     * @return The save.
+     */
+    @java.lang.Override
+    public dev.igorxp5.proto.api.Save getSave() {
+      if (saveBuilder_ == null) {
+        if (messageCase_ == 22) {
+          return (dev.igorxp5.proto.api.Save) message_;
+        }
+        return dev.igorxp5.proto.api.Save.getDefaultInstance();
+      } else {
+        if (messageCase_ == 22) {
+          return saveBuilder_.getMessage();
+        }
+        return dev.igorxp5.proto.api.Save.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.Save save = 22;</code>
+     */
+    public Builder setSave(dev.igorxp5.proto.api.Save value) {
+      if (saveBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        message_ = value;
+        onChanged();
+      } else {
+        saveBuilder_.setMessage(value);
+      }
+      messageCase_ = 22;
+      return this;
+    }
+    /**
+     * <code>.Save save = 22;</code>
+     */
+    public Builder setSave(
+        dev.igorxp5.proto.api.Save.Builder builderForValue) {
+      if (saveBuilder_ == null) {
+        message_ = builderForValue.build();
+        onChanged();
+      } else {
+        saveBuilder_.setMessage(builderForValue.build());
+      }
+      messageCase_ = 22;
+      return this;
+    }
+    /**
+     * <code>.Save save = 22;</code>
+     */
+    public Builder mergeSave(dev.igorxp5.proto.api.Save value) {
+      if (saveBuilder_ == null) {
+        if (messageCase_ == 22 &&
+            message_ != dev.igorxp5.proto.api.Save.getDefaultInstance()) {
+          message_ = dev.igorxp5.proto.api.Save.newBuilder((dev.igorxp5.proto.api.Save) message_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          message_ = value;
+        }
+        onChanged();
+      } else {
+        if (messageCase_ == 22) {
+          saveBuilder_.mergeFrom(value);
+        }
+        saveBuilder_.setMessage(value);
+      }
+      messageCase_ = 22;
+      return this;
+    }
+    /**
+     * <code>.Save save = 22;</code>
+     */
+    public Builder clearSave() {
+      if (saveBuilder_ == null) {
+        if (messageCase_ == 22) {
+          messageCase_ = 0;
+          message_ = null;
+          onChanged();
+        }
+      } else {
+        if (messageCase_ == 22) {
+          messageCase_ = 0;
+          message_ = null;
+        }
+        saveBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>.Save save = 22;</code>
+     */
+    public dev.igorxp5.proto.api.Save.Builder getSaveBuilder() {
+      return getSaveFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Save save = 22;</code>
+     */
+    @java.lang.Override
+    public dev.igorxp5.proto.api.SaveOrBuilder getSaveOrBuilder() {
+      if ((messageCase_ == 22) && (saveBuilder_ != null)) {
+        return saveBuilder_.getMessageOrBuilder();
+      } else {
+        if (messageCase_ == 22) {
+          return (dev.igorxp5.proto.api.Save) message_;
+        }
+        return dev.igorxp5.proto.api.Save.getDefaultInstance();
+      }
+    }
+    /**
+     * <code>.Save save = 22;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        dev.igorxp5.proto.api.Save, dev.igorxp5.proto.api.Save.Builder, dev.igorxp5.proto.api.SaveOrBuilder> 
+        getSaveFieldBuilder() {
+      if (saveBuilder_ == null) {
+        if (!(messageCase_ == 22)) {
+          message_ = dev.igorxp5.proto.api.Save.getDefaultInstance();
+        }
+        saveBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            dev.igorxp5.proto.api.Save, dev.igorxp5.proto.api.Save.Builder, dev.igorxp5.proto.api.SaveOrBuilder>(
+                (dev.igorxp5.proto.api.Save) message_,
+                getParentForChildren(),
+                isClean());
+        message_ = null;
+      }
+      messageCase_ = 22;
+      onChanged();;
+      return saveBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.Reset, dev.igorxp5.proto.api.Reset.Builder, dev.igorxp5.proto.api.ResetOrBuilder> resetBuilder_;
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      * @return Whether the reset field is set.
      */
     @java.lang.Override
     public boolean hasReset() {
-      return messageCase_ == 22;
+      return messageCase_ == 23;
     }
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      * @return The reset.
      */
     @java.lang.Override
     public dev.igorxp5.proto.api.Reset getReset() {
       if (resetBuilder_ == null) {
-        if (messageCase_ == 22) {
+        if (messageCase_ == 23) {
           return (dev.igorxp5.proto.api.Reset) message_;
         }
         return dev.igorxp5.proto.api.Reset.getDefaultInstance();
       } else {
-        if (messageCase_ == 22) {
+        if (messageCase_ == 23) {
           return resetBuilder_.getMessage();
         }
         return dev.igorxp5.proto.api.Reset.getDefaultInstance();
       }
     }
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      */
     public Builder setReset(dev.igorxp5.proto.api.Reset value) {
       if (resetBuilder_ == null) {
@@ -4892,11 +5106,11 @@ private static final long serialVersionUID = 0L;
       } else {
         resetBuilder_.setMessage(value);
       }
-      messageCase_ = 22;
+      messageCase_ = 23;
       return this;
     }
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      */
     public Builder setReset(
         dev.igorxp5.proto.api.Reset.Builder builderForValue) {
@@ -4906,15 +5120,15 @@ private static final long serialVersionUID = 0L;
       } else {
         resetBuilder_.setMessage(builderForValue.build());
       }
-      messageCase_ = 22;
+      messageCase_ = 23;
       return this;
     }
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      */
     public Builder mergeReset(dev.igorxp5.proto.api.Reset value) {
       if (resetBuilder_ == null) {
-        if (messageCase_ == 22 &&
+        if (messageCase_ == 23 &&
             message_ != dev.igorxp5.proto.api.Reset.getDefaultInstance()) {
           message_ = dev.igorxp5.proto.api.Reset.newBuilder((dev.igorxp5.proto.api.Reset) message_)
               .mergeFrom(value).buildPartial();
@@ -4923,26 +5137,26 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       } else {
-        if (messageCase_ == 22) {
+        if (messageCase_ == 23) {
           resetBuilder_.mergeFrom(value);
         }
         resetBuilder_.setMessage(value);
       }
-      messageCase_ = 22;
+      messageCase_ = 23;
       return this;
     }
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      */
     public Builder clearReset() {
       if (resetBuilder_ == null) {
-        if (messageCase_ == 22) {
+        if (messageCase_ == 23) {
           messageCase_ = 0;
           message_ = null;
           onChanged();
         }
       } else {
-        if (messageCase_ == 22) {
+        if (messageCase_ == 23) {
           messageCase_ = 0;
           message_ = null;
         }
@@ -4951,33 +5165,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      */
     public dev.igorxp5.proto.api.Reset.Builder getResetBuilder() {
       return getResetFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      */
     @java.lang.Override
     public dev.igorxp5.proto.api.ResetOrBuilder getResetOrBuilder() {
-      if ((messageCase_ == 22) && (resetBuilder_ != null)) {
+      if ((messageCase_ == 23) && (resetBuilder_ != null)) {
         return resetBuilder_.getMessageOrBuilder();
       } else {
-        if (messageCase_ == 22) {
+        if (messageCase_ == 23) {
           return (dev.igorxp5.proto.api.Reset) message_;
         }
         return dev.igorxp5.proto.api.Reset.getDefaultInstance();
       }
     }
     /**
-     * <code>.Reset reset = 22;</code>
+     * <code>.Reset reset = 23;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         dev.igorxp5.proto.api.Reset, dev.igorxp5.proto.api.Reset.Builder, dev.igorxp5.proto.api.ResetOrBuilder> 
         getResetFieldBuilder() {
       if (resetBuilder_ == null) {
-        if (!(messageCase_ == 22)) {
+        if (!(messageCase_ == 23)) {
           message_ = dev.igorxp5.proto.api.Reset.getDefaultInstance();
         }
         resetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4987,7 +5201,7 @@ private static final long serialVersionUID = 0L;
                 isClean());
         message_ = null;
       }
-      messageCase_ = 22;
+      messageCase_ = 23;
       onChanged();;
       return resetBuilder_;
     }
